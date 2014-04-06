@@ -17,9 +17,9 @@
         $('text').set('value', input_text);
     }
     
-    jQuery('#search_book').click(function() {
-       jQuery('#search_text_form').submit();
-    });  
+    //jQuery('#search_book').click(function() {
+       //jQuery('#search_text_form').submit();
+    //});  
 });
 </script>
 <div class="pt-content-searching">
