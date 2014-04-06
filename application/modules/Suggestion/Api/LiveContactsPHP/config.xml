@@ -1,0 +1,9 @@
+<windowslivelogin>
+  <appid>000000004804D925</appid>
+  <secret>iTHpzDYRtZzppMT1iyw67h2NqdXhH8wK</secret>
+  <securityalgorithm>wsignin1.0</securityalgorithm>
+
+ <returnurl>http://hospitality.vn</returnurl>
+  <policyurl>http://www.hospitality.vn/statistics/index/privacy</policyurl>
+</windowslivelogin>
+

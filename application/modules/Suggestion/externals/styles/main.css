@@ -1,0 +1,797 @@
+
+/* $Id: main.css 2010-08-17 9:40:21Z SocialEngineAddOns Copyright 2009-2010 BigStep Technologies Pvt. Ltd. $ */
+
+
+@include "~/application/modules/Core/externals/styles/constants.css";
+
+.fleft
+{
+	float:left;
+}
+.clr
+{
+	clear:both;
+}
+.suggest_cancel
+{
+	float:right;
+	height:11px;
+	width:11px;
+	background:url(~/application/modules/Suggestion/externals/images/close_icon.png) no-repeat right;
+}
+.suggest_cancel:hover
+{
+	background:#3b5998 url(~/application/modules/Suggestion/externals/images/close_icon.png) no-repeat left;
+}
+.suggestion_right_block
+{
+  +foreground;
+  +rounded;
+	margin-bottom:15px;
+}
+.suggestion_right_block .alert
+{
+	background-color:#FAF6E4;
+	background-position:6px 6px;
+	background-repeat:no-repeat;
+	border:1px solid #E4DFC6;
+	display:inline-block;
+	float:left;
+	padding:5px;
+	font-size:11px;
+}
+.view_all
+{
+	float:right;
+	font-weight:normal;
+}
+/* NOTIFICATION TYPE ICONS */
+.notification_type_group_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_group.png);
+}
+.notification_type_album_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_album.png);
+}
+.notification_type_blog_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_blog.png);
+}
+.notification_type_event_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_event.png);
+}
+.notification_type_classified_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_classified.png);
+}
+.notification_type_video_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_video.png);
+}
+.notification_type_music_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_music.png);
+}
+.notification_type_picture_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_photo.png);
+}
+.notification_type_friend_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_friend.png);
+}
+.notification_type_poll_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_poll.png);
+}
+.notification_type_forum_suggestion
+{
+  background-image: url(~/application/modules/Suggestion/externals/images/sugg_forum.png);
+}
+/**/
+.suggestion_list
+{
+	padding:5px 10px;
+ 	clear:both;
+ 	overflow:hidden
+}
+.suggestion_list .item_photo
+{
+	float:left;
+}
+.suggestion_list .item_photo img
+{
+	width:48px;
+}
+.suggestion_list .item_details
+{
+	margin-left:55px;
+	line-height:18px;
+}
+.suggestion_list .item_details .item_members,
+.suggestion_list .item_details .item_members div
+{
+	color:$theme_font_color_light;
+	font-size:11px;
+}
+.suggestion_list .item_details div
+{
+	font-size:11px;
+}
+/* css for suggestion popup */
+.suggestion_popup
+{
+	width:580px;
+	height:410px;
+	padding:10px 0 0 10px;
+	float:left;
+}
+.suggestion_popup h4
+{
+	border-bottom:none;
+	padding:0;
+	margin:0;
+}
+.suggestion_popup .suggestion_member_search_box
+{
+	width:570px;
+	padding:5px;
+	border-top-width:1px;
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+	border-top-style:solid;
+	margin:10px 0;
+	float:left;
+}
+.suggestion_popup .suggestion_member_search_box input
+{
+	width:210px;
+  background-image: url(~/application/modules/Suggestion/externals/images/input_search.png);
+	background-position:0 50%;
+	padding-left:18px;
+	background-repeat:no-repeat;
+
+}
+.suggestion_popup .suggestion_member_search_box .link
+{
+	float:right;
+}
+.suggestion_popup .suggestion_member_search_box .link a
+{
+	margin-left:10px;
+	float:left;
+}
+.suggestion_popup .suggestion_member_search_box .selected
+{
+  +rounded(3px);
+  display: inline-block;
+  background-color: $theme_tag_background_color;
+  font-weight: bold;
+  display: inline-block;
+  float: left;
+  padding: .4em .6em .4em .6em;
+  font-size: .8em;
+}
+.suggestion_popup .suggestion_member_search_box .selected > a
+{
+  text-decoration: none;
+  padding-left: 6px;
+  text-transform: uppercase;
+}
+.suggestion_popup p
+{
+	color:$theme_font_color_light;
+	font-size:12px;
+	margin-top:5px;
+}
+.suggestion_form_popup
+{
+	padding:0px;
+	clear:both
+}
+.suggestion_popup_box
+{
+	height:252px;
+	overflow:auto;
+	width:580px;
+	margin-top:10px;
+	border-width:1px;
+	border-style:solid;
+}
+.suggestion_pop_friend
+{
+	width:168px;
+	margin:3px 0 3px 3px;
+	padding:8px;
+	float:left;
+	height:60px;
+}
+.select_friend
+{
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius:3px;
+	+foreground;
+	border-width:3px;
+	border-style:solid;
+	padding:5px;
+}
+.popup_member_photo
+{
+	float:left;
+	width:50px;
+}
+.suggestion_pop_friend .title
+{
+	margin-left:10px;
+	width:85px;
+	float:left;
+}
+.suggestion_pop_friend .title .member_info 
+{
+	color:$theme_font_color_light;
+	font-size:11px;
+}
+.suggestion_popup .popup_btm
+{
+	width:420px;
+	float:left;
+	margin-top:10px;
+	font-size:12px;
+}
+.suggestion_seleted_box
+{
+	height:1px;
+	overflow:auto;
+	width:572px;
+	margin-top:0;
+}
+.suggestion_popup .pagination
+{
+	margin-top:13px;
+	float:right;
+}
+.suggestion_popup .pagination div
+{
+	margin-left:10px;
+	margin-right:10px;
+}
+.suggestion_seleted
+{
+	float:left;
+	background:#f5f5f5;
+	padding:3px 3px;
+	display:inline;
+	color:#5c5c5c;
+	margin:2px;
+	border:1px solid #e8e7e7;
+	font-size:10px;
+}
+.suggest_popup_cancel
+{
+	float:right;
+	height:11px;
+	width:11px;
+	margin:2px 0 0 3px;
+	background:url(~/application/modules/Suggestion/externals/images/close_icon.png) no-repeat right;
+}
+.suggest_popup_cancel:hover
+{
+	background:#3b5998 url(~/application/modules/Suggestion/externals/images/close_icon.png) no-repeat left;
+}
+.suggestion_view_list
+{
+	overflow:auto;
+	border-top-width:1px;
+	padding:10px 5px;
+}
+.suggestion_view_list .heading
+{
+	font-size:14px;
+	font-weight:bold;
+	width:100%;
+	float:left;
+	padding:10px 0;
+	margin-bottom:10px;
+	border-bottom-width:1px;
+}
+.suggestion_view_list .item_photo
+{
+	float:left;
+	width:120px;
+}
+.suggestion_view_list .item_photo img
+{
+	max-width:120px;
+}
+.suggestion_view_list .item_details
+{
+	float:left;
+	margin-left:10px;
+}
+.suggestion_view_list .item_details b.title
+{
+	font-size:12px;
+}
+.suggestion_view_list .item_details .description
+{
+	font-size:11px;
+	font-weight:normal;
+	margin-top:5px;
+	line-height:18px;
+	color:$theme_font_color_light;
+}
+.suggestion_view_list .item_details .item_buttons
+{
+	float:left;
+	margin-top:15px;
+}
+.suggestion_view_list .item_details .item_buttons a
+{
+  +rounded;
+  padding: 5px;
+  font-weight: bold;
+  border: none;
+  background-color: $theme_button_background_color;
+  border: 1px solid $theme_button_border_color;
+  color: $theme_button_font_color;
+  background-image: url(~/application/modules/Core/externals/images/buttonbg.png);
+  background-repeat: repeat-x;
+  background-position: 0px 1px;
+}	
+.suggestion_view_list .item_details .item_buttons a.disabled{
+  background-color: #868686;
+}
+.suggestion_view_list .item_details .item_buttons a.disabled:hover,
+.suggestion_view_list .item_details .item_buttons a:hover
+{
+  background-color: $theme_button_background_color_hover;
+  cursor: pointer;
+	text-decoration:none;
+}
+.suggestion_view_list .item_details .item_buttons a.link
+{
+	background:none;
+  color: $theme_link_color;
+  text-decoration: $theme_link_decoration;
+	border:none;
+}
+.suggestion_view_list .item_details .item_buttons a.link:hover
+{
+  color: $theme_link_color_hover;
+  text-decoration: $theme_link_decoration_hover;
+}
+.suggestion_view_list .view_all
+{
+	float:right;
+	margin-right:15px;
+	font-size:12px;
+	font-weight:bold;
+}
+.suggestions_heading
+{
+	font-size:13px;
+	font-weight:bold;
+	width:100%;
+	float:left;
+	padding:5px 0;
+	margin-top:10px;
+}
+/* css for view all friend suggestion */
+#peo_list_box
+{
+	width:100%;
+	float:left;
+	display:block;
+	margin:0;
+	padding:0;
+	border-bottom-width:1px;
+	margin-bottom:15px;
+}
+#peo_list_box .heading
+{
+	display:block;
+	font-weight:bold;
+	font-size:13px;
+	margin-bottom:10px;
+	border-bottom-width:1px;
+	padding:5px;
+}
+#peo_list_box .list
+{
+	float:left;
+	margin:10px;
+	width:30%;
+	height:60px;
+}
+#peo_list_box .list .user_photo
+{
+	width:65px;
+	float:left;
+}
+#peo_list_box .list .user_details
+{
+	float:left;
+	width:60%;
+}
+.suggestion-friends .people-search button{*padding:0 !important;*height:23px;display:inline-block;*margin-left:2px;}
+.suggestion-friends .people-search button {padding:3px}
+#peo_list_box .list .user_details .name
+{
+	margin-bottom:5px;
+	font-size:12px;
+	font-weight:bold;
+ 	clear:left
+ 
+}
+#peo_list_box .list .user_details .buttonlink
+{
+	font-weight:normal !important;
+	font-size:11px;
+	line-height:16px;
+} 
+/* css for new suggestion updates  */
+.sugg-friend-sub-detail
+{
+	font-size:12px;
+	float:left;
+	margin-bottom:10px;
+	width:100%;
+}
+.suggestions-newupdate
+{
+	border-bottom-width:1px;
+	padding-bottom:10px;
+}
+.suggestions-newupdate span
+{
+	float:left;
+	padding-top:5px;
+	padding-left:5px;
+}
+span.button
+{
+	margin:0;
+	padding:0;
+}
+span.button a,
+a.button{
+  +rounded;
+  padding:6px 8px;
+  font-weight: bold !important;
+  border: none;
+  background-color: $theme_button_background_color;
+  border: 1px solid $theme_button_border_color;
+  color: $theme_button_font_color !important;
+  background-image: url(~/application/modules/Core/externals/images/buttonbg.png);
+  background-repeat: repeat-x;
+  background-position: 0px 1px;
+}
+span.button a:hover,	
+a.button:hover
+{
+  background-color: $theme_button_background_color_hover;
+  cursor: pointer;
+	text-decoration:none ;
+  color: $theme_button_font_color;
+}
+ul.requests > li > div > div + div > a.button,
+ul.requests > li > div > div + div > span.button
+{
+  font-size: .8em;
+}
+.ajex-suggestion
+{
+	float:left;
+	width:45%;
+	height:60px;
+	margin:5px;
+}
+.ajex-suggestion .thumb-img
+{
+	float:left;
+	margin-right:10px;
+}
+/* css for photo upload form*/
+#profileform .form-label,
+#profileform .form-element
+{
+  float: none;
+  clear: both;
+  text-align: left;
+}
+#profileform .form-label
+{
+  margin-bottom: 4px;
+}
+#profileform #preview-thumbnail img
+{
+  margin-right: 5px;
+  font-size: 0px;
+  line-height: 0px;
+}
+/* Avoid changing these as they are needed for cropping tool */
+#profileform #preview-thumbnail img
+{
+  position: relative;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  float: left;
+  overflow: hidden;
+}
+#profileform #done-wrapper div
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+.suggestion-friends
+{
+	clear:both;
+	float:left;
+	width:100%;
+	padding:10px 0;
+	border-bottom-width:1px;
+}
+
+.suggestion-friends .page-heading
+{
+	font-weight:bold;
+	font-size:14px;
+	padding:5px 0;
+}
+.suggestion-friends .page-des
+{
+	color:$theme_font_color_light;
+	font-size:11px;
+}
+.suggestion-friends .header
+{
+	width:100%;
+	float:left;
+}
+.suggestion-friends .header .title
+{
+	font-weight:bold;
+	float:left;
+}
+.suggestion-friends .header .title img
+{
+	float:left;
+	margin-right:5px;
+}
+.suggestion-friends .header .webmail-options
+{
+	float:right;
+	font-size:11px;
+	width:170px;
+}
+.suggestion-friends .header .webmail-options .icons
+{
+	float:left;
+	margin-top:3px;	
+}
+.suggestion-friends .header .webmail-options .icons a
+{
+	margin:0 2px;
+	float:left;
+}
+.suggestion-friends .sub-title
+{
+	clear:left;
+	margin:10px 0 0 10px;
+	float:left;
+	font-size:11px;
+	font-weight:bold;
+}
+.suggestion-friends .sub-txt
+{
+	clear:left;
+	margin:10px 0 0 10px;
+	float:left;
+	font-size:11px;
+	color:$theme_font_color_light;
+	line-height:20px;
+}
+.suggestion-friends .webacc-logos
+{
+	clear:both;
+	width:100%;
+	margin-top:10px;
+	float:left;
+}
+.suggestion-friends .webacc-logos a{
+	margin:0 30px 0 0px;
+	float:left;
+}
+.suggestion-friends .upload-contact-file
+{
+	clear:both;
+	margin-top:10px;
+	float:left;
+	margin-left:10px;
+}
+.suggestion-friends .upload-contact-file .op-cat
+{
+	float:left;
+	margin-right:10px;
+}
+.suggestion-friends .upload-contact-file .op-field
+{
+	float:left;
+}
+.suggestion-friends .upload-contact-file .op-field span
+{
+	font-size:11px;
+	color:$theme_font_color_light;
+}
+.suggestion-friends .help-link
+{
+	float:right;
+	margin-top:10px;
+	font-size:11px;
+	width:170px;
+}
+.suggestion-friends .people-search
+{
+	float:left;
+	margin:10px 0 0 20px;
+}
+.suggestion-friends .member-friend-list
+{
+	float:left;
+	clear:both;
+	width:500px;
+	max-height:300px;
+	overflow:auto;
+	margin-top:10px;	
+}
+.suggestion-friends .member-friend-list table
+{
+	border-width:2px;
+
+}
+.suggestion-friends .member-friend-list td
+{
+	border-bottom-width:1px;
+	padding:5px;
+}
+.suggestion-friends .buttons 
+{
+	clear:both;
+	margin:10px 0 0 5px;
+	float:left;
+}
+.suggestion-friends .buttons button.disabled
+{
+  background-color: #868686;
+}
+.suggestion-friends .buttons button.disabled:hover
+{
+  background-color: $theme_button_background_color_hover;
+}
+.suggestion-help-popup
+{
+	height:350px;
+	overflow:auto;
+	width:460px;
+	margin-bottom:15px;
+}
+.suggestion-help-popup li a
+{
+  color: $theme_link_color !important;
+}
+.suggestion-help-popup li
+{
+	padding:11px 0;
+	list-style:none;
+}
+.suggestion-help-popup li ul
+{
+	padding:0 10px;
+	list-style:none;
+}
+.suggestion-help-popup li ul li
+{
+	font-size:11px;
+	padding:2px 0;
+}
+.suggestion-mail-supported img
+{
+	float:left;
+	margin-right:10px;
+	vertical-align:middle;
+	margin-top:5px;
+}
+/*--------***------*/
+.mix_suggestion_list_wrapper
+{
+	width:45%;
+}
+.mix_suggestion_list_wrapper .suggestion_list
+{
+	padding:5px 0;
+	width:100%;
+	float:left;
+	clear:both;
+	height:100px;
+	overflow:hidden;
+}
+/*--------* mutual friend popup *------*/
+.mutual_friend_popup
+{
+	width:460px;
+	height:350px;
+}
+.mutual_friend_popup_wrapper
+{
+	width:450px;
+	padding:10px 0 10px 10px;
+}
+.mutual_friend_popup_content
+{
+	height:325px;
+	overflow:auto;
+	width:460px;
+	margin-top:10px;
+	border:1px solid #CCCCCC;
+}
+.sugg_mutual_friend
+{
+ padding:5px;
+ border-bottom-width:1px;
+}
+.sugg_mutual_friend .user-icon
+{
+	float:left;
+	margin-right:10px;
+}
+.sugg_mutual_friend > div
+{
+	line-height:48px;
+	font-weight:bold;
+}
+.sugg_newuser
+{
+	margin:0 !important;
+	float:left;
+	max-height:400px;
+ 	overflow:auto;
+ 	padding:10px 2px 10px 6px !important;
+ 	width:430px !important;
+}
+.sugg_newuser p
+{
+	float:left;
+	font-size:12px;
+	line-height:1.5em;
+	text-align:left;
+}
+.sugg_newuser div
+{
+	margin:0px !important;
+}
+/*----------*Photo Suggestion Css*----------*/
+.suggestion-profile-image
+{
+	margin:15px 0 0 15px;
+}
+.suggestion-profile-image .global_form > div > div 
+{
+	-moz-border-radius:0 0 0 0;
+	background-color:#F4F9FB;
+	border:0 none;
+	padding:0;
+}
+.suggestion-profile-image h4
+{
+	margin-bottom:10px;
+	font-size:13px;
+	font-weight:bold;
+}
+div .buttonlink {
+float:none !important;
+}
