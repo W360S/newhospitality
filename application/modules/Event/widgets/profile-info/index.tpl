@@ -11,15 +11,7 @@
  */
 ?>
 <style type="text/css">
-.layout_event_profile_info{
-    border:1px solid #D0E2EC;
-	background-color:#F2FAFF;
-	padding:10px;
-	-moz-border-radius: 0px 3px 3px 3px;  
-	position:relative;
-    margin-bottom:10px;
-    margin-top: 0px !important;
-}
+
 .event_description{
     padding-bottom: 10px;
 }

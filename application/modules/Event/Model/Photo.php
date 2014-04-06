@@ -50,7 +50,7 @@ class Event_Model_Photo extends Core_Model_Item_Collectible
       return null;
     }
 
-    $file = $this->api()->getApi('storage', 'storage')->get($this->file_id, $type);
+    $file = Engine_Api::_()->getApi('storage', 'storage')->get($this->file_id, $type);
     if( !$file )
     {
       return null;
