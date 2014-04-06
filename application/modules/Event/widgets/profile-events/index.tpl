@@ -11,14 +11,7 @@
  */
 ?>
 <style type="text/css">
-.layout_event_profile_events{
-	border:1px solid #D0E2EC;
-	background-color:#E9F4FA;
-	padding:10px; 
-	-moz-border-radius: 0px 3px 3px 3px;  
-	position:relative;
-	
-}
+
 ul.events_profile_tab>li{
 	border-bottom:1px solid #EAEAEA;
 	padding-bottom:10px;

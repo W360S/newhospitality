@@ -12,14 +12,7 @@
  */
 ?>
 <style type="text/css">
-.layout_group_profile_groups{
-	border:1px solid #D0E2EC;
-	background-color:#E9F4FA;
-	padding:10px;
-	-moz-border-radius: 0px 3px 3px 3px;  
-	position:relative;
-	 
-}
+
 .layout_group_profile_groups >ul>li{
 	border-bottom:1px solid #EAEAEA;
 	padding-bottom:10px;

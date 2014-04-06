@@ -1,9 +1,9 @@
 <?php
 /**
  * @package     Engine_Core
- * @version     $Id: lite.php 9747 2012-07-26 02:08:08Z john $
- * @copyright   Copyright (c) 2008 webligo Developments
- * @license     http://www.socialengine.com/license/
+ * @version     $Id: lite.php 7539 2010-10-04 04:41:38Z john $
+ * @copyright   Copyright (c) 2008 Webligo Developments
+ * @license     http://www.socialengine.net/license/
  */
 
 // Config
@@ -13,15 +13,27 @@ if( !defined('_ENGINE_R_MAIN') ) {
   include_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'index.php';
 }
 
+// Create application, bootstrap, and run
+$application = new Engine_Application(
+  APPLICATION_ENV,
+  array(
+    'bootstrap' => array(
+      'path' => APPLICATION_PATH . '/application/modules/' . APPLICATION_NAME . '/Bootstrap.php',
+      'class' => ucfirst(APPLICATION_NAME) . '_Bootstrap',
+    ),
+    'autoloadernamespaces' => array(
+      'Engine_',
+    )
+  )
+);
+Engine_Api::getInstance()->setApplication($application);
 $application->getBootstrap()->bootstrap('frontcontroller');
-$application->getBootstrap()->bootstrap('cache');
 $application->getBootstrap()->bootstrap('db');
 $application->getBootstrap()->bootstrap('frontcontrollermodules');
 $application->getBootstrap()->bootstrap('session');
 $application->getBootstrap()->bootstrap('manifest');
 $application->getBootstrap()->bootstrap('router');
 $application->getBootstrap()->bootstrap('view');
-$application->getBootstrap()->bootstrap('layout');
 $application->getBootstrap()->bootstrap('modules');
 
 $module = str_replace(' ', '', ucwords(str_replace(array('-', '.'), ' ', preg_replace('/[^a-z0-9.-]/', '', @$_REQUEST['module']))));
