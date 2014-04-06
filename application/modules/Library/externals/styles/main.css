@@ -1,0 +1,3 @@
+a.library-share-link { background: url(~/application/modules/Library/externals/images/bg-share.gif) no-repeat; padding: 0px 10px 0px 20px; font-size: 1em  }
+a.library-report-link { background: url(~/application/modules/Library/externals/images/bg_report.gif) no-repeat; padding: 0px 10px 0px 20px; font-size: 1em  }
+.layout_library_categories .list_category li .current{color:#E56B00;}

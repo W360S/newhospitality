@@ -1,0 +1,56 @@
+ul.list_category{overflow:hidden;padding:10px 15px}
+ul.list_category li{background:url(~/application/modules/Core/externals/images/ico_title_category.png) 0 7px no-repeat;padding:4px 0 4px 22px;width:144px;min-height: 17px;display: -moz-inline-stack;display: inline-block;vertical-align: top;margin-right: 7px;zoom: 1;*display: inline}
+ul.list_category li a{color:#686868;line-height:17px}
+ul.list_category li a:hover{color:#e56b00}
+
+.subcontent .filter .input{float:left;margin-bottom:0}
+.subcontent .filter .input input{background:#fff url(~/application/modules/Core/externals/images/ico_search.gif) right center no-repeat}
+.subcontent .filter .select_sort{float:right}
+.subcontent .filter .input label { display: inline;font-weight:bold}
+
+.panel {float:left;margin-right:3px;position:relative;z-index:1;margin-top:1px}
+.panel .trigger {background:#fff url(~/application/modules/Core/externals/images/arrow-17.gif) right 2px no-repeat;border:1px solid #999;cursor:pointer;height:20px;overflow:hidden;width:148px;padding-left:10px;line-height:22px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px}
+.panel .content {background:#fff url(~/application/modules/Core/externals/images/gradient-1.gif) left bottom repeat-x;border:1px solid #DCDCDC;padding:10px;position:absolute;right:0;top:24px;width:138px;z-index:100; height: 100px; overflow: auto;}
+.panel .content .s-input{float:left;width:100%;margin-bottom:6px;}
+.panel .content .s-input input{margin:0 3px 0 0;width:auto;border:none;color:#fff;font-size:0px;float:left; }
+.panel .content .s-input label {position:relative;font-weight:normal;line-height:15px;width:118px; display: -moz-stack!important;}
+.select_sort{float:left}
+
+.search_expert .filter .select_sort{background:url(~/application/modules/Core/externals/images/bd_double.gif) 0 1px no-repeat;padding-left:11px;margin-left:0}
+.search_my_question{border-top:none;background-color:#f2faff;-moz-border-radius:3px 3px 3px 3px;border:1px solid #D0E2EC;margin-bottom:12px;padding:9px}
+.search_my_question .filter .select_sort{float:Left}
+.search_my_question .panel{margin-top:0}
+.search_my_question .filter .select_sort{margin-left:9px}
+.search_my_question .filter .input input{width:170px}
+.search_my_question .panel .trigger{width:170px}
+.search_my_question .panel .content{width:160px;z-index:9999}
+.search_my_question .panel .content input{width:auto}
+.search_my_question .filter .input input.button{background-color:#666666;background-position:-170px 0;text-indent:0em;color:#fff;font-weight:bold;text-transform:capitalize;width:80px;margin-left:5px}
+.search_my_question .filter .input input:hover.button{background-position:-20px -314px}
+.rating_star_generic
+{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	background-repeat: no-repeat;
+	font-size: 1px;
+	cursor: default;
+}
+
+.rating_star,
+.rating_star_half
+{
+	background-image: url(~/application/modules/Core/externals/images/star.png);
+}
+
+.rating_star_disabled
+{
+	background-image: url(~/application/modules/Core/externals/images/star_disabled.png);
+}
+
+.rating_star_half
+{
+	background-image: url(~/application/modules/Core/externals/images/star_half.png);
+	width: 4px;
+}
+
