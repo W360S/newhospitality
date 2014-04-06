@@ -1,0 +1,455 @@
+2014-04-02T15:08:40+00:00 NOTICE (5): [8] Undefined offset: 0 (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Translate/Adapter.php) [740]
+Error Code: d7d768
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Form.php(2288): Zend_Translate_Adapter->translate(Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Form/Decorator/FormErrors.php(365): Zend_Form->getMessages()
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Form/Decorator/FormErrors.php(67): Engine_Form_Decorator_FormErrors->_recurseForm(Install_Form_DbInfo, Zend_View)
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Form.php(2644): Engine_Form_Decorator_FormErrors->render('<div class="form-elements">
+<div...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/install/db-info.tpl(23): Zend_Form->render(Zend_View)
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('install/db-info.tpl')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('install/db-info.tpl', )
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#12 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('dbInfoAction')
+#13 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#14 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#15 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#16 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#17 {main}
+
+2014-04-02T15:10:11+00:00 NOTICE (5): [8] Undefined index: statistics (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/InstallController.php) [734]
+Error Code: c97165
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): InstallController->dbCreateAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('dbCreateAction')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#6 {main}
+
+2014-04-02T15:10:53+00:00 NOTICE (5): [8] Undefined offset: 0 (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Translate/Adapter.php) [740]
+Error Code: de3e4c
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Form.php(2288): Zend_Translate_Adapter->translate(Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Form/Decorator/FormErrors.php(365): Zend_Form->getMessages()
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Form/Decorator/FormErrors.php(67): Engine_Form_Decorator_FormErrors->_recurseForm(Install_Form_Account, Zend_View)
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Form.php(2644): Engine_Form_Decorator_FormErrors->render('<div class="form-elements">
+<div...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/install/account.tpl(24): Zend_Form->render(Zend_View)
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('install/account.tpl')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('install/account.tpl', )
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#12 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('accountAction')
+#13 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#14 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#15 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#16 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#17 {main}
+
+2014-04-02T15:19:06+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 485631
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-02T15:19:40+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 22baa2
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-02T15:20:16+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 1279be
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-02T15:23:18+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 1cf5e5
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-02T15:24:53+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 43843c
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T02:27:08+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 76438f
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T02:27:25+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 28b6fb
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T02:28:46+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 7d0c87
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T02:53:20+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 4b0dde
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T02:55:36+00:00 WARN (4): [2] include(/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/languages/en/manifest.php): failed to open stream: No such file or directory (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/SdkController.php) [270]
+Error Code: ab1e6a
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/SdkController.php(270): SdkController::buildAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): SdkController->buildAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#7 {main}
+
+2014-04-06T02:55:36+00:00 WARN (4): [2] include(): Failed opening '/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/languages/en/manifest.php' for inclusion (include_path='/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries:/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR:.') (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/SdkController.php) [270]
+Error Code: 6571a2
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/SdkController.php(270): SdkController::buildAction()
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): SdkController->buildAction()
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#7 {main}
+
+2014-04-06T02:55:36+00:00 NOTICE (5): [8] Undefined index: title (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/sdk/build.tpl) [67]
+Error Code: 556721
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('sdk/build.tpl')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('sdk/build.tpl', )
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#12 {main}
+
+2014-04-06T02:55:36+00:00 NOTICE (5): [8] Undefined index: description (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/sdk/build.tpl) [79]
+Error Code: 248a98
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('sdk/build.tpl')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('sdk/build.tpl', )
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#12 {main}
+
+2014-04-06T02:55:36+00:00 NOTICE (5): [8] Undefined index: title (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/sdk/build.tpl) [67]
+Error Code: c25446
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('sdk/build.tpl')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('sdk/build.tpl', )
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#12 {main}
+
+2014-04-06T02:55:36+00:00 NOTICE (5): [8] Undefined index: description (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/sdk/build.tpl) [79]
+Error Code: 90143c
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('sdk/build.tpl')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('sdk/build.tpl', )
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#12 {main}
+
+2014-04-06T02:55:36+00:00 NOTICE (5): [8] Undefined index: title (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/sdk/build.tpl) [67]
+Error Code: 81af12
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('sdk/build.tpl')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('sdk/build.tpl', )
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#12 {main}
+
+2014-04-06T02:55:36+00:00 NOTICE (5): [8] Undefined index: description (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/views/scripts/sdk/build.tpl) [79]
+Error Code: 128f8f
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/View/Abstract.php(835): Zend_View->_run('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(903): Zend_View_Abstract->render('sdk/build.tpl')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(924): Zend_Controller_Action_Helper_ViewRenderer->renderScript('sdk/build.tpl', )
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/Helper/ViewRenderer.php(963): Zend_Controller_Action_Helper_ViewRenderer->render()
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Zend_Controller_Action_Helper_ViewRenderer->postDispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('buildAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#12 {main}
+
+2014-04-06T02:59:20+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 31a51d
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T03:04:45+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 356ff7
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T03:04:51+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 330ef7
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T03:05:12+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 7020ce
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T03:56:39+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: c28227
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T03:57:31+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: e12546
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T04:01:50+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: 35241d
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-04-06T04:02:50+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: ea296f
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
