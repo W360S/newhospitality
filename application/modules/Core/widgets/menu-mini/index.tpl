@@ -191,7 +191,7 @@
                             <a href="#">Trợ giúp</a>
                         </li>
                         <li>
-                            <a href="#">Đăng xuất</a>
+                            <a href="<?php echo $this->baseUrl() ?>/logout">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
