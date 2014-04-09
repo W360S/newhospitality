@@ -1,2 +1,0 @@
-2014-04-06 11:18:29 +00:00 --- Error: Missing image - /newhospitality/application/modules/Core/externals/images/bg-btn-1.png / E:\quangnvh\web\xampp\htdocs\newhospitality\application/modules/Core/externals/images/bg-btn-1.png
-2014-04-06 11:21:48 +00:00 --- Error: Missing image - /newhospitality/application/modules/Core/externals/images/bg-btn-1.png / E:\quangnvh\web\xampp\htdocs\newhospitality\application/modules/Core/externals/images/bg-btn-1.png
