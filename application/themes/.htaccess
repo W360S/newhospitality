@@ -3,7 +3,7 @@
 
 allow from all
 
-<FilesMatch "\.(avi|flv|mov|wmv|wma|mp3|mp4|m4a|mkv|swf|pdf|doc|ppt|ico|jpg|jpeg|png|gif|js|css)$">
+<FilesMatch "\.(avi|flv|mov|wmv|wma|mp3|mp4|m4a|mkv|swf|pdf|doc|ppt|ico|jpg|jpeg|png|gif|js|css|eot|woff|ttf|svg)$">
   <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresDefault A29030400

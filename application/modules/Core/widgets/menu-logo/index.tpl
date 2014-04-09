@@ -20,5 +20,5 @@ $route = $this->viewer()->getIdentity()
 
 echo ($logo)
      ? $this->htmlLink($route, $this->htmlImage($logo, array('alt'=>$title)))
-     : $this->htmlLink($route, $title);
+     : $this->htmlLink($route, "");
 

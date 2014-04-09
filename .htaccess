@@ -16,7 +16,7 @@
   # Try to route missing files
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} public\/ [OR]
-  RewriteCond %{REQUEST_FILENAME} \.(jpg|gif|png|ico|flv|htm|html|php|css|js)$
+  RewriteCond %{REQUEST_FILENAME} \.(jpg|gif|png|ico|flv|htm|html|php|css|js|eot|woff|ttf|svg)$
   RewriteRule . - [L]
   
   # If the file doesn't exist, rewrite to index

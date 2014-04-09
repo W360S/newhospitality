@@ -21,9 +21,10 @@ class Core_Widget_MenuMainController extends Engine_Content_Widget_Abstract
   {
     $this->view->navigation = $navigation = Engine_Api::_()
       ->getApi('menus', 'core')
-      ->getNavigation('core_main');
+      ->getNavigation('main_navigator');
     
     $this->view->viewer = $viewer = Engine_Api::_()->user()->getViewer();
+    
     $require_check = Engine_Api::_()->getApi('settings', 'core')->getSetting('core.general.browse', 1);
     if(!$require_check && !$viewer->getIdentity()){
       $navigation->removePage($navigation->findOneBy('route','user_general'));

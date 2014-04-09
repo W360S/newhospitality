@@ -224,4 +224,44 @@ return array(
     'type' => 'widget',
     'name' => 'core.search',    
   ),
+  array(
+    'title' => 'Home Login',
+    'description' => 'Home Login Block',
+    'category' => 'Core',
+    'type' => 'widget',
+    'name' => 'core.home-login',
+    'requirements' => array(
+      'header-footer',
+    ),
+  ),
+  array(
+    'title' => 'Home Features',
+    'description' => 'Home Features Block',
+    'category' => 'Core',
+    'type' => 'widget',
+    'name' => 'core.home-features',
+    'requirements' => array(
+      'header-footer',
+    ),
+  ),
+  array(
+    'title' => 'Home Headlines',
+    'description' => 'Home Headlines Block',
+    'category' => 'Core',
+    'type' => 'widget',
+    'name' => 'core.home-headlines',
+    'requirements' => array(
+      'header-footer',
+    ),
+  ),
+  array(
+    'title' => 'Home Login Button',
+    'description' => 'Home Login Button Block',
+    'category' => 'Core',
+    'type' => 'widget',
+    'name' => 'core.home-loginbutton',
+    'requirements' => array(
+      'header-footer',
+    ),
+  ),
 ) ?>

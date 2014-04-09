@@ -12,14 +12,14 @@
 return array(
   'package' => array(
     'type' => 'theme',
-    'name' => 'modern',
+    'name' => 'newhospitality',
     'version' => '4.6.0',
     'revision' => '$Revision: 9378 $',
-    'path' => 'application/themes/modern',
+    'path' => 'application/themes/newhospitality',
     'repository' => '',
     'title' => 'Modern',
     'thumb' => 'theme.jpg',
-    'author' => 'Webligo Developments',
+    'author' => 'Bang',
     'changeLog' => array(
       '4.6.0' => array(
         'manifest.php' => 'Incremented version',
@@ -37,7 +37,7 @@ return array(
       'class' => 'Engine_Package_Installer_Theme',
     ),
     'directories' => array(
-      'application/themes/modern',
+      'application/themes/newhospitality',
     ),
   ),
   'files' => array(
