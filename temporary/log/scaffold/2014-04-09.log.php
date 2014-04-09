@@ -1,0 +1,1 @@
+2014-04-09 05:59:32 +00:00 --- Error: Missing image - /newhospitality/application/modules/Core/externals/images/ico_attack_file.gif / /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/modules/Core/externals/images/ico_attack_file.gif
