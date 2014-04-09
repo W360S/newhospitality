@@ -6,3 +6,5 @@
 2014-04-08T08:27:22+00:00 DEBUG (7): [System] (notify_friend_request) onlylove2004dn@yahoo.com <- email@domain.com
 2014-04-08T08:27:22+00:00 DEBUG (7): [Zend] lengocthao91@yahoo.com <- email@domain.com
 2014-04-08T08:27:22+00:00 DEBUG (7): [System] (notify_liked) lengocthao91@yahoo.com <- email@domain.com
+2014-04-09T06:17:03+00:00 DEBUG (7): [Zend] hr.hn@oneasia.biz <- email@domain.com
+2014-04-09T06:17:03+00:00 DEBUG (7): [System] (notify_friend_request) hr.hn@oneasia.biz <- email@domain.com
