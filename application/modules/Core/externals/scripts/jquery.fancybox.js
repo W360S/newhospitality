@@ -9,6 +9,7 @@
  * Copyright 2012 Janis Skarnelis - janis@fancyapps.com
  *
  */
+jQuery.noConflict();
 
 (function (window, document, $, undefined) {
 	"use strict";

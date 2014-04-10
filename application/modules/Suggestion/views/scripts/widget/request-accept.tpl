@@ -120,6 +120,7 @@ en4.suggestion.accepts = {
 	}
 };
 </script>
+<?php /*
 <div id="friend_detail_<?php echo $this->notification->notification_id ?>"></div>
 <div class="sugg-friend-sub-detail" id="friend_sub_detail_<?php echo $this->notification->notification_id ?>"></div>
 <li id="user-widget-request-<?php echo $this->notification->notification_id ?>" class="suggestions-newupdate">
@@ -129,7 +130,7 @@ en4.suggestion.accepts = {
       <?php echo $this->translate('%1$s has sent you a friend request.', $this->htmlLink($this->notification->getSubject()->getHref(), $this->notification->getSubject()->getTitle())); ?>
     </div>
     <div>
-		<button type="submit" onclick="userWidgetRequestSend('confirm', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php echo $this->notification->getSubject()->getTitle(); ?>')">
+	<button type="submit" onclick="userWidgetRequestSend('confirm', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php echo $this->notification->getSubject()->getTitle(); ?>')">
         <?php echo $this->translate('Add Friend');?>
       </button>
       <?php echo $this->translate('or');?>
@@ -138,4 +139,23 @@ en4.suggestion.accepts = {
       </a>
     </div>
   </div>
+</li>
+ * 
+ */?>
+<li>
+    <a href="#">
+        <span class="pt-avatar">
+            <?php echo $this->itemPhoto($this->notification->getSubject(), 'thumb.icon'); ?>
+        </span>
+    </a>
+    <div class="pt-how-info-request">
+            <div class="pt-how-info-request-left">
+                    <h3><?php echo $this->htmlLink($this->notification->getSubject()->getHref(), $this->notification->getSubject()->getTitle()) ?></h3>
+                    <p>1 Bạn chung</p>
+            </div>
+            <div class="pt-how-info-request-right">
+                    <a href="javascript:void(0)" class="pt-yes">Chấp nhận</a>
+                    <a href="javascript:void(0)">Từ chối</a>
+            </div>
+    </div>
 </li>

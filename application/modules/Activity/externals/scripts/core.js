@@ -133,7 +133,14 @@ en4.activity = {
     en4.core.request.send(new Request.JSON({
       'url' : en4.core.baseUrl + 'activity/notifications/hide'
     }));
-    $('updates_toggle').set('html', reset_text).removeClass('new_updates');
+
+    if ($('updates_toggle')) {
+      $('updates_toggle').set('html', reset_text).removeClass('new_updates');
+    }else{
+      console.log("could not find updates_toggle");
+    }
+    
+    
 
     /*
     var notify_link = $('core_menu_mini_menu_updates_count').clone();
@@ -172,7 +179,12 @@ en4.activity = {
 
   showNotifications : function(responseJSON){
     if (responseJSON.notificationCount>0){
-      $('updates_toggle').set('html', responseJSON.text).addClass('new_updates');
+      if ($('updates_toggle')) {
+        $('updates_toggle').set('html', responseJSON.text).addClass('new_updates');
+      }else{
+        console.log("could not find updates_toggle");
+      }
+      
     }
   },
 
@@ -261,7 +273,12 @@ NotificationUpdateHandler = new Class({
 
   showNotifications : function(responseJSON){
     if (responseJSON.notificationCount>0){
-      $('updates_toggle').set('html', responseJSON.text).addClass('new_updates');
+      
+      if ($('updates_toggle')) {
+        $('updates_toggle').set('html', responseJSON.text).addClass('new_updates');
+      }else{
+        console.log("could not find updates_toggle");
+      }
     }
   },
   
