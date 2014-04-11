@@ -11,6 +11,16 @@
  */
 return array(
   array(
+    'title' => 'Home Friends',
+    'description' => 'Displays a list of friends.',
+    'category' => 'User',
+    'type' => 'widget',
+    'name' => 'user.home-friends',
+    'requirements' => array(
+      'viewer',
+    ),
+  ),
+  array(
     'title' => 'Quick Links',
     'description' => 'Displays a list of quick links.',
     'category' => 'User',

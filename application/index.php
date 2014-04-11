@@ -39,7 +39,8 @@ if( !defined('_ENGINE_R_REWRITE') && 'cli' !== PHP_SAPI ) {
 
 
 // Basic setup
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
+error_reporting(E_ERROR | E_PARSE);
 
 defined('DS') || define('DS', DIRECTORY_SEPARATOR);
 defined('PS') || define('PS', PATH_SEPARATOR);

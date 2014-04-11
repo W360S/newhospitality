@@ -30,9 +30,10 @@ class Activity_View_Helper_ActivityLoop extends Activity_View_Helper_Activity
 	$group = "";
     try
     {
-    $group = Engine_Api::_()->core()->getSubject('group');    
+        $group = Engine_Api::_()->core()->getSubject('group');    
     }
-    catch( Exception $e){      
+    catch( Exception $e){   
+        
     }
     if ($group) {
     $table = Engine_Api::_()->getDbtable('groups', 'group');

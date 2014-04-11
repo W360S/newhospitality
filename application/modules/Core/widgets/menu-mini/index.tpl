@@ -44,7 +44,7 @@ function crop($text, $qty) {
                     <div class="pt-icon-arrow"><span></span></div>
                     <div class="pt-toggle-layout-content">
                         <div class="pt-request-how">
-                            <div class="pt-title"><span><?php echo $this->translate('Friends require'); ?></span></div>
+                            <div class="pt-title"><span><?php echo $this->translate('Friends Requests'); ?></span></div>
                             <div class="wd-scrollbars-heder">
                                 <?php
                                 $viewer = Engine_Api::_()->user()->getViewer();
@@ -59,11 +59,11 @@ function crop($text, $qty) {
                                             //echo str_replace('hoặc', ' ', str_replace('đã gửi bạn một yêu cầu kết bạn ', '</br>Đã gởi yêu cầu kết bạn', str_replace('bỏ qua yêu cầu', 'Từ chối', str_replace('ignore request', 'Cancel', str_replace(' has sent you a friend request.    ', '<br> has sent you a friend request.    ', str_replace('or      ', ' ', $this->action($parts[2], $parts[1], $parts[0], array('notification' => $notification))))))));
                                             ?>
                                         <?php endforeach; ?>
-                                        <?php else: ?>
+                                    <?php else: ?>
                                         <li>
-                                        <?php echo $this->translate("You have no requests.") ?>
+                                            <?php echo $this->translate("You have no requests.") ?>
                                         </li>
-    <?php endif; ?>											
+                                    <?php endif; ?>											
                                 </ul>
                             </div>
                             <div class="pt-more-heder"><a href="<?php echo $this->baseUrl() ?>/suggestions/friendrequest"><?php echo $this->translate('See all'); ?></a></div>
@@ -80,7 +80,7 @@ function crop($text, $qty) {
                         <div class="pt-message-how">
                             <div class="pt-title"><span style="width:220px;float:left"><?php echo $this->translate('Message'); ?></span><a style="float:right;" href="<?php echo $this->baseUrl() ?>/messages/compose"><?php echo $this->translate('Send a message'); ?></a></div>
                             <?php $paginator = Engine_Api::_()->getItemTable('messages_conversation')->getInboxPaginator($viewer); ?>
-    <?php if ($paginator): ?>
+                            <?php if ($paginator): ?>
                                 <div class="messages_list">
                                     <ul class="pt-message-content">
                                         <?php foreach ($paginator as $conversation): ?>
@@ -102,7 +102,7 @@ function crop($text, $qty) {
                                             ?>
                                             <li<?php if (!$recipient->inbox_read): ?> class='messages_list_new'<?php endif; ?> id="message_conversation_<?php echo $conversation->conversation_id ?>">
                                                 <div class="messages_list_photo">
-            <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.icon')) ?>
+                                                    <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.icon')) ?>
                                                 </div>
                                                 <div class="pt-how-info-message">
                                                     <div>
@@ -110,21 +110,21 @@ function crop($text, $qty) {
                                                             <?php echo $this->htmlLink($user->getHref(), $user->getTitle()) ?>
                                                         <?php else: ?>
                                                             <?php echo $conversation->recipients ?> people
-                                                    <?php endif; ?>
+                                                        <?php endif; ?>
                                                     </div>
                                                     <?php
                                                     ( '' != ($title = trim($message->getTitle())) ||
                                                             '' != ($title = trim($conversation->getTitle())) ||
                                                             $title = '<em>' . $this->translate('(No Subject)') . '</em>' );
                                                     ?>
-                                                        <?php echo $this->htmlLink($conversation->getHref(), crop($title, 9)) ?>
+                                                    <?php echo $this->htmlLink($conversation->getHref(), crop($title, 9)) ?>
                                                     <div style="margin-top:-9px">
-            <?php echo $this->timestamp($message->date) ?>
+                                                        <?php echo $this->timestamp($message->date) ?>
                                                     </div>
                                                 </div>
-                                            <?php echo html_entity_decode($message->body) ?>
+                                                <?php echo html_entity_decode($message->body) ?>
                                             </li>
-        <?php endforeach; ?>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
                                 <script type="text/javascript">
@@ -137,7 +137,7 @@ function crop($text, $qty) {
                                      if (cBox.checked)
                                      selected_ids[ selected_ids.length ] = cBox.value;
                                      });
-                                     var sb_url = '<?php //echo $this->url(array(), 'messages_delete')  ?>/' + selected_ids.join(',');
+                                     var sb_url = '<?php //echo $this->url(array(), 'messages_delete')   ?>/' + selected_ids.join(',');
                                      if (selected_ids.length > 0)
                                      Smoothbox.open(sb_url);
                                      });
@@ -145,7 +145,7 @@ function crop($text, $qty) {
                                      */
                                 </script>
 
-    <?php endif; ?>
+                            <?php endif; ?>
                             <div class="pt-more-heder"><a href="<?php echo $this->baseUrl() ?>/messages/inbox"><?php echo $this->translate('See all'); ?></a></div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@ function crop($text, $qty) {
                         <ul class="pt-edit">
                             <li>
                                 <a  href="<?php echo $this->layout()->staticBaseUrl . 'profile/' . $this->viewer->getOwner()->username; ?>">
-    <?php echo $this->translate('Account setting'); ?></a>
+                                    <?php echo $this->translate('Account setting'); ?></a>
                             </li>
                             <li>
                                 <a href="<?php echo $this->layout()->staticBaseUrl . 'members/settings/general'; ?>"><?php echo $this->translate('Private setting'); ?></a>
@@ -231,7 +231,10 @@ function crop($text, $qty) {
                             </li>
                             <li class="last">
                                 <button tabindex="5" type="submit" id="submit" name="submit" title="" class="button">Đăng nhập</button>
-                                <a href="#" class="facebook">facebook</a>
+                                <?php $href = Zend_Controller_Front::getInstance()->getRouter()
+        ->assemble(array('module' => 'user', 'controller' => 'auth',
+          'action' => 'facebook'), 'default', true);?>
+                                <a href="<?php echo $href ?>" class="facebook">facebook</a>
                             </li>
                             <input type="hidden" id="return_url" value="" name="return_url">
                         </ul>
@@ -283,7 +286,7 @@ function crop($text, $qty) {
         console.log("toggleUpdatesPulldown");
         if (element.className == 'pt-icon pt-jewel updates_pulldown') {
             element.className = 'pt-icon pt-jewel updates_pulldown_active';
-            //showNotifications();
+            showNotifications();
         } else {
             element.className = 'pt-icon pt-jewel updates_pulldown';
         }

@@ -8,3 +8,13 @@
 2014-04-08T08:27:22+00:00 DEBUG (7): [System] (notify_liked) lengocthao91@yahoo.com <- email@domain.com
 2014-04-09T06:17:03+00:00 DEBUG (7): [Zend] hr.hn@oneasia.biz <- email@domain.com
 2014-04-09T06:17:03+00:00 DEBUG (7): [System] (notify_friend_request) hr.hn@oneasia.biz <- email@domain.com
+2014-04-10T16:23:09+00:00 DEBUG (7): [Zend] bca.nguyen@gmail.com <- email@domain.com
+2014-04-10T16:23:09+00:00 DEBUG (7): [System] (notify_friend_accepted) bca.nguyen@gmail.com <- email@domain.com
+2014-04-10T16:23:09+00:00 DEBUG (7): [Zend] nabuithanhliem@yahoo.com.vn <- email@domain.com
+2014-04-10T16:23:09+00:00 DEBUG (7): [System] (notify_friend_accepted) nabuithanhliem@yahoo.com.vn <- email@domain.com
+2014-04-10T16:23:09+00:00 DEBUG (7): [Zend] giangnguyen.seu@gmail.com <- email@domain.com
+2014-04-10T16:23:09+00:00 DEBUG (7): [System] (notify_friend_accepted) giangnguyen.seu@gmail.com <- email@domain.com
+2014-04-10T16:23:10+00:00 DEBUG (7): [Zend] dinhkhang.pham@gmail.com <- email@domain.com
+2014-04-10T16:23:10+00:00 DEBUG (7): [System] (notify_friend_accepted) dinhkhang.pham@gmail.com <- email@domain.com
+2014-04-10T17:11:07+00:00 DEBUG (7): [Zend] duyviet.ph@gmail.com <- email@domain.com
+2014-04-10T17:11:07+00:00 DEBUG (7): [System] (notify_friend_accepted) duyviet.ph@gmail.com <- email@domain.com

@@ -28,9 +28,11 @@ var userWidgetRequestSend = function(action, user_id, notification_id, friend_di
 			{			
 				if(responseJSON.status)
 				{
-					$('friend_detail_'+ notification_id).innerHTML = responseJSON.friend_detail;
-					$('friend_sub_detail_'+ notification_id).innerHTML = responseJSON.friend_sub_detail;
-				 	$('user-widget-request-' + notification_id).innerHTML = responseJSON.friend_link;
+					//$('friend_detail_'+ notification_id).innerHTML = responseJSON.friend_detail;
+					//$('friend_sub_detail_'+ notification_id).innerHTML = responseJSON.friend_sub_detail;
+//				 	$('user-widget-request-' + notification_id).innerHTML = responseJSON.friend_link;
+				 	$('user-widget-request-' + notification_id).innerHTML = responseJSON.friend_detail;;
+                                        //BANGVN
 				}
 				else
 				{					
@@ -142,7 +144,9 @@ en4.suggestion.accepts = {
 </li>
  * 
  */?>
-<li>
+<div id="friend_detail_<?php echo $this->notification->notification_id ?>"></div>
+<div class="sugg-friend-sub-detail" id="friend_sub_detail_<?php echo $this->notification->notification_id ?>"></div>
+<li id="user-widget-request-<?php echo $this->notification->notification_id ?>" class="suggestions-newupdate">
     <a href="#">
         <span class="pt-avatar">
             <?php echo $this->itemPhoto($this->notification->getSubject(), 'thumb.icon'); ?>
@@ -154,8 +158,12 @@ en4.suggestion.accepts = {
                     <p>1 Bạn chung</p>
             </div>
             <div class="pt-how-info-request-right">
-                    <a href="javascript:void(0)" class="pt-yes">Chấp nhận</a>
-                    <a href="javascript:void(0)">Từ chối</a>
+                    <a href="javascript:void(0)" class="pt-yes" onclick="userWidgetRequestSend('confirm', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php echo $this->notification->getSubject()->getTitle(); ?>')">
+                        <?php echo $this->translate('Add Friend');?>
+                    </a>
+                    <a href="javascript:void(0)" onclick="userWidgetRequestSend('reject', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php echo $this->notification->getSubject()->getTitle(); ?>');">
+                        <?php echo $this->translate('Ignore');?>
+                    </a>
             </div>
     </div>
 </li>

@@ -1457,6 +1457,7 @@ ul.notifications_menu > li > span
   padding-left: 22px;
   background-repeat: no-repeat;
   float: none;
+  color: black;
 }
 ul.notifications_menu > li > span > a
 {

@@ -1,2 +1,0 @@
-2014-04-09 07:54:45 +00:00 --- Error: Missing image - /newhospitality/application/themes/newhospitality/images/front/arrow_white_green.png / /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/themes/newhospitality/images/front/arrow_white_green.png
-2014-04-09 07:56:11 +00:00 --- Error: Missing image - /newhospitality/application/themes/newhospitality/images/front/arrow_white_green.png / /Applications/XAMPP/xamppfiles/htdocs/newhospitality/application/themes/newhospitality/images/front/arrow_white_green.png
