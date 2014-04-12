@@ -792,6 +792,3 @@ ul.requests > li > div > div + div > span.button
 	font-size:13px;
 	font-weight:bold;
 }
-div .buttonlink {
-float:none !important;
-}

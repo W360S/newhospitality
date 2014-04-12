@@ -10,12 +10,6 @@
  * @author     SocialEngineAddOns
  */
 ?>
-<style type="text/css">
-/* dunghd add code at 10/02/2010 for fix style */
-div .buttonlink {
-float: none;
-}
-</style>
 <!-- This script call in the case of ignore any suggestion. -->
 <script type="text/javascript">
 en4.suggestion = {

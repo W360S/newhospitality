@@ -10,15 +10,6 @@
  * @author		 John
  */
 ?>
- <style>
-    div .buttonlink {
-        float:none;
-        margin-left:10px;
-    }
-     div .profile_options{
-        margin-top:10px;
-    }
-</style>
 <div class="profile_options subsection"> 
     <h2>
       <?php echo $this->translate('Group Options') ?>

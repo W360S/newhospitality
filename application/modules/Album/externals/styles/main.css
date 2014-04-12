@@ -1,0 +1,342 @@
+
+/* $Id: main.css 7244 2010-09-01 01:49:53Z john $ */
+@include "~/application/modules/Core/externals/styles/constants.css";
+
+
+
+
+
+/*
+BROWSE ALBUMS, VIEW ALBUM
+Styles for the browse and view album pages.
+*/
+.album_options
+{
+  margin: 5px 0px 12px 0px;
+  overflow: hidden;
+}
+.album_options a
+{
+  margin-right: 15px;
+}
+
+.icon_photos_new
+{
+  background-image: url(~/application/modules/Album/externals/images/add.png);
+}
+
+
+
+
+/*
+ACTIVITY FEED COMPOSER PHOTO
+These styles are used for the attachment composer above the
+main feed.
+*/
+#compose-photo-activator,
+#compose-photo-menu span
+{
+  background-image: url(~/application/modules/Album/externals/images/album_upload.png);
+  padding-left: 25px;
+  background-repeat: no-repeat;
+  background-position: 4px center;
+  height:16px;
+  line-height:16px;
+  /* display:block */
+}
+#compose-photo-preview-image
+{
+  width: 160px;
+  height:auto;
+}
+#compose-photo-form-fancy-file
+{
+  background-image: url(~/application/modules/Album/externals/images/add.png);
+  margin-left:0;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+VIEW MY ALBUMS
+Styles for the member's own albums
+management page.
+*/
+ul.albums_manage
+{
+  clear: both;
+  overflow: hidden;
+}
+ul.albums_manage > li
+{
+  overflow: hidden;
+}
+ul.albums_manage > li + li
+{
+  padding-top: 10px;
+  border-top-width: 1px;
+  margin-top: 10px;
+}
+ul.albums_manage .albums_manage_photo
+{
+  float: left;
+  overflow: hidden;
+  margin-right: 10px;
+}
+ul.albums_manage .albums_manage_photo img
+{
+  width: 170px;
+  margin: 3px;
+  display: block;
+}
+ul.albums_manage .albums_manage_info
+{
+  width: 380px;
+  float: left;
+  overflow: hidden;
+}
+ul.albums_manage .albums_manage_info > a
+{
+  font-weight: bold;
+}
+ul.albums_manage .albums_manage_info_photos
+{
+  font-size: .8em;
+  color: $theme_font_color_light;
+}
+ul.albums_manage .albums_manage_info_desc
+{
+  margin-top: 3px;
+}
+ul.albums_manage .albums_manage_options
+{
+  width: 150px;
+  float: none;
+  overflow: hidden;
+  padding-left: 15px;
+  text-align: left;
+}
+ul.albums_manage .albums_manage_options > a
+{
+  margin: 2px;
+  text-align: left;
+  float: left;
+}
+ul.albums_editphotos
+{
+  width: 600px;
+}
+ul.albums_editphotos > li
+{
+  padding-top: 15px;
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+ul.albums_editphotos > li .albums_editphotos_photo
+{
+  float: left;
+  margin-right: 15px;
+  overflow: hidden;
+}
+ul.albums_editphotos > li .albums_editphotos_photo img
+{
+  display: block;
+  margin: 3px;
+  width: 170px;
+}
+ul.albums_editphotos > li .albums_editphotos_info
+{
+  overflow: hidden;
+}
+ul.albums_editphotos > li .albums_editphotos_title_input input,
+ul.albums_editphotos > li .album_editphotos_caption_input textarea
+{
+  margin: 2px 0px 6px 0px;
+  width: 25em;
+}
+ul.albums_editphotos > li .album_editphotos_caption_input textarea
+{
+  height: 2.5em;
+}
+ul.albums_editphotos > li .albums_editphotos_label
+{
+  float: left;
+}
+ul.albums_editphotos > li .albums_editphotos_cover
+{
+  float: left;
+}
+ul.albums_editphotos > li .photo-delete-wrapper
+{
+  float: left;
+  margin-right: 15px;
+}
+ul.albums_editphotos > li .photo-delete-wrapper > label
+{
+  display: block;
+  float: left;
+}
+
+
+
+
+/*
+VIEW PHOTO
+These styles are used on the view photo page within
+an album.
+*/
+div.albums_viewmedia
+{
+  margin: 25px auto 0px auto;
+  /* max-width: 750px; close by quangnvh at 14h04 5/6/2011' */ 
+  min-width: 400px;
+  overflow: visible;
+}
+div.albums_viewmedia #media_photo
+{
+  border: 1px solid $theme_photo_border_color;
+  margin: auto;
+  display: block;
+ /* width: 710px; close by quangnvh at 14h04 5/6/2011' */ 
+  height:auto;
+}
+div.albums_viewmedia .albums_viewmedia_nav
+{
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+div.albums_viewmedia .albums_viewmedia_nav > div
+{
+  float: left;
+  overflow: visible;
+}
+div.albums_viewmedia .albums_viewmedia_nav > div + div
+{
+  float: none;
+  text-align: right;
+}
+div.albums_viewmedia .albums_viewmedia_nav > div + div > a + a
+{
+  margin-left: 20px;
+}
+div.albums_viewmedia_info
+{
+  +foreground;
+  +rounded;
+  text-align: center;
+  padding-top: 5px;
+  border: 5px solid $theme_foreground_border_color;
+}
+div.album_viewmedia_container
+{
+  position: relative;
+  display: inline-block;
+}
+div.album_viewmedia_container a:link
+{
+  text-decoration: none;
+}
+div.albums_viewmedia_info p
+{
+  text-align: left;
+}
+div.albums_viewmedia > span + div > a
+{
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+div.albums_viewmedia > span + div > a:link
+{
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+div.albums_viewmedia_info .albums_viewmedia_info_title
+{
+  margin-top: 5px;
+  font-weight: bold;
+}
+div.albums_viewmedia_info .albums_viewmedia_info_caption
+{
+  margin-top: 3px;
+  font-size: .8em;
+}
+div.albums_viewmedia_info .albums_viewmedia_info_title + .albums_viewmedia_info_tags,
+div.albums_viewmedia_info .albums_viewmedia_info_caption + .albums_viewmedia_info_tags
+{
+  margin-top: 15px;
+}
+div.albums_viewmedia_info .albums_viewmedia_info_tags
+{
+  font-size: .8em;
+  margin-top: 5px;
+}
+div.albums_viewmedia_info .albums_viewmedia_info_date
+{
+  font-size: .8em;
+  margin-top: 5px;
+}
+div.albums_viewmedia > div.comments
+{
+  margin-top: 15px;
+}
+span.albums_tag_listcontainer > a
+{
+  font-weight: bold;
+}
+
+
+
+
+/* ACTION TYPE ICONS */
+.activity_icon_comment_album,
+.activity_icon_comment_album_photo
+{
+  background-image: url(~/application/modules/Core/externals/images/types/post.png);
+}
+
+
+
+
+
+/* ITEM TYPE ICONS */
+.item_icon_album,
+.item_icon_album_photo
+{
+  background-image: url(~/application/modules/Album/externals/images/types/album.png);
+}
+
+
+
+
+/* ICONS */
+.icon_photos_new
+{
+  background-image: url(~/application/modules/Album/externals/images/add.png);
+}
+.icon_photos_manage
+{
+  background-image: url(~/application/modules/Album/externals/images/album_manage.png);
+}
+.icon_photos_settings
+{
+  background-image: url(~/application/modules/Album/externals/images/album_editinfo.png);
+}
+.icon_photos_delete
+{
+  background-image: url(~/application/modules/Album/externals/images/album_delete.png);
+}
+
+#global_page_album-album-edit #albums_edit #buttons-wrapper #fieldset-buttons{padding-left: 167px;}
+.albums_manage li{border-top:1px solid #EAEAEA;}
+li.first-group{border-top:none !important;}

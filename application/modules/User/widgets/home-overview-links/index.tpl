@@ -11,35 +11,20 @@
  */
 ?>
 
-<ul class="pt-menu-left">
-	<li>
-		<h3>Bảng điều khiển</h3>
-	</li>
-	<li>
-		<a href="#" class="pt-active"><span class="pt-icon-menu-left pt-icon-menu-01"></span><span class="pt-menu-text">Bảng tin</span><span class="pt-number">23</span></a>
-	</li>
-	<li>
-		<a href="#"><span class="pt-icon-menu-left pt-icon-menu-02"></span><span class="pt-menu-text">Tin nhắn</span></a>
-	</li>
-	<li>
-		<a href="#"><span class="pt-icon-menu-left pt-icon-menu-03"></span><span class="pt-menu-text">Sự kiện</span></a>
-	</li>
-	<li>
-		<a href="#"><span class="pt-icon-menu-left pt-icon-menu-04"></span><span class="pt-menu-text">Album ảnh</span></a>
-	</li>
-	<li>
-		<h3>Nhóm</h3>
-	</li>
-	<li>
-		<a href="#"><span class="pt-icon-menu-left pt-icon-menu-05"></span><span class="pt-menu-text">Gris Fox</span><span class="pt-number">9</span></a>
-	</li>
-	<li>
-		<a href="#"><span class="pt-icon-menu-left pt-icon-menu-06"></span><span class="pt-menu-text">STD</span></a>
-	</li>
-	<li>
-		<a href="#"><span class="pt-icon-menu-left pt-icon-menu-07"></span><span class="pt-menu-text">138 Hải Phòng</span></a>
-	</li>
-	<li>
-		<a href="#"><span class="pt-icon-menu-left pt-icon-menu-08"></span><span class="pt-menu-text">18+</span></a>
-	</li>
-</ul>
+<div class="pt-menu-left"> 
+	<h3>Bảng điều khiển</h3>
+	<ul id="member-home-left-main-menu">
+		<li>
+			<a href="javascript:void(0)" class="pt-active" id="link-newfeed"><span class="pt-icon-menu-left pt-icon-menu-01"></span><span class="pt-menu-text">Bảng tin</span><span class="pt-number">23</span></a>
+		</li>
+		<li>
+			<a href="javascript:void(0)" id="link-message"><span class="pt-icon-menu-left pt-icon-menu-02"></span><span class="pt-menu-text">Tin nhắn</span></a>
+		</li>
+		<li>
+			<a href="javascript:void(0)" id="link-events"><span class="pt-icon-menu-left pt-icon-menu-03"></span><span class="pt-menu-text">Sự kiện</span></a>
+		</li>
+		<li>
+			<a href="javascript:void(0)" id="link-albums"><span class="pt-icon-menu-left pt-icon-menu-04"></span><span class="pt-menu-text">Album ảnh</span></a>
+		</li>
+	</ul>
+</div>

@@ -46,9 +46,9 @@ en4.activity = {
         subject : en4.core.subject.guid
       }
     }), {
-      //'element' : $('activity-item-'+action_id),
+      'element' : $('activity-item-'+action_id),
       //'updateHtmlMode': 'comments'
-      'element' : $('comment-likes-activity-item-'+action_id),
+//      'element' : $('comment-likes-activity-item-'+action_id),
       'updateHtmlMode': 'comments2'
     });
   },

@@ -17,8 +17,9 @@ class Experts_Widget_LastedQuestionsController extends Engine_Content_Widget_Abs
     ->where('engine4_experts_questions.status in (2,3)')
     ->group('engine4_experts_questions.question_id')
     ->order('engine4_experts_answers.created_date desc')
-    ->limit(5);
+    ->limit(3);
     $data = $questionTable->fetchAll($questions_select);
+
     $this->view->data = $data;
   }
 }

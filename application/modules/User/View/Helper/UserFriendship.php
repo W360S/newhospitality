@@ -17,7 +17,7 @@
  * @license    http://www.socialengine.com/license/ */
 class User_View_Helper_UserFriendship extends Zend_View_Helper_Abstract
 {
-  public function userFriendship($user, $viewer = null)
+  public function userFriendship($user, $viewer = null, $class=null)
   {
     if( null === $viewer ) {
       $viewer = Engine_Api::_()->user()->getViewer();
@@ -68,15 +68,15 @@ class User_View_Helper_UserFriendship extends Zend_View_Helper_Abstract
       // one-way mode
       if( null === $row ) {
         return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $user->user_id), $this->view->translate('Follow'), array(
-          'class' => 'buttonlink smoothbox icon_friend_add'
+          'class' => 'buttonlink smoothbox icon_friend_add '.$class
         ));
       } else if( $row->resource_approved == 0 ) {
         return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'cancel', 'user_id' => $user->user_id), $this->view->translate('Cancel Follow Request'), array(
-          'class' => 'buttonlink smoothbox icon_friend_cancel'
+          'class' => 'buttonlink smoothbox icon_friend_cancel '.$class
         ));
       } else {
         return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'remove', 'user_id' => $user->user_id), $this->view->translate('Unfollow'), array(
-          'class' => 'buttonlink smoothbox icon_friend_remove'
+          'class' => 'buttonlink smoothbox icon_friend_remove '.$class
         ));
       }
 
@@ -84,19 +84,19 @@ class User_View_Helper_UserFriendship extends Zend_View_Helper_Abstract
       // two-way mode
       if( null === $row ) {
         return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $user->user_id), $this->view->translate('Add Friend'), array(
-          'class' => 'buttonlink smoothbox icon_friend_add'
+          'class' => 'buttonlink smoothbox icon_friend_add '.$class
         ));
       } else if( $row->user_approved == 0 ) {
         return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'cancel', 'user_id' => $user->user_id), $this->view->translate('Cancel Request'), array(
-          'class' => 'buttonlink smoothbox icon_friend_cancel'
+          'class' => 'buttonlink smoothbox icon_friend_cancel '.$class
         ));
       } else if( $row->resource_approved == 0 ) {
         return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'confirm', 'user_id' => $user->user_id), $this->view->translate('Accept Request'), array(
-          'class' => 'buttonlink smoothbox icon_friend_add'
+          'class' => 'buttonlink smoothbox icon_friend_add '.$class
         ));
       } else if( $row->active ) {
         return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'remove', 'user_id' => $user->user_id), $this->view->translate('Remove Friend'), array(
-          'class' => 'buttonlink smoothbox icon_friend_remove'
+          'class' => 'buttonlink smoothbox icon_friend_remove '.$class
         ));
       }
     }

@@ -1245,10 +1245,10 @@ html[dir="rtl"] .icon_next
 {
   background-image: url(~/application/modules/Core/externals/images/clear.png);
 }
-.icon_friend_add
+/*.icon_friend_add
 {
   background-image: url(~/application/modules/User/externals/images/friends/add.png);
-}
+}*/
 .icon_friend_remove
 {
   background-image: url(~/application/modules/User/externals/images/friends/remove.png);

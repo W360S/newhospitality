@@ -71,11 +71,11 @@ $this->headScript()
 </script>
 
 
-<?php /* if (!$this->getUpdate): ?>
+<?php if (!$this->getUpdate): ?>
     <ul class='feed' id="activity-feed">
-<?php endif */ ?>
+<?php endif ?>
 
-<ul class='feed' id="activity-feed">
+<!-- <ul class='feed' id="activity-feed"> -->
 
     <?php
     foreach ($actions as $action): // (goes to the end of the file)
@@ -116,7 +116,8 @@ $this->headScript()
                 </div>
 
                 <div class="pt-content-user-post">
-                    <p><?php echo $action->VHgetBodyText() ?></p>
+                    <p><?php echo $action->getContent() ?></p>
+                    <!-- <p><?php //echo $action->VHgetBodyText() ?></p> -->
                 </div>
 
                 <!--BEGIN ATTACHMENT-->
@@ -184,7 +185,7 @@ $this->headScript()
                 ?>
 
                 <!--LIKE SHARE COMMENT SECTION BEGIN-->
-                <div class="pt-user-post-comment">
+                <div class="pt-user-post-comment" id='comment-likes-activity-item-<?php echo $action->action_id ?>'>
 
                     <!--LIKE BUTTON BEGIN -->
                     <?php if ($canComment): ?>
@@ -283,11 +284,11 @@ $this->headScript()
                               <button type='submit'>Post</button>
                               </form>
                              */ ?>
-                        <?php if($canComment): ?>
+                        <?php /* if($canComment): ?>
                             <div class="pt-textarea">
                                 <textarea name="add_comment_text_text" title="Viết bình luận..." placeholder="Write a comment ..." value="Write a comment ..." data-reactid="" aria-owns="" aria-haspopup="true" aria-expanded="false" aria-label="Write a comment ..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 28px;"></textarea>
                             </div>
-                        <?php endif ?>
+                        <?php endif */ ?>
                     </div>
                 <?php endif; ?>
                 <!-- COMMENT LIST END -->
@@ -308,7 +309,7 @@ $this->headScript()
     endforeach;
     ?>
 
-    <?php /* if (!$this->getUpdate): ?>
+    <?php  if (!$this->getUpdate): ?>
     </ul>
-    <?php endif */?>
-</ul>
+    <?php endif ?>
+<!-- </ul> -->

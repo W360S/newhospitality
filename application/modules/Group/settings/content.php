@@ -107,6 +107,13 @@ return array(
         'name' => 'group.manage-search'
     ),
     array(
+        'title' => 'Member Home Group',
+        'description' => 'Member Home Group',
+        'category' => 'Group',
+        'type' => 'widget',
+        'name' => 'group.member-home-groups'
+    ),
+    array(
         'title' => 'my Categories',
         'description' => 'my Categories',
         'category' => 'category',
