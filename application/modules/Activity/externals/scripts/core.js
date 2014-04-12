@@ -63,9 +63,9 @@ en4.activity = {
         subject : en4.core.subject.guid
       }
     }), {
-      //'element' : $('activity-item-'+action_id),
+      'element' : $('activity-item-'+action_id),
       //'updateHtmlMode': 'comments'
-      'element' : $('comment-likes-activity-item-'+action_id),
+//      'element' : $('comment-likes-activity-item-'+action_id),
       'updateHtmlMode': 'comments2'
     });
   },
@@ -85,9 +85,9 @@ en4.activity = {
         subject : en4.core.subject.guid
       }
     }), {
-      //'element' : $('activity-item-'+action_id),
+      'element' : $('activity-item-'+action_id),
       //'updateHtmlMode': 'comments'
-      'element' : $('comment-likes-activity-item-'+action_id),
+//      'element' : $('comment-likes-activity-item-'+action_id),
       'updateHtmlMode': 'comments2'
     });
   },
@@ -583,3 +583,8 @@ ActivityUpdateHandler = new Class({
 
 
 })(); // END NAMESPACE
+
+jQuery(document).ready(function($){
+  // alert("ok");
+  
+});

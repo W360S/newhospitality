@@ -110,7 +110,7 @@ endif;
 
         <form method="post" action="<?php echo $this->url(array('module' => 'activity', 'controller' => 'index', 'action' => 'post'), 'default', true) ?>" class="activity" enctype="application/x-www-form-urlencoded" id="activity-form">
             <textarea id="activity_body" cols="1" rows="1" name="body" placeholder="<?php echo $this->escape($this->translate('Post Something...')) ?>"></textarea>
-            <input type="hidden" name="return_url" value="<?php echo $this->url() ?>" />
+            <input style="display:none" type="hidden" name="return_url" value="<?php echo $this->url() ?>" />
             <?php if ($this->viewer() && $this->subject() && !$this->viewer()->isSelf($this->subject())): ?>
                 <input type="hidden" name="subject" value="<?php echo $this->subject()->getGuid() ?>" />
     <?php endif; ?>

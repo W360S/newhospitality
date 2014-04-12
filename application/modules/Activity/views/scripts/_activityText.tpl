@@ -73,9 +73,9 @@ $this->headScript()
 
 <?php if (!$this->getUpdate): ?>
     <ul class='feed' id="activity-feed">
-<?php endif ?>
+    <?php endif ?>
 
-<!-- <ul class='feed' id="activity-feed"> -->
+    <!-- <ul class='feed' id="activity-feed"> -->
 
     <?php
     foreach ($actions as $action): // (goes to the end of the file)
@@ -92,7 +92,8 @@ $this->headScript()
             ?>
             <?php if (!$this->noList): ?>
                 <li id="activity-item-<?php echo $action->action_id ?>" data-activity-feed-item="<?php echo $action->action_id ?>">
-            <?php endif; ?>
+                <?php endif; ?>
+
                 <?php $this->commentForm->setActionIdentity($action->action_id) ?>
                 <script type="text/javascript">
                     (function() {
@@ -117,7 +118,7 @@ $this->headScript()
 
                 <div class="pt-content-user-post">
                     <p><?php echo $action->getContent() ?></p>
-                    <!-- <p><?php //echo $action->VHgetBodyText() ?></p> -->
+                    <!-- <p><?php //echo $action->VHgetBodyText()  ?></p> -->
                 </div>
 
                 <!--BEGIN ATTACHMENT-->
@@ -201,7 +202,41 @@ $this->headScript()
                             ))
                             ?>
                         <?php else: ?>
-                            <?php echo $this->htmlLink('javascript:void(0);', $this->translate('Comment'), array('onclick' => 'document.getElementById("' . $this->commentForm->getAttrib('id') . '").style.display = ""; document.getElementById("' . $this->commentForm->submit->getAttrib('id') . '").style.display = "block"; document.getElementById("' . $this->commentForm->body->getAttrib('id') . '").focus();')) ?>
+                            <?php echo $this->htmlLink(
+                                    'javascript:void(0);', 
+                                    $this->translate('Comment'), 
+                                    array('onclick' => 'document.getElementById("' . $this->commentForm->getAttrib('id') . '").style.display = ""; document.getElementById("' . $this->commentForm->submit->getAttrib('id') . '").style.display = "none"; document.getElementById("' . $this->commentForm->body->getAttrib('id') . '").focus();')) ?>
+                            <script type="text/javascript">
+                                en4.core.runonce.add(function() {
+                                    document.getElementById('<?php echo $this->commentForm->body->getAttrib('id') ?>').onkeydown = function(e){
+
+                                        var body = jQuery('#<?php echo $this->commentForm->body->getAttrib('id') ?>').val();
+                                        var action_id = '<?php echo $action->action_id ?>';
+
+                                        e = e || event;
+                                        if (e.keyCode === 13) {
+                                            en4.activity.comment(action_id, body);
+                                            /*
+                                            en4.core.request.send(new Request.JSON({
+                                              url : en4.core.baseUrl + 'activity/index/comment',
+                                              data : {
+                                                format : 'json',
+                                                action_id : action_id,
+                                                body : body,
+                                                subject : en4.core.subject.guid
+                                              },
+                                              'onSuccess': function(responseJSON, responseText){
+                                                    console.log(responseJSON);
+                                              }
+                                              }));
+                                            */
+                                        }
+                                        return true;
+                                    }
+                                });
+                                    
+                                
+                            </script>
                         <?php endif; ?>
                         <?php if ($this->viewAllComments): ?>
                             <script type="text/javascript">
@@ -220,83 +255,91 @@ $this->headScript()
 
                 <!--COMMENT LIST BEGIN-->
                 <?php if ($action->getTypeInfo()->commentable): ?>
-                    <div class='comments pt-user-comtent'>
-                        <ul>
-                            <?php if ($action->likes()->getLikeCount() > 0 && (count($action->likes()->getAllLikesUsers()) > 0)): ?>
-                                <li>
-                                    <div></div>
-                                    <div class="comments_likes">
-                                        <?php if ($action->likes()->getLikeCount() <= 3 || $this->viewAllLikes): ?>
-                                            <?php echo $this->translate(array('%s likes this.', '%s like this.', $action->likes()->getLikeCount()), $this->fluentList($action->likes()->getAllLikesUsers())) ?>
-                                        <?php else: ?>
-                                            <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), $this->translate(array('%s person likes this', '%s people like this', $action->likes()->getLikeCount()), $this->locale()->toNumber($action->likes()->getLikeCount())))?>
-                                        <?php endif; ?>
-                                    </div>
-                                </li>
-                            <?php endif; ?>
-                            <?php if ($action->comments()->getCommentCount() > 0): ?>
-                                <?php if ($action->comments()->getCommentCount() > 5 && !$this->viewAllComments): ?>
+                    <?php if ($action->comments()->getCommentCount() > 0): ?>
+                        <div class='comments pt-user-comtent'>
+                            <ul>
+                                <?php if ($action->likes()->getLikeCount() > 0 && (count($action->likes()->getAllLikesUsers()) > 0)): ?>
                                     <li>
                                         <div></div>
-                                        <div class="comments_viewall">
-                                            <?php if ($action->comments()->getCommentCount() > 2): ?>
-                                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_comments' => true)), $this->translate(array('View all %s comment', 'View all %s comments', $action->comments()->getCommentCount()), $this->locale()->toNumber($action->comments()->getCommentCount())))?>
+                                        <div class="comments_likes">
+                                            <?php if ($action->likes()->getLikeCount() <= 3 || $this->viewAllLikes): ?>
+                                                <?php echo $this->translate(array('%s likes this.', '%s like this.', $action->likes()->getLikeCount()), $this->fluentList($action->likes()->getAllLikesUsers())) ?>
                                             <?php else: ?>
-                                                <?php echo $this->htmlLink('javascript:void(0);', $this->translate(array('View all %s comment', 'View all %s comments', $action->comments()->getCommentCount()), $this->locale()->toNumber($action->comments()->getCommentCount())), array('onclick' => 'en4.activity.viewComments(' . $action->action_id . ');'))?>
+                                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), $this->translate(array('%s person likes this', '%s people like this', $action->likes()->getLikeCount()), $this->locale()->toNumber($action->likes()->getLikeCount()))) ?>
                                             <?php endif; ?>
                                         </div>
                                     </li>
                                 <?php endif; ?>
-
-                                <?php $comments = $action->getComments($this->viewAllComments);
-                                $commentLikes = $action->getCommentsLikes($comments, $this->viewer());?>
-                                    
-                                <?php foreach ($comments as $comment): ?>
-
-                                    <!-- BEGIN SINGLE COMMENT -->
-                                    <li id="comment-<?php echo $comment->comment_id ?>">
-                                        <div class="pt-user-post">
-                                            <a href="#">
-                                                <span class="pt-avatar">
-                                                    <?php $poster = $this->item($comment->poster_type, $comment->poster_id)?>
-                                                    <?php $avatar = $this->itemPhoto($poster, 'thumb.icon', $poster->getTitle()) ?>
-                                                    <?php echo $avatar?>
-                                                </span>
-                                            </a>
-                                            <div class="pt-how-info-user-post">
-                                                <h3><a href="<?php echo $poster->getHref()?>" class="pt-title-name"> <?php echo $poster->getTitle() ?></a><span class="pt-times">10:34 AM</span><a href="#" class="pt-like"><span></span>9</a><a href="#" class="pt-reply"><span></span>Trả lời</a></h3>
-                                                <p><?php echo $this->viewMore($comment->body) ?></p>
+                                <?php if ($action->comments()->getCommentCount() > 0): ?>
+                                    <?php if ($action->comments()->getCommentCount() > 5 && !$this->viewAllComments): ?>
+                                        <li>
+                                            <div></div>
+                                            <div class="comments_viewall">
+                                                <?php if ($action->comments()->getCommentCount() > 2): ?>
+                                                    <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_comments' => true)), $this->translate(array('View all %s comment', 'View all %s comments', $action->comments()->getCommentCount()), $this->locale()->toNumber($action->comments()->getCommentCount()))) ?>
+                                                <?php else: ?>
+                                                    <?php echo $this->htmlLink('javascript:void(0);', $this->translate(array('View all %s comment', 'View all %s comments', $action->comments()->getCommentCount()), $this->locale()->toNumber($action->comments()->getCommentCount())), array('onclick' => 'en4.activity.viewComments(' . $action->action_id . ');')) ?>
+                                                <?php endif; ?>
                                             </div>
-                                            
-                                        </div>
-                                    </li>
-                                    <!-- END SINGLE COMMENT -->
-                                <?php endforeach; ?>
+                                        </li>
+                                    <?php endif; ?>
 
-                                
+                                    <?php $comments = $action->getComments($this->viewAllComments);
+                                    $commentLikes = $action->getCommentsLikes($comments, $this->viewer());
+                                    ?>
+
+                    <?php foreach ($comments as $comment): ?>
+
+                                        <!-- BEGIN SINGLE COMMENT -->
+                                        <li id="comment-<?php echo $comment->comment_id ?>">
+                                            <div class="pt-user-post">
+                                                <a href="#">
+                                                    <span class="pt-avatar">
+                                                        <?php $poster = $this->item($comment->poster_type, $comment->poster_id) ?>
+                                                        <?php $avatar = $this->itemPhoto($poster, 'thumb.icon', $poster->getTitle()) ?>
+                        <?php echo $avatar ?>
+                                                    </span>
+                                                </a>
+                                                <div class="pt-how-info-user-post">
+                                                    <h3>
+                                                        <a href="<?php echo $poster->getHref() ?>" class="pt-title-name"> <?php echo $poster->getTitle() ?></a>
+                                                        <span class="pt-times"><?php echo $this->timestamp($comment->creation_date); ?></span>
+                                                        <a href="#" class="pt-like"><span></span><?php echo $comment->likes()->getLikeCount() ?></a>
+                                                        <a href="#" class="pt-reply"><span></span>Trả lời</a>
+                                                    </h3>
+                                                    <p><?php echo $this->viewMore($comment->body) ?></p>
+                                                </div>
+
+                                            </div>
+                                        </li>
+                                        <!-- END SINGLE COMMENT -->
+                    <?php endforeach; ?>
+
+
 
 
                             <?php endif; ?>
-                        </ul>
-                        <?php /*if ($canComment) echo $this->commentForm->render() 
-                              <form>
-                              <textarea rows='1'>Add a comment...</textarea>
-                              <button type='submit'>Post</button>
-                              </form>
-                             */ ?>
-                        <?php /* if($canComment): ?>
-                            <div class="pt-textarea">
-                                <textarea name="add_comment_text_text" title="Viết bình luận..." placeholder="Write a comment ..." value="Write a comment ..." data-reactid="" aria-owns="" aria-haspopup="true" aria-expanded="false" aria-label="Write a comment ..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 28px;"></textarea>
-                            </div>
-                        <?php endif */ ?>
-                    </div>
-                <?php endif; ?>
-                <!-- COMMENT LIST END -->
-                
-
-                <?php if (!$this->noList): ?>
-                </li>
+                            </ul>
+                            <?php /*if ($canComment) echo $this->commentForm->render() /*
+                                  <form>
+                                  <textarea rows='1'>Add a comment...</textarea>
+                                  <button type='submit'>Post</button>
+                                  </form>
+                                 */ ?>
+                        </div>
                     <?php endif; ?>
+        <?php endif; ?>
+                <!-- COMMENT LIST END -->
+
+                    <?php if ($canComment) : ?>
+                    <div class="pt-textarea">
+                    <?php echo $this->commentForm->render() ?>
+                    </div>
+                <?php endif ?>
+
+            <?php if (!$this->noList): ?>
+                </li>
+            <?php endif; ?>
 
             <?php
             ob_end_flush();
@@ -309,7 +352,7 @@ $this->headScript()
     endforeach;
     ?>
 
-    <?php  if (!$this->getUpdate): ?>
+<?php if (!$this->getUpdate): ?>
     </ul>
-    <?php endif ?>
+<?php endif ?>
 <!-- </ul> -->

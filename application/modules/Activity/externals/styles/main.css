@@ -147,7 +147,7 @@ ul.feed
 }
 ul.feed > li
 {
-  padding: 0px 0px 10px 0px;
+  /*padding: 0px 0px 10px 0px;*/
   overflow: hidden;
 }
 ul.feed > li + li

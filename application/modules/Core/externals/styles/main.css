@@ -1237,10 +1237,10 @@ html[dir="rtl"] .icon_next
 {
   background-image: url(~/application/modules/Core/externals/images/comments.png);
 }
-.icon_viewmore
+/*.icon_viewmore
 {
   background-image: url(~/application/modules/Core/externals/images/viewmore.png);
-}
+}*/
 .icon_clearlist
 {
   background-image: url(~/application/modules/Core/externals/images/clear.png);
