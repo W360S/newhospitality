@@ -124,6 +124,27 @@ class Activity_Model_Action extends Core_Model_Item_Abstract {
         return $content;
     }
 
+    public function VHgetBodyText(){
+        $model = Engine_Api::_()->getApi('core', 'activity');
+        $params = array_merge(
+                $this->toArray(), (array) $this->params, array(
+            'subject' => $this->getSubject(),
+            'object' => $this->getObject()
+                )
+        );
+        //$content = $model->assemble($this->body, $params);
+        $content = $model->get("bodytext",$this->getTypeInfo()->body, $params);
+        return $content;
+    }
+    
+    public function VHgetUsername(){
+        
+    }
+    
+    public function VHgetDatePost(){
+        
+    }
+
     /**
      * Magic to string {@link self::getContent()}
      * @return string

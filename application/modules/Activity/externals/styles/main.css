@@ -305,7 +305,8 @@ ul.feed .feed_item_link_desc
 {
   font-size: 0.8em;
 }
-ul.feed .comments
+
+/*ul.feed .comments
 {
   width: 360px;
 }
@@ -326,7 +327,7 @@ ul.feed .comments > ul > li > div > a > img
 {
   width: 32px;
   height: 32px;
-}
+}*/
 ul.feed span.view_more .view_more_link
 {
   display: inline-block;

@@ -10,9 +10,10 @@
  */
 ?>
 
-<h3>
-  <?php echo $this->translate('Hi %1$s!', $this->viewer()->getTitle()); ?>
-</h3>
-<div>
-  <?php echo $this->htmlLink($this->viewer()->getHref(), $this->itemPhoto($this->viewer(), 'thumb.profile')) ?>
+<div class="pt-boss">
+        <a href="<?php $this->viewer()->getHref() ?>"><span class="pt-avatar"><?php echo $this->itemPhoto($this->viewer(), 'thumb.profile') ?></span></a>
+        <div class="pt-how-info-boss">
+                <h3><a href="#"><?php echo $this->viewer()->getTitle() ?></a></h3>
+                <p><a href="<?php $this->viewer()->getHref() ?>">Trang cá nhân</a></p>
+        </div>
 </div>

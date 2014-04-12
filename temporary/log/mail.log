@@ -18,3 +18,13 @@
 2014-04-10T16:23:10+00:00 DEBUG (7): [System] (notify_friend_accepted) dinhkhang.pham@gmail.com <- email@domain.com
 2014-04-10T17:11:07+00:00 DEBUG (7): [Zend] duyviet.ph@gmail.com <- email@domain.com
 2014-04-10T17:11:07+00:00 DEBUG (7): [System] (notify_friend_accepted) duyviet.ph@gmail.com <- email@domain.com
+2014-04-11T16:35:40+00:00 DEBUG (7): [Zend] huy@boomarang.com.vn <- email@domain.com
+2014-04-11T16:35:40+00:00 DEBUG (7): [System] (notify_friend_accepted) huy@boomarang.com.vn <- email@domain.com
+2014-04-11T16:35:40+00:00 DEBUG (7): [Zend] sondv4@gmail.com <- email@domain.com
+2014-04-11T16:35:40+00:00 DEBUG (7): [System] (notify_friend_accepted) sondv4@gmail.com <- email@domain.com
+2014-04-12T03:28:09+00:00 DEBUG (7): [Zend] huynhnv88@gmail.com <- email@domain.com
+2014-04-12T03:28:09+00:00 DEBUG (7): [System] (notify_liked) huynhnv88@gmail.com <- email@domain.com
+2014-04-12T03:28:09+00:00 DEBUG (7): [Zend] ntruong1804@gmail.com <- email@domain.com
+2014-04-12T03:28:09+00:00 DEBUG (7): [System] (notify_liked) ntruong1804@gmail.com <- email@domain.com
+2014-04-12T03:28:09+00:00 DEBUG (7): [Zend] bangvn.dng1@gmail.com <- email@domain.com
+2014-04-12T03:28:09+00:00 DEBUG (7): [System] (notify_liked) bangvn.dng1@gmail.com <- email@domain.com

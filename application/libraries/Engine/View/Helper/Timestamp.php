@@ -65,6 +65,10 @@ class Engine_View_Helper_Timestamp extends Zend_View_Helper_HtmlElement
     $this->_extraClass = null;
     $content = $this->calculateDefaultTimestamp($time);
     
+    if(isset($attribs['notag'])){
+        return $content;
+    }
+    
     // Prepare attributes
     // Format: 'Tue, 08 Dec 2009 19:59:52 -0800'
     $tag = $this->_tag;

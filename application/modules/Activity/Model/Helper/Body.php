@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SocialEngine
  *
@@ -15,20 +16,28 @@
  * @package    Activity
  * @copyright  Copyright 2006-2010 webligo Developments
  * @license    http://www.socialengine.com/license/ */
-class Activity_Model_Helper_Body extends Activity_Model_Helper_Abstract
-{
-  /**
-   * Body helper
-   * 
-   * @param string $body
-   * @return string
-   */
-  public function direct($body)
-  {
-    if( Zend_Registry::isRegistered('Zend_View') ) {
-      $view = Zend_Registry::get('Zend_View');
-      $body = $view->viewMore($body);
+class Activity_Model_Helper_Body extends Activity_Model_Helper_Abstract {
+
+    /**
+     * Body helper
+     * 
+     * @param string $body
+     * @return string
+     */
+    public function direct($body) {
+        if (Zend_Registry::isRegistered('Zend_View')) {
+            $view = Zend_Registry::get('Zend_View');
+            $body = $view->viewMore($body);
+        }
+        return '<span class="feed_item_bodytext">' . $body . '</span>';
     }
-    return '<span class="feed_item_bodytext">' . $body . '</span>';
-  }
+    
+    public function bodytext($body) {
+        if (Zend_Registry::isRegistered('Zend_View')) {
+            $view = Zend_Registry::get('Zend_View');
+            $body = $view->viewMore($body);
+        }
+        return $body;
+    }
+
 }

@@ -31,6 +31,16 @@ return array(
     ),
   ),
   array(
+    'title' => 'Quick Overview Links',
+    'description' => 'Displays a list of quick links.',
+    'category' => 'User',
+    'type' => 'widget',
+    'name' => 'user.home-overview-links',
+    'requirements' => array(
+      'viewer',
+    ),
+  ),
+  array(
     'title' => 'User Photo',
     'description' => 'Displays the logged-in member\'s photo.',
     'category' => 'User',

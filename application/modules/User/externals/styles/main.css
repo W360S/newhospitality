@@ -129,40 +129,6 @@ Small widget, only available when member is
 signed-in, that shows their profile photo,
 a short welcome message and a sign out link.
 */
-.layout_user_home_photo
-{
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-.layout_user_home_photo > div
-{
-  +foreground;
-  +rounded;
-  padding: 7px;
-  overflow: hidden;
-}
-.layout_user_home_photo > div *
-{
-  text-align: center;
-}
-.layout_user_home_photo > div > a
-{
-  display: block;
-  text-decoration: none;
-}
-.layout_user_home_photo > div > a > img
-{
-  width: 99%;
-  display: block;
-  margin: 0px auto 0px auto;
-}
-.layout_user_home_photo > div > p
-{
-  font-weight: normal;
-  margin-top: 7px;
-}
-
-
 
 /*
 WHOS ONLINE WIDGET
