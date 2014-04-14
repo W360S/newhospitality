@@ -161,8 +161,8 @@ var ChatHandler = new Class({
     this.fireEvent('onPingBefore', extraData);
 
     var request = new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=ping',
-      //url : this.options.baseUrl + 'chat/ajax/ping',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=ping',
+      url : this.options.baseUrl + 'chat/ajax/ping',
       data : $merge({
         'format' : 'json',
         'fresh' : fresh,
@@ -179,8 +179,8 @@ var ChatHandler = new Class({
     this._log({'type' : 'cmd.join', 'room_id' : room_id});
 
     var request = new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=join',
-      //url : this.options.baseUrl + 'chat/ajax/join',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=join',
+      url : this.options.baseUrl + 'chat/ajax/join',
       data : {
         'format' : 'json',
         'room_id' : room_id
@@ -196,8 +196,8 @@ var ChatHandler = new Class({
     this._log({'type' : 'cmd.leave', 'room_id' : room_id});
 
     var request = new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=leave',
-      //url : this.options.baseUrl + 'chat/ajax/leave',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=leave',
+      url : this.options.baseUrl + 'chat/ajax/leave',
       data : {
         'format' : 'json',
         'room_id' : room_id
@@ -213,8 +213,8 @@ var ChatHandler = new Class({
     this._log({'type' : 'cmd.send', 'room_id' : room_id, 'message' : message});
 
     return (new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=send',
-      //url : this.options.baseUrl + 'chat/ajax/send',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=send',
+      url : this.options.baseUrl + 'chat/ajax/send',
       data : {
         'format' : 'json',
         'room_id' : room_id,
@@ -228,8 +228,8 @@ var ChatHandler = new Class({
     this._log({'type' : 'cmd.whisper', 'user_id' : user_id, 'message' : message});
     
     return (new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=whisper',
-      //url : this.options.baseUrl + 'chat/ajax/whisper',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=whisper',
+      url : this.options.baseUrl + 'chat/ajax/whisper',
       data : {
         'format' : 'json',
         'user_id' : user_id,
@@ -243,8 +243,8 @@ var ChatHandler = new Class({
     this._log({'type' : 'cmd.whisperClose', 'user_id' : user_id});
 
     return (new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=whisper-close',
-      //url : this.options.baseUrl + 'chat/ajax/whisper-close',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=whisper-close',
+      url : this.options.baseUrl + 'chat/ajax/whisper-close',
       data : {
         'format' : 'json',
         'user_id' : user_id
@@ -257,8 +257,8 @@ var ChatHandler = new Class({
     this._log({'type' : 'cmd.status', 'state' : state});
 
     return (new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=status',
-      //url : this.options.baseUrl + 'chat/ajax/status',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=status',
+      url : this.options.baseUrl + 'chat/ajax/status',
       data : {
         'format' : 'json',
         'status' : state,
@@ -272,8 +272,8 @@ var ChatHandler = new Class({
     this._log({'type' : 'cmd.list'});
 
     return (new Request.JSON({
-      url : this.options.basePath + 'application/lite.php?module=chat&action=list',
-      //url : this.options.baseUrl + 'chat/ajax/list',
+      // url : this.options.basePath + 'application/lite.php?module=chat&action=list',
+      url : this.options.baseUrl + 'chat/ajax/list',
       data : {
         'format' : 'json'
       },
@@ -285,6 +285,10 @@ var ChatHandler = new Class({
   // Handle requests
 
   onPingResponse : function(responseJSON) {
+
+    console.log("onPingResponse");
+    console.log(responseJSON);
+    
     this._log({'type' : 'resp.ping', 'data' : responseJSON});
 
     try {
@@ -325,14 +329,14 @@ var ChatHandler = new Class({
     {
       this._log({type:'error', data: e});
     }
-    /*
+    
     //huynhnv comments
     if( $type(responseJSON.status) && responseJSON.status ) {
       this.fireEvent('onPingSuccess', responseJSON);
     } else {
       this.fireEvent('onPingFailure', responseJSON);
     }
-    */
+    
   },
 
   onJoinResponse : function(responseJSON, room_id) {
@@ -352,13 +356,13 @@ var ChatHandler = new Class({
 
     responseJSON.room_id = room_id;
     this.fireEvent('onJoin', responseJSON);
-    /*
+    
     if( $type(responseJSON.status) && responseJSON.status ) {
       this.fireEvent('onJoinSuccess', responseJSON);
     } else {
       this.fireEvent('onJoinFailure', responseJSON);
     }
-    */
+    
   },
 
   onLeaveResponse : function(responseJSON, room_id) {
@@ -366,13 +370,13 @@ var ChatHandler = new Class({
 
     responseJSON.room_id = room_id;
     this.fireEvent('onLeave', responseJSON);
-    /*
+    
     if( $type(responseJSON.status) && responseJSON.status ) {
       this.fireEvent('onLeaveSuccess', responseJSON);
     } else {
       this.fireEvent('onLeaveFailure', responseJSON);
     }
-    */
+    
   },
 
   onSendResponse : function(responseJSON, room_id, callback) {
@@ -1768,6 +1772,7 @@ var ChatHandler_Whispers_UI_Conversation = new Class({
     // Get message
     if( this.handler.handler._supportsContentEditable() ) {
       message = this.elements.menuInput.get('html');
+      console.log(message);
 
       // Webkit you're killing me!
       if( Browser.Engine.webkit ) {
@@ -1795,12 +1800,13 @@ var ChatHandler_Whispers_UI_Conversation = new Class({
       }
       this.elements.menuInput.focus();
      
-      message = message.stripTags();
+      // message = message.stripTags();
+      message = message.replace(/(<([^>]+)>)/ig,"");
     } else {
       message = this.elements.menuInput.get('value');
       this.elements.menuInput.set('value', '');
     }
-
+    console.log(message);
     message = message.trim();
     if( message == '' ) {
       return;

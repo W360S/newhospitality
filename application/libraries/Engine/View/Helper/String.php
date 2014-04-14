@@ -111,7 +111,7 @@ class Engine_View_Helper_String extends Zend_View_Helper_Abstract
 
   public function stripTags($string, $allowableTags = null)
   {
-    //return Engine_String::strip_tags($str, $allowable_tags);
+    // return Engine_String::strip_tags($str, $allowable_tags);
     return strip_tags($string, $allowableTags);
   }
 }

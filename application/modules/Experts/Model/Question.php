@@ -44,7 +44,9 @@ class Experts_Model_Question extends Core_Model_Item_Abstract {
     }
 
     public function getUser() {
-        return Engine_Api::_()->getItemTable('user')->find($this->user_id)[0];
+        $user = Engine_Api::_()->getItemTable('user')->find($this->user_id);
+
+        return $user[0];
     }
 
     public function setFiles($file_data) {

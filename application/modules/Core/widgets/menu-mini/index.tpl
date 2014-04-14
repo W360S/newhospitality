@@ -205,7 +205,7 @@ function crop($text, $qty) {
         <a href="#pt-fancybox">Đăng nhập</a>
         <div class="pt-none">
             <div id="pt-fancybox" class="login-checkout">
-                <form method="post" action="<?php echo $this->layout()->staticBaseUrl ?>/login" class="global_form" id="user_form_login" accept-charset="utf-8">
+                <form method="post" action="<?php echo $this->baseUrl() ?>/login" class="global_form" id="user_form_login" accept-charset="utf-8">
                     <fieldset>
                         <h3>Đăng nhập</h3>
                         <ul>
