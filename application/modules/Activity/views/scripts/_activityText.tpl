@@ -304,7 +304,9 @@ $this->headScript()
                                                     <h3>
                                                         <a href="<?php echo $poster->getHref() ?>" class="pt-title-name"> <?php echo $poster->getTitle() ?></a>
                                                         <span class="pt-times"><?php echo $this->timestamp($comment->creation_date); ?></span>
+                                                        <?php if($comment->likes()->getLikeCount() > 0): ?>
                                                         <a href="#" class="pt-like"><span></span><?php echo $comment->likes()->getLikeCount() ?></a>
+                                                        <?php endif; ?>
                                                         <a href="#" class="pt-reply"><span></span>Trả lời</a>
                                                     </h3>
                                                     <p><?php echo $this->viewMore($comment->body) ?></p>
