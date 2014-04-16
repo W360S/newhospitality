@@ -22,15 +22,22 @@ class User_Widget_ProfilePhotoController extends Engine_Content_Widget_Abstract
     // Don't render this if not authorized
     $viewer = Engine_Api::_()->user()->getViewer();
     if( !Engine_Api::_()->core()->hasSubject() ) {
-      return $this->setNoRender();
+      //return $this->setNoRender();
+      if ($viewer) {
+        # code...
+        $this->view->user = $viewer;
+      }else{
+        return $this->setNoRender();
+      }
+    }else{
+      // Get subject and check auth
+      $subject = Engine_Api::_()->core()->getSubject('user');
+      //if( !$subject->authorization()->isAllowed($viewer, 'view') ) {
+      //  return $this->setNoRender();
+      //}
+
+      $this->view->user = $subject;
     }
-
-    // Get subject and check auth
-    $subject = Engine_Api::_()->core()->getSubject('user');
-    //if( !$subject->authorization()->isAllowed($viewer, 'view') ) {
-    //  return $this->setNoRender();
-    //}
-
-    $this->view->user = $subject;
+    
   }
 }

@@ -13,6 +13,13 @@
  */
 return array(
     array(
+        'title' => 'Events Browse',
+        'description' => 'Browsing Events',
+        'category' => 'Event',
+        'type' => 'widget',
+        'name' => 'event.browse',
+    ),
+    array(
         'title' => 'Upcoming Events',
         'description' => 'Displays the logged-in member\'s upcoming events.',
         'category' => 'Event',
