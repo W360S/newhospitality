@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SocialEngine
  *
@@ -16,290 +17,278 @@
  * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.net/license/
  */
-class Group_ProfileController extends Core_Controller_Action_Standard
-{
-  private function setup($db){
+class Group_ProfileController extends Core_Controller_Action_Standard {
 
-    $select = new Zend_Db_Select($db);
+    private function setup($db) {
 
-    // profile page
-    $select
-      ->from('engine4_core_pages')
-      ->where('name = ?', 'user_profile_index')
-      ->limit(1);
-    $page_id = $select->query()->fetchObject()->page_id;
+        $select = new Zend_Db_Select($db);
 
-    // group.profile-groups
+        // profile page
+        $select
+                ->from('engine4_core_pages')
+                ->where('name = ?', 'user_profile_index')
+                ->limit(1);
+        $page_id = $select->query()->fetchObject()->page_id;
 
-    // Check if it's already been placed
-    $select = new Zend_Db_Select($db);
-    $select
-      ->from('engine4_core_content')
-      ->where('page_id = ?', $page_id)
-      ->where('type = ?', 'widget')
-      ->where('name = ?', 'group.profile-groups')
-      ;
-    $info = $select->query()->fetch();
+        // group.profile-groups
+        // Check if it's already been placed
+        $select = new Zend_Db_Select($db);
+        $select
+                ->from('engine4_core_content')
+                ->where('page_id = ?', $page_id)
+                ->where('type = ?', 'widget')
+                ->where('name = ?', 'group.profile-groups')
+        ;
+        $info = $select->query()->fetch();
 
-    if( empty($info) ) {
+        if (empty($info)) {
 
-      // container_id (will always be there)
-      $select = new Zend_Db_Select($db);
-      $select
-        ->from('engine4_core_content')
-        ->where('page_id = ?', $page_id)
-        ->where('type = ?', 'container')
-        ->limit(1);
-      $container_id = $select->query()->fetchObject()->content_id;
+            // container_id (will always be there)
+            $select = new Zend_Db_Select($db);
+            $select
+                    ->from('engine4_core_content')
+                    ->where('page_id = ?', $page_id)
+                    ->where('type = ?', 'container')
+                    ->limit(1);
+            $container_id = $select->query()->fetchObject()->content_id;
 
-      // middle_id (will always be there)
-      $select = new Zend_Db_Select($db);
-      $select
-        ->from('engine4_core_content')
-        ->where('parent_content_id = ?', $container_id)
-        ->where('type = ?', 'container')
-        ->where('name = ?', 'middle')
-        ->limit(1);
-      $middle_id = $select->query()->fetchObject()->content_id;
+            // middle_id (will always be there)
+            $select = new Zend_Db_Select($db);
+            $select
+                    ->from('engine4_core_content')
+                    ->where('parent_content_id = ?', $container_id)
+                    ->where('type = ?', 'container')
+                    ->where('name = ?', 'middle')
+                    ->limit(1);
+            $middle_id = $select->query()->fetchObject()->content_id;
 
-      // tab_id (tab container) may not always be there
-      $select
-        ->reset('where')
-        ->where('type = ?', 'widget')
-        ->where('name = ?', 'core.container-tabs')
-        ->where('page_id = ?', $page_id)
-        ->limit(1);
-      $tab_id = $select->query()->fetchObject();
-      if( $tab_id && @$tab_id->content_id ) {
-          $tab_id = $tab_id->content_id;
-      } else {
-        $tab_id = null;
-      }
+            // tab_id (tab container) may not always be there
+            $select
+                    ->reset('where')
+                    ->where('type = ?', 'widget')
+                    ->where('name = ?', 'core.container-tabs')
+                    ->where('page_id = ?', $page_id)
+                    ->limit(1);
+            $tab_id = $select->query()->fetchObject();
+            if ($tab_id && @$tab_id->content_id) {
+                $tab_id = $tab_id->content_id;
+            } else {
+                $tab_id = null;
+            }
 
-      // tab on profile
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type'    => 'widget',
-        'name'    => 'group.profile-groups',
-        'parent_content_id' => ($tab_id ? $tab_id : $middle_id),
-        'order'   => 9,
-        'params'  => '{"title":"Groups","titleCount":true}',
-      ));
-
-    }
-
-    //
-    // Group main page
-    //
-    // page
-
-
-    // Check if it's already been placed
-    $select = new Zend_Db_Select($db);
-    $select
-      ->from('engine4_core_pages')
-      ->where('name = ?', 'group_profile_index')
-      ->limit(1);
-      ;
-    $info = $select->query()->fetch();
-
-    if( empty($info) ) {
-      $db->insert('engine4_core_pages', array(
-        'name' => 'group_profile_index',
-        'displayname' => 'Group Profile',
-        'title' => 'Group Profile',
-        'description' => 'This is the profile for an group.',
-      ));
-      $page_id = $db->lastInsertId('engine4_core_pages');
-
-      // containers
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'container',
-        'name' => 'main',
-        'parent_content_id' => null,
-        'order' => 1,
-        'params' => '',
-      ));
-      $container_id = $db->lastInsertId('engine4_core_content');
-
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'container',
-        'name' => 'middle',
-        'parent_content_id' => $container_id,
-        'order' => 3,
-        'params' => '',
-      ));
-      $middle_id = $db->lastInsertId('engine4_core_content');
-
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'container',
-        'name' => 'left',
-        'parent_content_id' => $container_id,
-        'order' => 1,
-        'params' => '',
-      ));
-      $left_id = $db->lastInsertId('engine4_core_content');
-
-      // middle column
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'core.container-tabs',
-        'parent_content_id' => $middle_id,
-        'order' => 2,
-        'params' => '{"max":"6"}',
-      ));
-      $tab_id = $db->lastInsertId('engine4_core_content');
-
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-status',
-        'parent_content_id' => $middle_id,
-        'order' => 1,
-        'params' => '',
-      ));
-
-      // left column
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-photo',
-        'parent_content_id' => $left_id,
-        'order' => 1,
-        'params' => '',
-      ));
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-options',
-        'parent_content_id' => $left_id,
-        'order' => 2,
-        'params' => '',
-      ));
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-info',
-        'parent_content_id' => $left_id,
-        'order' => 3,
-        'params' => '',
-      ));
-
-      // tabs
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'activity.feed',
-        'parent_content_id' => $tab_id,
-        'order' => 1,
-        'params' => '{"title":"Updates"}',
-      ));
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-members',
-        'parent_content_id' => $tab_id,
-        'order' => 2,
-        'params' => '{"title":"Members","titleCount":true}',
-      ));
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-photos',
-        'parent_content_id' => $tab_id,
-        'order' => 3,
-        'params' => '{"title":"Photos","titleCount":true}',
-      ));
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-discussions',
-        'parent_content_id' => $tab_id,
-        'order' => 4,
-        'params' => '{"title":"Discussions","titleCount":true}',
-      ));
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'core.profile-links',
-        'parent_content_id' => $tab_id,
-        'order' => 5,
-        'params' => '{"title":"Links","titleCount":true}',
-      ));
-      $db->insert('engine4_core_content', array(
-        'page_id' => $page_id,
-        'type' => 'widget',
-        'name' => 'group.profile-events',
-        'parent_content_id' => $tab_id,
-        'order' => 6,
-        'params' => '{"title":"Events","titleCount":true}',
-      ));
-    }
-  }
-
-  public function init()
-  {
-
-    // @todo this may not work with some of the content stuff in here, double-check
-    $subject = null;
-    if( !Engine_Api::_()->core()->hasSubject() )
-    {
-      $id = $this->_getParam('id');
-      if( null !== $id )
-      {
-        $subject = Engine_Api::_()->getItem('group', $id);
-        if( $subject && $subject->getIdentity() )
-        {
-          Engine_Api::_()->core()->setSubject($subject);
+            // tab on profile
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-groups',
+                'parent_content_id' => ($tab_id ? $tab_id : $middle_id),
+                'order' => 9,
+                'params' => '{"title":"Groups","titleCount":true}',
+            ));
         }
-      }
+
+        //
+        // Group main page
+        //
+    // page
+        // Check if it's already been placed
+        $select = new Zend_Db_Select($db);
+        $select
+                ->from('engine4_core_pages')
+                ->where('name = ?', 'group_profile_index')
+                ->limit(1);
+        ;
+        $info = $select->query()->fetch();
+
+        if (empty($info)) {
+            $db->insert('engine4_core_pages', array(
+                'name' => 'group_profile_index',
+                'displayname' => 'Group Profile',
+                'title' => 'Group Profile',
+                'description' => 'This is the profile for an group.',
+            ));
+            $page_id = $db->lastInsertId('engine4_core_pages');
+
+            // containers
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'container',
+                'name' => 'main',
+                'parent_content_id' => null,
+                'order' => 1,
+                'params' => '',
+            ));
+            $container_id = $db->lastInsertId('engine4_core_content');
+
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'container',
+                'name' => 'middle',
+                'parent_content_id' => $container_id,
+                'order' => 3,
+                'params' => '',
+            ));
+            $middle_id = $db->lastInsertId('engine4_core_content');
+
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'container',
+                'name' => 'left',
+                'parent_content_id' => $container_id,
+                'order' => 1,
+                'params' => '',
+            ));
+            $left_id = $db->lastInsertId('engine4_core_content');
+
+            // middle column
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'core.container-tabs',
+                'parent_content_id' => $middle_id,
+                'order' => 2,
+                'params' => '{"max":"6"}',
+            ));
+            $tab_id = $db->lastInsertId('engine4_core_content');
+
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-status',
+                'parent_content_id' => $middle_id,
+                'order' => 1,
+                'params' => '',
+            ));
+
+            // left column
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-photo',
+                'parent_content_id' => $left_id,
+                'order' => 1,
+                'params' => '',
+            ));
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-options',
+                'parent_content_id' => $left_id,
+                'order' => 2,
+                'params' => '',
+            ));
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-info',
+                'parent_content_id' => $left_id,
+                'order' => 3,
+                'params' => '',
+            ));
+
+            // tabs
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'activity.feed',
+                'parent_content_id' => $tab_id,
+                'order' => 1,
+                'params' => '{"title":"Updates"}',
+            ));
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-members',
+                'parent_content_id' => $tab_id,
+                'order' => 2,
+                'params' => '{"title":"Members","titleCount":true}',
+            ));
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-photos',
+                'parent_content_id' => $tab_id,
+                'order' => 3,
+                'params' => '{"title":"Photos","titleCount":true}',
+            ));
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-discussions',
+                'parent_content_id' => $tab_id,
+                'order' => 4,
+                'params' => '{"title":"Discussions","titleCount":true}',
+            ));
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'core.profile-links',
+                'parent_content_id' => $tab_id,
+                'order' => 5,
+                'params' => '{"title":"Links","titleCount":true}',
+            ));
+            $db->insert('engine4_core_content', array(
+                'page_id' => $page_id,
+                'type' => 'widget',
+                'name' => 'group.profile-events',
+                'parent_content_id' => $tab_id,
+                'order' => 6,
+                'params' => '{"title":"Events","titleCount":true}',
+            ));
+        }
     }
 
-    $this->_helper->requireSubject('group');
-    $this->_helper->requireAuth()->setNoForward()->setAuthParams(
-      $subject,
-      Engine_Api::_()->user()->getViewer(),
-      'view'
-    );
-  }
+    public function init() {
 
-  public function indexAction()
-  {
-  	// $_url = Zend_Controller_Front::getInstance()->getRequest();
-  	// Zend_Debug::dump($_url);exit();
-    $subject = Engine_Api::_()->core()->getSubject();
-    $viewer = Engine_Api::_()->user()->getViewer();
+        // @todo this may not work with some of the content stuff in here, double-check
+        $subject = null;
+        if (!Engine_Api::_()->core()->hasSubject()) {
+            $id = $this->_getParam('id');
+            if (null !== $id) {
+                $subject = Engine_Api::_()->getItem('group', $id);
+                if ($subject && $subject->getIdentity()) {
+                    Engine_Api::_()->core()->setSubject($subject);
+                }
+            }
+        }
 
-    // Increment view count
-    if( !$subject->getOwner()->isSelf($viewer) )
-    {
-      $subject->view_count++;
-      $subject->save();
+        $this->_helper->requireSubject('group');
+        $this->_helper->requireAuth()->setNoForward()->setAuthParams(
+                $subject, Engine_Api::_()->user()->getViewer(), 'view'
+        );
     }
 
-    // Get styles
-    $table = Engine_Api::_()->getDbtable('styles', 'core');
-    $select = $table->select()
-      ->where('type = ?', $subject->getType())
-      ->where('id = ?', $subject->getIdentity())
-      ->limit();
+    public function indexAction() {
+        // $_url = Zend_Controller_Front::getInstance()->getRequest();
+        // Zend_Debug::dump($_url);exit();
+        $subject = Engine_Api::_()->core()->getSubject();
+        $viewer = Engine_Api::_()->user()->getViewer();
 
-    $row = $table->fetchRow($select);
+        // Increment view count
+        if (!$subject->getOwner()->isSelf($viewer)) {
+            $subject->view_count++;
+            $subject->save();
+        }
 
-    if( null !== $row && !empty($row->style) )
-    {
-      $this->view->headStyle()->appendStyle($row->style);
+        // Get styles
+        $table = Engine_Api::_()->getDbtable('styles', 'core');
+        $select = $table->select()
+                ->where('type = ?', $subject->getType())
+                ->where('id = ?', $subject->getIdentity())
+                ->limit();
+
+        $row = $table->fetchRow($select);
+
+        if (null !== $row && !empty($row->style)) {
+            $this->view->headStyle()->appendStyle($row->style);
+        }
+
+        //$this->_helper->content->render();
+        $this->_helper->content
+                ->setContentName(27) // page_id
+                ->setNoRender()
+                ->setEnabled();
+        return;
     }
 
-    //$this->_helper->content->render();
-    $this->_helper->content
-            ->setContentName(27) // page_id
-            ->setNoRender()
-            ->setEnabled();
-    return;
-  }
 }

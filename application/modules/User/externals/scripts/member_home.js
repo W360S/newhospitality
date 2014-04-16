@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
     console.log("Member Home JS INITING ...");
 
+    /*
     var EVENTS_TAB = $('.layout_event_profile_events');
     var ALBUMS_TAB = $('.layout_album_profile_albums');
     var FEEDS_TAB = $('.layout_activity_feed');
@@ -31,6 +32,7 @@ jQuery(document).ready(function($) {
         ALBUMS_TAB.show();
         FEEDS_TAB.hide();
     })
+    */
 
     $("textarea[name=body]").removeAttr("style");
 
