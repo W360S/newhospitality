@@ -9,10 +9,10 @@
  * @author     John Boehr <j@weblego.com>
  */
 ?>
-
+<?php /*
 <div class="headline">
   <h2>
-    <?php echo $this->translate('My Messages') ?>
+    <?php //echo $this->translate('My Messages') ?>
   </h2>
   <div class="tabs">
     <?php
@@ -24,3 +24,13 @@
     ?>
   </div>
 </div>
+*/ ?>
+<ul class="pt-menu-event">
+  <li class="active">
+    <a href="<?php echo $this->baseUrl(); ?>/messages/inbox">Hộp thư đến</a>
+  </li>
+  <li>
+    <a href="<?php echo $this->baseUrl(); ?>/messages/outbox">Thư đã gửi</a>
+  </li>
+</ul>
+<a href="<?php echo $this->baseUrl(); ?>/messages/compose" class="pt-registering-event"><span></span>Soạn Thư Mới</a>
