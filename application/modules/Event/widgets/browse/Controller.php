@@ -39,11 +39,8 @@ class Event_Widget_BrowseController extends Engine_Content_Widget_Abstract {
     public function indexAction() {
         
         $request = Zend_Controller_Front::getInstance()->getRequest();
-//        Zend_Debug::dump($request); exit;
         
         $filter = $request->getParam('filter', 'future');
-//        Zend_Debug::dump($this->_getParam('filter', 'future')); exit;
-//        Zend_Debug::dump($this->_getAllParams()); exit;
         if ($filter != 'past' && $filter != 'future'){
             $filter = 'future';
         }
@@ -75,7 +72,8 @@ class Event_Widget_BrowseController extends Engine_Content_Widget_Abstract {
 
         // Populate form data
         //fix paginator
-        $tmp = $this->_getAllParams();
+        $tmp = $request->getParams();
+        // $tmp = $request->getAllParams();
         if (key_exists("amp;order", $tmp)) {
             $tmp["order"] = $tmp["amp;order"];
         }
@@ -140,16 +138,16 @@ class Event_Widget_BrowseController extends Engine_Content_Widget_Abstract {
         //echo "<pre>".$select; exit;
         //Zend_Debug::dump($values['text']); exit;
         // check to see if request is for specific user's listings
-        $user_id = $this->_getParam('user');
+        $user_id = $request->getParam('user');
         if ($user_id)
             $params = array('user' => $user_id);
 
         // Other stuff
-        $this->view->page = $page = $this->_getParam('page', 1);
+        $this->view->page = $page = $request->getParam('page', 1);
 
         $paginator = $this->view->paginator = Zend_Paginator::factory($select);
 
-        $paginator->setItemCountPerPage(10);
+        $paginator->setItemCountPerPage(16);
         $paginator->setCurrentPageNumber($page);
         $this->view->text = $values['text'];
     }

@@ -159,6 +159,15 @@ $filter = $this->filter;
                     });
 
                 }*/
+                function openSearch(){
+                    jQuery("#tabs-2").hide();
+                    jQuery("#tabs-1").show();
+                }
+
+                function openCategories(){
+                    jQuery("#tabs-2").show();
+                    jQuery("#tabs-1").hide();
+                }
 
             </script>
             
@@ -169,10 +178,10 @@ $filter = $this->filter;
 
                 <!-- </ul> -->
                 <ul class="pt-title" id="main_tabs">
-                    <li><a href="#tabs-1">TÌM KIẾM</a></li>
-                    <li><a href="#tabs-2">LĨNH VỰC</a></li>
+                    <li><a href="javascript:void(0)" onclick="openSearch()">TÌM KIẾM</a></li>
+                    <li><a href="javascript:void(0)" onclick="openCategories()">LĨNH VỰC</a></li>
                   </ul>
-                <div id="tabs-2" class="pt-content-tab">
+                <div id="tabs-2" class="pt-content-tab" style="display:none;">
                     <?php echo $this->content()->renderWidget('event.categories'); ?>
                 </div>
                 <div id="tabs-1" class="pt-content-tab">
@@ -185,16 +194,9 @@ $filter = $this->filter;
 
         <div class="pt-how-list-event">
             <?php if ($pages->count() > 1): ?>
-                <?php
-                echo $this->paginationControl($pages, null, null, array(
-                    'query' => $formValues
-                ));
-                ?>
+                <?php echo $this->paginationControl($pages, null, null, array('query' => $formValues )); ?>
             <?php endif; ?>
-            <?php
-            //$liclass = 'last_li';
-            $i = 1;
-            ?>
+            <?php $i = 1;?>
                 <?php if (count($pages) > 0): ?>
                 <ul class='pt-list-event'>
 
@@ -206,7 +208,7 @@ $filter = $this->filter;
                                         <?php echo $this->htmlLink($event->getHref(), $this->itemPhoto($event, 'thumb.normal')) ?>
                                     <?php else: ?>
                                         <a href="<?php echo $event->getHref(); ?>"><img src="<?php echo $this->baseUrl(); ?>/application/modules/Event/externals/images/nophoto_event_thumb_normal.png"></a>
-        <?php endif; ?>
+                                    <?php endif; ?>
                                     <div class="pt-views-comment">
                                         <a href="#" class="pt-views"><span></span>68</a>
                                         <a href="#" class="pt-comment"><span></span>9</a>
@@ -228,13 +230,13 @@ $filter = $this->filter;
                                             'class' => 'buttonlink REMsmoothbox icon_event_delete'
                                         ))
                                         ?>
-        <?php elseif ($this->viewer() && $event->membership()->isMember($this->viewer())): ?>
-            <?php
-            echo $this->htmlLink(array('route' => 'event_extended', 'controller' => 'member', 'action' => 'leave', 'event_id' => $event->getIdentity()), $this->translate('Leave Event'), array(
-                'class' => 'buttonlink smoothbox icon_event_leave'
-            ))
-            ?>
-        <?php endif; ?>
+                                        <?php elseif ($this->viewer() && $event->membership()->isMember($this->viewer())): ?>
+                                            <?php
+                                            echo $this->htmlLink(array('route' => 'event_extended', 'controller' => 'member', 'action' => 'leave', 'event_id' => $event->getIdentity()), $this->translate('Leave Event'), array(
+                                                'class' => 'buttonlink smoothbox icon_event_leave'
+                                            ))
+                                            ?>
+                                        <?php endif; ?>
                                 </div>
                                 <div class="pt-how-content-event">                            
                                     <h3><?php echo $this->htmlLink($event->getHref(), $event->getTitle()) ?></h3>                               
@@ -245,11 +247,11 @@ $filter = $this->filter;
                                         <p class="pt-address"><span></span><?php echo $event->location; ?></p>
                                     </div>
                                     <div class="pt-user-name">
-        <?php
-        $user_id = $event->user_id;
-        $member2 = Engine_Api::_()->user()->getUser($user_id);
-        echo $this->htmlLink($member2->getHref(), $this->itemPhoto($member2, 'thumb.icon'), array('class' => 'pt-avatar'));
-        ?>
+                                    <?php
+                                    $user_id = $event->user_id;
+                                    $member2 = Engine_Api::_()->user()->getUser($user_id);
+                                    echo $this->htmlLink($member2->getHref(), $this->itemPhoto($member2, 'thumb.icon'), array('class' => 'pt-avatar'));
+                                    ?>
                                         <p><strong>Đăng bởi:</strong>
                         <?php echo $this->htmlLink($event->getOwner()->getHref(), $event->getOwner()->getTitle()) ?> <p>
                                         <p><?php echo $event->creation_date; ?></p>
@@ -265,11 +267,7 @@ $filter = $this->filter;
 
                 </ul>
                         <?php if ($pages->count() > 1): ?>
-                            <?php
-                            echo $this->paginationControl($pages, null, null, array(
-                                'query' => $formValues
-                            ));
-                            ?>
+                            <?php echo $this->paginationControl($pages, null, null, array('query' => $formValues)); ?>
                 <?php endif; ?>
 <?php else: ?>
                 <div class="tip">
@@ -288,7 +286,7 @@ $filter = $this->filter;
 
 </div>
 <script type="text/javascript">
-    jQuery(document).ready(function($){
-        $(".pt-event-tabs").tabs();
+    jQuery(document).ready(function(){
+        //jQuery(".pt-event-tabs").tabs();
     });
 </script>

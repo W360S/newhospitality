@@ -91,23 +91,25 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
         }
         foreach ($themes as $theme) {
             if (APPLICATION_ENV != 'development') {
+                //$this->headLink()
+                //        ->prependStylesheet($staticBaseUrl . 'application/modules/Core/externals/styles/jquery-ui.css');
                 $this->headLink()
                         ->prependStylesheet($staticBaseUrl . 'application/css.php?request=application/themes/' . $theme . '/theme.css');
                 $this->headLink()
                         ->prependStylesheet($staticBaseUrl . 'application/modules/Core/externals/styles/jquery.fancybox.css');
-                $this->headLink()
-                        ->prependStylesheet($staticBaseUrl . 'application/modules/Core/externals/styles/jquery-ui.css');
+                
 
                 // $this->headLink()
                         // ->prependStylesheet($staticBaseUrl . 'application/modules/Core/externals/styles/jquery.classyscroll.css');
             } else {
+                //$this->headLink()
+                //        ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/modules/Core/externals/styles/jquery-ui.css');
                 $this->headLink()
                         ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/css.php?request=application/themes/' . $theme . '/theme.css');
             
                 $this->headLink()
                         ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/modules/Core/externals/styles/jquery.fancybox.css');
-                $this->headLink()
-                        ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/modules/Core/externals/styles/jquery-ui.css');
+                
                 // $this->headLink()
                         // ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/modules/Core/externals/styles/jquery.classyscroll.css');
             }
@@ -172,6 +174,7 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
                 //->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery.classyscroll.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery-ui.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery.fancybox.js')
+                ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery.masonry.min.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery-1.10.2.min.js')
                 ->prependFile($staticBaseUrl . 'externals/chootools/chootools.js')
                 ->prependFile($staticBaseUrl . 'externals/mootools/mootools-more-1.4.0.1-full-compat-' . (APPLICATION_ENV == 'development' ? 'nc' : 'yc') . '.js')
