@@ -685,3 +685,867 @@ Stack trace:
 #7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #9 {main}
+2014-04-17T17:53:12+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:53:13+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:53:13+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:55:39+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:55:39+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:55:39+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:57:54+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:57:54+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:57:54+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:58:52+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:58:52+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T17:58:52+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:06:26+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:06:26+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:06:26+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:07:11+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:07:11+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:07:11+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:08:08+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:08:08+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:08:08+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:08:47+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:08:47+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:08:47+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:09:32+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:09:32+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:09:32+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:10:07+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:10:07+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:10:07+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:10:44+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:10:44+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:10:44+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:11:34+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:11:34+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:11:34+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:11:56+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:11:56+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:11:56+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:12:39+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:12:39+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:12:39+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:13:12+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:13:12+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:13:12+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:13:50+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:13:50+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:13:50+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:14:23+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:14:23+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:14:23+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:16:03+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:16:03+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:16:03+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:16:16+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:16:16+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:16:16+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:17:04+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:17:04+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:17:04+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:17:31+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:17:31+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:17:31+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:18:40+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:18:40+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:18:40+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:19:00+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:19:00+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:19:00+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:19:33+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:19:33+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}
+2014-04-17T18:19:33+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was called without first setting a subject.  Use hasSubject to check' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:53
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Authorization/Api/Core.php(100): Core_Api_Core->getSubject()
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Messages/controllers/MessagesController.php(307): Authorization_Api_Core->isAllowed(NULL, NULL, NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Messages_MessagesController->composeAction()
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('composeAction')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#9 {main}

@@ -199,6 +199,7 @@
 <?php foreach( $this->composePartials as $partial ): ?>
   <?php echo $this->partial($partial[0], $partial[1]) ?>
 <?php endforeach; ?>
-
+<div class="pt-message-content pt-message-content-detail pt-message-content-news">
 <?php echo $this->form->render($this) ?>
+</div>
 

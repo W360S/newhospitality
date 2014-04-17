@@ -23,7 +23,6 @@
     </form>
     */ ?>
 </div>
-<br />
 
 <?php if( $this->paginator->getTotalItemCount() <= 0 ): ?>
 <div class="tip">
