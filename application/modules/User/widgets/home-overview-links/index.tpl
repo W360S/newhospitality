@@ -35,7 +35,7 @@
         var member_home_url = "<?php echo $this->baseUrl() ?>/members/home";
         var message_inbox_url = "<?php echo $this->baseUrl() ?>/messages/inbox";
         var events_index_url = "<?php echo $this->baseUrl() ?>/events";
-        var album_index_url = "<?php echo $this->baseUrl() ?>/members/home";
+        var album_index_url = "<?php echo $this->baseUrl() ?>/albums";
         if(document.URL.indexOf(member_home_url) != -1){
             $("#link-newfeed").addClass("pt-active");
         }

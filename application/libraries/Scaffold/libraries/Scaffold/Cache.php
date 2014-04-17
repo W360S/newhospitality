@@ -157,6 +157,7 @@ final class Scaffold_Cache
 			file_put_contents($target, $data);
 		}
 		
+		print_r($target);
 		# Set its parmissions
 		chmod($target, 0777);
 		touch($target, time());

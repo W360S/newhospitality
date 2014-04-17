@@ -51,7 +51,10 @@
     //$('.wd-scrollbars-heder').ClassyScroll();
 
 
-
+    jQuery('.pt-list-event').masonry({
+        itemSelector : 'li',
+        columnWidth: 1
+    });
 
 
 
