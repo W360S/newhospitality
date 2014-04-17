@@ -16,7 +16,7 @@
 	<ul id="member-home-left-main-menu">
 		<li>
                         <!--class="pt-active"-->
-			<a href="<?php echo $this->baseUrl() ?>/members/home" id="link-newfeed"><span class="pt-icon-menu-left pt-icon-menu-01"></span><span class="pt-menu-text">Bảng tin</span><span class="pt-number">23</span></a>
+			<a href="<?php echo $this->baseUrl() ?>/members/home" id="link-newfeed"><span class="pt-icon-menu-left pt-icon-menu-01"></span><span class="pt-menu-text">Bảng tin</span><!-- <span class="pt-number">23</span> --></a>
 		</li>
 		<li>
 			<a href="<?php echo $this->baseUrl() ?>/messages/inbox" id="link-message"><span class="pt-icon-menu-left pt-icon-menu-02"></span><span class="pt-menu-text">Tin nhắn</span></a>
