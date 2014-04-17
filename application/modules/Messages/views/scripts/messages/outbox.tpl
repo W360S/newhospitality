@@ -126,10 +126,10 @@
     </ul>
 </div>
 
-<br />
-<button id="delete"><?php echo $this->translate('Delete Selected');?></button>
+<?php /*
+<button id="delete"><?php echo $this->translate('Delete Selected') ?></button>
+*/ ?>
 <script type="text/javascript">
-<!--
     $('delete').addEvent('click', function() {
         var selected_ids = new Array();
         $$('div.messages_list input[type=checkbox]').each(function(cBox) {
@@ -140,7 +140,6 @@
         if (selected_ids.length > 0)
             Smoothbox.open(sb_url);
     });
-//-->
 </script>
 <br />
 <br />

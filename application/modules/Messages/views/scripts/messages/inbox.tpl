@@ -133,7 +133,10 @@
     </ul>
 </div>
 
+<?php /*
 <button id="delete"><?php echo $this->translate('Delete Selected') ?></button>
+*/ ?>
+
 <script type="text/javascript">
 
 $('checkall').addEvent('click', function() {
