@@ -121,9 +121,17 @@
                 <?php if($i%2 == 0) $class = "pt-odd"; ?>
                 <li id="event_member_<?php echo $member->getIdentity() ?>" class="<?php echo $class ?>">
                     <?php $i++; ?>
+                    <div class="pt-user-post">
+                        <a href="#"><span class="pt-avatar"><?php echo $this->itemPhoto($member, 'thumb.icon') ?></span></a>
+                        <div class="pt-how-info-user-post">
+                                <h3><a href="<?php echo $member->getHref() ?>"><?php echo $member->getTitle() ?></a></h3>
+                                <p>Bartender tại Crown Plaza</p>
+                        </div>
+                        <a href="#" class="pt-link-add">Kết bạn</a>
+                    </div>
+                    <?php /*
                     <?php echo $this->htmlLink($member->getHref(), $this->itemPhoto($member, 'thumb.icon'), array('class' => 'event_members_icon')) ?>
                     <div class='event_members_options'>
-                        <?php // Add/Remove Friend ?>
                         <?php if ($this->viewer()->getIdentity() && !$this->viewer()->isSelf($member)): ?>
                             <?php if (!$this->viewer()->membership()->isMember($member)): ?>
                                 <?php echo $this->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $member->getIdentity()), $this->translate('Add Friend'), array('class' => 'buttonlink smoothbox icon_friend_add'))?>
@@ -131,7 +139,6 @@
                                 <?php echo $this->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'remove', 'user_id' => $member->getIdentity()), $this->translate('Remove Friend'), array('class' => 'buttonlink smoothbox icon_friend_remove'))?>
                             <?php endif; ?>
                         <?php endif; ?>
-                        <?php // Remove/Promote/Demote member ?>
                         <?php if ($this->event->isOwner($this->viewer())): ?>
                             <?php if (!$this->event->isOwner($member) && $memberInfo->active == true): ?>
                                 <?php echo $this->htmlLink(array('route' => 'event_extended', 'controller' => 'member', 'action' => 'remove', 'event_id' => $this->event->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Remove Member'), array('class' => 'buttonlink smoothbox icon_friend_remove'))?>
@@ -144,23 +151,15 @@
                             <?php if ($memberInfo->active == false && $memberInfo->resource_approved == true): ?>
                                 <?php echo $this->htmlLink(array('route' => 'event_extended', 'controller' => 'member', 'action' => 'cancel', 'event_id' => $this->event->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Cancel Invite'), array('class' => 'buttonlink smoothbox icon_event_cancel'))?>
                             <?php endif; ?>
-
-
                         <?php endif; ?>
                     </div>
                     <div class='event_members_body'>
                         <div>
                             <span class='event_members_status'>
                                 <?php echo $this->htmlLink(array('route' => 'user_profile', 'id' => $member->user_id), $member->getTitle()) ?>
-
-                                <?php // Titles ?>
                                 <?php if ($this->event->getParent()->getGuid() == ($member->getGuid())): ?>
                                     (<?php echo ( $memberInfo->title ? $memberInfo->title : 'owner' ) ?>)
                                 <?php endif; ?>
-
-                            </span>
-                            <span>
-                                <?php //echo $member->status;  ?>
                             </span>
                         </div>
                         <div class="event_members_rsvp">
@@ -173,7 +172,7 @@
                             <?php endif; ?>
                         </div>
                     </div>
-
+                     */?>
                 </li>
 
             <?php endforeach; ?>
