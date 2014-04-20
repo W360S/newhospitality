@@ -16,6 +16,7 @@ class Suggestion_Widget_SuggestionEventController extends Engine_Content_Widget_
   	$suggestion_field_cat = Engine_Api::_()->getApi('settings', 'core')->getSetting('suggestion.field.cat');
   	if(!empty($suggestion_field_cat))
   	{
+  		
 	  	// Geting number of display suggestion which are set by admin?
 	  	$number_of_sugg = Engine_Api::_()->getApi('settings', 'core')->getSetting('sugg.event.wid');
 			$user_id = Engine_Api::_()->user()->getViewer()->getIdentity();

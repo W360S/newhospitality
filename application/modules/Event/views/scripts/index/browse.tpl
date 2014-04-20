@@ -205,7 +205,7 @@ $filter = $this->filter;
                             <div class="pt-how-all">
                                 <div  class="pt-how-img">
                                     <?php if ($event->photo_id): ?>
-                                        <?php echo $this->htmlLink($event->getHref(), $this->itemPhoto($event, 'thumb.normal')) ?>
+                                        <?php echo $this->htmlLink($event->getHref(), $this->itemPhoto($event, 'thumb.normal',"events", array("width"=>"221px"))) ?>
                                     <?php else: ?>
                                         <a href="<?php echo $event->getHref(); ?>"><img src="<?php echo $this->baseUrl(); ?>/application/modules/Event/externals/images/nophoto_event_thumb_normal.png"></a>
                                     <?php endif; ?>

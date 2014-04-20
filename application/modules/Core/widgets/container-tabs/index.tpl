@@ -21,12 +21,14 @@
       var myContainer = element.getParent('.tabs_parent').getParent();
 
       myContainer.getChildren('div:not(.tabs_alt)').setStyle('display', 'none');
-      myContainer.getElements('ul > li').removeClass('active');
+      myContainer.getChildren('div:not(.tabs_alt)').removeClass('ui-state-active');
+      myContainer.getElements('ul > li').removeClass('ui-state-active');
       element.get('class').split(' ').each(function(className){
         className = className.trim();
         if( className.match(/^tab_[0-9]+$/) ) {
           myContainer.getChildren('div.' + className).setStyle('display', null);
-          element.addClass('active');
+          myContainer.getChildren('div.' + className).addClass('ui-state-active');
+          element.addClass('ui-state-active');
         }
       });
     }
@@ -45,7 +47,8 @@
         $class[] = 'tab_' . $tab['id'];
         $class[] = 'tab_' . trim(str_replace('generic_layout_container', '', $tab['containerClass']));
         if( $this->activeTab == $tab['id'] || $this->activeTab == $tab['name'] )
-          $class[] = 'active';
+          $class[] = 'ui-state-active';
+//          $class[] = 'active';
         $class = join(' ', $class);
       ?>
       <?php if( $key < $this->max ): ?>

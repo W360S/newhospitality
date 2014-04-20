@@ -72,3 +72,5 @@
 2014-04-15T12:48:07+00:00 DEBUG (7): [System] (notify_message_new) bangvn.dng@gmail.com <- email@domain.com
 2014-04-15T12:48:07+00:00 DEBUG (7): [Zend] bangvn.dng@gmail.com <- email@domain.com
 2014-04-15T12:48:07+00:00 DEBUG (7): [System] (notify_message_new) bangvn.dng@gmail.com <- email@domain.com
+2014-04-20T06:53:42+00:00 DEBUG (7): [Zend] ngocvinhxt@gmail.com <- email@domain.com
+2014-04-20T06:53:42+00:00 DEBUG (7): [System] (notify_message_new) ngocvinhxt@gmail.com <- email@domain.com

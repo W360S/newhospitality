@@ -186,8 +186,8 @@ img.main
 }
 img.thumb_normal
 {
-  max-width: 140px;
-  max-height: 160px;
+  /*max-width: 140px;*/
+  /*max-height: 160px;*/
 }
 img.thumb_profile
 {

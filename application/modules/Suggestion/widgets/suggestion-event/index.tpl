@@ -10,7 +10,7 @@
  * @author     SocialEngineAddOns
  */
 $this->headScript()->appendFile('application/modules/Suggestion/externals/scripts/core.js');
-  
+
 $event_display_array = array_keys($this->event_display);
 $suggestion_msg = count($event_display_array);
 $event_sugg_str =  implode(",", $event_display_array);

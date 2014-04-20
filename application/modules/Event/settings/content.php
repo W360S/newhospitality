@@ -76,6 +76,13 @@ return array(
         'name' => 'event.profile-info',
     ),
     array(
+        'title' => 'Event FULL Profile Info',
+        'description' => 'Displays a FULL event\'s info (creation date, member count, etc) on it\'s profile.',
+        'category' => 'Event',
+        'type' => 'widget',
+        'name' => 'event.profile-fullinfo',
+    ),
+    array(
         'title' => 'Event Profile Members',
         'description' => 'Displays a event\'s members on it\'s profile.',
         'category' => 'Event',
