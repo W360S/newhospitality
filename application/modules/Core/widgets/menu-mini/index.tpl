@@ -81,7 +81,7 @@ function crop($text, $qty) {
                             <div class="pt-title"><span style="width:220px;float:left"><?php echo $this->translate('Message'); ?></span><a style="float:right;" href="<?php echo $this->baseUrl() ?>/messages/compose"><?php echo $this->translate('Send a message'); ?></a></div>
                             <?php $paginator = Engine_Api::_()->getItemTable('messages_conversation')->getInboxPaginator($viewer); ?>
                             <?php if ($paginator): ?>
-                                <div class="messages_list">
+                                <div class="messages_list wd-scrollbars-heder">
                                     <ul class="pt-message-content">
                                         <?php foreach ($paginator as $conversation): ?>
                                             <?php
@@ -101,6 +101,15 @@ function crop($text, $qty) {
                                             }
                                             ?>
                                             <li<?php if (!$recipient->inbox_read): ?> class='messages_list_new'<?php endif; ?> id="message_conversation_<?php echo $conversation->conversation_id ?>">
+                                                <a href="#">
+                                                    <span class="pt-avatar"><?php echo $this->itemPhoto($user, 'thumb.icon') ?></span>
+                                                    <div class="pt-how-info-message">
+                                                        <h3><?php echo $user->getTitle() ?></h3>
+                                                        <p><?php echo html_entity_decode($message->body) ?></p>
+                                                        <?php echo $this->timestamp($message->date) ?>
+                                                    </div>
+                                                </a>
+                                                <?php /*
                                                 <div class="messages_list_photo">
                                                     <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.icon')) ?>
                                                 </div>
@@ -123,6 +132,7 @@ function crop($text, $qty) {
                                                     </div>
                                                 </div>
                                                 <?php echo html_entity_decode($message->body) ?>
+                                                */ ?>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
