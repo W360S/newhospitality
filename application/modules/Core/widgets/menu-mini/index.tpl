@@ -101,7 +101,7 @@ function crop($text, $qty) {
                                             }
                                             ?>
                                             <li<?php if (!$recipient->inbox_read): ?> class='messages_list_new'<?php endif; ?> id="message_conversation_<?php echo $conversation->conversation_id ?>">
-                                                <a href="#">
+                                                <a href="<?php echo $message->getHref() ?>">
                                                     <span class="pt-avatar"><?php echo $this->itemPhoto($user, 'thumb.icon') ?></span>
                                                     <div class="pt-how-info-message">
                                                         <h3><?php echo $user->getTitle() ?></h3>
