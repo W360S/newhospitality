@@ -583,8 +583,3 @@ ActivityUpdateHandler = new Class({
 
 
 })(); // END NAMESPACE
-
-jQuery(document).ready(function($){
-  // alert("ok");
-  
-});

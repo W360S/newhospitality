@@ -266,6 +266,11 @@ class Event_IndexController extends Core_Controller_Action_Standard {
             $form->category_id->addMultiOption($category->category_id, $category->title);
         }
 
+        $this->_helper->content
+                ->setContentName(32) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+
         // Not post/invalid
         if (!$this->getRequest()->isPost()) {
             return;
@@ -372,6 +377,8 @@ class Event_IndexController extends Core_Controller_Action_Standard {
             $db->rollBack();
             throw $e;
         }
+
+
     }
 
     public function editAction() {
