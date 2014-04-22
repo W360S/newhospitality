@@ -70,7 +70,7 @@
         <li<?php if( !$recipient->inbox_read ): ?> class='messages_list_new'<?php endif; ?> id="message_conversation_<?php echo $conversation->conversation_id ?>">
             <input type="checkbox" name="is_subscribed" title="" value="<?php echo $conversation->conversation_id ?>" id="is_subscribed" class="checkbox">
             <div class="pt-user-post">
-                <a href="#">
+                <a href="<?php echo $sender->getHref() ?>">
                     <span class="pt-avatar">
                         <?php echo $this->itemPhoto($sender, 'thumb.icon') ?>
                     </span>

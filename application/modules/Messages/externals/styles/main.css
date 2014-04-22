@@ -225,7 +225,7 @@ Shown on view mesage page.
 */
 #messages_form_reply > div
 {
-  width: 577px;
+  /*width: 577px;*/
 }
 #messsages_form_reply #mceLayout {
     margin-bottom: 3px;

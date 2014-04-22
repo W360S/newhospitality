@@ -55,7 +55,7 @@
             'id' => null,
             'place' => 'view',
             'message_ids' => $this->conversation->conversation_id,
-                ), $this->translate('Delete'), array(
+                ), $this->translate(''), array(
             'class' => 'pt-icon pt-icon-02 buttonlink smoothbox', //'buttonlink icon_message_delete',
         ))
         ?>
@@ -67,89 +67,45 @@
             <li <?php if($i%2 == 0) echo 'class="pt-odd'; ?> >
                 <a href="<?php echo $user->getHref()?>"><span class="pt-avatar"><?php echo $this->itemPhoto($user, 'thumb.icon') ?></span></a>
                 <div class="pt-how-info-message">
-                    <?php echo $this->htmlLink($user->getHref(), $user->getTitle()) ?> <?php echo $this->timestamp($message->date) ?>
+                    <?php //echo $this->htmlLink($user->getHref(), $user->getTitle()) ?> 
+                    <?php //echo " - "?>
+                    <?php echo $this->timestamp($message->date) ?>
                     <?php echo nl2br(html_entity_decode($message->body)) ?>
                 </div>
             </li>
             <?php $i++;?>
         <?php endforeach; ?>
     </ul>
-</div>
-<ul class="message_view">
-    <?php
-    foreach ($this->messages as $message):
-        $user = $this->user($message->user_id);
-        ?>
-        <li>
-            <div class='message_view_leftwrapper'>
-                <div class='message_view_photo'>
-    <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.icon')) ?>
-                </div>
-                <div class='message_view_from'>
-                    <p>
-    <?php echo $this->htmlLink($user->getHref(), $user->getTitle()) ?>
-                    </p>
-                    <p class="message_view_date">
-    <?php echo $this->timestamp($message->date) ?>
-                    </p>
-                </div>
-            </div>
-            <div class='message_view_info'>
-                <?php echo nl2br(html_entity_decode($message->body)) ?>
-                    <?php if (!empty($message->attachment_type) && null !== ($attachment = $this->item($message->attachment_type, $message->attachment_id))): ?>
-                    <div class="message_attachment">
-                        <?php if (null != ( $richContent = $attachment->getRichContent(false, array('message' => $message->conversation_id)))): ?>
-                            <?php echo $richContent; ?>
-                            <?php else: ?>
-                            <div class="message_attachment_photo">
-                                <?php if (null !== $attachment->getPhotoUrl()): ?>
-                                    <?php echo $this->itemPhoto($attachment, 'thumb.normal') ?>
-                                <?php endif; ?>
-                            </div>
-                            <div class="message_attachment_info">
-                                <div class="message_attachment_title">
-                        <?php echo $this->htmlLink($attachment->getHref(array('message' => $message->conversation_id)), $attachment->getTitle()) ?>
-                                </div>
-                                <div class="message_attachment_desc">
-                                    <?php echo $attachment->getDescription() ?>
-                                </div>
-                            </div>
-                    <?php endif; ?>
+    <div class="pt-info-message">
+        <?php if (!$this->locked): ?>
+                <?php /*
+                <div class='message_view_leftwrapper'>
+                    <div class='message_view_photo'>
+                        &nbsp;
                     </div>
-    <?php endif; ?>
-            </div>
-        </li>
-    <?php endforeach; ?>
-
-<?php if (!$this->locked): ?>
-        <li class='message_quick_entry'>
-            <div class='message_view_leftwrapper'>
-                <div class='message_view_photo'>
-                    &nbsp;
+                    <div class='message_view_from'>
+                        <p>
+                            &nbsp;
+                        </p>
+                        <p class="message_view_date">
+                            &nbsp;
+                        </p>
+                    </div>
                 </div>
-                <div class='message_view_from'>
-                    <p>
-                        &nbsp;
-                    </p>
-                    <p class="message_view_date">
-                        &nbsp;
-                    </p>
+                */ ?>
+
+                <div class='message_view_info'>
+                    <?php if ((!$this->blocked && !$this->viewer_blocked) || (count($this->recipients) > 1)): ?>
+                        <?php echo $this->form->setAttrib('id', 'messages_form_reply')->render($this) ?>
+                    <?php elseif ($this->viewer_blocked): ?>
+                        <?php echo $this->translate('You can no longer respond to this message because you have blocked %1$s.', $this->viewer_blocker->getTitle()) ?>
+                    <?php else: ?>
+                        <?php echo $this->translate('You can no longer respond to this message because %1$s has blocked you.', $this->blocker->getTitle()) ?>
+                <?php endif; ?>
                 </div>
-            </div>
-
-            <div class='message_view_info'>
-                <?php if ((!$this->blocked && !$this->viewer_blocked) || (count($this->recipients) > 1)): ?>
-                    <?php echo $this->form->setAttrib('id', 'messages_form_reply')->render($this) ?>
-                <?php elseif ($this->viewer_blocked): ?>
-                    <?php echo $this->translate('You can no longer respond to this message because you have blocked %1$s.', $this->viewer_blocker->getTitle()) ?>
-                <?php else: ?>
-                    <?php echo $this->translate('You can no longer respond to this message because %1$s has blocked you.', $this->blocker->getTitle()) ?>
-            <?php endif; ?>
-            </div>
-<?php endif ?>
-
-    </li>
-</ul>
+        <?php endif ?>
+    </div>
+</div>
 
 
 <?php if (!$this->locked): ?>
