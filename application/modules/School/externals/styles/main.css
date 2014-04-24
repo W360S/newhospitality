@@ -1,0 +1,208 @@
+/*----- School -----*/
+#banner-school{padding:10px 0 0;overflow:hidden}
+#banner-school .section{position:relative}
+#banner-school .slider{border:1px solid #d6e4ec}
+#banner-school .slider img{width:950px}
+#banner-school .find-school{position:absolute;top:209px;left:79px; width:585px; z-index: 60;}
+#banner-school .find-school input{color:#979797;padding:8px 12px;border:1px solid #dae1e4;float:left;margin:1px 0 0 0;width:165px}
+#banner-school .find-school select{color:#979797;padding:7px 5px 7px 12px;border:1px solid #dae1e4;float:left;margin:1px 12px 0 6px}
+#banner-school .find-school input.bt_find_shool{color:#fff;font:bold 13px arial;width:108px;height:35px;background:url(~/application/modules/School/externals/images/bg-btn-6.png) no-repeat;border:none;cursor:pointer;margin-top:0}
+#banner-school .find-school input.bt_find_shool:hover{background-position:0 -35px}
+.shool{overflow:hidden}
+.shool .layout_left,.shool .layout_right{width:226px}
+.shool .subsection{background-color:#fff}
+.shool .subsection h2{background-position:0 -488px;border-bottom:none}
+.list_shool ul{overflow:hidden;padding:20px 0 0}
+.list_shool ul li{float:left;width:165px;margin-right:25px}
+.list_shool ul li p{margin:5px 0;color:#8d8d8d;font-size:11px}
+.shool p.rating{color:#8d8d8d;font-size:11px}
+.shool p.rating span.bd_list{padding:0 6px}
+.list_shool ul li a{color:#4c4c4c;font-weight:bold}
+.list_shool ul li a:hover{color:#e56b00}
+.list_shool ul li a img{border: none;height:163px;height:94px;padding:1px 1px 10px 1px;background:url(~/application/modules/School/externals/images/bg_list_school.gif) no-repeat}
+ul.list_articel_school{padding:0 8px}
+ul.list_articel_school li{border-bottom:1px solid #e6e6e6;padding:6px 0 3px 0;margin-bottom:4px}
+ul.list_articel_school li p{margin:5px 0;color:#464646}
+ul.list_articel_school li p.posted_by{color:#c1c1c1;font-size:11px}
+ul.list_articel_school li p.rating{margin:7px 0}
+ul.list_articel_school li p.posted_by a{color:#00a9dd;font-weight:normal}
+ul.list_articel_school li p.posted_by a:hover{color:#e56b00}
+ul.list_articel_school li p span.bd_list{padding:0 4px}
+ul.list_articel_school li a{color:#4c4c4c;font-weight:bold}
+ul.list_articel_school li a:hover{color:#e56b00}
+ul.list_comments_school{padding:0 8px}
+ul.list_comments_school li{overflow:hidden;padding:5px 0 9px;border-bottom:1px solid #e6e6e6}
+ul.list_comments_school li h4{margin-bottom:5px;line-height:15px}
+ul.list_comments_school li h4 a{color:#4c4c4c;font-size:11px}
+ul.list_comments_school li h4 a:hover{color:#e56b00}
+ul.list_comments_school li img{float:left;width:48px;height:48px;border:1px solid #e6e6e6;margin-right:9px}
+ul.list_comments_school li p{color:#4e4e4e}
+ul.list_top_school{padding:6px 14px}
+ul.list_top_school li{overflow:hidden;padding:8px 0;border-bottom:1px solid #e6e6e6;position: relative;}
+ul.list_top_school li h4{line-height:15px}
+ul.list_top_school li h4 a{color:#4c4c4c}
+ul.list_top_school li h4 a:hover{color:#e56b00}
+ul.list_top_school li a img{float:left;width:104px;height:58px;border:1px solid #e6e6e6;margin-right:13px}
+ul.list_top_school li p{color:#4e4e4e;margin-top:4px}
+ul.list_top_school li p.rating{margin-top:6px}
+ul.list_top_school li a.view-detail { background: url(~/application/modules/School/externals/images/bg-btn-7.png) no-repeat; display: block; height: 32px; position: absolute; top: 22px; right: 0px; width: 65px; color: #fff; font-weight: bolder; line-height: 32px; padding: 0 20px;  }
+ul.list_top_school li a.view-detail:hover,ul.list_top_school li a.view-detail:active { background-position: 0 -32px; }
+
+/* shool search result */
+.shool-search-result{overflow:hidden}
+.shool-search-result .layout_left,.shool .layout_right{width:226px}
+.shool-search-result .subsection{background-color:#fff}
+.shool-search-result .subsection h2{background-position:0 -488px;border-bottom:none}
+.shool-search-result .layout_middle { padding-right: 0px; }
+.shool-search-result ul.paginationControl{ border-top:1px solid #dbe9f0; padding: 16px 15px; }
+.shool-search-result ul.list_top_school li { padding-right: 150px; }
+/* slide */
+/* The Nivo Slider styles */
+.nivoSlider { position:relative; }
+.nivoSlider img { position:absolute; top:0px; left:0px; }
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink { position:absolute; top:0px; left:0px; width:100%; height:100%; border:0;	padding:0; margin:0; z-index:6;	display:none; }
+/* The slices and boxes in the Slider */
+.nivo-slice { display:block; position:absolute; z-index:5; height:100%; }
+.nivo-box {	display:block;	position:absolute; z-index:5; }
+/* Caption styles */
+.nivo-caption { position:absolute; left:0px; bottom:0px; background:#000; color:#fff; opacity:0.8; /* Overridden by captionOpacity setting */ width:100%; z-index:8; }
+.nivo-caption p { padding:5px; margin:0; }
+.nivo-caption a { display:inline !important; }
+.nivo-html-caption { display:none; }
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a { position:absolute; top:45%; z-index:9; cursor:pointer; }
+.nivo-prevNav {	left:0px; }
+.nivo-nextNav {	right:0px; }
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav a { position:relative;	z-index:9; cursor:pointer; }
+.nivo-controlNav a.active {	font-weight:bold; }
+
+/* carousel-photos */
+#slide-photos {	position: relative; width: 316px; height: 234px; }
+#slide-photos img {	position: absolute; top: 1px;	left: 1px; display: none; width: 316px !important; height: 234px !important; }
+#slide-photos a { border: 0;	display: block; }
+
+.nivo-controlNav { position: absolute; right: 10px; bottom: 10px;	z-index:9; }
+.nivo-controlNav a { display:block;	width:17px;	height:17px;	background:url(~/application/modules/School/externals/images/buttons.png) no-repeat; text-indent:-9999px; border:0; margin-right:3px;	float:left; }
+
+.nivo-controlNav a.active {	background-position:-17px 0; }
+
+.nivo-directionNav a { display:block;	width:30px;	height:30px;  text-indent:-9999px; border:0; }
+a.nivo-nextNav { background-position:-30px 0;	right: 5px; }
+a.nivo-prevNav { left: 5px; }
+
+.nivo-caption { text-shadow:none;  font-family: Helvetica, Arial, sans-serif;  }
+.nivo-caption a { color:#efe9d1; text-decoration:underline; }
+
+/* shool detail */
+.school-detail .layout_middle .detail-article {padding:25px 19px;}
+.school-detail{overflow:hidden}
+.school-detail .layout_left,.school-detail .layout_right{width:226px}
+.school-detail .subsection{background-color:#fff}
+.school-detail .subsection h2{background-position:0 -488px;border-bottom:none}
+.school-detail .layout_middle { padding-right: 0px; }
+
+.detail-article > p { padding-top: 15px; clear: both; }
+.detail-article .school-address { float: left;}
+.detail-article .school-address img.img-school {width:163px;height:94px;padding:1px 1px 10px 1px;background:url(~/application/modules/School/externals/images/bg-img-school-detail.gif) no-repeat; float: left; margin-right: 20px; }
+.detail-article .school-address ul { border-right: 1px solid #e2e2e2; float: left; padding-right: 20px; width: 195px; padding: 0;}
+.detail-article .school-address ul li,.detail-article .school-contact ul li { padding-top: 7px; font-size: 1em; color: #8c8c8c; overflow: hidden; }
+.detail-article .school-address ul li label { float: left; width: 51px;}
+.detail-article .school-address ul li > span { float: left; width: 200px;}
+.detail-article .school-address ul li p a.share { background: url(~/application/modules/School/externals/images/bg-share.gif) no-repeat; padding: 6px 10px 5px 26px; font-size: 0.915em  }
+.detail-article .school-address  ul li p a.share:hover {background-position: left -25px; color: #00a9dd;}
+.detail-article .school-address ul li p.rating span.bd_list { line-height: 21px; padding: 0 3px; }
+.detail-article .school-contact { float:left; padding-left: 25px;}
+.detail-article .school-contact ul li span { font-size: 1em; color: #8c8c8c; }
+.detail-article .school-contact ul li span.web-link {color:#18b1e0}
+.detail-article .school-contact .buttom { margin-top: 11px; margin-left: 10px; }
+.detail-article .school-contact .buttom a.bt-post-article { background: url(~/application/modules/School/externals/images/bg-btn-1.png) no-repeat; display: block; width: 127px; height: 35px; line-height: 35px;  color: #fff; font-weight: bolder; font-size: 1.085em; text-align: center; }
+.detail-article .school-contact .buttom a.bt-post-article:hover { background-position: 0 -35px;}
+.article-school .sub-section h3 { font-size: 1.15em; font-weight: bolder; color:#848484; text-transform: uppercase; }
+.article-school { padding: 0 20px; }
+
+.article-school .article-right { width: 200px;  float: right; margin-left: 54px; vertical-align:top;}
+.article-school .article-middle {vertical-align:top; overflow: hidden; padding-bottom: 20px; }
+
+.article-school .title { overflow: hidden; border-bottom: 1px solid #cfcfcf; padding-bottom: 5px; margin-bottom: 10px;  }
+.article-school .article-middle .title h3 { float: left}
+.article-school .article-middle p.view-all { float: right; }
+.article-school .article-middle .sub-content { clear: both; margin-top: 5px;}
+.article-school .article-middle ul.list_articel_school { padding: 0; }
+.article-school .article-middle ul.list_articel_school li {overflow:hidden;padding:8px 0;border-bottom:1px dotted #e6e6e6;}
+.article-school .article-middle ul.list_articel_school li a:hover{color:#13aad9;}
+.article-school .article-middle ul.list_articel_school li p.rating { color: #8d8d8d; font-size: 0.916em; }
+.article-school .article-middle ul.list_articel_school li p.rating a { font-weight: normal; color: #00a9dd; }
+.article-school .article-middle ul.list_articel_school li p.rating span.post-by { color:#c1c1c1; }
+
+.article-school .article-right ul.list_comment li {overflow:hidden;padding:8px 0;border-top:1px solid #e6e6e6;}
+.article-school .article-right ul.list_comment li:first-child { border: none; }
+.article-school .article-right ul.list_comment li h4 a { color: #4c4c4c; font-size: 0.916em; font-weight: bolder; } 
+.article-school .article-right ul.list_comment li h4 { margin-bottom: 5px; }
+.article-school .article-right ul.list_comment li h4 a:hover { color: #13aad9; }
+.article-school .article-right ul.list_comment li a img { border: 1px solid #e6e6e6; width: 48px; height: 48px; float: left; margin-right: 9px; }
+.article-school .article-right ul.list_comment li a:hover img { border: 1px solid #13aad9; }
+
+/* school-detail-entry */
+.school-detail-entry{overflow:hidden}
+.school-detail-entry .layout_left,.school-detail-entry .layout_right{width:226px}
+.school-detail-entry .subsection{background-color:#fff}
+.school-detail-entry .subsection h2{background-position:left -488px;border-bottom:none}
+.school-detail-entry .layout_middle { padding-right: 0px; }
+.school-detail-entry .content-entry,.school-detail-entry .detail-article-entry, .school-detail-entry .container_comment {margin: 0 20px; padding:  15px 0; }
+.school-detail-entry .content-entry { border-bottom: 1px solid #d8d8d8; }
+.school-detail-entry .content-entry img.img-avatar{ float: left; margin-right: 13px; }
+.school-detail-entry .content-entry ul{padding: 0px;}
+.school-detail-entry .content-entry ul li { padding-top: 2px; padding-bottom: 3px; }
+.school-detail-entry .content-entry ul li a { color: #00a9dd; font-weight: bolder; }
+.school-detail-entry .content-entry ul li span { color: #999; }
+.school-detail-entry .content-entry ul li span.bd_list {  line-height: 19px; padding: 0 3px; }
+.school-detail-entry .content-entry ul li a.share { background: url(~/application/modules/School/externals/images/bg-share.gif) no-repeat; padding: 6px 10px 5px 26px; font-size: 0.915em; font-weight: normal; }
+.school-detail-entry .content-entry ul li a.share:hover {background-position: left -25px; color: #00a9dd;}
+.school-detail-entry .detail-article-entry .image { float: left; margin: 0 13px 13px 0; }
+.school-detail-entry .detail-article-entry p { margin-bottom: 15px; color:#393939;}
+.school-detail-entry .detail-article-entry p strong { font-size: 1.16em; font-weight: bolder; }
+.school-detail-entry .container_comment .box_comment .frame_img {width: 50px; height: 70px; cursor: pointer;}
+.school-detail-entry .container_comment .box_comment .frame_img a img{ width: 50px; height: 45px; cursor: pointer;}
+.school-detail-entry .container_comment .box_comment .frame_img a span{ font-size: .915em; font-weight: bolder; color: #0193c0; line-height: 21px; cursor: pointer;}
+.school-detail-entry .container_comment .content_comment p { margin-bottom: 13px; }
+.school-detail-entry .container_comment .content_comment p.post-at em{ float: right; font-size: 0.915em; color: #999;}
+.school-detail-entry div.input textarea{width:99%;min-height:95px;border:1px solid #dedede}
+.school-detail-entry div.submit{text-align:right;margin:15px 0}
+.school-detail-entry div.submit input{margin-right:3px;}
+.school-detail-entry div.submit input.bt-post-comment { border:none; width:108px; height:35px; line-height:35px; color:#fff; background:url(~/application/modules/School/externals/images/bg-btn-6.png) no-repeat; text-transform:capitalize; font-weight:bold; font-size:12px !important; cursor: pointer; } 
+.school-detail-entry div.submit input.bt-post-comment:hover{ background-position: left -35px; }
+/* school post article */
+.school-post-article{overflow:hidden}
+.school-post-article .layout_left,.school-post-article .layout_right{width:226px}
+.school-post-article .subsection{background-color:#fff}
+.school-post-article .subsection h2{background-position:left -488px;border-bottom:none}
+.school-post-article .subsection h2 span { text-transform:capitalize}
+.school-post-article .layout_middle { padding-right: 0px; }
+.school-post-article .school-address,.school-post-article .detail-post-article,.school-post-article .post_comment { margin: 0 20px; clear:both;}
+.school-post-article .school-address { margin-top: 20px; }
+.school-post-article .school-address img.img-school {width:163px;height:94px;padding:1px 1px 10px 1px;background:url(~/application/modules/School/externals/images/bg-img-school-detail.gif) no-repeat; float: left; margin-right: 20px; }
+.school-post-article .school-address ul li { padding: 4px 0; }
+.school-post-article .school-address ul li span.web-link { color: #18b1e0; }
+.school-post-article .school-address ul li a.share { background: url(~/application/modules/School/externals/images/bg-share.gif) no-repeat; padding: 6px 10px 5px 26px; color: #767676; font-size: 0.915em; color:#767676; }
+.school-post-article .school-address ul li a.share:hover {background-position: left -25px; color: #00a9dd;}
+
+.school-post-article .detail-post-article { border-bottom: 1px solid #e5e5e5; margin-top: 25px;  color: #000;overflow: hidden; padding-bottom: 6px; }
+.school-post-article .detail-post-article .title { font-weight:bolder; color: #5f5f5f;}
+.school-post-article .detail-post-article .title h3 { text-transform: uppercase; }
+.school-post-article .detail-post-article > p { padding: 6px 0;}
+.school-post-article .detail-post-article p a.more { float: right; }
+
+.school-post-article .post_comment {margin-top: 10px; }
+.school-post-article .post_comment h3 { font-size: 1.325em; color: #7d7d7d; font-weight: normal; margin-bottom: 30px; }
+.school-post-article .post_comment .image { float: left; vertical-align:top; margin-right: 20px; }
+.school-post-article .post_comment .image img { border: 1px solid #e6e6e6; width: 48px; height: 48px; }
+.school-post-article .post_comment fieldset.post-article-form { vertical-align:top; padding-bottom: 25px; overflow: hidden; }
+.school-post-article .post_comment fieldset.post-article-form .input { float: left; padding-bottom: 15px; }
+.school-post-article .post_comment fieldset.post-article-form .input label { padding-bottom: 5px; width: 100px; float: left;}
+.school-post-article .post_comment fieldset.post-article-form .input input { width: 564px; border: 1px solid #e0e0e0; padding: 9px;}
+.school-post-article .post_comment fieldset.post-article-form .input textarea { border: 1px solid #e0e0e0; width: 564px !important; padding: 9px; }
+.school-post-article .post_comment fieldset.post-article-form .submit { padding: 15px 0 15px 250px;}
+.school-post-article .post_comment fieldset.post-article-form .submit input { background: url(~/application/modules/School/externals/images/bg-btn-1.png) no-repeat; border: none; color: #fff; cursor: pointer;  font-size: 1.25em; font-weight: bolder; height: 35px; line-height: 35px; margin: 0 auto; text-align: center; width: 127px;}
+.school-post-article .post_comment fieldset.post-article-form .submit input:hover {background-position: left -35px;}

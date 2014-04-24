@@ -1,0 +1,479 @@
+<?php
+/**
+ * VietHospitality
+ *
+ * @category   Application_Extensions
+ * @package    Recruiter
+ 
+
+ * @author     huynhnv
+ * @status     done
+ */
+class Recruiter_AdminManageController extends Core_Controller_Action_Admin
+{
+    public function indexAction(){
+        $this->view->navigation = $navigation = Engine_Api::_()->getApi('menus', 'core')
+            ->getNavigation('recruiter_admin_main', array(), 'recruiter_admin_main_manage');
+        $keyword = $this->_getParam('keyword');
+        $status = $this->_getParam('status');
+        $table = Engine_Api::_()->getDbtable('jobs', 'recruiter');
+        $db = $table->getAdapter();
+        $rName= $table->info('name');
+        $industry_table= Engine_Api::_()->getDbtable('reIndustries', 'recruiter')->info('name');
+        $modules_table= Engine_Api::_()->getDbtable('modules', 'user')->info('name');
+        $user_table= Engine_Api::_()->getDbtable('users', 'user')->info('name');
+        //$status_keyword = ( $status == 'noassign' ? '0' : '1' );
+        if($status=='noassign'){
+            $status_keyword= 0;
+            if(!empty($keyword)){
+            if(strlen($keyword)<4){
+                $select = $table->select()
+                ->from($rName)
+                ->where($rName.".resolved_name LIKE ? OR ".$rName.".position LIKE ? OR ".$rName.".description LIKE ? OR ".$rName.".salary LIKE ? OR ".$rName.".contact_name LIKE ? OR ".$rName.".contact_address LIKE ? OR ".$rName.".skill LIKE ?", '%'.$keyword.'%')
+                ->order('creation_date DESC');
+            }
+            else{
+                //Zend_Debug::dump($keyword);exit;
+                $select = $table->select()
+                ->from($rName)
+                ->where(new Zend_Db_Expr($db->quoteInto('MATCH('.$rName.'.`resolved_name`, ' . $rName . '.`position`, ' . $rName . '.`salary`, ' . $rName . '.`description`, ' . $rName . '.`skill`, '.$rName . '.`contact_name`, '.$rName . '.`contact_address`) AGAINST (? IN BOOLEAN MODE)', $keyword)))
+                ->order('creation_date DESC');
+            }
+            
+            
+            }
+            else {
+                $select = $table->select()
+                ->from($rName)
+                ->order('creation_date DESC');
+            }
+        }
+        else if ($status== 'resolved'){
+            $status_keyword= 2;
+            
+             if(!empty($keyword)){
+                
+                $select = $table->select()
+                ->setIntegrityCheck(false)
+                ->from($rName)
+                ->joinLeft($user_table, $user_table. ".user_id = ". $rName . ".resolved_by")                     
+                //->where(new Zend_Db_Expr($db->quoteInto('MATCH('.$rName.'.`resolved_name`) AGAINST (? IN BOOLEAN MODE)', $keyword)))
+                ->where($user_table.".displayname LIKE ? OR ".$user_table.".username LIKE ?", '%'.$keyword.'%')
+                ;
+            }
+            else {
+                $select = $table->select()
+                ->from($rName)
+                ->order('creation_date DESC');
+            }
+        }
+        else{
+            $status_keyword= 1;
+            if(!empty($keyword)){
+                /*
+            if(strlen($keyword)<4){
+                $select = $table->select()
+                ->from($rName)
+                ->where($rName.".resolved_name LIKE ?", '%'.$keyword.'%')
+                ->order('creation_date DESC');
+            }
+            else{
+                */
+                //Zend_Debug::dump($keyword);exit;
+                $select = $table->select()
+                ->setIntegrityCheck(false)
+                ->from($rName)
+                ->joinLeft($industry_table, $industry_table. ".job_id = ". $rName . ".job_id")
+                ->joinLeft($modules_table, $modules_table. ".industry_id = ". $industry_table . ".industry_id")
+                ->joinLeft($user_table, $user_table. ".user_id = ". $modules_table . ".user_id")                     
+                //->where(new Zend_Db_Expr($db->quoteInto('MATCH('.$rName.'.`resolved_name`) AGAINST (? IN BOOLEAN MODE)', $keyword)))
+                ->where($user_table.".displayname LIKE ? OR ".$user_table.".username LIKE ?", '%'.$keyword.'%')
+                
+                //->order($table.'.creation_date DESC')
+                ;
+            //}
+            
+            
+            }
+            else {
+                $select = $table->select()
+                ->from($rName)
+                ->order('creation_date DESC');
+            }
+        }
+        
+        
+        $this->view->page = $page = $this->_getParam('page', 1);
+        $paginator = $this->view->paginator = Zend_Paginator::factory($select);
+        //Zend_Debug::dump($paginator);exit;
+        $paginator->setItemCountPerPage(10);
+        $paginator->setCurrentPageNumber($page);
+        $this->view->status= $status_keyword;
+    
+    }
+     public function deleteAction()
+    {
+        // In smoothbox
+        $this->_helper->layout->setLayout('admin-simple');
+        $id = $this->_getParam('id');
+        $this->view->job_id=$id;
+        // Check post
+        if( $this->getRequest()->isPost())
+        {
+          $db = Engine_Db_Table::getDefaultAdapter();
+          $db->beginTransaction();
+    
+          try
+          {
+            
+            Engine_Api::_()->getApi('job', 'recruiter')->deleteJob($id);
+            $db->commit();
+          }
+    
+          catch( Exception $e )
+          {
+            $db->rollBack();
+            throw $e;
+          }
+    
+          $this->_forward('success', 'utility', 'core', array(
+              'smoothboxClose' => 10,
+              'parentRefresh'=> 10,
+              'messages' => array('')
+          ));
+        }
+        // Output
+        $this->renderScript('admin-manage/delete.tpl');
+  }
+  public function deleteselectedAction()
+  {
+        $this->view->ids = $ids = $this->_getParam('ids', null);
+        $confirm = $this->_getParam('confirm', false);
+        $this->view->count = count(explode(",", $ids));
+    
+        // Save values
+        if( $this->getRequest()->isPost() && $confirm == true )
+        {
+          $ids_array = explode(",", $ids);
+          foreach( $ids_array as $id ){
+            
+             Engine_Api::_()->getApi('job', 'recruiter')->deleteJob($id);
+          }
+    
+          $this->_helper->redirector->gotoRoute(array('action' => 'index'));
+        }
+
+  }
+  public function approveAction(){
+    // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    $id = $this->_getParam('id');
+    $this->view->job_id=$id;
+    $viewer= Engine_Api::_()->user()->getViewer();
+    // Check post
+    if( $this->getRequest()->isPost())
+    {
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+        
+      try
+      {
+        $job = Engine_Api::_()->getItem('job', $id);
+        $job->status= 2;
+        //find user resolved
+        $resolved_id= $viewer->getIdentity();
+        //$resolved_by= Engine_Api::_()->getDbtable('users', 'user')->find($resolved_id)->current();
+        //$resolved_name= $resolved_by->displayname;
+        $job->resolved_by= $resolved_id;
+        //$job->resolved_name= $resolved_name;
+        $job->save();
+        
+        $db->commit();
+      }
+
+      catch( Exception $e )
+      {
+        $db->rollBack();
+        throw $e;
+      }
+
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => 10,
+          'parentRefresh'=> 10,
+          'messages' => array('Approve Success')
+      ));
+    }
+    // Output
+    $this->renderScript('admin-manage/approve.tpl');
+  }
+  /*
+  Manage Industry
+  */
+  public function industriesAction() {
+    
+    $this->view->navigation = $navigation = Engine_Api::_()->getApi('menus', 'core')
+                    ->getNavigation('recruiter_admin_main', array(), 'recruiter_admin_main_industries');
+    $this->view->industries = Engine_Api::_()->getApi('core', 'recruiter')->getAdminIndustries();
+   
+  }
+  //add new industry
+  public function addIndustryAction() {
+    // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    
+    // Generate and assign form
+    $form = $this->view->form = new Recruiter_Form_Admin_Industry();
+    $form->setAction($this->getFrontController()->getRouter()->assemble(array()));
+    // Check post
+    if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
+      // we will add the category
+      $values = $form->getValues();
+
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+
+      try {
+        // add category to the database
+        // Transaction
+        $table = Engine_Api::_()->getDbtable('industries', 'recruiter');
+        $viewer = Engine_Api::_()->user()->getViewer();
+        $user_id= $viewer->getIdentity();
+        // insert the category into the database
+        $row = $table->createRow();
+        
+        $row->name = $values["name"];
+        $row->save();
+
+        $db->commit();
+      } catch (Exception $e) {
+        $db->rollBack();
+        throw $e;
+      }
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => 10,
+          'parentRefresh' => 10,
+          'messages' => array('')
+      ));
+    }
+
+    // Output
+    $this->renderScript('admin-manage/form.tpl');
+  }
+  
+  //edit industry
+  public function editIndustryAction() {
+    // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    $form = $this->view->form = new Recruiter_Form_Admin_Industry();
+    $form->setAction($this->getFrontController()->getRouter()->assemble(array()));
+
+    // Check post
+    if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
+      // Ok, we're good to add field
+      $values = $form->getValues();
+
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+
+      try {
+        // edit category in the database
+        // Transaction
+        $row = Engine_Api::_()->getApi('core', 'recruiter')->getAdminIndustry($values["id"]);
+        $viewer= Engine_Api::_()->user()->getViewer();
+        $user_id= $viewer->getIdentity();
+        $row->name = $values["name"];
+        
+        $row->save();
+        $db->commit();
+      } catch (Exception $e) {
+        $db->rollBack();
+        throw $e;
+      }
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => 10,
+          'parentRefresh' => 10,
+          'messages' => array('')
+      ));
+    }
+
+    // Must have an id
+    if (!($id = $this->_getParam('id'))) {
+      die('No identifier specified');
+    }
+
+    // Generate and assign form
+    $category = Engine_Api::_()->getApi('core', 'recruiter')->getAdminIndustry($id);
+    $form->setField($category);
+
+    // Output
+    $this->renderScript('admin-manage/form.tpl');
+  }
+  
+  //delete industry
+  public function deleteIndustryAction() {
+    // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    $id = $this->_getParam('id');
+    $this->view->industry_id = $id;
+    
+    // Check post
+    if ($this->getRequest()->isPost()) {
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+
+      try {
+        // go through logs and see which events used this category id and set it to ZERO
+        $newTable = $this->_helper->api()->getDbtable('industries', 'recruiter');
+        $select = $newTable->select()->where('industry_id = ?', $id);
+        
+        $row = Engine_Api::_()->getApi('core', 'recruiter')->getAdminIndustry($id);
+        //find industry in table reindustries
+        $table= Engine_Api::_()->getDbtable('reIndustries', 'recruiter');
+        $sl= $table->select()
+                        ->where('industry_id =?', $id);
+        $records= $table->fetchAll($sl);
+        //delete industry
+        if(count($records)> 0){
+            foreach($records as $rd){
+                $rd->delete();
+            }
+        }
+        //update lại dữ liệu trong bảng kinh nghiệm của ứng viên(category_id)
+        $table_exper = Engine_Api::_()->getDbtable('experiences', 'resumes');
+        $select_exper= $table_exper->select()
+                        ->where('category_id =?', $id);
+        $record_exper= $table_exper->fetchAll($select_exper);
+        if(count($record_exper)){
+            foreach($record_exper as $exper){
+                $exper->category_id=0;
+                $exper->save();
+            }
+        }
+        //delete data in table module core(if)
+        $table_module= Engine_Api::_()->getDbtable('modules', 'user');
+        $select_md= $table_module->select()
+                        ->where('industry_id =?', $id);
+        $record_md= $table_module->fetchAll($select_md);
+        if(count($record_md)){
+            foreach($record_md as $md){
+                $md->delete();
+            }
+        }
+        $row->delete();
+        $db->commit();
+        
+      } catch (Exception $e) {
+        $db->rollBack();
+        throw $e;
+      }
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => 10,
+          'parentRefresh' => 10,
+          'messages' => array('')
+      ));
+    }
+
+    // Output
+    $this->renderScript('admin-manage/delete-industry.tpl');
+  }
+  //Manage articals
+   public function articalAction() {
+    
+    $this->view->navigation = $navigation = Engine_Api::_()->getApi('menus', 'core')
+                    ->getNavigation('recruiter_admin_main', array(), 'recruiter_admin_main_articals');
+   
+    $articalsTable = Engine_Api::_()->getDbtable('articals', 'recruiter');
+    $keyword = $this->_getParam('keyword');
+    
+    $db = $articalsTable->getAdapter();
+    $rName= $articalsTable->info('name');
+    if(!empty($keyword)){
+        if(strlen($keyword)<4){
+            $select = $articalsTable->select()
+            ->from($rName)
+            ->where($rName.".title LIKE ? OR ".$rName.".content LIKE ? ", '%'.$keyword.'%')
+            ->order('created DESC');
+        }
+        else{
+            //Zend_Debug::dump($keyword);exit;
+            $select = $articalsTable->select()
+            ->from($rName)
+            ->where(new Zend_Db_Expr($db->quoteInto('MATCH(' . $rName . '.`title`, ' . $rName . '.`content`) AGAINST (? IN BOOLEAN MODE)', $keyword)))
+            ->order('created DESC');
+        }
+        
+        
+    }
+    else {
+        $select = $articalsTable->select()
+        ->from($rName)
+        ->order('created DESC');
+    }
+    $this->view->page = $page = $this->_getParam('page', 1);
+    $paginator = $this->view->paginator = Zend_Paginator::factory($select);
+    //Zend_Debug::dump($paginator);exit;
+    $paginator->setItemCountPerPage(10);
+    $paginator->setCurrentPageNumber($page);
+  }
+   public function deleteArticalAction()
+  {
+    // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    $id = $this->_getParam('id');
+    $this->view->artical_id=$id;
+    
+    // Check post
+    if( $this->getRequest()->isPost())
+    {
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+
+      try
+      {
+        $artical = Engine_Api::_()->getItem('artical', $id);
+        
+        if($artical->photo_id){ 
+            Engine_Api::_()->getApi('job', 'recruiter')->deleteFileArtical($artical->photo_id);
+        }
+        $artical->delete();
+        $db->commit();
+      }
+
+      catch( Exception $e )
+      {
+        $db->rollBack();
+        throw $e;
+      }
+
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => 10,
+          'parentRefresh'=> 10,
+          'messages' => array('')
+      ));
+    }
+    // Output
+    $this->renderScript('admin-manage/delete-artical.tpl');
+  }
+  public function deletearticalselectedAction(){
+        $this->view->ids = $ids = $this->_getParam('ids', null);
+        $confirm = $this->_getParam('confirm', false);
+        $this->view->count = count(explode(",", $ids));
+    
+        // Save values
+        if( $this->getRequest()->isPost() && $confirm == true )
+        {
+          $ids_array = explode(",", $ids);
+          foreach( $ids_array as $id ){
+            
+            $artical = Engine_Api::_()->getItem('artical', $id);
+            $artical->delete();
+            if($artical->photo_id){ 
+                Engine_Api::_()->getApi('job', 'recruiter')->deleteFileArtical($artical->photo_id);
+            }
+          }
+    
+          $this->_helper->redirector->gotoRoute(array('action' => 'artical'));
+        }
+  }
+  
+}
