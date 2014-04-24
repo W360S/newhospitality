@@ -1,0 +1,1 @@
+INSERT IGNORE INTO `engine4_core_modules` (`name`, `title`, `description`, `version`, `enabled`, `type`) VALUES  ('job', 'Jobs', 'About jobs', '4.0.0', 1, 'extra') ;

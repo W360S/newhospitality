@@ -1,0 +1,1 @@
+2014-04-24 09:00:34 +00:00 --- Error: Missing image - /hospitality/newhospitality/application/modules/School/externals/images/bg-share.gif / /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/School/externals/images/bg-share.gif

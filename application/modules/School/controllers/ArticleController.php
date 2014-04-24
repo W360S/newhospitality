@@ -1,0 +1,614 @@
+<?php
+
+class School_ArticleController extends Core_Controller_Action_Standard
+{
+  public function indexAction()
+  {
+    $this->view->someVar = 'someVal';
+  }
+  public function createAction(){
+    if( !$this->_helper->requireUser()->isValid() ) return;
+    $school_id = $this->_getParam('id');
+    $school= Engine_Api::_()->getDbtable('schools', 'school')->find($school_id)->current();
+    $this->view->school= $school;
+    $this->view->form = $form = new School_Form_Artical_Create();
+    $tableSchool= Engine_Api::_()->getDbtable('schools', 'school');
+    $select= $tableSchool->select()->where('user_id =?', Engine_Api::_()->user()->getViewer()->getIdentity());
+    $user= Engine_Api::_()->user()->getViewer();
+    $this->view->poster_id= $user->getIdentity();
+    /*
+    $schools= $tableSchool->fetchAll($select);
+    foreach($schools as $school){
+        $form->school_id->addMultiOption($school->school_id, $school->name);
+    }
+    */
+    $success= 0;
+    if( $this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost()) )
+	{
+	  $db = Engine_Api::_()->getDbtable('articals', 'school')->getAdapter();
+      $db->beginTransaction();
+	  
+	  try
+	  {
+		// Create book
+		$viewer = Engine_Api::_()->user()->getViewer();
+	    $table = $this->_helper->api()->getDbtable('articals', 'school');
+		$artical = $table->createRow();
+		$values = $form->getValues();
+       
+        $data = array(
+            "title"=>$values['title'], 
+            "user_id" => Engine_Api::_()->user()->getViewer()->getIdentity(),
+            "school_id"=>$school_id,
+            "content"=>$values['content'],
+            "created"=>date('Y-m-d H:i:s'),
+            "modified"=> date('Y-m-d H:i:s'),
+            "rating"=> 0,
+            "total"=> 0,
+            "approved"=> 0,
+            "code"=>"ATSCL"."-".time()
+        );
+		
+        $artical->setFromArray($data);
+		$artical->save();
+		//increate num artical
+        //$school= Engine_Api::_()->getDbtable('schools', 'school')->find($values['school_id'])->current();
+        //$school->num_artical+=1;
+        //$school->save();
+		// Commit
+		$db->commit();
+        //Gửi mail cho admin (có thể cho chính người tạo) khi tạo mới article.
+        //posted article
+        $user_id= Engine_Api::_()->user()->getViewer()->getIdentity();
+        $user_post= Engine_Api::_()->getDbtable('users', 'user')->find($user_id)->current();
+        
+        $body= substr(strip_tags($values['content']), 0, 350); 
+        if (strlen($values['content'])>349){
+            $body .= "..."; 
+        }
+        //Zend_Debug::dump(APPLICATION_PATH);exit;
+        try {
+            
+            $posted_school = Engine_Api::_()->getDbtable('users', 'user')->find($school->user_id)->current();
+            //Zend_Debug::dump($posted_school);exit;
+            // Main params
+           $defaultParams = array(
+            'host' => $_SERVER['HTTP_HOST'],
+            'email' => $posted_school->email,
+            'date' => time(),
+            'sender_title'=> $user_post->displayname,
+            'object_title'=> $artical->title, 
+            //'src_logo'=> APPLICATION_PATH.'/application/modules/Recruiter/externals/images/logo-email.gif',
+            //'src_other'=>APPLICATION_PATH.'/application/modules/Recruiter/externals/images/regis.gif',
+            'object_description' => $body
+          );
+            Engine_Api::_()->getApi('mail', 'core')->sendSystem($posted_school,'school_article', $defaultParams);
+        
+            
+          } catch( Exception $e ) {
+            // Silence exception
+          }
+		// Redirect
+		//return $this->_helper->redirector->gotoRoute(array('view-school', 'id'=>$school_id));
+        //Thiết lập biến để check sau khi tạo article
+        $success= 1;
+        $this->view->success= $success;
+        
+	  }
+
+	  catch( Exception $e )
+	  {
+		$db->rollBack();
+		throw $e;
+	  }
+	}
+  }
+  public function editAction(){
+    if( !$this->_helper->requireUser()->isValid() ) return;
+    $this->view->form = $form = new School_Form_Artical_Edit();
+    $this->view->artical_id = $artical_id= $this->_getParam('artical_id');    
+    $artical = Engine_Api::_()->getDbtable('articals', 'school')->find($artical_id)->current();
+    /*
+	$tableSchool= Engine_Api::_()->getDbtable('schools', 'school');
+    $select= $tableSchool->select()->where('user_id =?', Engine_Api::_()->user()->getViewer()->getIdentity());
+    $schools= $tableSchool->fetchAll($select);
+    foreach($schools as $school){
+        if($artical->school_id== $school->school_id){
+            $form->school_id->setValue($school->school_id);
+        }
+        $form->school_id->addMultiOption($school->school_id, $school->name);
+        
+    }
+    $school_id_edit= $artical->school_id;
+    */
+	if( !Engine_Api::_()->core()->hasSubject('school_artical') )
+	{
+	  Engine_Api::_()->core()->setSubject($artical);
+	}
+
+	if( !$this->_helper->requireSubject()->isValid() ) return;
+
+	//Save entry
+	if( !$this->getRequest()->isPost())
+	{
+	  // etc
+	  $form->populate($artical->toArray());
+	  return;
+	}
+
+	if( !$form->isValid($this->getRequest()->getPost()) )
+	{
+	  return;
+	}
+
+	// Process
+	$values = $form->getValues();
+	
+	$db = Engine_Db_Table::getDefaultAdapter();
+	$db->beginTransaction();
+	try
+	{     
+      $artical->setFromArray($values);
+      
+      $artical->save();
+      $school_id= $values['school_id'];
+      if($school_id != $school_id_edit){
+        $school_edit= Engine_Api::_()->getDbtable('schools', 'school')->find($school_id_edit)->current();
+        $school_edit->num_artical -=1;
+        $school_edit->save();
+        //increate num artical if has $school_id
+        $school= Engine_Api::_()->getDbtable('schools', 'school')->find($school_id)->current();
+        $school->num_artical +=1;
+        $school->save();
+      }
+	  $db->commit();
+	  return $this->_helper->redirector->gotoRoute(array('action'=>'manage', 'artical_id'=>null));
+    }
+	catch( Exception $e )
+	{
+	  $db->rollBack();
+	  throw $e;
+	}
+  }
+  //manage 
+  /*
+   public function manageAction(){
+        if( !$this->_helper->requireUser()->isValid() ) return;
+        $user= Engine_Api::_()->user()->getViewer();
+        
+        $table = Engine_Api::_()->getItemTable('school_artical');
+        $select= $table->select()->where('user_id = ?', $user->getIdentity())
+                                
+        ;
+        $this->view->page = $page = $this->_getParam('page', 1);
+        $paginator = $this->view->paginator = Zend_Paginator::factory($select);
+        $paginator->setItemCountPerPage(10);
+        $paginator->setCurrentPageNumber($page);
+    }
+   
+     public function deleteAction(){
+        if ($this->_request->isXmlHttpRequest()) {
+            $artical_id= $this->getRequest()->getPost('artical_id');
+            
+            $artical = Engine_Api::_()->getDbtable('articals', 'school')->find($artical_id)->current();
+            $school= Engine_Api::_()->getDbtable('schools', 'school')->find($artical->school_id)->current();
+            
+            $result=0;
+            try{
+                $result=1;
+                //decreate num artical school -1;
+                $school->num_artical -=1;
+                $school->save();
+                //delete comments
+                Engine_Api::_()->getApi('core', 'school')->deleteComment($artical_id);
+                //delete ratings
+                Engine_Api::_()->getApi('core', 'school')->deleteRatingArtical($artical_id);
+                $artical->delete();
+            }
+            catch(Exception $e ){
+                throw $e;
+            }
+            echo $result;
+            exit;
+        }
+    }
+    */
+    public function viewAction(){
+        $artical_id= $this->_getParam('id');
+        //thiết lập title for page
+        $subject = null;
+        if( !Engine_Api::_()->core()->hasSubject() ){
+            $subject = Engine_Api::_()->getItem('school_artical', $artical_id);
+            if( $subject && $subject->getIdentity())
+            {
+              Engine_Api::_()->core()->setSubject($subject);
+            }
+        }
+        $artical= Engine_Api::_()->getDbtable('articals', 'school')->find($artical_id)->current();
+        $this->view->artical= $artical;
+        $school_id= $artical->school_id;
+        $school= Engine_Api::_()->getDbtable('schools', 'school')->find($school_id)->current();
+        $this->view->school= $school;
+        //view count
+        $viewer_id= Engine_Api::_()->user()->getViewer()->getIdentity();
+        if($viewer_id != $artical->user_id){
+            $artical->view_count++;
+            $artical->save();
+        }
+        $this->view->user_id= $viewer_id;
+        //rating
+        //$this->view->viewer_id = $viewer->getIdentity();
+        $this->view->rating_count = Engine_Api::_()->getApi('core', 'school')->ratingCount($artical_id);
+        
+        $this->view->rated = Engine_Api::_()->getApi('core', 'school')->checkRated($artical_id, $viewer_id);
+        //Zend_Registry::get('Zend_View')?
+        $total_rating= Engine_Api::_()->getApi('core', 'school')->getRatings($artical_id);
+		$tt=0;
+		if(!empty($total_rating)){
+			foreach($total_rating as $tt_rating){
+				$tt+= $tt_rating['rating'];
+			}
+		}
+		//Zend_Debug::dump($tt);exit();
+		$this->view->tt_rating= $tt;
+        //list comment
+        $tableComment= Engine_Api::_()->getDbtable('comments', 'school');
+        $select= $tableComment->select()->where('artical_id =?', $artical_id)->order('comment_id ASC');
+        $this->view->page = $page = $this->_getParam('page', 1);
+        $paginator = $this->view->paginator = Zend_Paginator::factory($select);
+        $paginator->setItemCountPerPage(10);
+        $paginator->setCurrentPageNumber($page);
+        if($this->getRequest()->isPost()){
+            $values = $this->getRequest()->getPost();
+            $db = Engine_Api::_()->getDbtable('comments', 'school')->getAdapter();
+            $db->beginTransaction();
+            $body= $values['text_artical'];
+            try
+            {
+                // Create book
+                $viewer = Engine_Api::_()->user()->getViewer();
+                $table = $this->_helper->api()->getDbtable('comments', 'school');
+                $comment = $table->createRow();
+                $data = array(
+                    "body"=>$values['text_artical'], 
+                    "owner_id" => Engine_Api::_()->user()->getViewer()->getIdentity(),
+                    "artical_id"=>$values['artical'],
+                    "created"=>date('Y-m-d H:i:s'),
+                    "modified"=> date('Y-m-d H:i:s')
+                );
+		
+            $comment->setFromArray($data);
+    		$comment->save();
+            $artical->comment_count+=1;
+            $artical->save();
+            //gửi mail cho những người post comment on article
+            
+            //gửi cho người tạo article
+            $link = 'http://'
+                  . $_SERVER['HTTP_HOST']
+                  . Zend_Controller_Front::getInstance()->getRouter()->assemble(array(
+                      
+                      'module' => 'school',
+                      'controller' => 'article',
+                      'action' => 'view',
+                      'id' => $artical_id
+                    ), 'default', true);
+           $article_by= Engine_Api::_()->getDbtable('users', 'user')->find($artical->user_id)->current();
+           if($article_by->user_id != $viewer_id){
+            try {
+               $defaultParams = array(
+                'host' => $_SERVER['HTTP_HOST'],
+                'email' => $article_by->email,
+                'date' => time(),
+                'sender_title'=> $viewer->displayname,
+                'object_title'=> $artical->title, 
+                'object_link'=>$link,
+                'object_description' => $body
+              );
+                Engine_Api::_()->getApi('mail', 'core')->sendSystem($article_by,'comment_article', $defaultParams);
+            
+            
+              } catch( Exception $e ) {
+                // Silence exception
+              }
+            }
+              
+           $select_comments= $tableComment->select()->where('artical_id =?', $artical_id);
+           $users_comments= $tableComment->fetchAll($select_comments);
+           if(count($users_comments)){
+                foreach($users_comments as $users_comment){
+                    if(($users_comment->owner_id==$viewer_id) || ($users_comment->owner_id==$artical->user_id)) continue;
+                    $article_comment_by= Engine_Api::_()->getDbtable('users', 'user')->find($users_comment->owner_id)->current();
+                    try{
+                        $defaultParamsComment = array(
+                            'host' => $_SERVER['HTTP_HOST'],
+                            'email' => $article_comment_by->email,
+                            'date' => time(),
+                            'sender_title'=> $viewer->displayname,
+                            'object_title'=> $artical->title, 
+                            'object_link'=>$link,
+                            'object_description' => $body
+                          );
+                        Engine_Api::_()->getApi('mail', 'core')->sendSystem($article_comment_by,'comment_article_user', $defaultParamsComment);
+                    
+            
+                  } catch( Exception $e ) {
+                    // Silence exception
+                  }
+                }
+           }
+               
+    		// Commit
+    		$db->commit();
+            
+               
+            }
+            catch(Exception $e){
+                $db->rollBack();
+                throw $e;
+            }
+        }
+    }
+    public function deleteCommentAction(){
+        if ($this->_request->isXmlHttpRequest()) {
+            $comment_id= $this->getRequest()->getPost('comment_id');
+            
+            $comment = Engine_Api::_()->getDbtable('comments', 'school')->find($comment_id)->current();
+            $article= Engine_Api::_()->getDbtable('articals', 'school')->find($comment->artical_id)->current();
+            $result=0;
+            try{
+                $result=1;
+                $article->comment_count -=1;
+                $article->save();
+                $comment->delete();
+            }
+            catch(Exception $e ){
+                throw $e;
+            }
+            echo $result;
+            exit;
+        }
+    }
+    public function rateAction()
+  {
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $user_id = $viewer->getIdentity();
+    
+    $rating = $this->_getParam('rating');
+    $artical_id =  $this->_getParam('artical_id');
+
+    
+    $table = Engine_Api::_()->getDbtable('ratings', 'school');
+    $db = $table->getAdapter();
+    $db->beginTransaction();
+
+    try
+    {
+      Engine_Api::_()->getApi('core', 'school')->setRating($artical_id, $user_id, $rating);
+      
+      $total = Engine_Api::_()->getApi('core', 'school')->ratingCount($artical_id);
+
+      $artical = Engine_Api::_()->getItem('school_artical', $artical_id);
+      $rating = ($artical->rating + $rating)/$total;
+      $artical->rating = $rating;
+      $artical->total= $total;
+      $artical->save();
+
+      $db->commit();
+    }
+
+    catch( Exception $e )
+    {
+      $db->rollBack();
+      throw $e;
+    }
+    
+    $data = array();
+    $data[] = array(
+      'total' => $total,
+      'rating' => $rating
+    );
+    return $this->_helper->json($data);
+    $data = Zend_Json::encode($data);
+    $this->getResponse()->setBody($data);
+  }
+    public function atStatusAction(){
+        if( !$this->_helper->requireUser()->isValid() ) return;
+        $user= Engine_Api::_()->user()->getViewer();
+        $status= $this->_getParam('st');
+        $this->view->status= $status;
+        //dem so cong viec duoc giai quyet
+        $table_module= Engine_Api::_()->getDbtable('modules', 'user');
+        $select_module= $table_module->select()->where('user_id = ?', $user->getIdentity())
+                            ->where('name_module =?', 'school')
+        ;
+        $module_schools= $table_module->fetchRow($select_module);
+        if(count($module_schools)){
+            
+            $table = Engine_Api::_()->getItemTable('school_artical');
+            if($status=='pending'){
+                $select_pending= $table->select()->where('approved =?', 0)->where('reject =?', 0);
+                $this->view->page = $page = $this->_getParam('page', 1);
+            
+                $articles= $this->view->articles = Zend_Paginator::factory($select_pending);
+                
+                $articles->setItemCountPerPage(20);
+                $articles->setCurrentPageNumber($page);
+            }
+            else if($status== 'approve'){
+                //jobs approved
+                $select_approved= $table->select()->where('resolved_by =?', $user->getIdentity())->where('approved =?', 1)->where('reject =?', 0);
+                $this->view->page = $page = $this->_getParam('page', 1);
+                $articles= $this->view->articles = Zend_Paginator::factory($select_approved);
+                $articles->setItemCountPerPage(20);
+                $articles->setCurrentPageNumber($page);
+            }
+            else{
+                //jobs reject
+                $select_reject= $table->select()->where('reject =?', $user->getIdentity());
+                $this->view->page = $page = $this->_getParam('page', 1);
+                $articles= $this->view->articles = Zend_Paginator::factory($select_reject);
+                
+                $articles->setItemCountPerPage(20);
+                $articles->setCurrentPageNumber($page);
+            }
+        }
+    }
+    public function approveAction(){
+        // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    $id = $this->_getParam('id');
+    $this->view->article_id=$id;
+    $viewer= Engine_Api::_()->user()->getViewer();
+    // Check post
+    if( $this->getRequest()->isPost())
+    {
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+        
+      try
+      {
+        $article = Engine_Api::_()->getItem('school_artical', $id);
+        $article->approved= 1;
+        //find user resolved
+        $resolved_id= $viewer->getIdentity();
+        $article->resolved_by= $resolved_id;
+        
+        $article->save();
+        //can increment num_artical +1;
+        $school_id= $article->school_id;
+        $school= Engine_Api::_()->getDbtable('schools', 'school')->find($school_id)->current();
+        $school->num_artical+=1;
+        $school->save();
+        $db->commit();
+        //gửi mail cho người tạo article khi được approved
+        $link = 'http://'
+                  . $_SERVER['HTTP_HOST']
+                  . Zend_Controller_Front::getInstance()->getRouter()->assemble(array(
+                      'module' => 'school',
+                      'controller' => 'article',
+                      'action' => 'view',
+                      'id'=> $article->artical_id
+                      
+                    ), 'default', true);
+            $link = "<h2><a href='{$link}'>Click to view detail.</a></h2>";    
+            
+            $user_data = Engine_Api::_()->getDbtable('users', 'user')->find($article->user_id)->current();
+            $from = $user_data['email'];
+            $from_name = $user_data['displayname'];
+            
+            $content= "Your article has been approved.";
+            
+            $body = $content;
+            // Main params
+           $defaultParams = array(
+            'host' => $_SERVER['HTTP_HOST'],
+            'email' => $user_data->email,
+            'date' => time(),
+            'sender_title'=> $user_data->displayname,
+            'object_link' => $link, 
+            'object_description' => $body
+          );
+          // Send
+          try {
+            Engine_Api::_()->getApi('mail', 'core')->sendSystem($user_data,
+                'approve_article', $defaultParams);
+          } catch( Exception $e ) {
+            // Silence exception
+          }
+      }
+
+      catch( Exception $e )
+      {
+        $db->rollBack();
+        throw $e;
+      }
+
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => 10,
+          'parentRefresh'=> 10,
+          'messages' => array('Approve Success')
+      ));
+    }
+    // Output
+    $this->renderScript('article/approve.tpl');
+    }
+    public function rejectAction(){
+        // In smoothbox
+    $this->_helper->layout->setLayout('admin-simple');
+    $id = $this->_getParam('id');
+    $reason= $this->_getParam('reason_reject');
+    $this->view->article_id=$id;
+    $viewer= Engine_Api::_()->user()->getViewer();
+    // Check post
+    if( $this->getRequest()->isPost())
+    {
+      $db = Engine_Db_Table::getDefaultAdapter();
+      $db->beginTransaction();
+        
+      try
+      {
+        $article = Engine_Api::_()->getItem('school_artical', $id);
+        $article->reject= $viewer->getIdentity();
+        $article->reason= $reason;
+        //lưu thông tin người reject để liệt kê trong cancelled jobs(resolved_by)
+        $article->resolved_by= $viewer->getIdentity();
+        $article->save();
+        
+        $db->commit();
+        $link = 'http://'
+                  . $_SERVER['HTTP_HOST']
+                  . Zend_Controller_Front::getInstance()->getRouter()->assemble(array(
+                      'module' => 'school',
+                      'controller' => 'article',
+                      'action' => 'view',
+                      'id' => $id
+                    ), 'default', true);
+            $link = "<h2><a href='{$link}'>Click to view detail article.</a></h2>";    
+            $user_id= Engine_Api::_()->user()->getViewer()->getIdentity();
+            $user_data = Engine_Api::_()->getDbtable('users', 'user')->find($user_id)->current();
+            $from = $user_data['email'];
+            $from_name = $user_data['displayname'];
+            
+            $body = $reason;
+            //get admin
+            $tableUser= Engine_Api::_()->getDbtable('users', 'user');
+            $select= $tableUser->select()
+                        ->where('level_id =?', 1);
+            $users= $tableUser->fetchAll($select);
+            foreach($users as $user){
+                // Main params
+               $defaultParams = array(
+                'host' => $_SERVER['HTTP_HOST'],
+                'email' => $user->email,
+                'date' => time(),
+                'sender_title'=> $user_data->displayname,
+                'object_link' => $link, 
+                'object_description' => $body
+              );
+              // Send
+              try {
+                Engine_Api::_()->getApi('mail', 'core')->sendSystem($user,
+                    'reject_school_article', $defaultParams);
+              } catch( Exception $e ) {
+                // Silence exception
+              }
+            }
+      }
+
+      catch( Exception $e )
+      {
+        $db->rollBack();
+        throw $e;
+      }
+
+      $this->_forward('success', 'utility', 'core', array(
+          'smoothboxClose' => true,
+          'parentRefresh'=> 10,
+          'messages' => array('You have been reject resolve this article.')
+      ));
+    }
+    // Output
+    $this->renderScript('article/reject.tpl');
+    }
+}
