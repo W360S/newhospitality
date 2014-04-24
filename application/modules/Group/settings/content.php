@@ -30,6 +30,13 @@ return array(
         'name' => 'group.profile-discussions',
     ),
     array(
+        'title' => 'Group Profile Full Info',
+        'description' => 'Displays a group\'s full info (creation date, member count, leader, officers, etc) on its profile.',
+        'category' => 'Group',
+        'type' => 'widget',
+        'name' => 'group.profile-fullinfo',
+    ),
+    array(
         'title' => 'Group Profile Info',
         'description' => 'Displays a group\'s info (creation date, member count, leader, officers, etc) on its profile.',
         'category' => 'Group',
