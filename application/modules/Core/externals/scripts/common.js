@@ -1,4 +1,5 @@
-;jQuery(document).ready(function($) {
+;
+jQuery(document).ready(function($) {
 
     /* Fancybox */
     $(".pt-login a").fancybox({});
@@ -52,10 +53,20 @@
 
 
     jQuery('.pt-list-event').masonry({
-        itemSelector : 'li',
+        itemSelector: 'li',
         columnWidth: 1
     });
 
+    $("a.pt-editing").click(function() {
+        $('.pt-toggle-layout').toggleClass('pt-editing-block');
+        return false;
+    });
+    $('a.pt-editing').bind('click', function(e) {
+        event.stopPropagation();
+        $(document).bind('click', function() {
+            $('.pt-toggle-layout').removeClass('pt-editing-block');
+        });
+    });
 
 
 

@@ -31,7 +31,7 @@
                         'search': this.value
                     }
                 }), {
-                    'element': $('event_profile_members_anchor').getParent()
+                    'element': $('event_profile_members_anchor').getParent().getParent()
                 });
             });
         });
@@ -48,7 +48,7 @@
                     'page': page
                 }
             }), {
-                'element': $('event_profile_members_anchor').getParent()
+                'element': $('event_profile_members_anchor').getParent().getParent()
             });
         }
     </script>
@@ -105,9 +105,7 @@
     <?php endif; ?>
 
     <?php if ($this->members->getTotalItemCount() > 0): ?>
-        <?php
-        $i = 1;
-        ?>
+        <?php $i = 1;?>
         <ul class='event_members'>
             <?php
             foreach ($this->members as $member):
@@ -118,7 +116,7 @@
                     $memberInfo = $this->event->membership()->getMemberInfo($member);
                 }
                 ?>
-                <?php if($i%2 == 0) $class = "pt-odd"; ?>
+                <?php if($i%2 == 0) $class = "pt-odd"; else $class=""; ?>
                 <li id="event_member_<?php echo $member->getIdentity() ?>" class="<?php echo $class ?>">
                     <?php $i++; ?>
                     <div class="pt-user-post">

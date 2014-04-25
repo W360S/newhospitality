@@ -172,11 +172,6 @@ $filter = $this->filter;
             </script>
             
             <div class="tabs_alt tabs_parent pt-event-tabs">
-                <!-- <ul class="item" id="main_tabs"> -->
-                    <!-- <li class="tab_1"><a onclick="tabContainerSwitch($(this))" href="javascript:void(0);"><?php echo $this->translate('Search') ?></a></li> -->
-                    <!-- <li class="tab_2"><a onclick="tabContainerSwitch($(this))" href="javascript:void(0);"><?php echo $this->translate('Categories') ?></a></li>                              -->
-
-                <!-- </ul> -->
                 <ul class="pt-title" id="main_tabs">
                     <li><a href="javascript:void(0)" onclick="openSearch()">TÌM KIẾM</a></li>
                     <li><a href="javascript:void(0)" onclick="openCategories()">LĨNH VỰC</a></li>

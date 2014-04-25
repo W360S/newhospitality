@@ -179,3 +179,5 @@
 2014-04-24T08:49:06+00:00 DEBUG (7): [Zend] ngocvinhxt@gmail.com <- email@domain.com
 2014-04-24T08:49:06+00:00 DEBUG (7): [System] (notify_message_new) ngocvinhxt@gmail.com <- email@domain.com
 >>>>>>> 1ff1c5f5e9922fdd851e04537808425a60d657b2
+2014-04-24T15:59:43+00:00 DEBUG (7): [Zend] ngocvinhxt@gmail.com <- email@domain.com
+2014-04-24T15:59:43+00:00 DEBUG (7): [System] (notify_message_new) ngocvinhxt@gmail.com <- email@domain.com

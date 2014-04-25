@@ -103,6 +103,11 @@ class Group_IndexController extends Core_Controller_Action_Standard
     $paginator->setItemCountPerPage(10);
     $paginator->setCurrentPageNumber($this->_getParam('page'));
     //$this->view->category_id= 
+    
+    $this->_helper->content
+                ->setContentName(33) // page_id
+                // ->setNoRender()
+                ->setEnabled();
   }
 
   public function createAction()

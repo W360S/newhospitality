@@ -11,54 +11,60 @@
  */
 ?>
 <div class="group-fullinfo-wrapper">
-<div class="pt-how-info-event">
-    <div class="pt-conent-info-event">
-        <div class="pt-conent-info-event-img">
-            <img src="img/thumb/img-event-detail-02.jpg" alt="Image">
-        </div>
-        <div class="pt-link-event pt-link-group">
-            <div class="pt-how-info-user-post">
-                <h3><a href="#">Neque porro quisquam est</a></h3>
-                <p class="pt-info-group">69 thành viên trong nhóm<a href="#">Ẩm thực/ Bar/ Bàn</a></p>
+    <div class="pt-how-info-event">
+        <div class="pt-conent-info-event">
+            <div class="pt-conent-info-event-img">
+                <?php echo $this->itemPhoto($this->subject(), 'thumb.profile') ?>
             </div>
-            <div class="pt-how-link">
-                <a href="#pt-fancybox-01" class="pt-adherence"><span></span>Tham gian</a>
-                <a href="#" class="pt-share"><span></span>Chia sẻ</a>
-                <div class="pt-none">
-                    <div id="pt-fancybox-01" class="pt-approve">
-                        <p>Bạn có muốn tham gia sự kiện này</p>
-                        <button type="submit" title="" class="button">Tham gia</button>
-                        <button type="submit" title="" class="button">Hủy</button>
+            <div class="pt-link-event pt-link-group">
+                <div class="pt-how-info-user-post">
+                    <h3><a href="#"><?php echo $this->group->getTitle() ?></a></h3>
+                    <p class="pt-info-group"><?php echo $this->group->member_count ?> thành viên trong nhóm
+                        <?php if (!empty($this->group->category_id)): ?>
+                            <?php echo $this->htmlLink(array('route' => 'group_general', 'action' => 'browse', 'category' => $this->group->category_id), $this->translate($this->group->getCategory()->title)) ?>
+                        <?php endif; ?>
+                    </p>
+                </div>
+                <div class="pt-how-link">
+                    <a href="#pt-fancybox-01" class="pt-adherence"><span></span>Tham gia</a>
+                    <a href="javascript:void(0)" class="pt-share"><span></span>Chia sẻ</a>
+                    <div class="pt-none">
+                        <div id="pt-fancybox-01" class="pt-approve">
+                            <p>Bạn có muốn tham gia sự kiện này</p>
+                            <button type="submit" title="" class="button">Tham gia</button>
+                            <button type="submit" title="" class="button">Hủy</button>
+                        </div>
+                    </div>
+                    <a href="#" class="pt-editing">Editing</a>
+                    <div class="pt-toggle-layout">
+                        <div class="pt-icon-arrow"><span></span></div>
+                        <div class="pt-toggle-layout-content">
+                            <ul class="pt-edit">
+                                <li>
+                                    <a href="#">Mời thành viên</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gửi tin nhắn</a>
+                                </li>
+                                <li>
+                                    <a href="#">Chỉnh sửa thông tin</a>
+                                </li>
+                                <li>
+                                    <a href="#">Rời nhóm</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <a href="#" class="pt-editing">Editing</a>
-                <div class="pt-toggle-layout">
-                    <div class="pt-icon-arrow"><span></span></div>
-                    <div class="pt-toggle-layout-content">
-                        <ul class="pt-edit">
-                            <li>
-                                <a href="#">Mời thành viên</a>
-                            </li>
-                            <li>
-                                <a href="#">Gửi tin nhắn</a>
-                            </li>
-                            <li>
-                                <a href="#">Chỉnh sửa thông tin</a>
-                            </li>
-                            <li>
-                                <a href="#">Rời nhóm</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
+            <div class="pt-conent-info-group-text">
+                <?php if( '' !== ($description = $this->group->description) ): ?>
+                    <?php echo $this->viewMore($description) ?>
+                <?php endif; ?>
+            </div>
+            <div class="clear-both"></div>
         </div>
-        <div class="pt-conent-info-group-text">
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa</p>
-        </div>
-        <div class="clear-both"></div>
     </div>
-</div>
 </div>
 
 <?php /*

@@ -194,67 +194,6 @@ div.group_info > ul > li > div + div
   text-align: right;
   padding-bottom: 2px;
 }
-ul.group_members
-{
-  border-top-width: 1px;
-  margin-bottom: 8px;
-}
-ul.group_members > li
-{
-  overflow: hidden;
-  padding: 10px 0px 10px 0px;
-  border-bottom-width: 1px;
-}
-ul.group_members .group_members_icon
-{
-  float: left;
-  display: block;
-}
-ul.group_members .group_members_icon > img
-{
-  display: block;
-}
-ul.group_members .group_members_body
-{
-  overflow: hidden;
-  padding-left: 7px;
-}
-ul.group_members .group_members_status
-{
-  font-weight: bold;
-  color: $theme_font_color_light;
-}
-ul.group_members .group_members_status .smoothbox
-{
-  display: inline-block;
-  width: 16px;
-  background-image: url(~/application/modules/Group/externals/images/edit.png);
-  background-repeat: no-repeat;
-}
-ul.group_members .group_members_options
-{
-  float: right;
-  /* min-width: 180px;*/
-  overflow: hidden;
-  padding-left: 15px;
-}
-ul.group_members .group_members_options a
-{
-  display: block;
-  clear: both;
-  margin: 1px;
-}
-ul.group_members .group_members_options a.buttonlink
-{
-  padding-top: 2px;
-  padding-bottom: 2px;
-  font-weight: bold;
-  font-size: .8em;
-}
-ul.group_members .group_members_options div
-{
-  text-align: right;
-}
 
 /* photos tab */
 div.group_photos > ul
