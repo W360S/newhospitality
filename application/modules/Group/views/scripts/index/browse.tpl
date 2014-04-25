@@ -1,33 +1,62 @@
-<div class="content">
-    <div class="headline">
-        <h2>
-            <?php echo $this->translate('Groups'); ?>
-        </h2>
-        <div class="tabs">
-            <?php echo $nav; ?>
-        </div>
-        <div class="search_my_question search_library">
+<?php
+$paginator = $this->paginator;
+$category = $this->category;
+
+$navigation = $this->navigation()->menu()->setContainer($this->navigation)->render();
+
+$pages = $this->paginator;
+$form = $this->formFilter;
+$formValues = $this->formValues;
+$filter = $this->filter;
+?>
+<script type="text/javascript">
+    
+    function openSearch() {
+        jQuery("#tabs-2").hide();
+        jQuery("#tabs-1").show();
+    }
+
+    function openCategories() {
+        jQuery("#tabs-2").show();
+        jQuery("#tabs-1").hide();
+    }
+
+</script>
+<div class="pt-content-event">
+    <div class="pt-event-tabs">
+        <ul class="pt-title">
+            <li><a href="javascript:void(0)" onclick="openSearch()">TÌM KIẾM</a></li>
+            <li><a href="javascript:void(0)" onclick="openCategories()">LĨNH VỰC</a></li>
+        </ul>
+        <div id="tabs-1" class="pt-content-tab">
             <?php echo $this->content()->renderWidget('group.search'); ?>
         </div>
-
+        <div id="tabs-2" class="pt-content-tab" style="display:none;">
+            <?php echo $this->content()->renderWidget('group.categories'); ?>
+        </div>
     </div>
-
-    <div class="subsection">
-        <?php echo $this->content()->renderWidget('group.categories'); ?>
-    </div>
-
-    <div class="groups-list">
+    
+    <div class="pt-how-list-group">
         <?php $i = 1; ?>
         <?php if (count($pages) > 0): ?>
-            <ul class="groups_browse">
+            <ul class="pt-list-group">
                 <?php foreach ($pages as $group): ?>
                     <li <?php
                     if ($i == 1)
                         echo "class='first-group'";
                     $i++;
                     ?>>
+
+                            <a class="pt-img-group" href="<?php echo $group->getHref(); ?>">
+                                <?php echo $this->itemPhoto($group, 'thumb.normal') ?></a>
+                            <a href="#" class="pt-link-group">X Rời nhóm</a>
+                            <h3><a href="<?php echo $group->getHref(); ?>"><?php echo $group->getTitle(); ?></a></h3>
+                            <p class="pt-info-group"><?php echo $group['member_count'] ?> thành viên trong nhóm<a href="javascript:void(0);" onclick='categorySubmit("<?php echo $group->getCategory()->category_id; ?>");'><?php echo $group->getCategory()->title; ?></a></p>
+                            <p><?php echo $this->viewMore($group->getDescription()) ?></p>
+
+                        <?php /*
                         <div class="groups_photo">
-        <?php echo $this->htmlLink($group->getHref(), $this->itemPhoto($group, 'thumb.normal')) ?>
+                        <?php echo $this->htmlLink($group->getHref(), $this->itemPhoto($group, 'thumb.normal')) ?>
                         </div>
                         <div class="groups_options">
                             <?php if ($this->viewer()->getIdentity()): ?>
@@ -55,7 +84,7 @@
                                     ))
                                     ?>
                                 <?php endif; ?>
-        <?php endif; ?>
+                    <?php endif; ?>
 
                         </div>
                         <div class="groups_info">
@@ -67,6 +96,7 @@
                             </div>
                             <div class="groups_desc"><?php echo $this->viewMore($group->getDescription()) ?></div>
                         </div>
+                        */ ?>
                     </li>
 
     <?php endforeach; ?>
