@@ -132,6 +132,10 @@ class Group_IndexController extends Core_Controller_Action_Standard
       $form->removeElement('category_id');
     }
 
+    $this->_helper->content
+                ->setContentName(34) // page_id
+                ->setEnabled();
+
     // Check method/data validitiy
     if( !$this->getRequest()->isPost() ) {
       return;
@@ -284,6 +288,10 @@ class Group_IndexController extends Core_Controller_Action_Standard
     $this->view->formValues= $formValues;
     
     $paginator->setCurrentPageNumber($this->_getParam('page'));
+
+    $this->_helper->content
+                ->setContentName(35) // page_id
+                ->setEnabled();
     
   }
 

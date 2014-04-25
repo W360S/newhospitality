@@ -22,6 +22,21 @@ $filter = $this->filter;
     }
 
 </script>
+<div class="wd-content-event">
+    
+
+<div class="pt-title-event">
+    <ul class="pt-menu-event">
+        <li class="active">
+            <a href="<?php echo $this->baseUrl(); ?>/groups">Tất cả nhóm</a>
+        </li>
+        <li>
+            <a href="<?php echo $this->baseUrl(); ?>/groups/manage">Nhóm của tôi</a>
+        </li>
+    </ul>
+    <a href="<?php echo $this->baseUrl(); ?>/groups/create" class="pt-registering-event"><span></span>Tạo nhóm mới</a>
+</div>
+
 <div class="pt-content-event">
     <div class="pt-event-tabs">
         <ul class="pt-title">
@@ -125,3 +140,4 @@ $filter = $this->filter;
     }
 
 </script>
+</div>
