@@ -41,12 +41,12 @@ class Event_IndexController extends Core_Controller_Action_Standard {
     public function browseAction() {
         //Zend_Debug::dump($paginator);exit();
         $request = $this->getRequest();
-        
+
         $filter = $request->getParam('filter', 'future');
-        if ($filter != 'past' && $filter != 'future'){
+        if ($filter != 'past' && $filter != 'future') {
             $filter = 'future';
         }
-            
+
         $this->view->filter = $filter;
 
         $navigation = $this->getNavigation();
@@ -152,19 +152,18 @@ class Event_IndexController extends Core_Controller_Action_Standard {
         $paginator->setItemCountPerPage(16);
         $paginator->setCurrentPageNumber($page);
         $this->view->text = $values['text'];
-        
+
         $this->_helper->content
                 ->setContentName(30) // page_id
                 // ->setNoRender()
                 ->setEnabled();
-        
     }
 
     public function manageAction() {
         // Create form
         if (!$this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid())
             return;
-
+        
         $this->view->formFilter = $formFilter = new Event_Form_Filter_Manage();
         $defaultValues = $formFilter->getValues();
         // Populate form options
@@ -377,8 +376,6 @@ class Event_IndexController extends Core_Controller_Action_Standard {
             $db->rollBack();
             throw $e;
         }
-
-
     }
 
     public function editAction() {
@@ -486,9 +483,6 @@ class Event_IndexController extends Core_Controller_Action_Standard {
     }
 
     public function getuser() {
-        //$user_id = $this->getRequest()->getParam('user_id');
-        //$user_id = $this->getParam('user_id');
-        //exit('abc');
         // Get table info
         $table = Engine_Api::_()->getItemTable('user');
         $userTableName = $table->info('name');
@@ -509,8 +503,6 @@ class Event_IndexController extends Core_Controller_Action_Standard {
         $paginator->setItemCountPerPage(10);
         $paginator->setPageRange(10);
         $paginator->setCurrentPageNumber($page);
-
-        //Zend_Debug::dump($page);exit();
 
         return true;
     }

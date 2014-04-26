@@ -191,17 +191,17 @@ function crop($text, $qty) {
                     <div class="pt-toggle-layout-content">
                         <ul class="pt-edit">
                             <li>
-                                <a  href="<?php echo $this->layout()->staticBaseUrl . 'profile/' . $this->viewer->getOwner()->username; ?>">
+                                <a  href="<?php echo $this->baseUrl() . '/profile/' . $this->viewer->getOwner()->username; ?>">
                                     <?php echo $this->translate('Account setting'); ?></a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->layout()->staticBaseUrl . 'members/settings/general'; ?>"><?php echo $this->translate('Private setting'); ?></a>
+                                <a href="<?php echo $this->baseUrl() . '/members/settings/general'; ?>"><?php echo $this->translate('Private setting'); ?></a>
                             </li>
                             <li>
                                 <a href="javascript:void(0)"><?php echo $this->translate('Help'); ?></a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->layout()->staticBaseUrl . 'logout'; ?>"><?php echo $this->translate('Logout'); ?></a>
+                                <a href="<?php echo $this->baseUrl() . '/logout'; ?>"><?php echo $this->translate('Logout'); ?></a>
                             </li>
                         </ul>
                     </div>
