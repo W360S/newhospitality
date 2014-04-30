@@ -1,4 +1,23 @@
-;
+;jQuery.noConflict();
+jQuery(document).ready(function($){
+    console.log("PT MENU LEFT IS INITING");
+    var member_home_url = "<?php echo $this->baseUrl() ?>/members/home";
+    var message_inbox_url = "<?php echo $this->baseUrl() ?>/messages/inbox";
+    var events_index_url = "<?php echo $this->baseUrl() ?>/events";
+    var album_index_url = "<?php echo $this->baseUrl() ?>/albums";
+    if(document.URL.indexOf(member_home_url) != -1){
+        $("#link-newfeed").addClass("pt-active");
+    }
+    if(document.URL.indexOf(message_inbox_url) != -1){
+        $("#link-message").addClass("pt-active");
+    }
+    if(document.URL.indexOf(events_index_url) != -1){
+        $("#link-events").addClass("pt-active");
+    }
+    if(document.URL.indexOf(album_index_url) != -1){
+        $("#link-albums").addClass("pt-active");
+    }
+});
 jQuery(document).ready(function($) {
 
     /* Fancybox */
@@ -52,10 +71,7 @@ jQuery(document).ready(function($) {
     //$('.wd-scrollbars-heder').ClassyScroll();
 
 
-    jQuery('.pt-list-event').masonry({
-        itemSelector: 'li',
-        columnWidth: 1
-    });
+    
 
     $("a.pt-editing").click(function() {
         $('.pt-toggle-layout').toggleClass('pt-editing-block');
@@ -67,11 +83,6 @@ jQuery(document).ready(function($) {
             $('.pt-toggle-layout').removeClass('pt-editing-block');
         });
     });
-
-
-
-
-
 
 
 });

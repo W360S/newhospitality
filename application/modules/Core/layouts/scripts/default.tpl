@@ -166,16 +166,21 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
 <?php echo $this->headScript()->captureEnd(Zend_View_Helper_Placeholder_Container_Abstract::PREPEND) ?>
         </script>
         <?php
+        
+        /*
         $this->headScript()
-                ->prependFile($staticBaseUrl . 'externals/smoothbox/smoothbox4.js')
-                ->prependFile($staticBaseUrl . 'application/modules/User/externals/scripts/core.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/common.js')
-                ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/core.js')
                 //->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery.classyscroll.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery-ui.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery.fancybox.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery.masonry.min.js')
-                ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery-1.10.2.min.js')
+                ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/jquery-1.10.2.min.js');*/
+        
+
+        $this->headScript()
+                ->prependFile($staticBaseUrl . 'externals/smoothbox/smoothbox4.js')
+                ->prependFile($staticBaseUrl . 'application/modules/User/externals/scripts/core.js')
+                ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/core.js')
                 ->prependFile($staticBaseUrl . 'externals/chootools/chootools.js')
                 ->prependFile($staticBaseUrl . 'externals/mootools/mootools-more-1.4.0.1-full-compat-' . (APPLICATION_ENV == 'development' ? 'nc' : 'yc') . '.js')
                 ->prependFile($staticBaseUrl . 'externals/mootools/mootools-core-1.4.5-full-compat-' . (APPLICATION_ENV == 'development' ? 'nc' : 'yc') . '.js');
@@ -211,6 +216,7 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
             }
         </style>
 
+        
     </head>
     <body id="global_page_<?php echo $identity ?>">
         <script type="javascript/text">
@@ -238,5 +244,11 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
             <?php echo $this->content('footer') ?>
         </div>
         <div id="janrainEngageShare" style="display:none">Share</div>
+        
+        <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
+        <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.fancybox.js'?>" type="text/javascript"></script>
+        <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-ui.js'?>" type="text/javascript"></script>
+        <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/common.js'?>" type="text/javascript"></script>
+
     </body>
 </html>

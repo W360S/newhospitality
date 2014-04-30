@@ -1,116 +1,4 @@
-<style type="text/css">
-    .paging{float: right;}
-    /*.subsection{padding-bottom: 42px;}*/
-    ul.videos_browse > li {
-        clear: none !important;
-    }
-    ul.paginationControl li {
-        border-top-width:0px !important; 
-    }
-</style>
-<style>
-    .tab_1{
-        background: none repeat scroll 0 0 #FFFFFF;
-        border-color: #CCCCCC #CCCCCC -moz-use-text-color;
-        border-style: solid solid none;
-        border-width: 1px 1px medium;
-        color: #000000;
-        padding: 11px;
-        font-size:14px;
-        text-transform: uppercase;
-    }
-    .tab_1.active{
-        background: none repeat scroll 0 0 #4FC1E9;
-        border: 1px solid #4FC1E9;
-        color: #FFFFFF;
-        padding: 11px;
-    }
-    .tab_2{
-        background: none repeat scroll 0 0 #FFFFFF;
-        border-color: #CCCCCC #CCCCCC -moz-use-text-color;
-        border-style: solid solid none;
-        border-width: 1px 1px medium;
-        color: #000000;
-        padding: 11px;
-        font-size:14px;
-        text-transform: uppercase;
-    }
-    .tab_2.active{
-        background: none repeat scroll 0 0 #4FC1E9;
-        border: 1px solid #4FC1E9;
-        color: #FFFFFF;
-        padding: 11px;
-    }
 
-    .tab_1.active > a {    
-        border:none;
-        color: #fff;
-        outline: medium none;
-        padding: 5px 7px;
-        text-decoration: none;
-    }
-    .tab_2.active > a { 
-        border:none;
-        color: #fff;
-        outline: medium none;
-        padding: 5px 7px;
-        text-decoration: none;
-    }
-    .tab_1 > a {    
-        border:none;
-        border-style: none;
-    }
-    .tab_2 > a { 
-        border:none;
-        border-style: none;
-    }
-    .tabs_alt > ul > li > a{
-        border-style: none;
-    }
-    .tabs_alt > ul > li > a:hover{
-        border-style: none;
-    }
-    .tab_2.current{
-        background: none repeat scroll 0 0 #4FC1E9;
-        margin-top:-6px;
-        color: #FFFFFF;
-        padding: 30px 21px;
-        font-size:12px;
-        text-transform: none;
-    }
-    .tab_1.current{
-        background: none repeat scroll 0 0 #4FC1E9;
-        margin-top:-6px;
-        color: #FFFFFF;
-        padding: 30px 21px;
-        font-size:12px;
-        text-transform: none;
-    }
-
-    ul.list_category li a {
-        color: #FFFFFF;
-        line-height: 17px;
-    }
-
-    .subcontent .filter .select_sort {
-        color: #FFFFFF;
-        float: right;
-    }
-    .filter .input input {
-        padding: 2px;
-        width: 114px;
-    }
-    input, select {
-        padding: 9px 4%;
-    }
-    .pt-content-searching ul li .wd-adap-select {
-        margin: 0;
-        width: 100%;
-    }
-    .button:hover{
-        background:#48CFAD;
-    }
-</style>
 <?php
 $paginator = $this->paginator;
 $category = $this->category;
@@ -122,6 +10,7 @@ $form = $this->formFilter;
 $formValues = $this->formValues;
 $filter = $this->filter;
 ?>
+<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
 <div class="content">
     <div class="wd-content-event">
         <div class="pt-title-event">
@@ -280,8 +169,14 @@ $filter = $this->filter;
 
 
 </div>
+
+<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.masonry.min.js'?>" type="text/javascript"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function($){
         //jQuery(".pt-event-tabs").tabs();
+        $('.pt-list-event').masonry({
+            itemSelector: 'li',
+            columnWidth: 1
+        });
     });
 </script>

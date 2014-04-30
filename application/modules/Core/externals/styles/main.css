@@ -1414,6 +1414,8 @@ Used for the modal popup smoothbox.
 	border:none;
 	margin-bottom:-1px;
 	margin-top:1px;
+  /*padding: 10px;
+  font-family: Arial*/
 }
 
 /* IE6 */

@@ -15,7 +15,6 @@
     $this->locale()->toNumber($this->unread),
     $this->locale()->toNumber($this->paginator->getTotalItemCount())) ?>
     <?php if( count($this->paginator) ): ?>
-        <a href="javascript:void(0)" id="checkall"><!-- Check All --></a>
     <?php endif; ?>
     <?php /*
     <form action="messages/search" method="GET" style="float: right;">
@@ -33,8 +32,8 @@
 <br />
 <?php else: ?>
 <div class="pt-how-link-message">
-    <a href="" class="pt-icon pt-icon-01"></a>
-    <a href="" class="pt-icon pt-icon-02"></a>
+    <a href="javascript:void(0)" class="pt-icon pt-icon-01" id="checkall"></a>
+    <a href="javascript:void(0)" class="pt-icon pt-icon-02" id="delete"></a>
     <?php echo $this->paginationControl($this->paginator, null, "application/modules/Messages/views/scripts/pagination/inbox.tpl"); ?>
 </div>
 <?php endif; ?>
@@ -139,21 +138,25 @@
 
 <script type="text/javascript">
 
-$('checkall').addEvent('click', function() {
+    
+    $('checkall').addEvent('click', function() {
         var hasUnchecked = false;
-        $$('.messages_list input[type="checkbox"]').each(function(el) {
+        $$('.pt-list-message input[type="checkbox"]').each(function(el) {
             if (!el.get('checked')) {
                 hasUnchecked = true;
             }
         });
-        $$('.messages_list input[type="checkbox"]').set('checked', hasUnchecked);
+        $$('.pt-list-message input[type="checkbox"]').set('checked', hasUnchecked);
     });
+
     $('delete').addEvent('click', function() {
+        console.log("inbox.tpl delete clicked");
         var selected_ids = new Array();
-        $$('div.messages_list input[type=checkbox]').each(function(cBox) {
+        $$('.pt-list-message input[type=checkbox]').each(function(cBox) {
             if (cBox.checked)
                 selected_ids[ selected_ids.length ] = cBox.value;
         });
+        console.log(selected_ids);
         var sb_url = '<?php echo $this->url(array('action'=>'delete'), 'messages_general', true) ?>?place=inbox&message_ids=' + selected_ids.join(',');
                         if (selected_ids.length > 0)
                     Smoothbox.open(sb_url);

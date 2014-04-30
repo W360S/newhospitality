@@ -30,23 +30,5 @@
 	</ul>
 </div>
 <script>
-    jQuery(document).ready(function($){
-        console.log("PT MENU LEFT IS INITING");
-        var member_home_url = "<?php echo $this->baseUrl() ?>/members/home";
-        var message_inbox_url = "<?php echo $this->baseUrl() ?>/messages/inbox";
-        var events_index_url = "<?php echo $this->baseUrl() ?>/events";
-        var album_index_url = "<?php echo $this->baseUrl() ?>/albums";
-        if(document.URL.indexOf(member_home_url) != -1){
-            $("#link-newfeed").addClass("pt-active");
-        }
-        if(document.URL.indexOf(message_inbox_url) != -1){
-            $("#link-message").addClass("pt-active");
-        }
-        if(document.URL.indexOf(events_index_url) != -1){
-            $("#link-events").addClass("pt-active");
-        }
-        if(document.URL.indexOf(album_index_url) != -1){
-            $("#link-albums").addClass("pt-active");
-        }
-    });
+    
 </script>
