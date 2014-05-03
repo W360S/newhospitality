@@ -2,7 +2,6 @@
 class Recruiter_Widget_ProfileCompanyController extends Engine_Content_Widget_Abstract
 {
     public function indexAction(){
-        
         //get profile company id
         $job_id= Zend_Controller_Front::getInstance()->getRequest()->getParam('id');
         
@@ -11,6 +10,7 @@ class Recruiter_Widget_ProfileCompanyController extends Engine_Content_Widget_Ab
         
         $user_id= $job->user_id;
         $profile_id= Engine_Api::_()->getApi('core', 'recruiter')->getProfile($user_id)->recruiter_id;
+        
         if($profile_id){
             $profile = Engine_Api::_()->getDbtable('recruiters', 'recruiter')->find($profile_id)->current();
             //Zend_Debug::dump($profile);exit;
@@ -18,6 +18,7 @@ class Recruiter_Widget_ProfileCompanyController extends Engine_Content_Widget_Ab
             $this->view->industries= $industries;
             $this->view->profile= $profile;
         }
+        
         
     }
 }

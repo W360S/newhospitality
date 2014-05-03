@@ -14,7 +14,8 @@ class Recruiter_Widget_JobDetailtoolsController extends Engine_Content_Widget_Ab
             $this->setNoRender();
         }
         //dem so cong viec duoc giai quyet
-        
+        $this->view->user_id = $user->getIdentity();
+        $this->view->params = Zend_Controller_Front::getInstance()->getRequest()->getParams();
     }
 
 }

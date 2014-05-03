@@ -4,7 +4,7 @@ class Recruiter_Api_Core extends Core_Api_Abstract {
 
     //get profil company
     public function getProfile($user_id) {
-        $table = $this->api()->getDbtable('recruiters', 'recruiter');
+        $table = Engine_Api::_()->getDbtable('recruiters', 'recruiter');
         $row = $table->fetchRow($table->select()->where('user_id = ?', $user_id));
         return $row;
     }
@@ -22,7 +22,7 @@ class Recruiter_Api_Core extends Core_Api_Abstract {
 
     //get industry
     public function getIndustries($recruiter_id) {
-        $table = $this->api()->getDbtable('reIndustries', 'recruiter');
+        $table = Engine_Api::_()->getDbtable('reIndustries', 'recruiter');
         $row = $table->fetchAll($table->select()->where('recruiter_id = ?', $recruiter_id));
         return $row;
     }
@@ -112,7 +112,7 @@ class Recruiter_Api_Core extends Core_Api_Abstract {
 
     //get industries
     public function getAdminIndustries() {
-        return $this->api()->getDbtable('industries', 'recruiter')->fetchAll();
+        return Engine_Api::_()->getDbtable('industries', 'recruiter')->fetchAll();
     }
 
     public function getAdminIndustry($category_id) {
@@ -153,12 +153,12 @@ class Recruiter_Api_Core extends Core_Api_Abstract {
 
     //list danh sách industries
     public function listModuleJobIndustries() {
-        return $this->api()->getDbtable('industries', 'recruiter')->fetchAll();
+        return Engine_Api::_()->getDbtable('industries', 'recruiter')->fetchAll();
     }
 
     //list danh sách các industries mà người dùng đã được gán
     public function listAssignIndustries($user_id, $module) {
-        $table = $this->api()->getDbtable('modules', 'user');
+        $table = Engine_Api::_()->getDbtable('modules', 'user');
         $select = $table->select()
                 ->where('name_module =?', $module)
                 ->where('user_id =?', $user_id)
