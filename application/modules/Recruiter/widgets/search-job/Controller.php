@@ -8,7 +8,6 @@ class Recruiter_Widget_SearchJobController extends Engine_Content_Widget_Abstrac
 {
     public function indexAction(){
         
-        
         $this->view->form= $form= new Recruiter_Form_Job_Search();
         //Country
         //if no country then???

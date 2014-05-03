@@ -7,13 +7,13 @@ class Recruiter_Api_Job extends Core_Api_Abstract
     );
     //count job posted
     public function countJobPosted($user_id){
-        $table = $this->api()->getDbtable('jobs', 'recruiter');
+        $table = Engine_Api::_()->getDbtable('jobs', 'recruiter');
         $row = $table->fetchAll($table->select()->where('user_id = ?', $user_id));
         return $row;
     }
     //count job posted
     public function countSaveCandidate($user_id){
-        $table = $this->api()->getDbtable('applyJobs', 'recruiter');
+        $table = Engine_Api::_()->getDbtable('applyJobs', 'recruiter');
         $row = $table->fetchAll($table->select()->where('owner_id = ?', $user_id)->where('status =?', 1));
         return $row;
     }
@@ -83,13 +83,13 @@ class Recruiter_Api_Job extends Core_Api_Abstract
     }
     //get types
     public function getJobTypes($job_id){
-        $table = $this->api()->getDbtable('jobTypes', 'recruiter');
+        $table = Engine_Api::_()->getDbtable('jobTypes', 'recruiter');
         $row = $table->fetchAll($table->select()->where('job_id = ?', $job_id));
         return $row;
     }
     //contact
     public function getJobContacts($job_id){
-        $table = $this->api()->getDbtable('contactVias', 'recruiter');
+        $table = Engine_Api::_()->getDbtable('contactVias', 'recruiter');
         $row = $table->fetchAll($table->select()->where('job_id = ?', $job_id));
         return $row;
     }
@@ -380,7 +380,7 @@ class Recruiter_Api_Job extends Core_Api_Abstract
     $select = $table->select()
       ->order('creation_date DESC' )
       ->where('status =?', 2)
-      ->where('deadline >?', date('Y-m-d H:i:s'))
+      // ->where('deadline >?', date('Y-m-d H:i:s'))
       ;
     
     if( !empty($params['city_id']) )
@@ -410,6 +410,7 @@ class Recruiter_Api_Job extends Core_Api_Abstract
             $select->where($rName.".position LIKE ? OR ".$rName.".description LIKE ? OR ".$rName.".salary LIKE ? OR ".$rName.".skill LIKE ?", '%'.$params['search_job'].'%');
         }
     }
+    
     return $select;
   }
   //check job saved

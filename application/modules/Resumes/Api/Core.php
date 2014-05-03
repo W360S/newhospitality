@@ -4,66 +4,66 @@ class Resumes_Api_Core extends Core_Api_Abstract
     // get city of country_id
     public function getCity($country_id)
     {
-        $table = $this->api()->getDbtable('cities', 'resumes');
+        $table = Engine_Api::_()->getDbtable('cities', 'resumes');
         $row = $table->fetchAll($table->select()->where('country_id = ?', $country_id)->order('name ASC'));
         return $row;
     }
     //list work experience of resume_id
     public function getListWork($resume_id){
-        $table = $this->api()->getDbtable('experiences', 'resumes');
+        $table = Engine_Api::_()->getDbtable('experiences', 'resumes');
         $row = $table->fetchAll($table->select()->where('resume_id = ?', $resume_id));
         return $row;
     }
     public function getResume($resume_id){
-        $table = $this->api()->getDbtable('resumes', 'resumes');
+        $table = Engine_Api::_()->getDbtable('resumes', 'resumes');
         $row = $table->fetchRow($table->select()->where('resume_id = ?', $resume_id));
         return $row;
     }
     //get resume all
     public function getListResume($user_id){
-        $table = $this->api()->getDbtable('resumes', 'resumes');
+        $table = Engine_Api::_()->getDbtable('resumes', 'resumes');
         $row = $table->fetchAll($table->select()->where('user_id=?', $user_id)->order('modified_date DESC'));
         return $row;
     }
     public function getListEducation($resume_id){
-        $table = $this->api()->getDbtable('educations', 'resumes');
+        $table = Engine_Api::_()->getDbtable('educations', 'resumes');
         $row = $table->fetchAll($table->select()->where('resume_id = ?', $resume_id));
         return $row;
     }
     public function getExperience($experience_id){
-        $table = $this->api()->getDbtable('experiences', 'resumes');
+        $table = Engine_Api::_()->getDbtable('experiences', 'resumes');
         $row = $table->fetchRow($table->select()->where('experience_id = ?', $experience_id));
         return $row;
     }
     public function getListSkill($resume_id){
-        $table = $this->api()->getDbtable('languageSkills', 'resumes');
+        $table = Engine_Api::_()->getDbtable('languageSkills', 'resumes');
         $row = $table->fetchAll($table->select()->where('resume_id = ?', $resume_id));
         return $row;
     }
     public function getListLanguage(){
-        $table = $this->api()->getDbtable('languages', 'resumes');
+        $table = Engine_Api::_()->getDbtable('languages', 'resumes');
         $row = $table->fetchAll();
         return $row;
     }
     public function getListGroupSkill(){
-        $table = $this->api()->getDbtable('groupSkills', 'resumes');
+        $table = Engine_Api::_()->getDbtable('groupSkills', 'resumes');
         $row = $table->fetchAll();
         return $row;
     }
     //get list skill other
     public function getListSkillOther($resume_id){
-        $table = $this->api()->getDbtable('skills', 'resumes');
+        $table = Engine_Api::_()->getDbtable('skills', 'resumes');
         $row = $table->fetchAll($table->select()->where('resume_id = ?', $resume_id));
         return $row;
     }
     public function getListReference($resume_id){
-        $table = $this->api()->getDbtable('references', 'resumes');
+        $table = Engine_Api::_()->getDbtable('references', 'resumes');
         $row = $table->fetchAll($table->select()->where('resume_id = ?', $resume_id));
         return $row;
     }
     //get language follow resume_id
     public function getListLanguageSkill($resume_id){
-        $table = $this->api()->getDbtable('languageSkills', 'resumes');
+        $table = Engine_Api::_()->getDbtable('languageSkills', 'resumes');
         $row = $table->fetchAll($table->select()->where('resume_id = ?', $resume_id));
         return $row;
     }

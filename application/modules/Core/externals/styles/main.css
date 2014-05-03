@@ -1441,8 +1441,9 @@ ul.notifications_menu > div
 }
 ul.notifications_menu > li
 {
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
 }
 ul.notifications_menu > li + li
 {

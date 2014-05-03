@@ -94,8 +94,8 @@ $filter = $this->filter;
                                         <a href="<?php echo $event->getHref(); ?>"><img src="<?php echo $this->baseUrl(); ?>/application/modules/Event/externals/images/nophoto_event_thumb_normal.png"></a>
                                     <?php endif; ?>
                                     <div class="pt-views-comment">
-                                        <a href="#" class="pt-views"><span></span>68</a>
-                                        <a href="#" class="pt-comment"><span></span>9</a>
+                                        <a href="#" class="pt-views"><span></span><?php echo $event->view_count ?></a>
+                                        <a href="#" class="pt-comment"><span></span><?php echo $event->member_count ?></a>
                                     </div>          
                                 </div>
                                 <div class="events_options">

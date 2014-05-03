@@ -1,37 +1,77 @@
+<div class="pt-content-searching">
+    <form id="recruiter_job_search_form" method="post" action="<?php echo $this->form->getAction();?>" enctype="application/x-www-form-urlencoded">
+        <fieldset>
+            <ul>
+                <li>
+                    <input id="search_job" type="text" name="search_job" title="Sign up for our newsletter" class="input-text required-entry validate-email" value="Nội dung cần tìm..." onfocus="javascript:if(this.value=='Nội dung cần tìm...') this.value=''" onblur="if(this.value=='') this.value='Nội dung cần tìm...'"/>
+                </li>
+                <li>
+                    <div class="wd-adap-select">
+                        <span class="wd-adap-icon-select"></span>
+                        <select name="city_id" id="city_id">
+                            <option value="0">All city</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="wd-adap-select">
+                        <span class="wd-adap-icon-select"></span>
+                        <select name="industry" id="industry">
+                            <option value="0" label="All Career" selected="selected">All Career</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="wd-adap-select">
+                        <span class="wd-adap-icon-select"></span>
+                        <select >
+                            <option>Tất cả lĩnh vực</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="last">
+                    <!--<button type="submit" title="" class="button"><span></span>Tìm kiếm ngay</button>-->
+                    <button id="search_book" type="submit" title="" class="button" value="<?php echo $this->translate('Search now');?>"><span></span><?php echo $this->translate("Search Now"); ?></button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
 
- <div class="pt-content-searching">
-									<form id="recruiter_job_search_form" method="post" action="<?php echo $this->form->getAction();?>" enctype="application/x-www-form-urlencoded">
-										<fieldset>
-											<ul>
-												<li>
-													<input id="text" type="text" name="text" title="Sign up for our newsletter" class="input-text required-entry validate-email" value="Nội dung cần tìm..." onfocus="javascript:if(this.value=='Nội dung cần tìm...') this.value=''" onblur="if(this.value=='') this.value='Nội dung cần tìm...'"/>
-												</li>
-												<li>
-													<div class="wd-adap-select">
-														
-														<?php echo $this->form->city_id;?>
-													</div>
-												</li>
-												<li>
-													<div class="wd-adap-select">
-														<?php echo $this->form->industry;?>
-													</div>
-												<?php //print_r($this->form);?>
-												</li>
-												<li>
-													<div class="wd-adap-select">
-														<?php echo $this->form->categories;?>
-													</div>
-												</li>
-												<li class="last">
-													<button id="search_book" type="submit" title="" class="button" value="<?php echo $this->translate('Search now');?>"><span></span><?php echo $this->translate("Search Now"); ?></button>
-													
-												</li>
-											</ul>
-										</fieldset>
-									</form>
+</div>
+<?php /*
+<div class="pt-content-searching">
+	<form id="recruiter_job_search_form" method="post" action="<?php echo $this->form->getAction();?>" enctype="application/x-www-form-urlencoded">
+		<fieldset>
+			<ul>
+				<li>
+					<input id="text" type="text" name="text" title="Sign up for our newsletter" class="input-text required-entry validate-email" value="Nội dung cần tìm..." onfocus="javascript:if(this.value=='Nội dung cần tìm...') this.value=''" onblur="if(this.value=='') this.value='Nội dung cần tìm...'"/>
+				</li>
+				<li>
+					<div class="wd-adap-select">
+						
+						<?php echo $this->form->city_id;?>
+					</div>
+				</li>
+				<li>
+					<div class="wd-adap-select">
+						<?php echo $this->form->industry;?>
+					</div>
+				<?php //print_r($this->form);?>
+				</li>
+				<li>
+					<div class="wd-adap-select">
+						<?php echo $this->form->categories;?>
+					</div>
+				</li>
+				<li class="last">
+					<button id="search_book" type="submit" title="" class="button" value="<?php echo $this->translate('Search now');?>"><span></span><?php echo $this->translate("Search Now"); ?></button>
+					
+				</li>
+			</ul>
+		</fieldset>
+	</form>
 								
-							</div>
+</div>
 <style>
 	.pt-content-searching ul li input{
 		width:251px;
@@ -93,3 +133,4 @@ window.addEvent('domready', function(){
    list_city();
 });
 </script>
+*/ ?>
