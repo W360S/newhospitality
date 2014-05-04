@@ -5,21 +5,21 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
     public function indexAction() {
 
         //Zend_Debug::dump(111); exit;
-        
-        $table= Engine_Api::_()->getDbtable('jobs', 'recruiter');
-        $select= $table->select()
-                        ->from($table->info('name'))
-                        ->where('status =?', 2)
+
+        $table = Engine_Api::_()->getDbtable('jobs', 'recruiter');
+        $select = $table->select()
+                ->from($table->info('name'))
+                ->where('status =?', 2)
 //                        ->where('deadline > ?', date('Y-m-d'))
-                        ->limit(50)
-                        ->order('creation_date DESC');
-        $records= $table->fetchAll($select);
-        $this->view->paginator= $paginator= Zend_Paginator::factory($records);
+                ->limit(50)
+                ->order('creation_date DESC');
+        $records = $table->fetchAll($select);
+        $this->view->paginator = $paginator = Zend_Paginator::factory($records);
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $paginator->setItemCountPerPage(10);
         $paginator->setCurrentPageNumber($request->getParam('page'));
         $paginator->setPageRange(5);
-        
+
         $this->_helper->content
                 ->setContentName(36) // page_id
                 // ->setNoRender()
@@ -36,6 +36,11 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         $num_resume = Engine_Api::_()->getApi('core', 'resumes')->getListResume($user->user_id);
         $this->view->num_resume = $num_resume;
 
+        $this->_helper->content
+                ->setContentName(41) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+        
         if (!$this->getRequest()->isPost()) {
             return;
         }
@@ -112,6 +117,12 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         $references = Engine_Api::_()->getApi('core', 'resumes')->getListReference($resume_id);
         $this->view->references = $references;
         $this->view->resume = $resume;
+        
+        $this->_helper->content
+                ->setContentName(41) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+        
         if (!$this->getRequest()->isPost()) {
             return;
         }
@@ -274,8 +285,14 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
             } else {
                 $this->dateAction(3);
             }
+        }else{
+            $this->_helper->content
+                ->setContentName(42) // page_id
+                // ->setNoRender()
+                ->setEnabled();
         }
 
+        
         // Not post/invalid
         if (!$this->getRequest()->isPost()) {
             //list education
@@ -567,6 +584,11 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         $birthday = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_birthday, $user_id);
         $this->view->gender = $gender;
         $this->view->birthday = $birthday;
+        $this->_helper->content
+                ->setContentName(41) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+        // Not post/invalid
     }
 
     public function listAction() {

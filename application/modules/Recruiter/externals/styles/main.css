@@ -64,6 +64,7 @@ li .content_questions h3 a:hover { color: #027a9f; }
 #breadcrumb span { background: url(~/application/modules/Core/externals/images/arrow_title.gif) no-repeat center; overflow: hidden; text-indent: -1983em; width: 30px; }
 
 /* job-form */
+/*
 .job-form { padding: 19px; }
 .job-form h3 { border-bottom: #cfcfcf solid 1px; color: #808080; font-size: 1.15em; margin: 10px 0; padding: 5px 0; text-transform: uppercase; }
 .job-form .input { overflow: hidden; padding: 7px 0; }
@@ -88,6 +89,8 @@ li .content_questions h3 a:hover { color: #027a9f; }
 .job-form .submit input { background: url(~/application/modules/Core/externals/images/bg-btn-1.png) no-repeat; border: none; color: #fff; cursor: pointer; float: left; font-size: 1.25em; font-weight: bolder; height: 35px; line-height: 35px; margin-right: 10px; text-align: center; width: 127px; }
 .job-form .submit input:hover { background-position: left -35px; }
 .job-form .submit input.min { background-image:  url(~/application/modules/Core/externals/images/bg-btn-2.png); width: 79px; }
+*/
+
 /* job-view-profile */
 .recruiter-view-profile .layout_left{padding-right:32px}
 .recruiter-view-profile .layout_middle{padding:0;margin-bottom:50px}

@@ -31,14 +31,15 @@ table.last_resume{border-bottom: 1px dotted; padding: 0 3px; }
 .job-form-step-1 .submit{padding-left:252px}
 .resume_info_main .job-form-step-1 label{width:98px}
 .job-form-step-1 label.error{width: auto; position: relative; left: 107px; clear: left;color: red;}
+/*
 .job-form-step-2 .input label{width:150px}
 .job-form-step-2 label.fix-line{line-height:19px;margin-top:5px}
 .job-form-step-2 .input select{width:240px;margin-right:5px}
-
 .job-form-step-2 .input textarea{width:350px !important}
 .job-form-step-2 .submit{padding-left:160px}
 .job-form-step-2 .resume_date select#starttime-month, .job-form-step-2 .resume_date select#starttime-day, .job-form-step-2 .resume_date select#starttime-year,.job-form-step-2 .resume_date select#endtime-month,
 .job-form-step-2 .resume_date select#endtime-day, .job-form-step-2 .resume_date select#endtime-year{width: 95px;}
+*/
 .job-form .resume_date label{ color: #000; float: left; font-weight: bolder; line-height: 37px; margin-top: 8px; margin-right: 10px; text-align: right; width: 150px; }
 .job-form .resume_date select{ border: #e5e5e5 solid 1px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-top:9px; margin-right: 20px; padding: 9px; }
 .my-work-experience table{width:100%}
@@ -47,7 +48,7 @@ table.last_resume{border-bottom: 1px dotted; padding: 0 3px; }
 .my-work-experience table th,.my-work-experience table td{padding:10px 15px;border-top:1px solid #fff}
 .my-work-experience table td a{float:left;width:17px;height:17px;background:url(~/application/modules/Recruiter/externals/images/ico_option_my_work.png) -17px 0 no-repeat;font-size:0;line-height:17px;text-indent:-1985em;margin-left:5px;display:inline}
 .my-work-experience table td a.edit{background-position:0 -1px}
-.button_control{padding:20px 179px 30px;overflow:hidden}
+/*.button_control{padding:20px 179px 30px;overflow:hidden}*/
 .button_control a{background:url(~/application/modules/Core/externals/images/bg-btn-2.png) no-repeat;color:#FFFFFF;float:left;font-size:1.25em;font-weight:bolder;height:35px;line-height:35px;margin-right:10px;text-align:center;width:79px;}
 .button_control a:hover{color: #fff;cursor: pointer; background-position: 0 -35px;}
 .button_control a.save_job{width:127px;background:url(~/application/modules/Core/externals/images/bg-btn-1.png) no-repeat}

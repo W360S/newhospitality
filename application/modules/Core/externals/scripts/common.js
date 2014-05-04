@@ -1,20 +1,22 @@
-;jQuery.noConflict();
-jQuery(document).ready(function($){
+;
+jQuery.noConflict();
+
+jQuery(document).ready(function($) {
     console.log("PT MENU LEFT IS INITING");
     var member_home_url = "<?php echo $this->baseUrl() ?>/members/home";
     var message_inbox_url = "<?php echo $this->baseUrl() ?>/messages/inbox";
     var events_index_url = "<?php echo $this->baseUrl() ?>/events";
     var album_index_url = "<?php echo $this->baseUrl() ?>/albums";
-    if(document.URL.indexOf(member_home_url) != -1){
+    if (document.URL.indexOf(member_home_url) != -1) {
         $("#link-newfeed").addClass("pt-active");
     }
-    if(document.URL.indexOf(message_inbox_url) != -1){
+    if (document.URL.indexOf(message_inbox_url) != -1) {
         $("#link-message").addClass("pt-active");
     }
-    if(document.URL.indexOf(events_index_url) != -1){
+    if (document.URL.indexOf(events_index_url) != -1) {
         $("#link-events").addClass("pt-active");
     }
-    if(document.URL.indexOf(album_index_url) != -1){
+    if (document.URL.indexOf(album_index_url) != -1) {
         $("#link-albums").addClass("pt-active");
     }
 });
@@ -71,7 +73,7 @@ jQuery(document).ready(function($) {
     //$('.wd-scrollbars-heder').ClassyScroll();
 
 
-    
+
 
     $("a.pt-editing").click(function() {
         $('.pt-toggle-layout').toggleClass('pt-editing-block');
@@ -86,3 +88,28 @@ jQuery(document).ready(function($) {
 
 
 });
+
+function isMemberHomePage() {
+    return document.URL.indexOf("/members/home");
+}
+
+function isJobPage() {
+    return (document.URL.indexOf("/resumes") != -1) || (document.URL.indexOf("/recruiter/") != -1);
+}
+
+jQuery(document).ready(function($) {
+    $(".head-menu-item").each(function(e) {
+
+        if (isJobPage()) {
+            $(".head-menu-item-job").addClass("pt-active");
+        }
+
+        if (isMemberHomePage() != -1) {
+            $(".head-menu-item-member-home").addClass("pt-active");
+        }
+
+    });
+});
+
+
+

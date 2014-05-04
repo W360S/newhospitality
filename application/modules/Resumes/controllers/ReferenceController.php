@@ -34,6 +34,11 @@ class Resumes_ReferenceController extends Core_Controller_Action_Standard
             }
             
         }
+        
+        $this->_helper->content
+                ->setContentName(41) // page_id
+                // ->setNoRender()
+                ->setEnabled();
         // Not post/invalid
         if( !$this->getRequest()->isPost() )      
         {

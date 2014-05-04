@@ -219,6 +219,7 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
         
     </head>
     <body id="global_page_<?php echo $identity ?>">
+        <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
         <script type="javascript/text">
             if(DetectIpad()){
             $$('a.album_main_upload').setStyle('display', 'none');
@@ -245,10 +246,12 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
         </div>
         <div id="janrainEngageShare" style="display:none">Share</div>
         
-        <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
+        <script src="<?php echo $this->baseUrl() . '/externals/viethosp/jquery.form.js' ?>" type="text/javascript"></script>
         <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.fancybox.js'?>" type="text/javascript"></script>
+        
         <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-ui.js'?>" type="text/javascript"></script>
         <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/common.js'?>" type="text/javascript"></script>
-
+        <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.validate.js'?>" type="text/javascript"></script>
+        
     </body>
 </html>
