@@ -54,78 +54,114 @@ $birthday = $this->birthday;
                         <?php else: ?>
                             <?php echo $user_inform->displayname; ?>
                         <?php endif; ?>
-                        <?php if ($user_id == $user_resume):?>
+                        <?php if ($user_id == $user_resume): ?>
                             <a href="javascript:void(0);" onclick="updateUsername('<?php echo $resume->resume_id ?>');"> <?php echo $this->translate("[Update]"); ?></a>
                         <?php endif; ?>
                     </h3>
-                    <p>Nam</p>
-                    <p>Ngày sinh: 01/06/1991</p>
+                    <p><?php echo $gender; ?></p>
+                    <p>Ngày sinh: <?php echo date('d m Y', strtotime($birthday)); ?></p>
                     <p>Địa chỉ: 70 Cù Chính Lan - Thành phố Đà Nẵng, Việt Nam</p>
                     <p>Điện thoại: 0906404101	</p>
-                    <p>Email: pyro1691@gmail.com<a href="#">Cập nhật</a></p>
+                    <p>
+                        <?php if (!empty($resume->email)): ?>
+                            <?php echo $resume->email; ?>
+                        <?php else: ?>
+                            <?php echo $user_inform->email; ?>
+                        <?php endif; ?>
+                        <?php if ($user_id == $user_resume): ?>
+                            <a href="javascript:void(0);" onclick="updateEmail('<?php echo $resume->resume_id ?>');"> <?php echo $this->translate("[Update]"); ?></a>
+                        <?php endif; ?>
+                    </p>
                 </div>
             </div>
             <div class="pt-content-file-block">
                 <div class="pt-lv-01">
                     <h3>Kinh nghiệm làm việc</h3>
-                    <a href="#" class="pt-edit">Chỉnh sửa</a>
+                    <?php if ($user_id == $user_resume) { ?>
+                        <a  class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/index/resume-work/id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
+                    <?php } ?>
                 </div>
                 <div class="pt-lv-02">
-                    <h3>Nhân viên kinh doanh tại Novotel Hotel</h3>
-                    <p>Tháng 6/2012 đến Tháng 6/2013</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                    <h3 class="pt-fix-mt">Nhân viên kinh doanh tại Sungroup</h3>
-                    <p>Tháng 6/2012 đến Tháng 6/2013</p>
-                    <p>- Chăm sóc và tìm kiếm khách hàng<br>
-                        - Lập kế hoạch kinh doanh<br>
-                        - Triển khai các dòng sản phẩm phần mềm của công ty<br>
-                        - Quản lý phòng kinh doanh </p>
+                    <?php foreach ($works as $work): ?>
+                        <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->title; ?></h3>
+                        <p>Tháng 6/2012 đến Tháng 6/2013</p>
+                        <p><?php echo $work->description; ?></p>
+                        <br>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <div class="pt-content-file-block">
                 <div class="pt-lv-01">
                     <h3>Học vấn</h3>
-                    <a href="#" class="pt-edit">Chỉnh sửa</a>
+                    <?php if (count($works) && $user_id == $user_resume) { ?>
+                        <a class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/education/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
+                    <?php } ?>
                 </div>
                 <div class="pt-lv-02">
-                    <h3>Đại học Duy Tân</h3>
-                    <p>Trung cấp - Du lịch/ Khách sạn - Tháng 6/2011 đến Tháng 10/2013</p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                    <?php foreach ($educations as $education): ?>
+                        <h3><?php echo $education->school_name; ?></h3>
+                        <p><?php echo $this->degree($education->degree_level_id)->name; ?> - <?php echo $education->major; ?> - Tháng 6/2011 đến Tháng 10/2013</p>
+                        <p><?php echo $education->description; ?></p>
+                        <br>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
             <div class="pt-content-file-block">
                 <div class="pt-lv-01">
                     <h3>Kĩ năng</h3>
-                    <a href="#" class="pt-edit">Chỉnh sửa</a>
+                    <?php if (count($works) && count($educations) && $user_id == $user_resume) { ?>
+                        <a href="<?php echo $this->baseUrl() . '/resumes/skill/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
+                    <?php } ?>
                 </div>
                 <div class="pt-lv-02">
-                    <h3>Ngôn ngữ</h3>
-                    <p>English - advanced</p>
-                    <h3 class="pt-fix-mt">Kĩ năng khác</h3>
-                    <p>Đá bóng, đá cầu, nhảy dây</p>
+                    <?php if (count($languages) > 0): ?>
+                        <h3><?php echo $this->translate("Language") ?></h3>
+                        <?php foreach ($languages as $language): ?>
+                            <p>
+                                <?php echo $this->language($language->language_id)->name; ?> - <?php echo $this->groupSkill($language->group_skill_id)->name; ?>
+                            </p>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
+                    <?php if (count($group_skills) > 0): ?>
+                        <?php foreach ($group_skills as $group_skill): ?>
+                            <h3 class="pt-fix-mt"><?php echo $group_skill->name; ?></h3>
+                            <p><?php echo $group_skill->description; ?></p>
+                        <?php endforeach; ?> 
+                    <?php endif; ?>
+
                 </div>
             </div>
+
             <div class="pt-content-file-block">
                 <div class="pt-lv-01">
                     <h3>Tham khảo</h3>
                     <a href="#" class="pt-edit">Chỉnh sửa</a>
+                    <?php if (count($works) && count($educations) && $user_id == $user_resume) { ?>
+                        <a href="<?php echo $this->baseUrl() . '/resumes/reference/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
+                    <?php } ?>
                 </div>
                 <div class="pt-lv-02">
-                    <h3>A Tũn</h3>
-                    <p>Quản lý - Khách sạn Hoàng Nhi</p>
-                    <p>Email: 123@gmail.com - Điện thoại: 0123456789</p>
-                    <p><a href="#">Thông tin thêm</a></p>
+                    <?php if (count($references) > 0): ?>
+                        <?php foreach ($references as $reference): ?>
+                            <h3><?php echo $reference->name; ?></h3>
+                            <p><?php echo $reference->title; ?></p>
+                            <p>Email: <?php echo $reference->phone ?> - Điện thoại: <?php $reference->email; ?></p>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
+
+
             <div class="pt-content-file-block pt-content-file-button">
                 <div class="pt-lv-01">
 
                 </div>
                 <div class="pt-lv-02">
-                    <button type="submit" title="" class="button"><span></span>Quay lại</button>
-                    <button type="submit" title="" class="button"><span></span>Hoàn tất</button>
-                    <img src="img/thumb/img-submit-oky.png" alt="Image">
+                    <button type="button" title="" class="button"><span></span>Quay lại</button>
+                    <button type="button" onclick="javascript:manage_resume(); return false;" title="" class="button"><span></span>Hoàn tất</button>
+                    <img src="<?php echo $this->baseUrl() ?>/application/modules/core/externals/img/thumb/img-submit-oky.png" alt="Image">
                 </div>
             </div>
         </div>
