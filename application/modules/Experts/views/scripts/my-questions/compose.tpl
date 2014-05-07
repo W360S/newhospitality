@@ -1,131 +1,56 @@
 <style style="text/css">
-    div, td {
-        color:#555555;
-        font-size: 12px !important;
-    }
-    .subsection {
-        -moz-border-radius:3px 3px 3px 3px;
-        background-color:#E9F4FA;
-        border:1px solid #D0E2EC;
-        margin-bottom:10px;
-        margin-top: 0px !important;
-    }
-    #input_compose_title{
-        float: left;
-        width: 100%;
-        margin-bottom:14px;
-        overflow:visible;
-    }
-    #content_compose_title .s-input label, #content_compose_experts .s-input label{
-        padding-right:2px;
-        padding-top: 2px;
-        text-align:left;
-    }
-    .panel #content_compose_title, .panel #content_compose_experts{
-        width: 364px;
-        height: auto !important;
-    }
-
-    #content_compose_title div.s-input{
-        width: 360px;
-    }    
-
-    #content_compose_title div.s-input label{
-        width: 340px;
-    }
-
-    .panel #trigger_compose_title, .panel #trigger_compose_experts{
-        width: 374px;
-    }
-    #panel_compose_title{
-        z-index: 90;
-    }
-    
-    #panel_compose_experts{
-        z-index: 89;
-    }
-    
-    .container_compose fieldset div.input {
-        margin-bottom:14px;
-        overflow:visible;
-    }
-    
-    .input #compose_select_cats {
-        border:medium none;
-        color:#414141;
-        font-weight:bold;
-        height:27px;
-        line-height:19px;
-        margin-right:6px;
-        text-transform:capitalize;
-        width:65px;
-    }
-    .input #compose_select_cats:hover {
-        background-position: 0 -27px;
-        color: #FFFFFF;
-        cursor: pointer;
-    }
-    .error{
-        color: red;
-    }
-    label.error{
-       width: 10px !important;
-       float: none !important;
-       padding-left: 115px;
-    }
-    
-    .defaultSkin table.mceLayout {
-       margin-left: 115px !important;  
-    }
-    .container_compose fieldset div.input label {
-       text-align: right;
-    }
-    
-    
-    <!--[if IE 7]>
-    div.div_title label.error {
-        padding-left: 19px !important;
-        width: 100% !important;
-    }
-    .subcontent .filter .input{margin-right: 1px !important;}
-    <![endif]-->
+	.wd-content-container .wd-center {
+	width: 1188px !important;
+}
 </style>
-<!--[if IE 7]>
-	<style>
-    .container_compose fieldset div.input input{padding-top:0px;}
+<style style="text/css">
+.wd-content-left { width:204px; float:left; padding-top:20px;}
+.panel {float:left;margin-right:3px;position:relative;z-index:99;margin-top:1px}
+/*
+.panel .trigger {background:#fff url(~/application/modules/Core/externals/images/arrow-17.gif) right 2px no-repeat;border:1px solid #999;cursor:pointer;height:20px;overflow:hidden;width:148px;padding-left:10px;line-height:22px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px}
+.panel .content {background:#fff url(~/application/modules/Core/externals/images/gradient-1.gif) left bottom repeat-x;border:1px solid #DCDCDC;padding:10px;right:0;top:24px;width:138px;z-index:100; height: 205px; overflow: auto;}
+*/
+.panel .content .s-input{float:left;margin-bottom:6px;clear:both;width:138px}
+.panel .content .s-input input{margin:0 3px 0 0;width:auto;border:none;color:#fff;font-size:0px;display:inline-block }
+.panel .content .s-input label {font-weight:normal;line-height:15px; float:left;display:inline-block;width:115px}
+
     
-	</style>
-	<![endif]-->
-    <!--[if IE 8]>
-	<style>
-    .container_compose fieldset div.input input{padding-top:0px;}
-	</style>
-	<![endif]-->
-<!--<script type="text/javascript" src="<?php echo $this->baseUrl('/').'externals/tinymce/tiny_mce.js' ?>"></script>
+#content_compose_title .s-input label, #content_compose_experts .s-input label{
+padding-right:2px;
+padding-top: 2px;
+text-align:left;
+}
+.panel #content_compose_title, .panel #content_compose_experts{
+width: 268px;
+}
 
-<script type="text/javascript"> 
+#content_compose_title div.s-input{
+width: 400px;
+}    
 
-    tinyMCE.init({ 
-        theme : "advanced",
-        mode : "textareas", 
-        elements  : "description",
-        
-        theme_advanced_toolbar_location : "top",
-        theme_advanced_toolbar_align : "left",
-        paste_use_dialog : false,
-        theme_advanced_resizing : true,
-        theme_advanced_resize_horizontal : true,
-        apply_source_formatting : true,
-        force_br_newlines : true,
-        force_p_newlines : false,   
-        relative_urls : true
-    }); 
+#content_compose_title div.s-input label{
+width: 340px;
+}
+
+.panel #trigger_compose_title, .panel #trigger_compose_experts{
+width: 280px;
+}
+#panel_compose_title{
+z-index: 90;
+}
+
     
-</script>
--->
+</style>
 
+<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/custom.expert.js'?>" type="text/javascript"></script>
+<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.lib.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.tooltip.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.validate.js'?>" type="text/javascript"></script>
+  <script type="text/javascript">    
+    jQuery.noConflict();
+  </script>
 <script type="text/javascript">
-    function showResponse(object, success, response, d)  {
+  function showResponse(object, success, response, d)  {
 
         if(success == "success"){
             var result = JSON.parse(response.responseText);
@@ -151,44 +76,16 @@
             return false;
         }
             
-    } 
-    var valid_extensions = /(.txt|.png|.jpg|.jpeg|.gif|.doc|.docx|.rar)$/i;
-    //txt,png,pneg,jpg,jpeg,gif,doc,docx,rar Maxsize: 5Mb
+    }  
+
+  window.addEvent('domready',function(){
     
-    function CheckExtension(fld)
-    {
-        
-        if (valid_extensions.test(fld.value)){
-            var node = document.getElementById('file');
-            var max_size= '5000000';
-            var check = node.files[0].fileSize;
-            
-            if (check > max_size)
-            {
-                alert("<?php echo $this->translate('Your file is too big!')?>");
-                return false;
-            }else{
-                return true;
-            }
-        }
-        else{
-            alert("<?php echo $this->translate('Check that the file is a valid format.')?>");
-            return false;
-        }
-        
-        fld.select();
-        fld.focus();
-        return false;
-    }
-    
- window.addEvent('domready',function(){
-  
-    jQuery('#submit_compose').click(function() {
-        //var content = tinyMCE.activeEditor.getContent(); // get the content
-        //jQuery('#description').val(content); // put it in the textarea
-         
-    });
-    jQuery.validator.addMethod(
+    var options = { 
+            dataType    :  'json',   
+            success     : showResponse,
+            type        : 'post'
+    };     
+     jQuery.validator.addMethod(
 		    'fileSave',
 		    function(value, element){
                 if (jQuery.trim(value)==""){
@@ -266,13 +163,6 @@
 		    }
         }
     });
-    var options = { 
-            dataType    :  'json',   
-            success     : showResponse,
-            type        : 'post'
-    };     
-    jQuery('#questions_create').ajaxForm(options); 
-
     jQuery('.compose_category').bind('click', function(){
         var category_ids = jQuery("input[name='composecategory']:checked");
         var str_category = "";
@@ -324,121 +214,120 @@
  });
 </script>
 
-    <?php $categories = $this->categories1; $title = $desc = "" ; 
-        if(isset($this->title)) $title = $this->title; 
-        if(isset($this->description)) $desc = $this->description;
-        
-    ?>
-    <div class="section">
-        <div class="layout_right">
-            <?php
-                   echo $this->content()->renderWidget('experts.my-accounts'); 
-            ?>
-            <div class="subsection">
-                <?php echo $this->content()->renderWidget('experts.featured-experts'); ?>
-        	</div>
-            <div class="subsection">
-                <?php echo $this->content()->renderWidget('group.ad'); ?>
-            </div>
-        </div>
-        <div class="layout_middle">
-            <div class="headline">
-        		<div class="breadcrumb_expert">
-        			<h2><a class="first" href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'index'),'default',true); ?>"><?php echo $this->translate('Experts'); ?></a> <a href="<?php echo $this->url(array('module'=>'experts','controller'=>'my-questions','action'=>'index'),'default',true); ?>"><?php echo $this->translate('My Question'); ?></a><a href="<?php echo $this->url(array('module'=>'experts','controller'=>'my-questions','action'=>'compose'),'default',true); ?>"><?php echo $this->translate('post a question'); ?></a></h2>
-        		</div>
-        		<div class="clear"></div>
-            </div>
-        	<div class="layout_left layout_left_expert">
-            <!--
-        		<div class="subsection">
-        			<div class="bt_function_question">
-        				<a href="<?php echo $this->url(array('module'=>'experts','controller'=>'my-questions','action'=>'compose'),'default',true); ?>" class="create"><?php echo $this->translate('Post a Question') ?></a>
-        			</div>
-        		</div>
-          -->
-        		<div class="subsection">
-        			<?php echo $this->content()->renderWidget('experts.my-questions'); ?>
-        		</div>
-        	</div>
-        	<div class="layout_middle_question">
-        		<div class="search_my_question">
-        			<?php echo $this->content()->renderWidget('experts.search'); ?>
-        		</div>	
-        		<div class="subsection">
-        			<div class="container_compose">
-        				<h3 class="title_port_question"><?php echo $this->translate('Post a Question') ?></h3>
-                        <form name="upload" method="post" action="<?php echo $this->baseUrl().'/experts/my-questions/compose'; ?>"  enctype="multipart/form-data" id="questions_create">
-        				<fieldset>
-                            <div class="input" id="input_compose_title">
-                            	<label><?php echo $this->translate('Choose category') ?>:</label>
-                            	<div style="" class="select_sort">
-                            		<div class="panel" id="panel_compose_title">
-                            			<div class="trigger" id="trigger_compose_title"><?php echo $this->translate('All category'); ?></div>
-                            			<div class="content" id="content_compose_title">
-                            				<?php if(count($categories)): ?>
-                                                <input style="margin-bottom: 10px;" type="button" id="compose_select_cats" class="bt_send_question" value="<?php echo $this->translate('Apply') ?>">
-                                                <?php foreach( $categories as $item ): ?>
-                                        			<div class="s-input">
-                                        				<input type="checkbox" class="compose_category" name="composecategory" value="<?php echo $item->category_id;?>" title="<?php echo $item->category_name; ?>"/>
-                                        				<label><?php echo $item->category_name; ?></label>
-                                        			</div>
-                                    			<?php endforeach; ?>
-                                            <?php endif; ?>
-                                            
-                            			</div>
-                            		</div>
-                            	</div>
-                                <div class="clear"></div>
-                                <input style="width: 10px; float: left;" type="hidden" id="categories_experts" name="categories_experts" value="" />
-                            </div>
-                            <div class="clear"></div>
-                            
-        					<div class="input" >
-                                <label><?php echo $this->translate('Choose experts') ?>:</label>
-                                <div style="" id="compose_select_experts">
-            						<select name="compose_select_experts" >
-                                        <option><?php echo $this->translate('Choose experts'); ?></option>
-                                    </select>
-                                </div>
-                                <div class="clear"></div>
-                                <input style="width: 10px;" type="hidden" id="check_select_experts" name="check_select_experts" cnt="" value="" />
-        					</div>
-                            <div class="clear"></div>
-                            <br />
-                            
-        					<div class="input div_title">
-        						<label><?php echo $this->translate('Tell us your issue'); ?>:</label>
-                                <input style="float: left;" type="text" id="title" name="title" value="<?php echo $title; ?>" />
-                                <div class="clear"></div>
-        					</div>
-                            <br />
-                            
-        					<div class="input div_description">
-        						<label><?php echo $this->translate('Issue Description'); ?>:</label>
-                                <textarea style="" rows="" cols="" id="description"  name="description"><?php echo $desc ?></textarea>
-                                <div class="clear"></div>
-        					</div>
-                            <div class="clear"></div>
-                            <br />
-                            
-        					<div class="input container_upload">
-        						<p class="title_upload"><?php echo $this->translate("Upload Attachment(Support: txt,png,pneg,jpg,jpeg,gif,doc,docx,rar Maxsize: 5Mb)") ?></p>
-        						<input type="file" id="file" name="file"/>
-        					</div>
-                            
-        					<div class="submit">
-        						<input type="submit" value="create" class="bt_send_question" id="submit_compose" />
-        						<input type="reset" value="cancel" class="bt_send_question" />
-        					</div>
-        				</fieldset>
-                        </form>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="clear"></div>
-        </div>
-    
-    <div class="clear"></div>
-    
-    </div>
-<div id="hidden_load_div" style="display:none"></div>
+<?php $categories = $this->categories1; $title = $desc = "" ; 
+if(isset($this->title)) $title = $this->title; 
+if(isset($this->description)) $desc = $this->description;
+
+?>
+
+<div id="wd-content-container">
+<div class="wd-center">
+	<div class="wd-content-left">
+		<?php echo $this->content()->renderWidget('experts.categories'); ?>
+	</div>
+	<div class="wd-content-content-sprite pt-fix">
+		<div class="wd-content-event">
+			<div class="pt-content-event">
+				<div class="pt-reply-how">
+					<div class="pt-reply-left">
+						<div class="pt-event-tabs">
+							<div class="pt-to-send-left">
+								<ul class="pt-menu-event pt-menu-libraries">
+									<li class="active">
+										<a href="#">Hỏi đáp</a>
+									</li>
+									<li>
+										<a href="#">Gửi câu hỏi</a>
+									</li>
+								</ul>
+								<div class="pt-to-send-content">
+									<h3 class="pt-title-right">Gửi câu hỏi</h3>
+									<div class="pt-content-sigup-02">
+										<div class="pt-signin">
+											<div class="login-checkout">
+												<form name="upload" method="post" action="<?php echo $this->baseUrl().'/experts/my-questions/compose'; ?>"  enctype="multipart/form-data" id="questions_create">
+													<fieldset>
+														<ul>
+															
+															<li>
+																<div class="input" id="input_compose_title">
+																	<label><?php echo $this->translate('Choose category') ?>:</label>
+																	<div style="" class="select_sort">
+																		<div class="panel" id="panel_compose_title">
+																			<div class="trigger" id="trigger_compose_title"><?php echo $this->translate('All category'); ?></div>
+																			<div class="content" id="content_compose_title">
+																			    <?php if(count($categories)): ?>
+																				<input style="margin-bottom: 10px;" type="button" id="compose_select_cats" class="bt_send_question" value="<?php echo $this->translate('Chọn') ?>">
+																				<?php foreach( $categories as $item ): ?>
+																						<div class="s-input">
+																							<input type="checkbox" class="compose_category" name="composecategory" value="<?php echo $item->category_id;?>" title="<?php echo $item->category_name; ?>"/>
+																							<label><?php echo $item->category_name; ?></label>
+																						</div>
+																					<?php endforeach; ?>
+																			    <?php endif; ?>
+																		    
+																			</div>
+																		</div>
+																	</div>
+																	<div class="clear"></div>
+																	<input style="width: 10px; float: left;" type="hidden" id="categories_experts" name="categories_experts" value="" />
+																    </div>
+																<div id="hidden_load_div" style="display:none"></div>
+															</li>
+															<li>
+																<label>Chi tiết câu hỏi</label>
+																<input  class="input-text" type="text" id="title" name="title" value="<?php echo $title; ?>" />
+															</li>
+															<li>
+																<label>Nội dung</label>
+																<div class="wd-adap-select wd-adap-select-01 pt-textarea">
+																	<textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;" rows="" cols="" id="description"  name="description"><?php echo $desc ?></textarea>
+																</div>
+															</li>
+															<li>
+																
+																<label>File minh họa</label>
+        															<input type="file" id="file" name="file"/>
+																
+															</li>
+															<li>
+																<?php echo $this->translate("(files: txt,png,jpg,gif,doc,docx,rar Maxsize: 5Mb)") ?>
+															</li>
+															<li class="last">
+																<button type="submit" title="" class="button">Đăng câu hỏi</button>
+																<button type="submit" title="" class="button">Hủy</button>
+															</li>
+														</ul>
+													</fieldset>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pt-reply-right">
+						<div class="pt-block">
+							<?php echo $this->content()->renderWidget('experts.post-question'); ?>
+						</div>
+						<div class="pt-block">
+							<?php echo $this->content()->renderWidget('experts.my-accounts'); ?>
+						</div>
+					
+						<div class="pt-block">
+							<?php echo $this->content()->renderWidget('experts.featured-experts'); ?>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div id="wd-extras">
+	<div class="wd-center">
+		
+	</div>	
+</div>

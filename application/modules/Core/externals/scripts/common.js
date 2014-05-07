@@ -93,6 +93,10 @@ function isMemberHomePage() {
     return document.URL.indexOf("/members/home");
 }
 
+function isExpertPage() {
+    return document.URL.indexOf("/experts");
+}
+
 function isJobPage() {
     return (document.URL.indexOf("/resumes") != -1) || (document.URL.indexOf("/recruiter/") != -1);
 }
@@ -106,6 +110,10 @@ jQuery(document).ready(function($) {
 
         if (isMemberHomePage() != -1) {
             $(".head-menu-item-member-home").addClass("pt-active");
+        }
+        
+        if (isExpertPage()!= -1){
+            $(".head-menu-item-expert").addClass("pt-active");
         }
 
     });

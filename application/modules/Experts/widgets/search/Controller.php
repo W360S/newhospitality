@@ -10,8 +10,6 @@ class Experts_Widget_SearchController extends Engine_Content_Widget_Abstract
     if(intval($url->cats) !=0){
         $arr_cats = explode(",",$url->cats);
     }
-    
-    $this->view->typesearch= $url->typesearch;
     $this->view->arr_cats= $arr_cats;
     $categoryTable = Engine_Api::_()->getDbtable('categories', 'experts');
     $select = $categoryTable->select()

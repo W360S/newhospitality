@@ -86,7 +86,7 @@ class Experts_Model_Question extends Core_Model_Item_Abstract {
             'parent_id' => $this->getIdentity()
         );
 
-        $iMain = $storage->secure_create($tmp_path . DIRECTORY_SEPARATOR . $name, $params);
+        $iMain = $storage->create($tmp_path . DIRECTORY_SEPARATOR . $name, $params);
 
         // Update row
         $this->file_id = $iMain->file_id;

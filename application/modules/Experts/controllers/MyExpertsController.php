@@ -13,9 +13,9 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
     $user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
     //$users = Engine_Api::_()->getDbtable('users', 'user')->find($user_id)->current();
     
-    $status = $this->_getParam('status');
+    //$status = $this->_getParam('status');
     
-    if(!in_array($status,array(1,2,3,4))) $status = 1;
+    //if(!in_array($status,array(1,2,3,4))) $status = 1;
      // get data
      $questionsName = Engine_Api::_()->getDbtable('questions', 'experts')->info('name'); 
      $answerName = Engine_Api::_()->getDbtable('answers', 'experts')->info('name');
@@ -44,19 +44,20 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
                                 ) as experts,
                                 (SELECT username FROM engine4_users where user_id = engine4_experts_questions.status_lasted_by) as lasted_by,
                                 engine4_experts_questionscategories.*, 
-                                engine4_experts_questions.*")
+                                engine4_experts_questions.*
+								")
             )
       ->joinLeft($questionsName,'engine4_experts_questions.question_id=engine4_experts_questionscategories.question_id',array())
       ->joinLeft($categoriesName,'engine4_experts_categories.category_id=engine4_experts_questionscategories.category_id',array())
-      ->joinLeft($recipientsName,'engine4_experts_recipients.question_id=engine4_experts_questionscategories.question_id',array())
-      ->where('engine4_experts_recipients.user_id = ?', $user_id)
-      ->where('engine4_experts_questions.status = ?', $status)
+      ->joinLeft($answerName,'engine4_experts_questionscategories.question_id=engine4_experts_answers.question_id',array())
+      ->where('engine4_experts_answers.user_id = ?', $user_id)
+      //->where('engine4_experts_questions.status = ?', $status)
       ->group('engine4_experts_questionscategories.question_id')
       ->order('engine4_experts_questions.created_date DESC');
       
       $paginator = $this->view->paginator = Zend_Paginator::factory($questions_select);
       
-      $paginator->setItemCountPerPage(15);
+      $paginator->setItemCountPerPage(10);
       $paginator->setCurrentPageNumber( $this->_getParam('page') );
       //$this->view->expert_id = $expert_id;
       //$this->view->expert_name = $check_expert->name;
@@ -86,7 +87,8 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
     $check_valid_answer = Engine_Api::_()->experts()->checkValidAnswer($user_id, $question_id);
     
     //answered if is post and status of question is pending or answered
-    if ($this->_request->isPost() && in_array($data_question->status, array(1,2))){
+   // if ($this->_request->isPost() && in_array($data_question->status, array(1,2))){
+	  if ($this->_request->isPost()){
         
         $html = preg_replace('/(<[^>]*)javascript:([^>]*>)/i', '$1$2', $this->getRequest()->getPost('description'));
         $content      =   $html;
@@ -126,7 +128,7 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
                     $answers->setFiles($_FILES['file']);
                     $answers->save();
                 }
-                
+                //Zend_Debug::dump($_FILES['file']); exit;
                 // update status question to answered = 2
                 if($data_question->status == 1){
                     $question = Engine_Api::_()->getDbtable('questions', 'experts')->find($question_id)->current();
@@ -200,7 +202,7 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
                 }*/
                 
                 try {
-                    
+                    /*
                     foreach($recipient as $item){
                         
                         $expert_data = Engine_Api::_()->getDbtable('users', 'user')->find($item->user_id)->current();
@@ -234,6 +236,7 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
                     );
                     
                     Engine_Api::_()->getApi('mail', 'core')->sendSystem($poster, 'expert_answer', $defaultParams);
+					*/
                 
                 } catch( Exception $e ) {
                     $db->rollBack();
@@ -242,6 +245,7 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
                 
               
                 $db->commit();
+				$this->_helper->redirector->gotoRoute(array('controller'=>'index','action' => 'detail','question_id'=>$question_id));
             }
             catch( Exception $e )
             {

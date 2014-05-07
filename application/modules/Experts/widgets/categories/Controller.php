@@ -12,7 +12,7 @@ class Experts_Widget_CategoriesController extends Engine_Content_Widget_Abstract
       ->setIntegrityCheck(false)
       ->from($categoryTable->info('name'), new Zend_Db_Expr('engine4_experts_categories.*, count(engine4_experts_questions.question_id) as cnt_question'))
       ->joinLeft($categoryQuestionsTable->info('name'),'engine4_experts_categories.category_id = engine4_experts_questionscategories.category_id',array())
-      ->joinLeft($questionTable->info('name'),'engine4_experts_questions.question_id = engine4_experts_questionscategories.question_id and engine4_experts_questions.status in (2,3)',array())
+      ->joinLeft($questionTable->info('name'),'engine4_experts_questions.question_id = engine4_experts_questionscategories.question_id ',array())
       ->group('engine4_experts_categories.category_id')
       ->order('priority asc');
     

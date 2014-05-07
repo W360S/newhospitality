@@ -1,68 +1,80 @@
-<?php
-    $paginator = $this->paginator;
-    $pagination_control = $this->paginationControl($this->paginator);
-    $category_name = $this->category_name;
-?>
-<div class="section">
-    <div class="layout_right">
-        
-            <?php
-               echo $this->content()->renderWidget('experts.my-accounts'); 
-            ?>
-        
-        <div class="subsection">
-            <?php
-               echo $this->content()->renderWidget('experts.featured-experts'); 
-            ?>
-        </div>
-        <div class="subsection">
-            <?php echo $this->content()->renderWidget('group.ad'); ?>
-        </div>
-    </div>
-    <div class="layout_middle">
-       <div >
-			<div class="search_my_question">
+<style>
+.wd-content-left { width:204px; float:left; padding-top:20px;}
+.pt-subpage  .wd-center  {width:1188px !important}
+</style>
+<div id="wd-content-container">
+<div class="wd-center">
+	<div class="wd-content-left">
+		<?php echo $this->content()->renderWidget('experts.categories'); ?>
+	</div>
+	<div class="wd-content-content-sprite pt-fix">
+		<div class="wd-content-event">
+			<div class="pt-content-event">
 				<?php echo $this->content()->renderWidget('experts.search'); ?>
-            </div>	
-			<div class="subsection">
-				<?php echo $this->content()->renderWidget('experts.categories'); ?>
-            </div>
-            <div class="subsection">
-				<h2><?php echo $category_name; ?></h2>
-                <?php if( $paginator->getTotalItemCount() ): ?>
-                <?php echo $pagination_control; ?>
-                <ul class="list_questions">
-                	<?php $cnt = 1; foreach($paginator as $item): ?>
-                    <li>
-                		<div class="list_number">
-                			<?php echo $cnt; ?>
-                		</div>
-                		<div class="content_questions">
-                        <?php $slug= Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->title);?>
-                			<a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'detail','question_id'=>$item->question_id, 'slug'=>$slug)); ?>" class="title"><?php echo $item->title; ?></a>
-                			
-                            <p>
-                            <?php echo $this->timestamp($item->created_date); ?> -
-                            <?php  echo $this->translate(array('%s view', '%s views', intval($item->view_count)), intval($item->view_count)); ?><span> 
-                            <?php if($item->rating>0):?>
-                               - <?php for($x=1; $x<=$item->rating; $x++): ?><span class="rating_star"></span><?php endfor; ?><?php if((round($item->rating)-$item->rating)>0):?><span class="rating_star_half"></span><?php endif; ?>
-                            <?php endif; ?>
-                           - <?php  echo $this->translate(array('%s rating', '%s ratings', intval($item->cnt_rating)), intval($item->cnt_rating)); ?>
-                            </span> <em> - <?php echo $this->translate('Asked by'); ?>: </em> <a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"> <?php echo $item->username; ?></a></p>
-                		</div>
-                	</li>
-                <?php $cnt = $cnt + 1; endforeach; ?>
-                </ul>
-                <?php echo $pagination_control; ?>
-                <?php else: ?>
-                <?php echo $this->translate("Haven't question in this category"); ?>
-                <?php endif; ?>
-            </div>
+				<div class="pt-reply-how">
+					<div class="pt-reply-left">
+						<div class="pt-event-tabs">
+							<?php
+							    $paginator = $this->paginator;
+							    $pagination_control = $this->paginationControl($this->paginator);
+							    $category_name = $this->category_name;
+							?>
+							<h2><?php echo $category_name; ?></h2>
+							
+
+							<div id="ajax_category-tab">
+							<?php 
+							    if( $this->paginator->getTotalItemCount() ): 
+							?>
+
+							<ul class="pt-reply-list">
+								<?php foreach ($this->paginator as $item): 
+								//var_dump($this->substring($item->content,200)); exit;
+								?>
+								<?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->title); ?>
+								
+								<li>
+									<div class="pt-vote">
+										<a href="#" class="pt-votes"><span><?php echo intval($item->view_count); ?></span><span>Lượt xem</span></a>
+										<a href="#" class="pt-replys pt-replys-no" ><span><span><?php echo $item->cnt_answer; ?></span><span>Trả lời</span></a>
+									</div>
+									<h3><a href="<?php echo $this->url(array('module' => 'experts', 'controller' => 'index', 'action' => 'detail', 'question_id' => $item->question_id, 'slug' => $slug), 'default', true); ?>"><?php echo $item->title; ?></a></h3>
+									<p><?php //echo $this->substring($item->content,200); ?></p>
+									<p class="last"><strong>Chuyên mục:</strong><a href="<?php echo $this->url(array('module' => 'experts', 'controller' => 'index', 'action' => 'category', 'category_id' => $this->paginator->category_id,), 'default', true); ?>"><?php echo $this->paginator->category_name; ?> </a>-<strong><?php echo $this->translate('Asked by') ?>:</strong><a href="<?php echo $this->baseUrl("/") . "profile/" . $item->username; ?>"> <?php echo $item->username; ?> </a>- <span><?php echo $this->timestamp($item->created_date); ?></span></p>
+								</li>
+								<?php endforeach; ?>
+							</ul>
+							<div class="pt-paging">
+								<?php echo $this->paginationControl($this->paginator, null, "application/modules/Experts/views/scripts/pagination-category.tpl"); ?>
+							</div>
+							<?php else: ?>
+							<?php echo $this->translate("Haven't question in this category"); ?>
+							<?php endif; ?>
+
+							</div>
+						</div>
+					</div>
+					<div class="pt-reply-right">
+						<div class="pt-block">
+							<?php echo $this->content()->renderWidget('experts.post-question'); ?>
+						</div>
+						<div class="pt-block">
+							<?php echo $this->content()->renderWidget('experts.my-accounts'); ?>
+						</div>
+					
+						<div class="pt-block">
+							<?php echo $this->content()->renderWidget('experts.featured-experts'); ?>
+						</div>
+						
+					</div>
+				</div>
+			</div>
 		</div>
-       
-		<div class="clear"></div>
-    </div>
-
-    <div class="clear"></div>
-
+	</div>
+</div>
+</div>
+<div id="wd-extras">
+	<div class="wd-center">
+		
+	</div>	
 </div>

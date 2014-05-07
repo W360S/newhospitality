@@ -18,7 +18,7 @@ class Experts_Widget_FeaturedExpertsController extends Engine_Content_Widget_Abs
       ->joinLeft($usersName,'engine4_users.user_id = engine4_experts_answers.user_id',array())
       ->group('engine4_experts_answers.user_id')
       ->order('answered desc')
-      ->limit(15);          
+      ->limit(7);          
     
     $data = Engine_Api::_()->getDbTable('answers', 'experts')->fetchAll($experts_select);
     $categoryTable = Engine_Api::_()->getDbtable('categories', 'experts');

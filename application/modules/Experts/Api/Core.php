@@ -852,7 +852,8 @@ class Experts_Api_Core extends Core_Api_Abstract
     $question = Engine_Api::_()->getDbtable('questions', 'experts')->find($question_id)->current();
     $check_valid_answer = $this->checkValidAnswer($user_id, $question_id);
     // is answered(
-    if( in_array($question->status,array(1,2,3,4)) && ( ($question->user_id == $user_id) || $check_valid_answer))
+    //if( in_array($question->status,array(1,2,3,4)) && ( ($question->user_id == $user_id) || //$check_valid_answer))
+	if( $question->user_id == $user_id)
     {
       // update status to cancel
       $db = Engine_Db_Table::getDefaultAdapter();
@@ -860,22 +861,22 @@ class Experts_Api_Core extends Core_Api_Abstract
       try
       {
         // delete question
-        $question->delete();
+        @$question->delete();
         
         // delete categoriesquestion
-        $this->deleteCategoriesOfQuestion($question_id);
+        @$this->deleteCategoriesOfQuestion($question_id);
         
         // delete recipients
-        $this->deleteRecipients($question_id);
+        @$this->deleteRecipients($question_id);
         
         // delete acttachment of questions
         @$this->deleteAttachments($question_id);
         
         // delete answers
-        $this->deleteAnswers($question_id);
+        @$this->deleteAnswers($question_id);
         
         // delete rating
-        $this->deleteRatings($question_id);
+        @$this->deleteRatings($question_id);
       }
       catch( Exception $e )
       {
@@ -1077,17 +1078,12 @@ class Experts_Api_Core extends Core_Api_Abstract
   }
   
   public function myExpertCount($user_id){
-    $table  = Engine_Api::_()->getDbTable('questions', 'experts');
-    $table_recipient  = Engine_Api::_()->getDbTable('recipients', 'experts');
-    
+    $table  = Engine_Api::_()->getDbTable('answers', 'experts');
     $rName = $table->info('name');
-    $recipientName = $table_recipient->info('name');
+    
     $select = $table->select()
-                    ->setIntegrityCheck(false)
                     ->from($rName)
-                    ->joinLeft($recipientName,'engine4_experts_questions.question_id = engine4_experts_recipients.question_id',array())
-                    ->where($recipientName.'.user_id = ?', $user_id)
-                    ->where('engine4_experts_questions.status = 1');
+                    ->where($rName.'.user_id = ?', $user_id);
     $row = $table->fetchAll($select);
     $total = count($row);
     return $total;

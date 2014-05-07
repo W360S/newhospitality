@@ -141,13 +141,7 @@
 			<div class="clear"></div>
         </div>
 		<div class="layout_left layout_left_expert">
-        <!--
-            <div class="subsection">
-				<div class="bt_function_question">
-					<a href="<?php //echo $this->baseUrl().'/experts/my-questions/compose'; ?>" class="create"><?php echo $this->translate('Post a Question'); ?></a>
-				</div>
-			</div>
-            -->
+			
 			<div class="subsection">
 				<?php echo $this->content()->renderWidget('experts.my-questions'); ?>
 			</div>

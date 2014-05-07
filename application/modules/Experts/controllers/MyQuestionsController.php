@@ -26,16 +26,17 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
 
   public function indexAction()
   {
-    $user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
-    
-    $status = $this->_getParam('status');
-    if(!in_array($status,array(1,2,3,4))) $status = 1;
-    
+	$user_id = $this->_getParam('user_id');
+	if(intval($user_id) > 0){
+		$user_id = $this->_getParam('user_id');
+    } else {
+		$user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
+	}
+   
     $questionsName = Engine_Api::_()->getDbtable('questions', 'experts')->info('name'); 
     $answerName = Engine_Api::_()->getDbtable('answers', 'experts')->info('name');
     $questionsCatName = Engine_Api::_()->getDbtable('questionscategories', 'experts')->info('name');
     $categoriesName = Engine_Api::_()->getDbtable('categories', 'experts')->info('name');
-    $recipientsName = Engine_Api::_()->getDbtable('recipients', 'experts')->info('name');
     
     $questions_select = Engine_Api::_()->getDbtable('questionscategories', 'experts')->select()
     ->setIntegrityCheck(false)
@@ -62,16 +63,15 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
         )
     ->joinLeft($questionsName,'engine4_experts_questions.question_id=engine4_experts_questionscategories.question_id',array())
     ->joinLeft($categoriesName,'engine4_experts_categories.category_id=engine4_experts_questionscategories.category_id',array())
-    ->joinLeft($recipientsName,'engine4_experts_recipients.question_id=engine4_experts_questionscategories.question_id',array())
     ->where('engine4_experts_questions.user_id = ?', $user_id)
-    ->where('engine4_experts_questions.status = ?', $status)
+    //->where('engine4_experts_questions.status = ?', $status)
     ->group('engine4_experts_questionscategories.question_id')
     ->order('engine4_experts_questions.created_date DESC');
     
-    
+    $this->view->view_user = $this->_getParam('view_user');
     $this->view->status = $status;
     $paginator = $this->view->paginator = Zend_Paginator::factory($questions_select);
-    $paginator->setItemCountPerPage(15);
+    $paginator->setItemCountPerPage(10);
     $paginator->setCurrentPageNumber( $this->_getParam('page') );
   }
   
@@ -138,6 +138,8 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
 		}
 		//Zend_Debug::dump($tt);exit();
 		$this->view->tt_rating= $tt;
+		$this->view->question_id= $question_id;
+		
     } else {
         return $this->_helper->redirector->gotoRoute(array('action' => 'index'));
     }
@@ -157,9 +159,9 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
     $user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
     if ($this->_request->isPost())
     {
-      $title        =   Engine_Api::_()->experts()->cleanTitle($this->getRequest()->getPost('title'));
+      $title =   Engine_Api::_()->experts()->cleanTitle($this->getRequest()->getPost('title'));
       
-      $html         =   preg_replace('/(<[^>]*)javascript:([^>]*>)/i', '$1$2', $this->getRequest()->getPost('description'));
+      $html  =   preg_replace('/(<[^>]*)javascript:([^>]*>)/i', '$1$2', $this->getRequest()->getPost('description'));
       $content      =   $html;
       
       // get category ids            
@@ -213,10 +215,10 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
             );
     		
             $quetion->setFromArray($question_val);
-    		    $new_id_question = $quetion->save();
-    		
-            // Add attachment
+    		$new_id_question = $quetion->save();
+    		// Add attachment
             if( $_FILES['file']['size'] ) {
+				
     		    $quetion->setFiles($_FILES['file']);
                 $quetion->save();
     		}
@@ -226,7 +228,6 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
             
             // Add Recipients
             Engine_Api::_()->experts()->createRecipients($arr_exp, $new_id_question);
-            
             
             // send email to experts 
             $link = 'http://'
@@ -245,19 +246,10 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
             $subject = "[{$_SERVER['HTTP_HOST']}] (Experts) - New question has been created: " . $title;
             $body = $content;
             
-            /*
-            $emails = array();
-            
-            foreach($arr_exp as $item){
-              $expert_data = Engine_Api::_()->getDbtable('users', 'user')->find($item)->current();
-              $emails[] =  $expert_data['email'];
-            } */
-            //Engine_Api::_()->experts()->sendmail($from, $from_name, $subject, $body, $emails);
-            
             $db->commit();
             /*huynhnv add */
             
-          // Send
+			// Send
               try {
                 foreach($arr_exp as $item){
                     $expert_data = Engine_Api::_()->getDbtable('users', 'user')->find($item)->current();
@@ -279,8 +271,7 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
                 // Silence exception
               }
               /*huynhnv end*/
-            print_r('{"message": "success"}');
-   			    die;
+			   print_r('{"message": "success"}');die;
             
            }
            catch( Exception $e )
@@ -304,20 +295,29 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
         $user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
         $question_id = $this->_getParam('question_id');
         $check_question = Engine_Api::_()->getDbtable('questions', 'experts')->find($question_id)->current();
+		//Zend_debug::dump($check_question); exit;
         $detail = Engine_Api::_()->experts()->cleanHtml($this->getRequest()->getPost('add_detail'));
-        if(($user_id == $check_question->user_id) && ($check_question->status == 1) && !empty($detail)) {
+		
+        if(!empty($detail)) {
+			
             $db = Engine_Db_Table::getDefaultAdapter();
-            $db->beginTransaction();
+            //$db->beginTransaction();
+			
             try
             {
+				//Zend_debug::dump(1 ); exit;
                 $check_question->add_detail = $detail;
                 $check_question->save();
-                $db->commit();
-                return $this->_forward('success', 'utility', 'core', array(
+				//Zend_debug::dump(1 ); exit;
+                //$db->commit();
+                /*
+				return $this->_forward('success', 'utility', 'core', array(
                     'messages' => array(Zend_Registry::get('Zend_Translate')->_('Question has been updated successfull.')),
                     'layout' => 'default-simple',
                     'parentRefresh' => true,
                 ));
+				*/
+				
             }
             catch( Exception $e )
             {

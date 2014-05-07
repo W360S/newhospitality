@@ -36,7 +36,7 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo rtrim($this->baseUrl(), '/') ?>/experts" class="head-menu-item">
+            <a href="<?php echo rtrim($this->baseUrl(), '/') ?>/experts" class="head-menu-item head-menu-item-expert">
                 <span class="pt-icon-menu-header-line pt-icon-answer"></span>
                 <p>Hỏi Đáp</p>
             </a>
