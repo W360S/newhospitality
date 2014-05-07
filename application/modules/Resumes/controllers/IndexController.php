@@ -287,7 +287,7 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
             }
         }else{
             $this->_helper->content
-                ->setContentName(42) // page_id
+                ->setContentName(41) // page_id
                 // ->setNoRender()
                 ->setEnabled();
         }

@@ -111,7 +111,7 @@ $birthday = $this->birthday;
                 <div class="pt-lv-01">
                     <h3>Kĩ năng</h3>
                     <?php if (count($works) && count($educations) && $user_id == $user_resume) { ?>
-                        <a href="<?php echo $this->baseUrl() . '/resumes/skill/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
+                        <a class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/skill/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
                     <?php } ?>
                 </div>
                 <div class="pt-lv-02">
@@ -137,9 +137,8 @@ $birthday = $this->birthday;
             <div class="pt-content-file-block">
                 <div class="pt-lv-01">
                     <h3>Tham khảo</h3>
-                    <a href="#" class="pt-edit">Chỉnh sửa</a>
                     <?php if (count($works) && count($educations) && $user_id == $user_resume) { ?>
-                        <a href="<?php echo $this->baseUrl() . '/resumes/reference/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
+                        <a class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/reference/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
                     <?php } ?>
                 </div>
                 <div class="pt-lv-02">
