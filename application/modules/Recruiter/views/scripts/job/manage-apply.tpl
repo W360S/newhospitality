@@ -32,7 +32,7 @@ $user_id = $this->user_id;
                             $class = "";
                         }
                         ?>
-                        <tr class="layout_middle<?php echo $class; ?>">
+                        <tr class="<?php echo $class; ?>">
 
                             <td>
                                 <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->position); ?>
@@ -45,7 +45,7 @@ $user_id = $this->user_id;
 
                             <td class="action">
                                 <?php $applyjob_id = $this->applyJob($user_id, $item->job_id)->applyjob_id; ?>
-                                <a target="_blank" href="<?php echo $this->baseUrl() . PATH_SERVER_INDEX . '/recruiter/job/my-apply/apply/' . $applyjob_id ?>"><?php echo $this->translate('View applied'); ?></a> |
+                                <a target="_blank" href="<?php echo $this->baseUrl() . '/recruiter/job/my-apply/apply/' . $applyjob_id ?>"><?php echo $this->translate('View applied'); ?></a> |
                                 <a href="javascript:void(0);" onclick="delete_apply('<?php echo $item->job_id ?>')"><?php echo $this->translate('Delete') ?></a>
                             </td>
 

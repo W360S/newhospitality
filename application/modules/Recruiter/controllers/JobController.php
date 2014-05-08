@@ -510,6 +510,11 @@ EOF;
             $paginator->setCurrentPageNumber($page);
             $this->view->viewer_id = $user_id;
         }
+        
+        $this->_helper->content
+                ->setContentName(43) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     //delete jobs saved
@@ -547,11 +552,15 @@ EOF;
                 ->where('user_id =?', $user_id)
                 ->where('job_id =?', $job_id);
         $row = $table->fetchRow($select);
+        
+        $this->_helper->content
+                ->setContentName(43) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+        
         if (count($row) > 0) {
             $this->view->check = true;
         } else {
-
-
             //create form
             $this->view->form = $form = new Recruiter_Form_Job_Apply();
             $tableResume = Engine_Api::_()->getDbtable('resumes', 'resumes');
@@ -1327,6 +1336,12 @@ EOF;
                 }
             }
         }
+        
+        $this->_helper->content
+                ->setContentName(43) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+        
     }
 
     //luu ung cu vien khi nha tuyen dung xem resume cua ho
