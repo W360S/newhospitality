@@ -32,8 +32,8 @@
 <br />
 <?php else: ?>
 <div class="pt-how-link-message">
-    <a href="javascript:void(0)" class="pt-icon pt-icon-01" id="checkall"></a>
-    <a href="javascript:void(0)" class="pt-icon pt-icon-02" id="delete"></a>
+    <a href="javascript:void(0)" class="pt-icon pt-icon-checkall" id="checkall"></a>
+    <a href="javascript:void(0)" class="pt-icon pt-icon-delete" id="delete"></a>
     <?php echo $this->paginationControl($this->paginator, null, "application/modules/Messages/views/scripts/pagination/inbox.tpl"); ?>
 </div>
 <?php endif; ?>
@@ -137,30 +137,31 @@
 */ ?>
 
 <script type="text/javascript">
+    en4.core.runonce.add(function() {
+        $('checkall').addEvent('click', function() {
+            var hasUnchecked = false;
+            $$('.pt-list-message input[type="checkbox"]').each(function(el) {
+                if (!el.get('checked')) {
+                    hasUnchecked = true;
+                }
+            });
+            $$('.pt-list-message input[type="checkbox"]').set('checked', hasUnchecked);
+        });
 
+        $('delete').addEvent('click', function() {
+            console.log("inbox.tpl delete clicked");
+            var selected_ids = new Array();
+            $$('.pt-list-message input[type=checkbox]').each(function(cBox) {
+                if (cBox.checked)
+                    selected_ids[ selected_ids.length ] = cBox.value;
+            });
+            console.log(selected_ids);
+            var sb_url = '<?php echo $this->url(array('action'=>'delete'), 'messages_general', true) ?>?place=inbox&message_ids=' + selected_ids.join(',');
+                            if (selected_ids.length > 0)
+                        Smoothbox.open(sb_url);
+        });
+    });
     
-    $('checkall').addEvent('click', function() {
-        var hasUnchecked = false;
-        $$('.pt-list-message input[type="checkbox"]').each(function(el) {
-            if (!el.get('checked')) {
-                hasUnchecked = true;
-            }
-        });
-        $$('.pt-list-message input[type="checkbox"]').set('checked', hasUnchecked);
-    });
-
-    $('delete').addEvent('click', function() {
-        console.log("inbox.tpl delete clicked");
-        var selected_ids = new Array();
-        $$('.pt-list-message input[type=checkbox]').each(function(cBox) {
-            if (cBox.checked)
-                selected_ids[ selected_ids.length ] = cBox.value;
-        });
-        console.log(selected_ids);
-        var sb_url = '<?php echo $this->url(array('action'=>'delete'), 'messages_general', true) ?>?place=inbox&message_ids=' + selected_ids.join(',');
-                        if (selected_ids.length > 0)
-                    Smoothbox.open(sb_url);
-    });
 
 </script>
 

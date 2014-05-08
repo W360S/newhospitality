@@ -242,8 +242,7 @@ class Activity_Model_Action extends Core_Model_Item_Abstract {
         $enabledModules = Engine_Api::_()->getDbtable('modules', 'core')->getEnabledModuleNames();
 
         foreach ($table->fetchAll($select) as $row) {
-
-            if (in_array($row, $enabledModules)) {
+            // if (in_array($row, $enabledModules)) {
                 $item = Engine_Api::_()->getItem($row->type, $row->id);
                 if ($item instanceof Core_Model_Item_Abstract) {
                     $val = new stdClass();
@@ -251,7 +250,9 @@ class Activity_Model_Action extends Core_Model_Item_Abstract {
                     $val->item = $item;
                     $this->_attachments[] = $val;
                 }
-            }
+            // }else{
+                // print_r("not in array()");
+            // }
         }
 
         return $this->_attachments;

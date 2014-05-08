@@ -1,0 +1,18 @@
+.update_menu{
+	
+	bottom: 6px;
+}
+.updates_pulldown_active > a, .updates_pulldown a:hover{
+	color: #fff !important;
+}
+.view_mark a:link, .view_mark a:visited{
+	color: #fff !important;
+}
+#search_per_page .personal_breadcrumb ul li.update_menu .updates_pulldown a {
+	color:#fff;
+	font-weight:bold;
+	background-color: #0986BF;
+}
+.update_menu .updates_pulldown > a.new_updates{
+	background: none repeat scroll 0 0 #0986BF;
+}

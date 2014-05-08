@@ -29,8 +29,8 @@ $paginator = $this->paginator_jobs;
         <p>Qui mô công ty: <?php echo $profile->company_size; ?><br>
             Tên người liên hệ: Ms. Cat Tuong</p>
         <?php if ($user_id == $profile->user_id) : ?>
-            <a class="pt-icon pt-icon-01" href="<?php echo $this->baseUrl() . '/recruiter/index/edit-profile/profile_id/' . $profile->recruiter_id; ?>"></a>
-            <a class="pt-icon pt-icon-02" href="javascript:void(0);" onclick="delete_profile('<?php echo $profile->recruiter_id; ?>');
+            <a class="pt-icon pt-icon-checkall" href="<?php echo $this->baseUrl() . '/recruiter/index/edit-profile/profile_id/' . $profile->recruiter_id; ?>"></a>
+            <a class="pt-icon pt-icon-delete" href="javascript:void(0);" onclick="delete_profile('<?php echo $profile->recruiter_id; ?>');
                     return false;"></a>
            <?php endif; ?>
     </div>

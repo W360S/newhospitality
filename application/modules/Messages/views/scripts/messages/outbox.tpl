@@ -19,8 +19,8 @@
     <br />
 <?php else: ?>
     <div class="pt-how-link-message">
-        <a href="javascript:void(0)" class="pt-icon pt-icon-01" id="checkall"></a>
-        <a href="javascript:void(0)" class="pt-icon pt-icon-02" id="delete"></a>
+        <a href="javascript:void(0)" class="pt-icon pt-icon-checkall" id="checkall"></a>
+        <a href="javascript:void(0)" class="pt-icon pt-icon-delete" id="delete"></a>
         <?php echo $this->paginationControl($this->paginator, null, "application/modules/Messages/views/scripts/pagination/inbox.tpl"); ?>
     </div>
 <?php endif; ?>
@@ -130,6 +130,7 @@
       <button id="delete"><?php echo $this->translate('Delete Selected') ?></button>
      */ ?>
     <script type="text/javascript">
+      en4.core.runonce.add(function() {
         $('checkall').addEvent('click', function() {
             var hasUnchecked = false;
             $$('.pt-list-message input[type="checkbox"]').each(function(el) {
@@ -150,6 +151,7 @@
             if (selected_ids.length > 0)
                 Smoothbox.open(sb_url);
         });
+      });
     </script>
     <br />
     <br />

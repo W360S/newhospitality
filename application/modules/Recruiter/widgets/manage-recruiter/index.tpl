@@ -1,11 +1,11 @@
 <div class="pt-block">
         <h3 class="pt-title-right">Quản lý TUYỂN DỤNG</h3>
         <div class="pt-how-story">
-                <a href="<?php echo $this->baseUrl().'/recruiter/job/manage' ?>" class="pt-link-04"><?php echo $this->translate('Posted Jobs')?></a>
-                <a href="<?php echo $this->baseUrl().'/recruiter/job/save-candidate'?>" class="pt-link-16">
+                <a href="<?php echo $this->baseUrl().'/recruiter/job/manage' ?>" class="pt-link-resume"><?php echo $this->translate('Posted Jobs')?></a>
+                <a href="<?php echo $this->baseUrl().'/recruiter/job/save-candidate'?>" class="pt-link-candidate">
                     <?php echo $this->translate('Saved Candidates')?><span><?php echo $this->save_candidates ?></span>
                 </a>
-                <a href="<?php echo $this->baseUrl().'/recruiter/job/save-resume-candidate'?>" class="pt-link-16">
+                <a href="<?php echo $this->baseUrl().'/recruiter/job/save-resume-candidate'?>" class="pt-link-candidate">
                     <?php echo $this->translate('Saved Resumes')?><span><?php echo $this->save_resume_candidates ?></span>
                 </a>
         </div>

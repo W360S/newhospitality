@@ -150,11 +150,11 @@ ul.feed > li
   /*padding: 0px 0px 10px 0px;*/
   overflow: hidden;
 }
-ul.feed > li + li
+/*ul.feed > li + li
 {
   padding-top: 10px;
   border-top-width: 1px;
-}
+}*/
 ul.feed .feed_item_generated
 {
   color: $theme_font_color_light;
@@ -222,11 +222,11 @@ ul.feed .feed_item_bodytext
   display: inline;
   color: $theme_font_color;
 }
-ul.feed .feed_item_attachments
+/*ul.feed .feed_item_attachments
 {
   overflow: hidden;
   padding: 10px 10px 3px 10px;
-}
+}*/
 ul.feed .feed_attachment_core_link
 {
   overflow: hidden;

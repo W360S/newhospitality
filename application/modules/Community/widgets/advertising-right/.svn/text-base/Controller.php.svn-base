@@ -1,0 +1,7 @@
+<?php
+/* advertising for network
+*/
+class Community_Widget_AdvertisingRightController extends Engine_Content_Widget_Abstract{
+    
+    public function indexAction(){}
+}

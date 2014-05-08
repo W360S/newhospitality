@@ -56,7 +56,7 @@
             'place' => 'view',
             'message_ids' => $this->conversation->conversation_id,
                 ), $this->translate(''), array(
-            'class' => 'pt-icon pt-icon-02 buttonlink smoothbox', //'buttonlink icon_message_delete',
+            'class' => 'pt-icon pt-icon-delete buttonlink smoothbox', //'buttonlink icon_message_delete',
         ))
         ?>
     </div>

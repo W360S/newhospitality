@@ -89,7 +89,17 @@ class Activity_Widget_FeedController extends Engine_Content_Widget_Abstract {
 
             // Where the Activity Feed is Fetched
             if (!empty($subject)) {
-                $actions = $actionTable->getActivityAbout($subject, $viewer, $tmpConfig);
+                
+                $module = $request->getParam('module');
+                $controller = $request->getParam('controller');
+                $action = $request->getParam('action');
+                
+                if($module == "user" && $controller =="index" && $action=="home"){
+                    $actions = $actionTable->getActivity($viewer, $tmpConfig);
+                }else{
+                    $actions = $actionTable->getActivityAbout($subject, $viewer, $tmpConfig);
+                }
+                //$actions = $actionTable->getActivity($viewer, $tmpConfig);
             } else {
                 $actions = $actionTable->getActivity($viewer, $tmpConfig);
             }

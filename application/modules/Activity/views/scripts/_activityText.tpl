@@ -118,7 +118,6 @@ $this->headScript()
 
                 <div class="pt-content-user-post">
                     <p><?php echo $action->getContent() ?></p>
-                    <!-- <p><?php //echo $action->VHgetBodyText()  ?></p> -->
                 </div>
 
                 <!--BEGIN ATTACHMENT-->
@@ -144,13 +143,11 @@ $this->headScript()
                                                 }
                                                 ?>
                                                 <?php if ($attachment->item->getPhotoUrl()): ?>
-                                                    <?php echo $this->htmlLink($attachment->item->getHref(), $this->itemPhoto($attachment->item, 'thumb.normal', $attachment->item->getTitle()), $attribs) ?>
+                                                    <?php echo $this->htmlLink($attachment->item->getHref(), $this->itemPhoto($attachment->item, null, $attachment->item->getTitle()), $attribs) ?>
                                                 <?php endif; ?>
                                                 <div>
                                                     <div class='feed_item_link_title'>
-                                                        <?php
-                                                        echo $this->htmlLink($attachment->item->getHref(), $attachment->item->getTitle() ? $attachment->item->getTitle() : '', $attribs);
-                                                        ?>
+                                                        <?php echo $this->htmlLink($attachment->item->getHref(), $attachment->item->getTitle() ? $attachment->item->getTitle() : '', $attribs);?>
                                                     </div>
                                                     <div class='feed_item_link_desc'>
                                                         <?php echo $this->viewMore($attachment->item->getDescription()) ?>
@@ -202,13 +199,13 @@ $this->headScript()
                             ))
                             ?>
                         <?php else: ?>
-                            <?php echo $this->htmlLink(
-                                    'javascript:void(0);', 
-                                    $this->translate('Comment'), 
-                                    array('onclick' => 'document.getElementById("' . $this->commentForm->getAttrib('id') . '").style.display = ""; document.getElementById("' . $this->commentForm->submit->getAttrib('id') . '").style.display = "none"; document.getElementById("' . $this->commentForm->body->getAttrib('id') . '").focus();')) ?>
+                            <?php
+                            echo $this->htmlLink(
+                                    'javascript:void(0);', $this->translate('Comment'), array('onclick' => 'document.getElementById("' . $this->commentForm->getAttrib('id') . '").style.display = ""; document.getElementById("' . $this->commentForm->submit->getAttrib('id') . '").style.display = "none"; document.getElementById("' . $this->commentForm->body->getAttrib('id') . '").focus();'))
+                            ?>
                             <script type="text/javascript">
                                 en4.core.runonce.add(function() {
-                                    document.getElementById('<?php echo $this->commentForm->body->getAttrib('id') ?>').onkeydown = function(e){
+                                    document.getElementById('<?php echo $this->commentForm->body->getAttrib('id') ?>').onkeydown = function(e) {
 
                                         var body = jQuery('#<?php echo $this->commentForm->body->getAttrib('id') ?>').val();
                                         var action_id = '<?php echo $action->action_id ?>';
@@ -217,25 +214,25 @@ $this->headScript()
                                         if (e.keyCode === 13) {
                                             en4.activity.comment(action_id, body);
                                             /*
-                                            en4.core.request.send(new Request.JSON({
-                                              url : en4.core.baseUrl + 'activity/index/comment',
-                                              data : {
-                                                format : 'json',
-                                                action_id : action_id,
-                                                body : body,
-                                                subject : en4.core.subject.guid
-                                              },
-                                              'onSuccess': function(responseJSON, responseText){
-                                                    console.log(responseJSON);
-                                              }
-                                              }));
-                                            */
+                                             en4.core.request.send(new Request.JSON({
+                                             url : en4.core.baseUrl + 'activity/index/comment',
+                                             data : {
+                                             format : 'json',
+                                             action_id : action_id,
+                                             body : body,
+                                             subject : en4.core.subject.guid
+                                             },
+                                             'onSuccess': function(responseJSON, responseText){
+                                             console.log(responseJSON);
+                                             }
+                                             }));
+                                             */
                                         }
                                         return true;
                                     }
                                 });
-                                    
-                                
+
+
                             </script>
                         <?php endif; ?>
                         <?php if ($this->viewAllComments): ?>
@@ -284,7 +281,8 @@ $this->headScript()
                                         </li>
                                     <?php endif; ?>
 
-                                    <?php $comments = $action->getComments($this->viewAllComments);
+                                    <?php
+                                    $comments = $action->getComments($this->viewAllComments);
                                     $commentLikes = $action->getCommentsLikes($comments, $this->viewer());
                                     ?>
 
@@ -304,9 +302,9 @@ $this->headScript()
                                                     <h3>
                                                         <a href="<?php echo $poster->getHref() ?>" class="pt-title-name"> <?php echo $poster->getTitle() ?></a>
                                                         <span class="pt-times"><?php echo $this->timestamp($comment->creation_date); ?></span>
-                                                        <?php if($comment->likes()->getLikeCount() > 0): ?>
-                                                        <a href="#" class="pt-like"><span></span><?php echo $comment->likes()->getLikeCount() ?></a>
-                                                        <?php endif; ?>
+                                                        <?php if ($comment->likes()->getLikeCount() > 0): ?>
+                                                            <a href="#" class="pt-like"><span></span><?php echo $comment->likes()->getLikeCount() ?></a>
+                        <?php endif; ?>
                                                         <a href="#" class="pt-reply"><span></span>Trả lời</a>
                                                     </h3>
                                                     <p><?php echo $this->viewMore($comment->body) ?></p>
@@ -322,12 +320,12 @@ $this->headScript()
 
                             <?php endif; ?>
                             </ul>
-                            <?php /*if ($canComment) echo $this->commentForm->render() /*
-                                  <form>
-                                  <textarea rows='1'>Add a comment...</textarea>
-                                  <button type='submit'>Post</button>
-                                  </form>
-                                 */ ?>
+                            <?php /* if ($canComment) echo $this->commentForm->render() /*
+                              <form>
+                              <textarea rows='1'>Add a comment...</textarea>
+                              <button type='submit'>Post</button>
+                              </form>
+                             */ ?>
                         </div>
                     <?php endif; ?>
         <?php endif; ?>

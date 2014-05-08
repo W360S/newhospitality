@@ -144,7 +144,7 @@ $this->headScript()
                                                 }
                                                 ?>
                                                 <?php if ($attachment->item->getPhotoUrl()): ?>
-                                                    <?php echo $this->htmlLink($attachment->item->getHref(), $this->itemPhoto($attachment->item, 'thumb.normal', $attachment->item->getTitle()), $attribs) ?>
+                                                    <?php echo $this->htmlLink($attachment->item->getHref(), $this->itemPhoto($attachment->item, null, $attachment->item->getTitle()), $attribs) ?>
                                                 <?php endif; ?>
                                                 <div>
                                                     <div class='feed_item_link_title'>
