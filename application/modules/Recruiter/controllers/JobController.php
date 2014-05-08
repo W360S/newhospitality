@@ -711,6 +711,11 @@ EOF;
             $paginator->setItemCountPerPage(20);
             $paginator->setCurrentPageNumber($page);
         }
+        
+        $this->_helper->content
+                ->setContentName(43) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     //delete applied job
