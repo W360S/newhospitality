@@ -391,6 +391,10 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
     public function searchResumeAction() {
         $values = $this->getRequest()->getPost();
 
+        $this->_helper->content
+                ->setContentName(44) // page_id
+                // ->setNoRender()
+                ->setEnabled();
         if (!$this->getRequest()->getPost()) {
             $this->view->no_req = 1;
             return;

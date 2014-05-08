@@ -1,4 +1,4 @@
-<div class="subsection" style="border-top-left-radius:0px;">
+<div class="subsection">
 
     <?php if (count($this->categories)): ?>
         <ul class="pt-list-areas list_category jobs_category">

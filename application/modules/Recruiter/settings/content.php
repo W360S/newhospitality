@@ -155,6 +155,13 @@ return array(
         'category' => 'Recruiter',
         'type' => 'widget',
         'name' => 'recruiter.job-tools',
+    ),
+    array(
+        'title' => 'Recruiter Button',
+        'description' => 'Button to go to recruiter Page',
+        'category' => 'Recruiter',
+        'type' => 'widget',
+        'name' => 'recruiter.button',
     )
-        )
+)
 ?>

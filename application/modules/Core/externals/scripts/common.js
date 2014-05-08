@@ -2,7 +2,6 @@
 jQuery.noConflict();
 
 jQuery(document).ready(function($) {
-    console.log("PT MENU LEFT IS INITING");
     var member_home_url = "<?php echo $this->baseUrl() ?>/members/home";
     var message_inbox_url = "<?php echo $this->baseUrl() ?>/messages/inbox";
     var events_index_url = "<?php echo $this->baseUrl() ?>/events";
@@ -20,12 +19,10 @@ jQuery(document).ready(function($) {
         $("#link-albums").addClass("pt-active");
     }
 });
+
 jQuery(document).ready(function($) {
 
-    /* Fancybox */
     $(".pt-login a").fancybox({});
-
-    /* Click - Menu */
 
     // MESSAGE
     $(".pt-info-user li a.pt-message").click(function() {
@@ -67,13 +64,6 @@ jQuery(document).ready(function($) {
             $('.pt-toggle-name').removeClass('pt-toggle-active');
         });
     });
-    /* Click - Menu - End */
-
-    // FRIEND REQUEST CLASSY SCROLL
-    //$('.wd-scrollbars-heder').ClassyScroll();
-
-
-
 
     $("a.pt-editing").click(function() {
         $('.pt-toggle-layout').toggleClass('pt-editing-block');
@@ -98,7 +88,7 @@ function isExpertPage() {
 }
 
 function isJobPage() {
-    return (document.URL.indexOf("/resumes") != -1) || (document.URL.indexOf("/recruiter/") != -1);
+    return (document.URL.indexOf("/resumes") != -1) || (document.URL.indexOf("/recruiter") != -1);
 }
 
 jQuery(document).ready(function($) {
@@ -111,13 +101,10 @@ jQuery(document).ready(function($) {
         if (isMemberHomePage() != -1) {
             $(".head-menu-item-member-home").addClass("pt-active");
         }
-        
-        if (isExpertPage()!= -1){
+
+        if (isExpertPage() != -1) {
             $(".head-menu-item-expert").addClass("pt-active");
         }
 
     });
 });
-
-
-

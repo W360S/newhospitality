@@ -36,7 +36,6 @@
             </ul>
         </fieldset>
     </form>
-
 </div>
 <?php /*
 <div class="pt-content-searching">

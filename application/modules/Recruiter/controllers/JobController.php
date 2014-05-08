@@ -79,6 +79,12 @@ class Recruiter_JobController extends Core_Controller_Action_Standard {
         foreach ($levelDegreeTable->fetchAll() as $level) {
             $form->degree_id->addMultiOption($level->degree_id, $level->name);
         }
+
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+
         if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
             //Zend_Debug::dump($this->getRequest()->getPost());exit;
             $db = Engine_Api::_()->getDbtable('jobs', 'recruiter')->getAdapter();
@@ -404,12 +410,16 @@ EOF;
         $paginator = $this->view->paginator = Zend_Paginator::factory($select);
         $paginator->setItemCountPerPage(20);
         $paginator->setCurrentPageNumber($page);
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     //view job 
     public function viewJobAction() {
         //if( !$this->_helper->requireUser()->isValid() ) return;
-        
+
         $job_id = $this->_getParam('id');
         //thiết lập title for page
         $subject = null;
@@ -883,6 +893,11 @@ EOF;
         $this->view->paginator = $paginator = Zend_Paginator::factory($select);
         $paginator->setItemCountPerPage(20);
         $paginator->setCurrentPageNumber($page);
+
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     //delete save candidate
@@ -1367,6 +1382,11 @@ EOF;
         $this->view->paginator = $paginator = Zend_Paginator::factory($select);
         $paginator->setItemCountPerPage(20);
         $paginator->setCurrentPageNumber($page);
+        
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     //delete save resume candidates
