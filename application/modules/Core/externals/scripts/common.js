@@ -2,12 +2,16 @@
 jQuery.noConflict();
 
 jQuery(document).ready(function($) {
-    var member_home_url = "<?php echo $this->baseUrl() ?>/members/home";
-    var message_inbox_url = "<?php echo $this->baseUrl() ?>/messages/inbox";
-    var events_index_url = "<?php echo $this->baseUrl() ?>/events";
-    var album_index_url = "<?php echo $this->baseUrl() ?>/albums";
+    var member_home_url = "/members/home";
+    var message_inbox_url = "/messages";
+    var events_index_url = "/events";
+    var album_index_url = "/albums";
+
+    console.log('/application/modules/Core/externals/scripts/common.js');
+
     if (document.URL.indexOf(member_home_url) != -1) {
         $("#link-newfeed").addClass("pt-active");
+        console.log("is home page");
     }
     if (document.URL.indexOf(message_inbox_url) != -1) {
         $("#link-message").addClass("pt-active");

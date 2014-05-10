@@ -51,19 +51,23 @@ $filter = $this->filter;
                 function openSearch() {
                     jQuery("#tabs-2").hide();
                     jQuery("#tabs-1").show();
+                    jQuery("#tabs-2-title").removeClass("ui-state-active");
+                    jQuery("#tabs-1-title").addClass("ui-state-active");
                 }
 
                 function openCategories() {
                     jQuery("#tabs-2").show();
                     jQuery("#tabs-1").hide();
+                    jQuery("#tabs-1-title").removeClass("ui-state-active");
+                    jQuery("#tabs-2-title").addClass("ui-state-active");
                 }
 
             </script>
 
             <div class="tabs_alt tabs_parent pt-event-tabs">
                 <ul class="pt-title" id="main_tabs">
-                    <li><a href="javascript:void(0)" onclick="openSearch()">TÌM KIẾM</a></li>
-                    <li><a href="javascript:void(0)" onclick="openCategories()">LĨNH VỰC</a></li>
+                    <li id="tabs-1-title" class="ui-state-active"><a href="javascript:void(0)" onclick="openSearch()">TÌM KIẾM</a></li>
+                    <li id="tabs-2-title" ><a href="javascript:void(0)" onclick="openCategories()">LĨNH VỰC</a></li>
                 </ul>
                 <div id="tabs-2" class="pt-content-tab" style="display:none;">
                     <?php echo $this->content()->renderWidget('event.categories'); ?>

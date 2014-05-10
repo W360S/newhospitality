@@ -516,6 +516,8 @@ Used to show page numbers and previous & next links throughout the site.
 {
   overflow: hidden;
   clear: both;
+  margin: 10px 0px;
+  float: right;
 }
 .paginationControl
 {

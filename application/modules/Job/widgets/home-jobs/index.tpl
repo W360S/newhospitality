@@ -1,8 +1,8 @@
 <div class="pt-event-tabs">
     <ul class="pt-title">
-        <li><a href="javascript:showTab1()">TÌM KIẾM</a></li>
-        <li><a href="javascript:showTab3()">NGHỀ NGHIỆP</a></li>
-        <li><a href="javascript:showTab2()">LĨNH VỰC</a></li>
+        <li id="tabs-1-title" class="ui-state-active"><a href="javascript:showTab1()">TÌM KIẾM</a></li>
+        <li id="tabs-3-title"><a href="javascript:showTab3()">NGHỀ NGHIỆP</a></li>
+        <li id="tabs-2-title"><a href="javascript:showTab2()">LĨNH VỰC</a></li>
     </ul>
     <div id="tabs-1" class="pt-content-tab">
         <?php echo $this->content()->renderWidget('recruiter.search-job'); ?>
@@ -25,6 +25,9 @@
             jQuery(this).hide();
         });
         jQuery("#tabs-1").show();
+        jQuery("#tabs-1-title").addClass('ui-state-active');
+        jQuery("#tabs-2-title").removeClass('ui-state-active');
+        jQuery("#tabs-3-title").removeClass('ui-state-active');
     }
     
     function showTab2(){
@@ -32,6 +35,9 @@
             jQuery(this).hide();
         });
         jQuery("#tabs-2").show();
+        jQuery("#tabs-2-title").addClass('ui-state-active');
+        jQuery("#tabs-1-title").removeClass('ui-state-active');
+        jQuery("#tabs-3-title").removeClass('ui-state-active');
     }
     
     function showTab3(){
@@ -39,6 +45,9 @@
             jQuery(this).hide();
         });
         jQuery("#tabs-3").show();
+        jQuery("#tabs-3-title").addClass('ui-state-active');
+        jQuery("#tabs-2-title").removeClass('ui-state-active');
+        jQuery("#tabs-1-title").removeClass('ui-state-active');
     }
 </script>
 <?php

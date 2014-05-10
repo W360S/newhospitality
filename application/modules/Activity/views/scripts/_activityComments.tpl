@@ -118,7 +118,7 @@ $this->headScript()
 
                 <div class="pt-content-user-post">
                     <p><?php echo $action->getContent() ?></p>
-                    <!-- <p><?php //echo $action->VHgetBodyText()  ?></p> -->
+                    <!-- <p><?php //echo $action->VHgetBodyText()    ?></p> -->
                 </div>
 
                 <!--BEGIN ATTACHMENT-->
@@ -202,13 +202,13 @@ $this->headScript()
                             ))
                             ?>
                         <?php else: ?>
-                            <?php echo $this->htmlLink(
-                                    'javascript:void(0);', 
-                                    $this->translate('Comment'), 
-                                    array('onclick' => 'document.getElementById("' . $this->commentForm->getAttrib('id') . '").style.display = ""; document.getElementById("' . $this->commentForm->submit->getAttrib('id') . '").style.display = "none"; document.getElementById("' . $this->commentForm->body->getAttrib('id') . '").focus();')) ?>
+                            <?php
+                            echo $this->htmlLink(
+                                    'javascript:void(0);', $this->translate('Comment'), array('onclick' => 'document.getElementById("' . $this->commentForm->getAttrib('id') . '").style.display = ""; document.getElementById("' . $this->commentForm->submit->getAttrib('id') . '").style.display = "none"; document.getElementById("' . $this->commentForm->body->getAttrib('id') . '").focus();'))
+                            ?>
                             <script type="text/javascript">
                                 en4.core.runonce.add(function() {
-                                    document.getElementById('<?php echo $this->commentForm->body->getAttrib('id') ?>').onkeydown = function(e){
+                                    document.getElementById('<?php echo $this->commentForm->body->getAttrib('id') ?>').onkeydown = function(e) {
 
                                         var body = jQuery('#<?php echo $this->commentForm->body->getAttrib('id') ?>').val();
                                         var action_id = '<?php echo $action->action_id ?>';
@@ -217,25 +217,25 @@ $this->headScript()
                                         if (e.keyCode === 13) {
                                             en4.activity.comment(action_id, body);
                                             /*
-                                            en4.core.request.send(new Request.JSON({
-                                              url : en4.core.baseUrl + 'activity/index/comment',
-                                              data : {
-                                                format : 'json',
-                                                action_id : action_id,
-                                                body : body,
-                                                subject : en4.core.subject.guid
-                                              },
-                                              'onSuccess': function(responseJSON, responseText){
-                                                    console.log(responseJSON);
-                                              }
-                                              }));
-                                            */
+                                             en4.core.request.send(new Request.JSON({
+                                             url : en4.core.baseUrl + 'activity/index/comment',
+                                             data : {
+                                             format : 'json',
+                                             action_id : action_id,
+                                             body : body,
+                                             subject : en4.core.subject.guid
+                                             },
+                                             'onSuccess': function(responseJSON, responseText){
+                                             console.log(responseJSON);
+                                             }
+                                             }));
+                                             */
                                         }
                                         return true;
                                     }
                                 });
-                                    
-                                
+
+
                             </script>
                         <?php endif; ?>
                         <?php if ($this->viewAllComments): ?>
@@ -284,11 +284,12 @@ $this->headScript()
                                         </li>
                                     <?php endif; ?>
 
-                                    <?php $comments = $action->getComments($this->viewAllComments);
+                                    <?php
+                                    $comments = $action->getComments($this->viewAllComments);
                                     $commentLikes = $action->getCommentsLikes($comments, $this->viewer());
                                     ?>
 
-                    <?php foreach ($comments as $comment): ?>
+                                    <?php foreach ($comments as $comment): ?>
 
                                         <!-- BEGIN SINGLE COMMENT -->
                                         <li id="comment-<?php echo $comment->comment_id ?>">
@@ -297,15 +298,38 @@ $this->headScript()
                                                     <span class="pt-avatar">
                                                         <?php $poster = $this->item($comment->poster_type, $comment->poster_id) ?>
                                                         <?php $avatar = $this->itemPhoto($poster, 'thumb.icon', $poster->getTitle()) ?>
-                        <?php echo $avatar ?>
+                                                        <?php echo $avatar ?>
                                                     </span>
                                                 </a>
                                                 <div class="pt-how-info-user-post">
                                                     <h3>
                                                         <a href="<?php echo $poster->getHref() ?>" class="pt-title-name"> <?php echo $poster->getTitle() ?></a>
                                                         <span class="pt-times"><?php echo $this->timestamp($comment->creation_date); ?></span>
-                                                        <a href="#" class="pt-like"><span></span><?php echo $comment->likes()->getLikeCount() ?></a>
-                                                        <a href="#" class="pt-reply"><span></span>Trả lời</a>
+                                                        <?php if ($canComment): ?>
+                                                            <?php $isLiked = !empty($commentLikes[$comment->comment_id]); ?>
+                                                            <?php if (!$isLiked): ?>
+                                                                <a href="javascript:void(0)" onclick="en4.activity.like(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)">
+                                                                    <?php echo $this->translate('like') ?>
+                                                                </a>
+                                                            <?php else: ?>
+                                                                <a href="javascript:void(0)" onclick="en4.activity.unlike(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)">
+                                                                    <?php echo $this->translate('unlike') ?>
+                                                                </a>
+                                                            <?php endif ?>
+                                                        <?php endif ?>
+
+                                                        <?php if ($comment->likes()->getLikeCount() > 0): ?>
+                                                            <a class="pt-like" href="javascript:void(0);" id="comments_comment_likes_<?php echo $comment->comment_id ?>" class="comments_comment_likes" title="<?php echo $this->translate('Loading...') ?>">
+                                                                <?php echo $this->translate(array('%s likes this', '%s like this', $comment->likes()->getLikeCount()), $this->locale()->toNumber($comment->likes()->getLikeCount())) ?>
+                                                            </a>
+                                                        <?php endif ?>
+                                                        <?php
+                                                        echo $this->htmlLink('javascript:void(0);', $this->translate('Comment'), array(
+                                                            'onclick' => 'document.getElementById("' . $this->commentForm->getAttrib('id') . '").style.display = ""; document.getElementById("' . $this->commentForm->submit->getAttrib('id') . '").style.display = "none"; document.getElementById("' . $this->commentForm->body->getAttrib('id') . '").focus();'
+                                                            , 'class' => 'pt-reply'
+                                                                )
+                                                        )
+                                                        ?>
                                                     </h3>
                                                     <p><?php echo $this->viewMore($comment->body) ?></p>
                                                 </div>
@@ -313,12 +337,12 @@ $this->headScript()
                                             </div>
                                         </li>
                                         <!-- END SINGLE COMMENT -->
-                    <?php endforeach; ?>
+                                    <?php endforeach; ?>
 
 
 
 
-                            <?php endif; ?>
+                                <?php endif; ?>
                             </ul>
                             <?php if ($canComment) echo $this->commentForm->render() /*
                                   <form>
@@ -328,16 +352,16 @@ $this->headScript()
                                  */ ?>
                         </div>
                     <?php endif; ?>
-        <?php endif; ?>
+                <?php endif; ?>
                 <!-- COMMENT LIST END -->
 
-                    <?php if ($canComment) : ?>
+                <?php if ($canComment) : ?>
                     <div class="pt-textarea">
-                    <?php echo $this->commentForm->render() ?>
+                        <?php echo $this->commentForm->render() ?>
                     </div>
                 <?php endif ?>
 
-            <?php if (!$this->noList): ?>
+                <?php if (!$this->noList): ?>
                 </li>
             <?php endif; ?>
 
@@ -352,7 +376,7 @@ $this->headScript()
     endforeach;
     ?>
 
-<?php if (!$this->getUpdate): ?>
+    <?php if (!$this->getUpdate): ?>
     </ul>
 <?php endif ?>
 <!-- </ul> -->

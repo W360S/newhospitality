@@ -112,7 +112,7 @@ $this->headScript()
                     <span class="<?php echo ( empty($action->getTypeInfo()->is_generated) ? 'feed_item_posted' : 'feed_item_generated' ) ?>">
                         <?php echo $action->getContent() ?>
                     </span>      
-                    
+
                     <!--BEGIN ATTACHMENT-->
                     <?php if ($action->getTypeInfo()->attachable && $action->attachment_count > 0): // Attachments  ?>
                         <div class='feed_item_attachments'>
@@ -343,12 +343,10 @@ $this->headScript()
                                                         <li class="comments_timestamp">
                                                             <?php echo $this->timestamp($comment->creation_date); ?>
                                                         </li>
-                                                        <?php
-                                                        if ($this->viewer()->getIdentity() &&
+                                                        <?php if ($this->viewer()->getIdentity() &&
                                                                 (('user' == $action->subject_type && $this->viewer()->getIdentity() == $action->subject_id) ||
                                                                 ($this->viewer()->getIdentity() == $comment->poster_id) ||
-                                                                $this->activity_moderate )):
-                                                            ?>
+                                                                $this->activity_moderate )): ?>
                                                             <li class="sep">-</li>
                                                             <li class="comments_delete">
                                                                 <?php
@@ -363,10 +361,9 @@ $this->headScript()
                                                                 ?>
                                                             </li>
                                                         <?php endif; ?>
-                                                        <?php
-                                                        if ($canComment):
-                                                            $isLiked = !empty($commentLikes[$comment->comment_id]);
-                                                            ?>
+                                                            
+                                                        <?php if ($canComment): ?>
+                                                            <?php $isLiked = !empty($commentLikes[$comment->comment_id]);?>
                                                             <li class="sep">-</li>
                                                             <li class="comments_like">
                                                                 <?php if (!$isLiked): ?>
@@ -380,6 +377,7 @@ $this->headScript()
                                                                 <?php endif ?>
                                                             </li>
                                                         <?php endif ?>
+                                                            
                                                         <?php if ($comment->likes()->getLikeCount() > 0): ?>
                                                             <li class="sep">-</li>
                                                             <li class="comments_likes_total">
@@ -423,6 +421,7 @@ $this->headScript()
     <?php if (!$this->getUpdate): ?>
     </ul>
     <?php
+
 
 
  endif ?>

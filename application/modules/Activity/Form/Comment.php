@@ -37,8 +37,8 @@ class Activity_Form_Comment extends Engine_Form {
         }
         $this->addElement('Textarea', 'body', array(
 //            'rows' => 1,
-            //'decorators' => array(
-                //'ViewHelper'
+//            'decorators' => array(
+//            'ViewHelper'
 //            ),
             'filters' => array(
                 new Engine_Filter_Html(array('AllowedTags' => $allowed_html)),
