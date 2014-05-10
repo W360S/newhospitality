@@ -12,7 +12,6 @@
 
 <div>
   <?php echo $this->form->setAttrib('class', 'global_form_popup')->render($this) ?>
-  <br />
   <div class="sharebox">
     <?php if( $this->attachment->getPhotoUrl() ): ?>
       <div class="sharebox_photo">

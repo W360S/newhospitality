@@ -161,8 +161,13 @@ class Event_IndexController extends Core_Controller_Action_Standard {
 
     public function manageAction() {
         // Create form
-        if (!$this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid())
-            return;
+        //if (!$this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid())
+            //return;
+        
+        $this->_helper->content
+                ->setContentName(30) // page_id
+                // ->setNoRender()
+                ->setEnabled();
         
         $this->view->formFilter = $formFilter = new Event_Form_Filter_Manage();
         $defaultValues = $formFilter->getValues();

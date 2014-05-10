@@ -10,23 +10,42 @@ $form = $this->formFilter;
 $formValues = $this->formValues;
 $filter = $this->filter;
 ?>
-<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $this->baseUrl() . '/application/modules/Core/externals/scripts/jquery-1.10.2.min.js' ?>" type="text/javascript"></script>
 <div class="content">
     <div class="wd-content-event">
         <div class="pt-title-event">
             <ul class="pt-menu-event">
-                <li class="active">
+                <li id="event-item-upcomming">
                     <a href="<?php echo $this->baseUrl(); ?>/events"><?php echo $this->translate('Upcoming Events') ?></a>
                 </li>
-                <li>
+                <li id="event-item-past">
                     <a href="<?php echo $this->baseUrl(); ?>/events/past"><?php echo $this->translate('Past Events') ?></a>
                 </li>
-                <li>
+                <li id="event-item-manage">
                     <a href="<?php echo $this->baseUrl(); ?>/events/manage"><?php echo $this->translate('My Events') ?></a>
                 </li>
             </ul>
             <a href="<?php echo $this->baseUrl(); ?>/events/create" class="pt-registering-event"><span></span><?php echo $this->translate('Create New Event') ?></a>
         </div>
+        <script>
+            jQuery(document).ready(function($) {
+                var events_browse_url = "/events";
+                var events_past_url = "/events/past";
+                var events_manage_url = "/events/manage";
+
+                if (document.URL.indexOf(events_past_url) != -1) {
+                    $("#event-item-past").addClass("active");
+                } else {
+                    if (document.URL.indexOf(events_manage_url) != -1) {
+                        $("#event-item-manage").addClass("active");
+                    } else {
+                        if (document.URL.indexOf(events_browse_url) != -1) {
+                            $("#event-item-upcomming").addClass("active");
+                        }
+                    }
+                }
+            });
+        </script>
         <div class="pt-content-event">
             <script type="text/javascript">
                 /*
@@ -87,7 +106,6 @@ $filter = $this->filter;
             <?php $i = 1; ?>
             <?php if (count($pages) > 0): ?>
                 <ul class='pt-list-event'>
-
                     <?php foreach ($pages as $event): ?>
                         <li style="width:23%;float:left;padding:7px">
                             <div class="pt-how-all">
@@ -174,13 +192,13 @@ $filter = $this->filter;
 
 </div>
 
-<script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.masonry.min.js'?>" type="text/javascript"></script>
+<script src="<?php echo $this->baseUrl() . '/application/modules/Core/externals/scripts/jquery.masonry.min.js' ?>" type="text/javascript"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function($){
-        //jQuery(".pt-event-tabs").tabs();
-        $('.pt-list-event').masonry({
-            itemSelector: 'li',
-            columnWidth: 1
-        });
-    });
+                        jQuery(document).ready(function($) {
+                            //jQuery(".pt-event-tabs").tabs();
+                            $('.pt-list-event').masonry({
+                                itemSelector: 'li',
+                                columnWidth: 1
+                            });
+                        });
 </script>

@@ -26,22 +26,16 @@
                     </p>
                 </div>
                 <div class="pt-how-link">
-                    <a href="#pt-fancybox-01" class="pt-adherence"><span></span>Tham gia</a>
-                    <a href="javascript:void(0)" class="pt-share"><span></span>Chia sẻ</a>
-                    <div class="pt-none">
-                        <div id="pt-fancybox-01" class="pt-approve">
-                            <p>Bạn có muốn tham gia sự kiện này</p>
-                            <button type="submit" title="" class="button">Tham gia</button>
-                            <button type="submit" title="" class="button">Hủy</button>
-                        </div>
-                    </div>
+                    <a href="/groups/member/join/group_id/<?php echo $this->group->group_id ?>" class="pt-adherence buttonlink smoothbox ">Join Group</a>
+                    <a href="/activity/index/share/type/group/id/<?php echo $this->group->group_id ?>/format/smoothbox" class="pt-share buttonlink smoothbox menu_group_profile group_profile_share">Share Group</a>
+                    
                     <a href="#" class="pt-editing">Editing</a>
                     <div class="pt-toggle-layout">
                         <div class="pt-icon-arrow"><span></span></div>
                         <div class="pt-toggle-layout-content">
                             <ul class="pt-edit">
                                 <li>
-                                    <a href="#">Mời thành viên</a>
+                                    <a href="/groups/member/invite/group_id/<?php echo $this->group->group_id ?>/format/smoothbox" class="buttonlink smoothbox menu_group_profile group_profile_invite" >Invite Members</a>
                                 </li>
                                 <li>
                                     <a href="#">Gửi tin nhắn</a>
