@@ -58,7 +58,7 @@ table.last_resume{border-bottom: 1px dotted; padding: 0 3px; }
 .button_control a.save_job{width:127px;background:url(~/application/modules/Core/externals/images/bg-btn-1.png) no-repeat}
 .button_control a:hover.save_job{background-position:0 -35px}
 .recruiter .subsection .subsection{margin-left:18px;margin-right:18px;}
-.job-form-step-2 .input label.error{color: red; clear: left; width: 211px; padding-left: 159px; text-align: left;}
+.job-form-step-2 .input label.error{color: red; clear: left; width: 211px; text-align: left;}
 .bt_preview_job {padding-left:46px;margin-top:25px;overflow:hidden}
 .bt_preview_job a{float:left;width:195px;height:71px;font-size:0;line-height:71px;text-indent:-1985em;background:url(~/application/modules/Resumes/externals/images/bt_preview_job.png) no-repeat}
 .bt_preview_job a:hover{background-position:0 -70px;cursor: pointer;}

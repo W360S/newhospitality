@@ -1,35 +1,23 @@
-<div class="subsection my-work-experience">
-<h2><?php echo $this->translate('My Language')?></h2>
-    <table cellspacing="0" cellpadding="0">
-    <tr class="row_work">
-        <th style="width:218px"><?php echo $this->translate('Language Proficiency')?></th>
-        <th style="width:240px"><?php echo $this->translate('Language Level')?></th>
-        <th><?php echo $this->translate('Options ')?></th>
-    </tr>   
-    <?php 
-    if(!empty($this->arr)){?>
-   <?php foreach($this->arr as $key=> $value){?>
-   <tr>
-        <td>
-        <?php echo $value['lang'];?>
-        </td>
-        <td>
-        <?php echo $value['skill'];?>
-        </td>
-        <td>
-        <a class="edit" href="javascript:void(0);" onclick="edit_skill('<?php echo $key ?>');"></a>
+<strong>Kĩ năng ngoại ngữ :</strong>
+<?php if (!empty($this->arr) && count($this->arr) >=1) : ?>
 
-        <a class="smoothbox" href="javascript:void(0);" onclick="delete_skill('<?php echo $key ?>');"></a>
-        </td>
-   </tr>
-    <div style="display:none">
-        
-        <input id="language_pro_<?php echo $key ?>" value="<?php echo $value['lang'] ?>" />
-        <input id="group_pro_<?php echo $key ?>" value="<?php echo $value['skill'] ?>" />
-       
-   </div>
-    <?php }?>
-    <?php }
-?>
-    </table>
-</div>
+    <?php foreach ($this->arr as $key=>$value): ?>
+        <ol>
+            <li><strong><?php echo $value['lang'];?></strong></li>
+        </ol>
+        <span><?php echo $value['skill'];?></span>
+        <p>
+            <a class="edit" title="<?php echo $this->translate('Edit') ?>" href="javascript:void(0);" onclick="edit_skill('<?php echo $key ?>');">Edit</a> | 
+            <a class="smoothbox" title="<?php echo $this->translate('Delete') ?>" href="javascript:void(0);" onclick="delete_skill('<?php echo $key ?>');">Delete</a>
+        </p>
+
+    <?php endforeach; ?>
+    
+<?php else: ?>
+    
+    <ol>
+        <li>Nhiệm vụ chính của từng vị trí bạn đảm trách</li>
+        <li>Dự án đã tham gia hay quản lý (nếu có)</li>
+        <li>Thành tích, kỹ năng đạt được</li>
+    </ol>
+<?php endif; ?>

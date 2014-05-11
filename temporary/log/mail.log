@@ -6,3 +6,5 @@
 2014-05-10T11:09:01+00:00 DEBUG (7): [System] (notify_commented) ngocvinhxt@gmail.com <- email@domain.com
 2014-05-11T10:58:59+00:00 DEBUG (7): [Zend] bangvn.dng7@gmail.com <- email@domain.com
 2014-05-11T10:58:59+00:00 DEBUG (7): [System] (core_welcome) bangvn.dng7@gmail.com <- email@domain.com
+2014-05-11T13:37:29+00:00 DEBUG (7): [Zend] bangvn.dng8@gmail.com <- email@domain.com
+2014-05-11T13:37:29+00:00 DEBUG (7): [System] (core_welcome) bangvn.dng8@gmail.com <- email@domain.com

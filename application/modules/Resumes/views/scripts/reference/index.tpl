@@ -36,44 +36,55 @@ $references = $this->references;
     </div>
     <div class="main-form-wrapper">
         <div class="pt-title-from-02">
-            <ol>
-                <li>Liệt kê bằng cấp chuyên môn, các khóa ngắn hạn hay những chương trình sau đại học bạn đã theo học.</li>
-            </ol>
-            <a href="#" class="pt-supplementary-report">Bổ sung</a>
-        </div>
-        <form id="resume_reference_form" action="<?php echo $form->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
-            <div class="work-job-work-form-wrapper">
+            <div id="list-references">
 
-                <fieldset class="job-form job-form-step-2">
-                    <div class="input">
-                        <?php echo $form->name; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->title; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->phone; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->email; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->description; ?>
-                    </div>
-
-                    <div class="submit">
-                        <input id="save" type="button" value="<?php echo $this->translate('Add'); ?>" class="min submit_save" onclick="saveResumeReference('save');" />
-                    </div>
-                </fieldset>
-                <div id="list_reference_temp">
-                </div>
-                <div class="button_control">
-                    <button type="button" title="" class="button" onclick="back_resume_skill();">Back</button>
-                    <button type="button" title="" class="button" onclick="preview();">Preview</button>
-                </div>
             </div>
 
-        </form>
+            <div id="form-works-references" style="display: none">
+                <form id="resume_reference_form" action="<?php echo $form->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
+                    <div class="work-job-work-form-wrapper">
+                        <fieldset class="job-form job-form-step-2">
+                            <div class="input">
+                                <?php echo $form->name; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->title; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->phone; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->email; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->description; ?>
+                            </div>
+
+                            <button style="float:right" id="save" onclick="saveResumeReference('save');" type="button" title="" class="button"><span></span>Tiếp tục</button>
+
+                        </fieldset>
+                        <div id="list_reference_temp">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <a id="btn-add-reference" href="javascript:void(0)" class="pt-supplementary-report" onClick="addReference(this)">Bổ sung</a>
+            <div id="main-control">
+                <button onclick="back_resume_skill();" type="button" title="" class="button">Quay lại</button>
+                <button onclick="preview();" type="button" title="" class="button"><span></span>Tiếp tục</button>
+            </div>
+            <script>
+                function addReference(el) {
+                    jQuery("#form-works-references").show();
+                    jQuery("#list-references").hide();
+                    jQuery("#btn-add-reference").hide();
+                    
+                    jQuery("#main-control").hide();
+                }
+            </script>
+            
+        </div>
+
     </div>
 
     <input type="hidden" value="<?php echo $resume_id ?>" id="resume_id_reference" />
@@ -130,9 +141,15 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 //alert(responseHTML);
-                                $('resume_reference_list').set('html', responseHTML);
+                                $('list-references').set('html', responseHTML);
 
                                 $('resume_reference_form').reset();
+                                
+                                jQuery("#form-works-references").hide();
+                                jQuery("#list-references").show();
+                                jQuery("#btn-add-reference").show();
+
+                                jQuery("#main-control").show();
                             }
                         }).send();
 
@@ -241,7 +258,7 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 //alert(responseHTML);
-                                $('resume_reference_list').set('html', responseHTML);
+                                $('list-references').set('html', responseHTML);
 
                                 $('resume_reference_form').reset();
                                 jQuery('#description').html('');
@@ -292,7 +309,7 @@ $references = $this->references;
                             },
                             onSuccess: function(responseHTML)
                             {
-                                $('resume_reference_list').set('html', responseHTML);
+                                $('list-references').set('html', responseHTML);
                                 jQuery('#description').html('');
                             }
                         }).send();
@@ -307,8 +324,8 @@ $references = $this->references;
 
     }
     window.addEvent('domready', function() {
-        var resume_ref_list = new Element('div', {id: 'resume_reference_list'});
-        resume_ref_list.inject($('list_reference_temp'), 'after');
+        //var resume_ref_list = new Element('div', {id: 'resume_reference_list'});
+        //resume_ref_list.inject($('list_reference_temp'), 'after');
 
         var refer_id = new Element('input', {id: 'refer_id', type: 'hidden'});
         refer_id.inject('save', 'after');
@@ -326,9 +343,9 @@ $references = $this->references;
             onSuccess: function(responseHTML)
             {
                 //alert(responseHTML);
-                $('resume_reference_list').set('html', responseHTML);
+                $('list-references').set('html', responseHTML);
                 //check if edit
-                var count_childrent = jQuery('#resume_reference_list table tbody').children().size();
+                var count_childrent = jQuery('#list-references table tbody').children().size();
 
                 if (count_childrent > 1) {
                     jQuery('#resume_reference_edit').addClass('resume_reference_edit');

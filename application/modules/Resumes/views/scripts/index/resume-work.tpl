@@ -39,61 +39,72 @@ $references = $this->references;
     <div class="pt-signin pt-from-01 pt-from-02">
         <form id="resume_work_form" action="<?php echo $this->baseUrl() . $form->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
             <div class="pt-title-from-02">
-                <strong>Mô tả chi tiết:</strong>
-                <ol>
-                    <li>Nhiệm vụ chính của từng vị trí bạn đảm trách</li>
-                    <li>Dự án đã tham gia hay quản lý (nếu có)</li>
-                    <li>Thành tích, kỹ năng đạt được</li>
-                </ol>
-            </div>
+                <div id="list-works-experiences">
+                </div>
+                <div id="form-works-experience" style="display: none">
+                    <div class="work-job-work-form-wrapper">	
+                        <fieldset class="job-form job-form-step-2">
+                            <h4 style="text-align: center;">Bổ sung Kinh Nghiệm Làm Việc</h4>
+                            <div class="input">
+                                <?php echo $form->company_name; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->num_year; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->title; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->level_id; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->category_id; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->country_id; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->city_id; ?>
+                            </div>
+                            <div class="input" style="opacity:0.8">
+                                <?php echo $form->starttime; ?>
+                            </div>
+                            <div class="input" style="opacity:0.8">
+                                <?php echo $form->endtime; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->description; ?>
+                            </div>
+                        </fieldset>
 
-            <div class="work-job-work-form-wrapper">	
-                <fieldset class="job-form job-form-step-2">
-                    <h4 style="text-align: center; margin-top: -10px; margin-bottom: 10px;">Bổ sung Kinh Nghiệm Làm Việc</h4>
-                    <div class="input">
-                        <?php echo $form->company_name; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->num_year; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->title; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->level_id; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->category_id; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->country_id; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->city_id; ?>
-                    </div>
-                    <div class="input" style="opacity:0.8">
-                        <?php echo $form->starttime; ?>
-                    </div>
-                    <div class="input" style="opacity:0.8">
-                        <?php echo $form->endtime; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->description; ?>
-                    </div><!--
-                    <div class="submit">
-                        <input id="save" type="button" value="<?php echo $this->translate('Add'); ?>" class="min submit_save" onclick="saveResumeWork('save');" />
-                    </div>-->
-                </fieldset>
+                        <div id="list_work_temp"></div>
+                        <div class="button_control">
+                            <!--<button onclick="saveResumeWork('next');" type="button" title="" class="button" id="save">Tiep</button>-->
+                            <button onclick="saveResumeWork('save');" type="button" title="" class="button" id="save">Lưu</button>
+                            <!--<button onclick="back_resume_info();" type="button" title="" class="button">Hủy</button>-->
+                            <!--<button onclick="saveResumeWork('next');" type="submit" title="" class="button">Hủy</button>-->
 
-                <div id="list_work_temp"></div>
-                <div class="button_control">
-                    <button onclick="saveResumeWork('next');" type="button" title="" class="button" id="save">Tiep</button>
-                    <button onclick="saveResumeWork('save');" type="button" title="" class="button" id="save">Lưu</button>
-                    <button onclick="back_resume_info();" type="button" title="" class="button">Hủy</button>
-                    <!--<button onclick="saveResumeWork('next');" type="submit" title="" class="button">Hủy</button>-->
+                        </div>
+                    </div>
+                </div>
 
+                <a id="btn-add-experience" href="javascript:void(0)" class="pt-supplementary-report" onClick="addExperience(this)">Bổ sung</a>
+                <div id="main-control">
+                    <button onclick="back_resume_info();" type="button" title="" class="button">Quay lại</button>
+                    <button onclick="saveResumeWork('next');" type="button" title="" class="button"><span></span>Tiếp tục</button>
                 </div>
             </div>
+
+
+            <script>
+                function addExperience(el){
+                    jQuery("#form-works-experience").show();
+                    jQuery("#list-works-experiences").hide();
+                    jQuery("#btn-add-experience").hide();
+                    jQuery("#main-control").hide();
+                }
+            </script>
+
         </form>
     </div>
     <input type="hidden" value="<?php echo $resume_id ?>" id="resume_id_work" />
@@ -118,7 +129,7 @@ $references = $this->references;
         }).send();
     }
     function saveResumeWork(type) {
-        
+
         var content = tinyMCE.activeEditor.getContent(); // get the content
         jQuery('#description').val(content);
 
@@ -128,7 +139,7 @@ $references = $this->references;
         if (type == 'save') {
             check = true;
         } else {
-            var count_childrent = jQuery('#resume_work_list table tbody').children().size();
+            var count_childrent = jQuery('#list-works-experiences table tbody').children().size();
             if (count_childrent == 1) {
                 check = true;
             } else {
@@ -291,7 +302,7 @@ $references = $this->references;
                                 onSuccess: function(responseHTML)
                                 {
                                     $('resume_loading').style.display = "none";
-                                    $('resume_work_list').set('html', responseHTML);
+                                    $('list-works-experiences').set('html', responseHTML);
                                     $('error_date').set('html', '');
 
                                     $('resume_work_form').reset();
@@ -299,6 +310,12 @@ $references = $this->references;
                                     $('starttime-day').set('value', 1).hide();
                                     $('endtime-day').set('value', 1).hide();
                                     list_city();
+                                    
+                                    jQuery("#form-works-experience").hide();
+                                    jQuery("#list-works-experiences").show();
+                                    jQuery("#main-control").show();
+                                    jQuery("#btn-add-experience").show();
+                                    
                                 }
                             }).send();
 
@@ -542,7 +559,7 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 $('resume_loading').style.display = "none";
-                                $('resume_work_list').set('html', responseHTML);
+                                $('list-works-experiences').set('html', responseHTML);
                                 $('error_date').set('html', '');
 
                                 $('resume_work_form').reset();
@@ -594,6 +611,8 @@ $references = $this->references;
                         javascript:saveResumeWork('save');
                         return false;
                     };
+                    
+                    /*
                     $('submit').destroy();
                     var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:saveResumeWork('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
                     submit_new.inject('cancel', 'after');
@@ -603,6 +622,8 @@ $references = $this->references;
                         return false;
                     };
                     jQuery('#submit').attr('style', 'margin-left: 3px;');
+                    */
+                       
                     if (responseHTML == 1) {
                         $('resume_loading').style.display = "block";
                         var url = "<?php echo $this->baseUrl() . '/resumes/index/list-work' ?>";
@@ -616,7 +637,7 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 $('resume_loading').style.display = "none";
-                                $('resume_work_list').set('html', responseHTML);
+                                $('list-works-experiences').set('html', responseHTML);
                                 $('country_id').set('value', 230);
                                 $('starttime-day').set('value', 1).hide();
                                 $('endtime-day').set('value', 1).hide();
@@ -640,9 +661,10 @@ $references = $this->references;
     }
 
     window.addEvent('domready', function() {
-
-        var resume_work_list = new Element('div', {id: 'resume_work_list'});
-        resume_work_list.inject($('list_work_temp'), 'after');
+        //list-works-experiences
+        //var resume_work_list = new Element('div', {id: 'resume_work_list'});
+        //resume_work_list.inject($('list_work_temp'), 'after');
+        var resume_work_list = $('list-works-experiences');
 
         var error_date = new Element('div', {id: 'error_date'});
         error_date.inject($('city_id'), 'after');
@@ -661,9 +683,9 @@ $references = $this->references;
             },
             onSuccess: function(responseHTML)
             {
-                $('resume_work_list').set('html', responseHTML);
+                $('list-works-experiences').set('html', responseHTML);
                 //check if edit
-                var count_childrent = jQuery('#resume_work_list table tbody').children().size();
+                var count_childrent = jQuery('#list-works-experiences table tbody').children().size();
 
                 if (count_childrent > 1) {
                     jQuery('#resume_work_edit').addClass('resume_work_edit');
@@ -728,11 +750,11 @@ $references = $this->references;
         });
 
     });
-    
-    function resume_work_form_validate(){
-        
+
+    function resume_work_form_validate() {
+
     }
-    
+
     jQuery(document).ready(function() {
         resume_work_form_validate();
     });

@@ -35,56 +35,95 @@ $references = $this->references;
         <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
         <?php echo $this->translate("Loading ...") ?>
     </div>
-    
+
     <div class="main-form-wrapper">
         <div class="pt-title-from-02">
-                <ol>
-                        <li>Liệt kê bằng cấp chuyên môn, các khóa ngắn hạn hay những chương trình sau đại học bạn đã theo học.</li>
-                </ol>
-                <a href="#" class="pt-supplementary-report">Bổ sung</a>
-        </div>
-        <form id="resume_skill_form" action="<?php echo $form->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
-            <div class="work-job-work-form-wrapper">
-                <fieldset class="job-form job-form-step-2">
-                    <div class="input">
-                        <?php echo $form->language_id; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->group_skill_id; ?>
-                    </div>
-                    <div class="submit">
-                        <input id="save" type="button" value="<?php echo $this->translate('Add'); ?>" class="min submit_save" onclick="saveResumeLanguage('save');" />
-                    </div>
-                </fieldset>
-                <div id="list_skill_temp">
+            <div class="lang-skill">
+                <div id="list-skills">
+
                 </div>
+                <div id="form-works-skill" style="display: none">
+                    <form id="resume_skill_form" action="<?php echo $form->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
+                        <div class="work-job-work-form-wrapper">
+                            <fieldset class="job-form job-form-step-2">
+                                <div class="input">
+                                    <?php echo $form->language_id; ?>
+                                </div>
+                                <div class="input">
+                                    <?php echo $form->group_skill_id; ?>
+                                </div>
+
+                                <button style="float:right" id="save" onclick="saveResumeLanguage('save');" type="button" title="" class="button"><span></span>Tiếp tục</button>
+                            </fieldset>
+                            <div id="list_skill_temp">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <a id="btn-add-skill" href="javascript:void(0)" class="pt-supplementary-report" onClick="addSkill(this)">Bổ sung</a>
             </div>
-        </form>
+            <div class="other-skill">
+                <div id="list-skills-other">
+
+                </div>
+                <div id="form-works-skill-other" style="display: none">
+                    <!-- other skill-->
+                    <form id="resume_other_skill_form" action="<?php echo $form_other->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
+                        <div class="work-job-work-form-wrapper">
+                            <fieldset class="job-form job-form-step-2">
+                                <div class="input">
+                                    <?php echo $form_other->name; ?>
+                                </div>
+                                <div class="input">
+                                    <?php echo $form_other->description; ?>
+                                </div>
+                                <button style="float:right" id="save_skill" onclick="saveResumeSkill('save');" type="button" title="" class="button"><span></span>Tiếp tục</button>
+
+
+                            </fieldset>
+                            <div id="list_skill_other_temp">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <a id="btn-add-other-skill" href="javascript:void(0)" class="pt-supplementary-report" onClick="addOtherSkill(this)">Bổ sung</a>
+            </div>
+
+            <div id="main-control">
+                <button onclick="back_resume_education();" type="button" title="" class="button">Quay lại</button>
+                <button onclick="saveResumeLanguage('next');" type="button" title="" class="button"><span></span>Tiếp tục</button>
+            </div>
+
+            <script>
+                function addSkill(el) {
+                    jQuery("#form-works-skill").show();
+                    jQuery("#list-skills").hide();
+                    jQuery("#btn-add-skill").hide();
+
+                    jQuery(".other-skill").hide();
+
+                    jQuery("#main-control").hide();
+                }
+
+                function addOtherSkill() {
+                    jQuery("#form-works-skill-other").show();
+                    jQuery("#list-skills-other").hide();
+                    jQuery("#btn-add-other-skill").hide();
+
+                    jQuery(".lang-skill").hide();
+
+                    jQuery("#main-control").hide();
+                }
+            </script>
+
+        </div>
+
 
         <input type="hidden" value="<?php echo $resume_id ?>" id="resume_id_skill" />
-        <!-- other skill-->
-        <form id="resume_other_skill_form" action="<?php echo $form_other->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
-            <div class="work-job-work-form-wrapper">
-                <fieldset class="job-form job-form-step-2">
-                    <div class="input">
-                        <?php echo $form_other->name; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form_other->description; ?>
-                    </div>
-                    <div class="submit">
-                        <input type="hidden" id="save_skill_temp" />
-                        <input id="save_skill" type="button" value="<?php echo $this->translate('Add'); ?>" class="min submit_save" onclick="saveResumeSkill('save');" />
-                    </div>
-                </fieldset>
-                <div id="list_skill_other_temp">
-                </div>
-                <div class="button_control">
-                    <button type="button" title="" class="button" onclick="back_resume_education();">Huy</button>
-                    <button type="button" title="" class="button" onclick="saveResumeLanguage('next');">Tiep theo</button>
-                </div>
-            </div>
-        </form>
+
     </div>
 
 </div>
@@ -172,9 +211,17 @@ $references = $this->references;
                             {
 
                                 //alert(responseHTML);
-                                $('resume_skill_list').set('html', responseHTML);
+                                $('list-skills').set('html', responseHTML);
 
                                 $('resume_skill_form').reset();
+
+                                jQuery("#form-works-skill").hide();
+                                jQuery("#list-skills").show();
+                                jQuery("#btn-add-skill").show();
+
+                                jQuery(".other-skill").show();
+
+                                jQuery("#main-control").show();
                             }
                         }).send();
 
@@ -322,7 +369,7 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 //alert(responseHTML);
-                                $('resume_skill_list').set('html', responseHTML);
+                                $('list-skills').set('html', responseHTML);
 
                                 $('resume_skill_form').reset();
                                 //$('save').set('onclick', "javascript:saveResumeLanguage('save');");
@@ -365,15 +412,18 @@ $references = $this->references;
                         javascript:saveResumeLanguage('save');
                         return false;
                     };
-                    $('submit').destroy();
-                    var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:saveResumeLanguage('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
-                    submit_new.inject('cancel', 'after');
-                    //fix ie
-                    submit_new.onclick = function() {
-                        javascript:saveResumeLanguage('next');
-                        return false;
-                    };
-                    jQuery('#submit').attr('style', 'margin-left: 3px;');
+                    /*
+                     $('submit').destroy();
+                     var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:saveResumeLanguage('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
+                     submit_new.inject('cancel', 'after');
+                     //fix ie
+                     submit_new.onclick = function() {
+                     javascript:saveResumeLanguage('next');
+                     return false;
+                     };
+                     jQuery('#submit').attr('style', 'margin-left: 3px;');
+                     */
+
                     $('resume_loading').style.display = "none";
                     if (responseHTML == 1) {
                         var url = "<?php echo $this->baseUrl() . '/resumes/skill/list-skill' ?>";
@@ -386,7 +436,7 @@ $references = $this->references;
                             },
                             onSuccess: function(responseHTML)
                             {
-                                $('resume_skill_list').set('html', responseHTML);
+                                $('list-skills').set('html', responseHTML);
                             }
                         }).send();
                     }
@@ -400,7 +450,6 @@ $references = $this->references;
 
 
     }
-//other skill
 
     function saveResumeSkill(type) {
         var content = tinyMCE.activeEditor.getContent(); // get the content
@@ -453,9 +502,17 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 //alert(responseHTML);
-                                $('resume_skill_other_list').set('html', responseHTML);
+                                $('list-skills-other').set('html', responseHTML);
 
                                 $('resume_other_skill_form').reset();
+
+                                jQuery("#form-works-skill-other").hide();
+                                jQuery("#list-skills-other").show();
+                                jQuery("#btn-add-other-skill").show();
+
+                                jQuery(".lang-skill").show();
+
+                                jQuery("#main-control").show();
                             }
                         }).send();
 
@@ -551,7 +608,7 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 //alert(responseHTML);
-                                $('resume_skill_other_list').set('html', responseHTML);
+                                $('list-skills-other').set('html', responseHTML);
 
                                 $('resume_other_skill_form').reset();
                                 jQuery('#description').html('');
@@ -603,7 +660,7 @@ $references = $this->references;
                             },
                             onSuccess: function(responseHTML)
                             {
-                                $('resume_skill_other_list').set('html', responseHTML);
+                                $('list-skills-other').set('html', responseHTML);
                             }
                         }).send();
                     }
@@ -616,10 +673,12 @@ $references = $this->references;
         }
     }
     window.addEvent('domready', function() {
-        var resume_skill_list = new Element('div', {id: 'resume_skill_list'});
-        resume_skill_list.inject($('list_skill_temp'), 'after');
-        var resume_skill_other_list = new Element('div', {id: 'resume_skill_other_list'});
-        resume_skill_other_list.inject($('list_skill_other_temp'), 'after');
+
+//        var resume_skill_list = new Element('div', {id: 'resume_skill_list'});
+//        resume_skill_list.inject($('list_skill_temp'), 'after');
+//        var resume_skill_other_list = new Element('div', {id: 'resume_skill_other_list'});
+//        resume_skill_other_list.inject($('list_skill_other_temp'), 'after');
+
         var skill_id = new Element('input', {id: 'skill_id', type: 'hidden'});
         skill_id.inject('save', 'after');
 
@@ -636,9 +695,9 @@ $references = $this->references;
             onSuccess: function(responseHTML)
             {
                 //alert(responseHTML);
-                $('resume_skill_list').set('html', responseHTML);
+                $('list-skills').set('html', responseHTML);
                 //check if edit
-                var count_childrent = jQuery('#resume_skill_list table tbody').children().size();
+                var count_childrent = jQuery('#list-skills table tbody').children().size();
 
                 if (count_childrent > 1) {
                     jQuery('#resume_skill_edit').addClass('resume_skill_edit');
@@ -656,9 +715,9 @@ $references = $this->references;
             onSuccess: function(responseHTML)
             {
                 //alert(responseHTML);
-                $('resume_skill_other_list').set('html', responseHTML);
-                var count_childrent = jQuery('#resume_skill_list table tbody').children().size();
-                var count_skill_other = jQuery('#resume_skill_other_list table tbody').children().size();
+                $('list-skills-other').set('html', responseHTML);
+                var count_childrent = jQuery('#list-skills table tbody').children().size();
+                var count_skill_other = jQuery('#list-skills-other table tbody').children().size();
 
                 if (count_childrent < 1) {
                     if (count_skill_other > 1) {

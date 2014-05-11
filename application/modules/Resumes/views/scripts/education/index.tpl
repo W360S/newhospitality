@@ -38,60 +38,66 @@ $references = $this->references;
     <div class="main-form-wrapper">
         <form id="resume_education_form" method="post" action="<?php echo $form->getAction(); ?>" enctype="application/x-www-form-urlencoded">
             <div class="pt-title-from-02">
-                <strong>Mô tả chi tiết:</strong>
-                <ol>
-                    <li>Nhiệm vụ chính của từng vị trí bạn đảm trách</li>
-                    <li>Dự án đã tham gia hay quản lý (nếu có)</li>
-                    <li>Thành tích, kỹ năng đạt được</li>
-                </ol>
-            </div>
-            
-            <div class="work-job-work-form-wrapper">
-                <fieldset class="job-form job-form-step-2">
-                    <div class="input">
-                        <?php echo $form->degree_level_id; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->school_name; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->major; ?>
-                    </div>
-                    <div class="input">
-                        <?php echo $form->country_id; ?>
-                    </div>
+                <div id="list-educations">
 
-                    <div class="resume_date">
-                        <?php echo $form->starttime; ?>
-                    </div>
-                    <div class="input"></div>
-                    <div class="resume_date">
-                        <?php echo $form->endtime; ?>
-                    </div>
-                    <div class="input"></div>
+                </div>
+                <div id="form-works-education" style="display: none">
+                    <div class="work-job-work-form-wrapper">
+                        <fieldset class="job-form job-form-step-2">
+                            <div class="input">
+                                <?php echo $form->degree_level_id; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->school_name; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->major; ?>
+                            </div>
+                            <div class="input">
+                                <?php echo $form->country_id; ?>
+                            </div>
 
-                    <div class="input">
-                        <?php echo $form->description; ?>
+                            <div class="resume_date">
+                                <?php echo $form->starttime; ?>
+                            </div>
+                            <div class="input"></div>
+                            <div class="resume_date">
+                                <?php echo $form->endtime; ?>
+                            </div>
+                            <div class="input"></div>
+
+                            <div class="input">
+                                <?php echo $form->description; ?>
+                            </div>
+                            
+                            <button style="float:right" id="save" onclick="saveResumeEducation('save');" type="button" title="" class="button"><span></span>Tiếp tục</button>
+                        </fieldset>
+
+                        <div id="list_education_temp">
+                        </div>
+                        
                     </div>
-                    <div class="submit">
-                        <input id="save" type="button" value="<?php echo $this->translate('Add'); ?>" class="min submit_save" onclick="saveResumeEducation('save');" />
-                    </div>
-                </fieldset>
+                </div>
                 
-                <div id="list_education_temp">
+                <a id="btn-add-experience" href="javascript:void(0)" class="pt-supplementary-report" onClick="addExperience(this)">Bổ sung</a>
+                <div id="main-control">
+                    <button onclick="back_resume_work();" type="button" title="" class="button">Quay lại</button>
+                    <button onclick="saveResumeEducation('next');" type="button" title="" class="button"><span></span>Tiếp tục</button>
                 </div>
-                <div class="button_control">
-                    <button type="button" title="" class="button" onclick="back_resume_work();">Back</button>
-                    <button type="button" title="" class="button" onclick="saveResumeEducation('next');">Next</button>
-                </div>
+                
+                <script>
+                    function addExperience(el){
+                        jQuery("#form-works-education").show();
+                        jQuery("#list-educations").hide();
+                        jQuery("#btn-add-experience").hide();
+                        jQuery("#main-control").hide();
+                    }
+                </script>
+                
             </div>
-
-            
         </form>
-
         <input type="hidden" value="<?php echo $resume_id ?>" id="resume_id_education" />
     </div>
-
 </div>
 <script type="text/javascript">
 
@@ -104,7 +110,7 @@ $references = $this->references;
             check = true;
         }
         else {
-            var count_childrent = jQuery('#resume_education_list table tbody').children().size();
+            var count_childrent = jQuery('#list-educations table tbody').children().size();
 
             if (count_childrent == 1) {
 
@@ -268,13 +274,18 @@ $references = $this->references;
                                 onSuccess: function(responseHTML)
                                 {
                                     //alert(responseHTML);
-                                    $('resume_education_list').set('html', responseHTML);
+                                    $('list-educations').set('html', responseHTML);
                                     $('error_date').set('html', '');
 
                                     $('resume_education_form').reset();
                                     $('country_id').set('value', 230);
                                     $('starttime-day').set('value', 1).hide();
                                     $('endtime-day').set('value', 1).hide();
+                                    
+                                    jQuery("#form-works-education").hide();
+                                    jQuery("#list-educations").show();
+                                    jQuery("#btn-add-experience").show();
+                                    jQuery("#main-control").show();
                                 }
                             }).send();
 
@@ -289,13 +300,13 @@ $references = $this->references;
         }
 
     }
+    
     function back_resume_work() {
-
         var resume_id_back = jQuery('#resume_id_education').val();
-
         var url = "<?php echo $this->baseUrl() . '/resumes/index/resume-work/id/' ?>" + resume_id_back;
         window.location.href = url;
     }
+    
     function edit_education(education_id) {
         document.documentElement.scrollTop = 200;
         //alert(education_id);
@@ -400,6 +411,7 @@ $references = $this->references;
         jQuery('#submit').attr('style', 'margin-left: 3px;');
         $('edu_id').set('value', education_id);
     }
+    
     function edit_edu(type) {
         var content = tinyMCE.activeEditor.getContent(); // get the content
         jQuery('#description').val(content);
@@ -440,6 +452,8 @@ $references = $this->references;
                 javascript:saveResumeEducation('save');
                 return false;
             };
+            
+            /*
             $('submit').destroy();
             var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:saveResumeEducation('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
             submit_new.inject('cancel', 'after');
@@ -449,6 +463,8 @@ $references = $this->references;
                 return false;
             };
             jQuery('#submit').attr('style', 'margin-left: 3px;');
+            */ 
+               
             $('resume_loading').style.display = "block";
             var url = "<?php echo $this->baseUrl() . '/resumes/education/resume-education-edit' ?>";
             new Request({
@@ -497,7 +513,7 @@ $references = $this->references;
                             {
                                 //alert(responseHTML);
                                 $('resume_loading').style.display = "none";
-                                $('resume_education_list').set('html', responseHTML);
+                                $('list-educations').set('html', responseHTML);
                                 $('error_date').set('html', '');
 
                                 $('resume_education_form').reset();
@@ -519,6 +535,7 @@ $references = $this->references;
             }).send();
         }
     }
+    
     function delete_education(education_id) {
 
         var url = "<?php echo $this->baseUrl() . '/resumes/education/delete-education' ?>";
@@ -567,7 +584,7 @@ $references = $this->references;
                             onSuccess: function(responseHTML)
                             {
                                 $('resume_loading').style.display = "none";
-                                $('resume_education_list').set('html', responseHTML);
+                                $('list-educations').set('html', responseHTML);
                                 $('country_id').set('value', 230);
                                 $('starttime-day').set('value', 1).hide();
                                 $('endtime-day').set('value', 1).hide();
@@ -583,9 +600,11 @@ $references = $this->references;
         }
 
     }
+    
     window.addEvent('domready', function() {
-        var resume_education_list = new Element('div', {id: 'resume_education_list'});
-        resume_education_list.inject($('list_education_temp'), 'after');
+        var resume_education_list = new Element('div', {id: 'list-educations'});
+        //resume_education_list.inject($('list_education_temp'), 'after');
+        
         var error_date = new Element('div', {id: 'error_date'});
         error_date.inject($('country_id'), 'after');
         var edu_id = new Element('input', {id: 'edu_id', type: 'hidden'});
@@ -604,9 +623,9 @@ $references = $this->references;
             onSuccess: function(responseHTML)
             {
                 //alert(responseHTML);
-                $('resume_education_list').set('html', responseHTML);
+                $('list-educations').set('html', responseHTML);
                 //check if edit
-                var count_childrent = jQuery('#resume_education_list table tbody').children().size();
+                var count_childrent = jQuery('#list-educations table tbody').children().size();
 
                 if (count_childrent > 1) {
                     jQuery('#resume_education_edit').addClass('resume_education_edit');

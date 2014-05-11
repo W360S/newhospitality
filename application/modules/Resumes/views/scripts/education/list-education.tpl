@@ -1,40 +1,22 @@
-<?php 
-if($this->educations){?>
-<div class="subsection my-work-experience">
-    <h2><?php echo $this->translate('My Education')?></h2>
-    <table cellspacing="0" cellpadding="0">
-    <tr class="row_work">
-        <th style="width:218px"><?php echo $this->translate('School Name')?></th>
-        <th style="width:240px"><?php echo $this->translate('Graduation Date')?></th>
-        <th><?php echo $this->translate('Options ')?></th>
-    </tr>   
-   <?php foreach($this->educations as $education){?>
-   <tr>
-        <td>
-        <?php echo $education->school_name;?>
-        </td>
-        <td>
-        <?php echo date('F Y', strtotime($education->endtime));?>
-        </td>
-        <td>
-        <a class="edit" href="javascript:void(0);" onclick="edit_education('<?php echo $education->education_id ?>');"></a>
+<?php if (!empty($this->educations) && count($this->educations) >=1) : ?>
 
-        <a class="smoothbox" href="javascript:void(0);" onclick="delete_education('<?php echo $education->education_id ?>');"></a>
-        </td>
-   </tr>
-    <div style="display:none">
-        
-        <input id="degree_level_edu_<?php echo $education->education_id ?>" value="<?php echo $education->degree_level_id ?>" />
-        <input id="school_name_edu_<?php echo $education->education_id ?>" value="<?php echo $education->school_name ?>" />
-        <input id="major_edu_<?php echo $education->education_id ?>" value="<?php echo $education->major ?>" />
-        <input id="country_edu_<?php echo $education->education_id ?>" value="<?php echo $education->country_id ?>" />
-        
-        <input id="start_edu_<?php echo $education->education_id ?>" value="<?php echo $education->starttime ?>" />
-        <input id="end_edu_<?php echo $education->education_id ?>" value="<?php echo $education->endtime ?>" />
-        <div id="description_edu_<?php echo $education->education_id ?>"><?php echo $education->description ?></div>
-   </div>
-    <?php }?>
-    </table>
-    </div>
-<?php }
-?>
+    <?php foreach ($this->educations as $education): ?>
+        <ol>
+            <li><strong><?php echo $education->school_name; ?></strong></li>
+        </ol>
+        <span><?php echo $education->major; ?> - <?php echo $education->starttime ?> <?php echo $education->endtime ?></span>
+        <p>
+            <a class="edit" title="<?php echo $this->translate('Edit') ?>" href="javascript:void(0);" onclick="edit_education('<?php echo $education->education_id ?>');">Edit</a> | 
+            <a class="smoothbox" title="<?php echo $this->translate('Delete') ?>" href="javascript:void(0);" onclick="delete_education('<?php echo $education->education_id ?>');">Delete</a>
+        </p>
+
+    <?php endforeach; ?>
+    
+<?php else: ?>
+    <strong>Mô tả chi tiết:</strong>
+    <ol>
+        <li>Nhiệm vụ chính của từng vị trí bạn đảm trách</li>
+        <li>Dự án đã tham gia hay quản lý (nếu có)</li>
+        <li>Thành tích, kỹ năng đạt được</li>
+    </ol>
+<?php endif; ?>

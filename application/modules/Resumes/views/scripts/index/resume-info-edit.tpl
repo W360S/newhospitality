@@ -7,51 +7,48 @@ $group_skills = $this->group_skill;
 $references = $this->references;
 ?>
 
-<div class="resume_info_main subsection">
+
+
+<div class="resume_info_main subsection" style="border:none">
     <h2><?php echo $this->translate('Resume Information') ?></h2>
-
-    <form action="<?php echo $this->baseUrl() ?>/resumes/index/resume-info-edit/resume_id/<?php echo $resume->resume_id ?>" method="post" id="resume_info_form">
-        <fieldset class="job-form job-form-step-1">
-            <div class="input">
-                <label for="resume title"><?php echo $this->translate("Resume Title (*): ") ?></label>
-                <input type="text" name="resume_title" id="resume_title" value="<?php echo $resume->title ?>" />
-                <p><?php echo $this->translate("(e.g., Experienced Brand Manager with profound knowledge in FMCG industry)") ?></p>
+    <div class="main-form-wrapper">
+        <form action="<?php echo $this->baseUrl() ?>/resumes/index/resume-info-edit/resume_id/<?php echo $resume->resume_id ?>" method="post" id="resume_info_form">
+            <div class="fieldset-wrapper">
+                <fieldset class="job-form job-form-step-1">
+                    <div class="input">
+                        <label for="resume title"><?php echo $this->translate("Resume Title (*): ") ?></label>
+                        <input type="text" name="resume_title" id="resume_title" value="<?php echo $resume->title ?>"/>
+                        <p><?php echo $this->translate("(e.g., Experienced Brand Manager with profound knowledge in FMCG industry)") ?></p>
+                    </div>
+                    <div class="input">
+                        <label><?php echo $this->translate('Privacy Status') ?></label>
+                        <div class="radio-wrapper">
+                            <div class="radio-item-wrapper">
+                                <input type="radio" value="1" name="searchable" checked /> <?php echo $this->translate('Searchable (recommended): ') ?>
+                                <?php echo $this->translate(' This option allows employers to contact you by phone or email and view all your resume information.') ?>
+                            </div>
+                            
+                            <div class="radio-item-wrapper">
+                                <input type="radio" value="0" name="searchable" /><?php echo $this->translate('Non Searchable (not recommended): ') ?>
+                                <?php echo $this->translate("This option does not allow employers to search your resume by making your resume 'invisible'.") ?> 
+                            </div>
+                              
+                        </div>
+                    </div>
+                    <div class="submit input">
+                        <button type="submit" title="" class="button"><span></span>Tiếp tục</button>
+                        <button type="submit" title="" class="button">Hủy</button>
+                    </div>
+                </fieldset>
             </div>
-            <div class="radio">
-                <label><?php echo $this->translate('Privacy Status') ?></label>
-            </div>
+        </form>
+    </div>
 
-            <?php if ($resume->enable_search == 1) { ?>
-                <div class="radio">
-                    <input type="radio" value="1" name="searchable" checked /> <?php echo $this->translate('Searchable (recommended): ') ?>
-                    <?php echo $this->translate(' This option allows employers to contact you by phone or email and view all your resume information.') ?>
-
-                </div>
-                <div class="radio">
-                    <input type="radio" value="0" name="searchable" /><?php echo $this->translate('Non Searchable (not recommended): ') ?>
-                    <?php echo $this->translate("This option does not allow employers to search your resume by making your resume 'invisible'.") ?>   
-                </div>
-            <?php } else {
-                ?>
-                <div class="radio">
-                    <input type="radio" value="1" name="searchable" /> <?php echo $this->translate('Searchable (recommended): ') ?>
-                    <?php echo $this->translate(' This option allows employers to contact you by phone or email and view all your resume information.') ?>
-
-                </div>
-                <div class="radio">
-                    <input type="radio" value="0" name="searchable" checked /><?php echo $this->translate('Non Searchable (not recommended): ') ?>
-                    <?php echo $this->translate("This option does not allow employers to search your resume by making your resume 'invisible'.") ?>   
-                </div>
-            <?php }
-            ?>
-            <div class="submit">
-                <input type="submit" value="<?php echo $this->translate('Next'); ?>" class="min" />
-            </div>
-        </fieldset>
-    </form>
 </div>
+
 <script type="text/javascript">
     window.addEvent('domready', function() {
+        /*
         var works = <?php echo count($works); ?>;
         var education = <?php echo count($educations); ?>;
         var language = <?php echo count($languages); ?>;
@@ -70,6 +67,8 @@ $references = $this->references;
         if (references > 0) {
             jQuery('#resume_reference_edit').addClass('checked_resume');
         }
+        */
+           
         jQuery('#resume_info_form').validate({
             messages: {
                 "resume_title": {
