@@ -41,10 +41,10 @@
                                     <a href="#">Gửi tin nhắn</a>
                                 </li>
                                 <li>
-                                    <a href="#">Chỉnh sửa thông tin</a>
+                                    <a href="/activity/index/share/type/group/id/<?php echo $this->group->group_id ?>/format/smoothbox" class="buttonlink smoothbox menu_group_profile group_profile_share">Share Group</a>
                                 </li>
                                 <li>
-                                    <a href="#">Rời nhóm</a>
+                                    <a href="/groups/member/leave/group_id/<?php echo $this->group->group_id ?>" class="buttonlink smoothbox menu_group_profile group_profile_member">Leave Group</a>
                                 </li>
                             </ul>
                         </div>

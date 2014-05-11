@@ -10,13 +10,16 @@
  * @author     John
  */
 ?>
+<div class="pt-sigup">
+    <div class="pt-title-sigup-02">
+    </div>
+    <?php
+    /* Include the common user-end field switching javascript */
+    echo $this->partial('_jsSwitch.tpl', 'fields', array(
+        'topLevelId' => $this->form->getTopLevelId(),
+        'topLevelValue' => $this->form->getTopLevelValue(),
+    ));
+    ?>
 
-<?php
-  /* Include the common user-end field switching javascript */
-  echo $this->partial('_jsSwitch.tpl', 'fields', array(
-    'topLevelId' => $this->form->getTopLevelId(),
-    'topLevelValue' => $this->form->getTopLevelValue(),
-  ));
-?>
-
-<?php echo $this->form->render($this) ?>
+    <?php echo $this->form->render($this) ?>
+</div>

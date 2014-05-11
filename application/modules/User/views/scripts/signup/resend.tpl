@@ -11,29 +11,31 @@
 ?>
 
 <h2>
-  <?php echo $this->translate("Verification Email") ?>
+    <?php echo $this->translate("Verification Email") ?>
 </h2>
 
-<?php if( $this->error ): ?>
-  <p>
-    <?php echo $this->translate($this->error) ?>
-  </p>
+<?php if ($this->error): ?>
+    <p>
+        <?php echo $this->translate($this->error) ?>
+    </p>
 
-  <br />
+    <br />
 
-  <h3>
-    <?php echo $this->htmlLink(array('route' => 'default'), $this->translate('Back')) ?>
-  </h3>
+    <h3>
+        <?php echo $this->htmlLink(array('route' => 'default'), $this->translate('Back')) ?>
+    </h3>
 <?php else: ?>
-  <p>
-    <?php echo $this->translate('A verification message has been resent to ' .
-      'your email address with instructions for activating your account. Once ' .
-      'you have activated your account, you will be able to sign in.'); ?>
-  </p>
+    <p>
+        <?php
+        echo $this->translate('A verification message has been resent to ' .
+                'your email address with instructions for activating your account. Once ' .
+                'you have activated your account, you will be able to sign in.');
+        ?>
+    </p>
 
-  <br />
+    <br />
 
-  <h3>
+    <h3>
     <?php echo $this->htmlLink(array('route' => 'default'), $this->translate('OK, thanks!')) ?>
-  </h3>
+    </h3>
 <?php endif; ?>

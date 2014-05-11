@@ -9,5 +9,8 @@
  * @author     John
  */
 ?>
-
-<?php echo $this->form->render($this); ?>
+<div class="pt-sigup">
+    <div class="pt-title-sigup-03">
+    </div>
+    <?php echo $this->form->render($this); ?>
+</div>

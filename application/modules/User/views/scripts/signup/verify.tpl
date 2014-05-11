@@ -12,23 +12,23 @@
 
 
 
-<?php if( $this->status ): ?>
+<?php if ($this->status): ?>
 
-  <script type="text/javascript">
-    setTimeout(function() {
-      parent.window.location.href = '<?php echo $this->url(array(), 'user_login', true); ?>';
-    }, 5000);
-  </script>
+    <script type="text/javascript">
+        setTimeout(function() {
+            parent.window.location.href = '<?php echo $this->url(array(), 'user_login', true); ?>';
+        }, 5000);
+    </script>
 
-  <?php echo $this->translate("Your account has been verified. Please wait to be redirected or click %s to login.",
-      $this->htmlLink(array('route'=>'user_login'), $this->translate("here"))) ?>
+    <?php echo $this->translate("Your account has been verified. Please wait to be redirected or click %s to login.", $this->htmlLink(array('route' => 'user_login'), $this->translate("here")))
+    ?>
 
 <?php else: ?>
 
-  <div class="error">
-    <span>
-      <?php echo $this->translate($this->error) ?>
-    </span>
-  </div>
+    <div class="error">
+        <span>
+            <?php echo $this->translate($this->error) ?>
+        </span>
+    </div>
 
 <?php endif;
