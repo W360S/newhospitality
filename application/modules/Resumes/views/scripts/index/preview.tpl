@@ -27,7 +27,7 @@ $birthday = $this->birthday;
         </div>
         <div class="pt-content-file">
             <div class="pt-content-file-title">
-                <div class="pt-lv-01">
+                <div class="pt-lv-first">
                     <p>
                         <?php if (!empty($resume->path_image)): ?>
                             <img id="updateNewImage" class="thumb_profile item_photo_user  thumb_profile" alt="Profile Image" src="<?php echo $this->baseUrl() ?>/public/profile_recruiter/<?php echo $resume->path_image ?>">
@@ -47,7 +47,7 @@ $birthday = $this->birthday;
                         </form>
                     <?php endif; ?>
                 </div>
-                <div class="pt-lv-02">
+                <div class="pt-lv-second">
                     <h3>
                         <?php if (!empty($resume->username)): ?>
                             <?php echo $resume->username; ?>
@@ -75,13 +75,13 @@ $birthday = $this->birthday;
                 </div>
             </div>
             <div class="pt-content-file-block">
-                <div class="pt-lv-01">
+                <div class="pt-lv-first">
                     <h3>Kinh nghiệm làm việc</h3>
                     <?php if ($user_id == $user_resume) { ?>
                         <a  class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/index/resume-work/id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
                     <?php } ?>
                 </div>
-                <div class="pt-lv-02">
+                <div class="pt-lv-second">
                     <?php foreach ($works as $work): ?>
                         <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->title; ?></h3>
                         <p>Tháng 6/2012 đến Tháng 6/2013</p>
@@ -91,13 +91,13 @@ $birthday = $this->birthday;
                 </div>
             </div>
             <div class="pt-content-file-block">
-                <div class="pt-lv-01">
+                <div class="pt-lv-first">
                     <h3>Học vấn</h3>
                     <?php if (count($works) && $user_id == $user_resume) { ?>
                         <a class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/education/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
                     <?php } ?>
                 </div>
-                <div class="pt-lv-02">
+                <div class="pt-lv-second">
                     <?php foreach ($educations as $education): ?>
                         <h3><?php echo $education->school_name; ?></h3>
                         <p><?php echo $this->degree($education->degree_level_id)->name; ?> - <?php echo $education->major; ?> - Tháng 6/2011 đến Tháng 10/2013</p>
@@ -108,13 +108,13 @@ $birthday = $this->birthday;
                 </div>
             </div>
             <div class="pt-content-file-block">
-                <div class="pt-lv-01">
+                <div class="pt-lv-first">
                     <h3>Kĩ năng</h3>
                     <?php if (count($works) && count($educations) && $user_id == $user_resume) { ?>
                         <a class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/skill/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
                     <?php } ?>
                 </div>
-                <div class="pt-lv-02">
+                <div class="pt-lv-second">
                     <?php if (count($languages) > 0): ?>
                         <h3><?php echo $this->translate("Language") ?></h3>
                         <?php foreach ($languages as $language): ?>
@@ -135,13 +135,13 @@ $birthday = $this->birthday;
             </div>
 
             <div class="pt-content-file-block">
-                <div class="pt-lv-01">
+                <div class="pt-lv-first">
                     <h3>Tham khảo</h3>
                     <?php if (count($works) && count($educations) && $user_id == $user_resume) { ?>
                         <a class="pt-edit" href="<?php echo $this->baseUrl() . '/resumes/reference/index/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate('[Edit]') ?></a>
                     <?php } ?>
                 </div>
-                <div class="pt-lv-02">
+                <div class="pt-lv-second">
                     <?php if (count($references) > 0): ?>
                         <?php foreach ($references as $reference): ?>
                             <h3><?php echo $reference->name; ?></h3>
@@ -154,10 +154,10 @@ $birthday = $this->birthday;
 
 
             <div class="pt-content-file-block pt-content-file-button">
-                <div class="pt-lv-01">
+                <div class="pt-lv-first">
 
                 </div>
-                <div class="pt-lv-02">
+                <div class="pt-lv-second">
                     <button type="button" title="" class="button"><span></span>Quay lại</button>
                     <button type="button" onclick="javascript:manage_resume(); return false;" title="" class="button"><span></span>Hoàn tất</button>
                     <img src="<?php echo $this->baseUrl() ?>/application/modules/core/externals/img/thumb/img-submit-oky.png" alt="Image">

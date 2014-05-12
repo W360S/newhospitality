@@ -15,15 +15,19 @@ $category_id = $this->category_id;
                     </tr>
                 </thead>
                 <tbody>
-
-
                     <?php $cnt = 1; ?>
                     <?php foreach ($paginator as $item): ?>
+                        <?php // print_r($item); die; ?>
                         <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->title); ?>
                         <tr class="odd">
                             <td>
+                                    <?php $user = $item->getUser(); ?>
+                                    <?php $avatar = $this->itemPhoto($user, 'thumb.icon', $user->getTitle()) ?>
+                                    
                                 <div class="pt-user-name">
-                                    <a href="#" class="pt-avatar"><img src="img/thumb/img-05.jpg" alt="Image"></a>
+                                    <a href="<?php echo $user->getHref() ?>" class="pt-avatar">
+                                        <?php echo $avatar ?>
+                                    </a>
                                     <h2>
                                         <a href="<?php echo $this->baseUrl() . '/resumes/resume/view/resume_id/' . $item->resume_id . '/' . $slug ?>">
                                             <?php echo $item->title; ?>

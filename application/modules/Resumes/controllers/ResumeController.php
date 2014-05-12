@@ -151,6 +151,14 @@ class Resumes_ResumeController extends Core_Controller_Action_Standard {
             $resume->view_count+=1;
             $resume->save();
         }
+        
+        $user_inform = Engine_Api::_()->getDbtable('users', 'user')->find($resume->user_id)->current();
+        $this->view->user_inform = $user_inform;
+        
+        $this->_helper->content
+                ->setContentName(47) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     public function newsResumeAction() {

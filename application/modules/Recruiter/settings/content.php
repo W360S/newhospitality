@@ -87,6 +87,13 @@ return array(
         'name' => 'recruiter.profile',
     ),
     array(
+        'title' => 'Profile Tools',
+        'description' => 'Tools that display in resume profile',
+        'category' => 'Recruiter',
+        'type' => 'widget',
+        'name' => 'recruiter.profile-tools',
+    ),
+    array(
         'title' => 'Quick Search',
         'description' => 'Displays form quick search.',
         'category' => 'Recruiter',
