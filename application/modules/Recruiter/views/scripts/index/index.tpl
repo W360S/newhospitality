@@ -1,1 +1,1 @@
-Content Recruiter Index Index
+<?php echo $this->content()->renderWidget('resumes.new-resumes');?>

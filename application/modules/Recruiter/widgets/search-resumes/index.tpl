@@ -15,18 +15,12 @@
                 </li>
                 <li>
                     <div class="wd-adap-select">
-                        <span class="wd-adap-icon-select"></span>
-                        <select name="industry" id="industry">
-                            <option value="0" label="All Career" selected="selected">All Career</option>
-                        </select>
+                        <?php echo $this->form->industry;?>
                     </div>
                 </li>
                 <li>
                     <div class="wd-adap-select">
-                        <span class="wd-adap-icon-select"></span>
-                        <select >
-                            <option>Tất cả lĩnh vực</option>
-                        </select>
+                        <?php echo $this->form->level;?>
                     </div>
                 </li>
                 <li class="last">

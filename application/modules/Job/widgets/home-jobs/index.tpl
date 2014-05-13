@@ -15,13 +15,13 @@
     </div>
 </div>
 <?php /*
-<div class="pt-list-job">
-    <?php echo $this->content()->renderWidget('recruiter.new-job'); ?>
-</div>
-*/ ?>
+  <div class="pt-list-job">
+  <?php echo $this->content()->renderWidget('recruiter.new-job'); ?>
+  </div>
+ */ ?>
 <script>
-    function showTab1(){
-        jQuery(".pt-content-tab").each(function(){
+    function showTab1() {
+        jQuery(".pt-content-tab").each(function() {
             jQuery(this).hide();
         });
         jQuery("#tabs-1").show();
@@ -29,9 +29,9 @@
         jQuery("#tabs-2-title").removeClass('ui-state-active');
         jQuery("#tabs-3-title").removeClass('ui-state-active');
     }
-    
-    function showTab2(){
-        jQuery(".pt-content-tab").each(function(){
+
+    function showTab2() {
+        jQuery(".pt-content-tab").each(function() {
             jQuery(this).hide();
         });
         jQuery("#tabs-2").show();
@@ -39,9 +39,9 @@
         jQuery("#tabs-1-title").removeClass('ui-state-active');
         jQuery("#tabs-3-title").removeClass('ui-state-active');
     }
-    
-    function showTab3(){
-        jQuery(".pt-content-tab").each(function(){
+
+    function showTab3() {
+        jQuery(".pt-content-tab").each(function() {
             jQuery(this).hide();
         });
         jQuery("#tabs-3").show();
