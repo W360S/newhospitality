@@ -124,7 +124,7 @@ class Library_Api_Core extends Core_Api_Abstract
     {
         $paginator = Zend_Paginator::factory($this->getLibraryList($cat,$keyword,$order, $status));
         $request = Zend_Controller_Front::getInstance()->getRequest();
-        $paginator->setItemCountPerPage(5);
+        $paginator->setItemCountPerPage(10);
         $paginator->setCurrentPageNumber($page);
         return $paginator;
     }
@@ -273,7 +273,7 @@ class Library_Api_Core extends Core_Api_Abstract
         ->joinLeft($ratingName,'engine4_library_bookscategories.book_id = engine4_library_ratings.book_id',array())
         ->group('engine4_library_books.book_id')
         ->order('engine4_library_books.download_count Desc')
-        ->limit(15);
+        ->limit(6);
         return $bookcategoriesTable->fetchAll($select);
     }
     
@@ -303,7 +303,7 @@ class Library_Api_Core extends Core_Api_Abstract
         ->joinLeft($ratingName,'engine4_library_bookscategories.book_id = engine4_library_ratings.book_id',array())
         ->group('engine4_library_books.book_id')
         ->order('engine4_library_books.view_count Desc')
-        ->limit(15);
+        ->limit(7);
         return $bookcategoriesTable->fetchAll($select);
     }
     

@@ -89,6 +89,7 @@ $references = $this->references;
                                 <div class="input">
                                     <?php echo $form_other->description; ?>
                                 </div>
+                                <input type="hidden" id="save_skill_temp" />
                                 <button style="margin-left: 150px;" id="save_skill" onclick="saveResumeSkill('save');" type="button" title="" class="button">Lưu</button>
                                 <button onclick="cancelResumeSkill('save');" type="button" title="" class="button">Huỷ</button>
 
@@ -111,24 +112,46 @@ $references = $this->references;
 
             <script>
                 function addSkill(el) {
+                    showSkillForm();
+                }
+
+                function showSkillForm() {
                     jQuery("#form-works-skill").show();
                     jQuery("#list-skills").hide();
                     jQuery("#btn-add-skill").hide();
-
                     jQuery(".other-skill").hide();
-
                     jQuery("#main-control").hide();
+                }
+
+                function hideSkillForm() {
+                    jQuery("#form-works-skill").hide();
+                    jQuery("#list-skills").show();
+                    jQuery("#btn-add-skill").show();
+                    jQuery(".other-skill").show();
+                    jQuery("#main-control").show();
                 }
 
                 function addOtherSkill() {
+                    showOtherSkillForm();
+                }
+                
+                function showOtherSkillForm(){
                     jQuery("#form-works-skill-other").show();
                     jQuery("#list-skills-other").hide();
                     jQuery("#btn-add-other-skill").hide();
-
                     jQuery(".lang-skill").hide();
-
                     jQuery("#main-control").hide();
                 }
+                
+                function hideOtherSkillForm(){
+                    jQuery("#form-works-skill-other").hide();
+                    jQuery("#list-skills-other").show();
+                    jQuery("#btn-add-other-skill").show();
+                    jQuery(".lang-skill").show();
+                    jQuery("#main-control").show();
+                }
+
+
             </script>
 
         </div>
@@ -141,17 +164,9 @@ $references = $this->references;
 </div>
 <script type="text/javascript">
 
-   
+
     function cancelResumeLanguage(type) {
-        $('resume_skill_form').reset();
-
-        jQuery("#form-works-skill").hide();
-        jQuery("#list-skills").show();
-        jQuery("#btn-add-skill").show();
-
-        jQuery(".other-skill").show();
-
-        jQuery("#main-control").show();
+        hideSkillForm();
     }
     function saveResumeLanguage(type) {
         //alert(type);
@@ -239,13 +254,7 @@ $references = $this->references;
 
                                 $('resume_skill_form').reset();
 
-                                jQuery("#form-works-skill").hide();
-                                jQuery("#list-skills").show();
-                                jQuery("#btn-add-skill").show();
-
-                                jQuery(".other-skill").show();
-
-                                jQuery("#main-control").show();
+                                hideSkillForm();
                             }
                         }).send();
 
@@ -268,6 +277,9 @@ $references = $this->references;
         window.location.href = url;
     }
     function edit_skill(skill_id) {
+        
+        showSkillForm();
+        
         document.documentElement.scrollTop = 200;
         //alert(education_id);
         //load data into form
@@ -291,13 +303,15 @@ $references = $this->references;
         });
         //change action at button save and submit
         $('save').destroy();
-        var save_new = new Element('input', {'id': "save", 'onclick': "javascript:edit_skill_lang('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
+        var save_new = new Element('input', {'id': "save", 'onclick': "javascript:edit_skill_lang('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
         save_new.inject('skill_id', 'before');
         //fix ie
         save_new.onclick = function() {
             javascript:edit_skill_lang('save');
             return false;
         };
+        
+        /*
         $('submit').destroy();
         var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:edit_skill_lang('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
         submit_new.inject('cancel', 'after');
@@ -307,7 +321,8 @@ $references = $this->references;
             return false;
         };
         jQuery('#submit').attr('style', 'margin-left: 3px;');
-
+        */
+           
         $('skill_id').set('value', skill_id);
     }
     function edit_skill_lang(type) {
@@ -348,13 +363,15 @@ $references = $this->references;
 
         if (valid) {
             $('save').destroy();
-            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeLanguage('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
+            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeLanguage('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
             save_new.inject('skill_id', 'before');
             //fix ie
             save_new.onclick = function() {
                 javascript:saveResumeLanguage('save');
                 return false;
             };
+            
+            /*
             $('submit').destroy();
             var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:saveResumeLanguage('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
             submit_new.inject('cancel', 'after');
@@ -364,6 +381,8 @@ $references = $this->references;
                 return false;
             };
             jQuery('#submit').attr('style', 'margin-left: 3px;');
+            */
+               
             $('resume_loading').style.display = "block";
             var url = "<?php echo $this->baseUrl() . '/resumes/skill/skill-edit' ?>";
             new Request({
@@ -398,6 +417,7 @@ $references = $this->references;
                                 $('resume_skill_form').reset();
                                 //$('save').set('onclick', "javascript:saveResumeLanguage('save');");
                                 //$('submit').set('onclick', "javascript:saveResumeLanguage('next');");
+                                hideSkillForm();
                             }
                         }).send();
 
@@ -429,7 +449,7 @@ $references = $this->references;
                 {
                     $('resume_skill_form').reset();
                     $('save').destroy();
-                    var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeLanguage('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
+                    var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeLanguage('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
                     save_new.inject('skill_id', 'before');
                     //fix ie
                     save_new.onclick = function() {
@@ -475,17 +495,9 @@ $references = $this->references;
 
     }
 
-    
+
     function cancelResumeSkill(type) {
-        $('resume_other_skill_form').reset();
-
-        jQuery("#form-works-skill-other").hide();
-        jQuery("#list-skills-other").show();
-        jQuery("#btn-add-other-skill").show();
-
-        jQuery(".lang-skill").show();
-
-        jQuery("#main-control").show();
+        hideOtherSkillForm();
     }
     function saveResumeSkill(type) {
         var content = tinyMCE.activeEditor.getContent(); // get the content
@@ -542,13 +554,7 @@ $references = $this->references;
 
                                 $('resume_other_skill_form').reset();
 
-                                jQuery("#form-works-skill-other").hide();
-                                jQuery("#list-skills-other").show();
-                                jQuery("#btn-add-other-skill").show();
-
-                                jQuery(".lang-skill").show();
-
-                                jQuery("#main-control").show();
+                                hideOtherSkillForm();
                             }
                         }).send();
 
@@ -561,6 +567,7 @@ $references = $this->references;
 
     }
     function edit_skill_other(skill_id) {
+        showOtherSkillForm();
         document.documentElement.scrollTop = 200;
         //load data into form
         var name_skill = $('name_skill_other_' + skill_id).value;
@@ -572,14 +579,18 @@ $references = $this->references;
         $('name_skill').set('value', name_skill);
         jQuery('#description').html(description_skill);
         tinyMCE.activeEditor.setContent(description_skill);
+        console.log("edit_skill_other");
         $('save_skill').destroy();
-        var save_new = new Element('input', {'id': "save_skill", 'onclick': "javascript:save_skill_other('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save_skill", 'value': "<?php echo $this->translate('Save'); ?>"});
+        console.log("edit_skill_other");
+        var save_new = new Element('input', {'id': "save_skill", 'onclick': "javascript:save_skill_other('save');return false;", 'type': "button", 'class': "button", 'name': "save_skill", 'value': "<?php echo $this->translate('Save'); ?>"});
         save_new.inject('save_skill_temp', 'before');
+        console.log("edit_skill_other");
         //fix ie
         save_new.onclick = function() {
             javascript:save_skill_other('save');
             return false;
         };
+        
         $('skill_id').set('value', skill_id);
     }
     function save_skill_other(type) {
@@ -605,7 +616,7 @@ $references = $this->references;
 
         if (valid) {
             $('save_skill').destroy();
-            var save_new = new Element('input', {'id': "save_skill", 'onclick': "javascript:saveResumeSkill('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save_skill", 'value': "<?php echo $this->translate('Add'); ?>"});
+            var save_new = new Element('input', {'id': "save_skill", 'onclick': "javascript:saveResumeSkill('save');return false;", 'type': "button", 'class': "button", 'name': "save_skill", 'value': "<?php echo $this->translate('Add'); ?>"});
             save_new.inject('save_skill_temp', 'before');
             //fix ie
             save_new.onclick = function() {
@@ -649,6 +660,7 @@ $references = $this->references;
                                 $('resume_other_skill_form').reset();
                                 jQuery('#description').html('');
 
+                                hideOtherSkillForm();
 
                             }
                         }).send();
@@ -678,7 +690,7 @@ $references = $this->references;
                     $('resume_loading').style.display = "none";
                     $('resume_other_skill_form').reset();
                     $('save_skill').destroy();
-                    var save_new = new Element('input', {'id': "save_skill", 'onclick': "javascript:saveResumeSkill('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save_skill", 'value': "<?php echo $this->translate('Add'); ?>"});
+                    var save_new = new Element('input', {'id': "save_skill", 'onclick': "javascript:saveResumeSkill('save');return false;", 'type': "button", 'class': "button", 'name': "save_skill", 'value': "<?php echo $this->translate('Add'); ?>"});
                     save_new.inject('save_skill_temp', 'before');
                     //fix ie
                     save_new.onclick = function() {

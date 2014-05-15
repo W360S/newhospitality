@@ -14,5 +14,6 @@ class Library_Widget_CategoriesController extends Engine_Content_Widget_Abstract
         }
         $this->view->cat_id = $cat_id;
         $this->view->data = Engine_Api::_()->library()->getCategories();
+		//Zend_Debug::dump(Engine_Api::_()->library()->getCategories()); exit;
     }
 }

@@ -1251,7 +1251,7 @@ html[dir="rtl"] .icon_next
 {
   background-image: url(~/application/modules/User/externals/images/friends/add.png);
 }*/
-.icon_friend_remove
+/*.icon_friend_remove
 {
   background-image: url(~/application/modules/User/externals/images/friends/remove.png);
 }
@@ -1278,7 +1278,7 @@ html[dir="rtl"] .icon_next
 .icon_delete
 {
   background-image: url(~/application/modules/Core/externals/images/delete.png);
-}
+}*/
 
 
 

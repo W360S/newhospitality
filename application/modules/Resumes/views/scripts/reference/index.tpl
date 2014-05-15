@@ -86,11 +86,21 @@ $references = $this->references;
             </div>
             <script>
                 function addReference(el) {
+                    
+                }
+                
+                function showFormReferences(){
                     jQuery("#form-works-references").show();
                     jQuery("#list-references").hide();
                     jQuery("#btn-add-reference").hide();
-                    
                     jQuery("#main-control").hide();
+                }
+                
+                function hideFormReferences(){
+                    jQuery("#form-works-references").hide();
+                    jQuery("#list-references").show();
+                    jQuery("#btn-add-reference").show();
+                    jQuery("#main-control").show();
                 }
             </script>
             
@@ -103,13 +113,7 @@ $references = $this->references;
 </div>
 <script type="text/javascript">
     function cancelResumeReference(type){
-        $('resume_reference_form').reset();
-                                
-        jQuery("#form-works-references").hide();
-        jQuery("#list-references").show();
-        jQuery("#btn-add-reference").show();
-
-        jQuery("#main-control").show();
+        hideFormReferences();
     }
     function saveResumeReference(type) {
         var content = tinyMCE.activeEditor.getContent(); // get the content
@@ -164,11 +168,7 @@ $references = $this->references;
 
                                 $('resume_reference_form').reset();
                                 
-                                jQuery("#form-works-references").hide();
-                                jQuery("#list-references").show();
-                                jQuery("#btn-add-reference").show();
-
-                                jQuery("#main-control").show();
+                                hideFormReferences();
                             }
                         }).send();
 
@@ -193,6 +193,10 @@ $references = $this->references;
         window.location.href = url;
     }
     function edit_reference(ref_id) {
+        console.log("edit_reference");
+        
+        showFormReferences();
+        
         document.documentElement.scrollTop = 200;
         //load data into form
         var name_ref = $('name_refer_' + ref_id).value;
@@ -210,7 +214,7 @@ $references = $this->references;
         tinyMCE.activeEditor.setContent(des_ref);
         //change action at button save and submit
         $('save').destroy();
-        var save_new = new Element('input', {'id': "save", 'onclick': "javascript:edit_ref('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
+        var save_new = new Element('input', {'id': "save", 'onclick': "javascript:edit_ref('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
         save_new.inject('refer_id', 'before');
         //fix ie
         save_new.onclick = function() {
@@ -238,7 +242,7 @@ $references = $this->references;
 
         if (valid) {
             $('save').destroy();
-            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeReference('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
+            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeReference('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
             save_new.inject('refer_id', 'before');
             //fix ie
             save_new.onclick = function() {
@@ -281,6 +285,8 @@ $references = $this->references;
 
                                 $('resume_reference_form').reset();
                                 jQuery('#description').html('');
+                                
+                                hideFormReferences();
                             }
                         }).send();
 

@@ -78,5 +78,7 @@ class Library_AjaxController extends Core_Controller_Action_Standard
         return $this->_helper->redirector->gotoRoute(array(), 'default', true);
     }
   }
+
+
   
 }

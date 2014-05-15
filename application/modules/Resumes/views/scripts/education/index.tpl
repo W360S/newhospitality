@@ -80,8 +80,11 @@ $references = $this->references;
                                 <?php echo $form->description; ?>
                             </div>
                             
-                            <button id="save" onclick="saveResumeEducation('save');" type="button" title="" class="button">Tiếp tục</button>
-                            <button onclick="cancelResumeEducation('save');" type="button" title="" class="button">Huỷ</button>
+                            <div class="button_control">
+                                <button id="save" onclick="saveResumeEducation('save');" type="button" title="" class="button">Tiếp tục</button>
+                                <button onclick="cancelResumeEducation('save');" type="button" title="" class="button">Huỷ</button>
+                            </div>
+                            
                         </fieldset>
                         <div id="list_education_temp">
                         </div>
@@ -97,11 +100,23 @@ $references = $this->references;
                 
                 <script>
                     function addExperience(el){
+                        showEducationForm();
+                    }
+                    
+                    function showEducationForm(){
                         jQuery("#form-works-education").show();
                         jQuery("#list-educations").hide();
                         jQuery("#btn-add-experience").hide();
                         jQuery("#main-control").hide();
                     }
+                    
+                    function hideEducationForm(){
+                        jQuery("#form-works-education").hide();
+                        jQuery("#list-educations").show();
+                        jQuery("#btn-add-experience").show();
+                        jQuery("#main-control").show();
+                    }
+                    
                 </script>
                 
             </div>
@@ -111,28 +126,24 @@ $references = $this->references;
 </div>
 <script type="text/javascript">
     function cancelResumeEducation(type){
-        $('resume_education_form').reset();
-        jQuery("#form-works-education").hide();
-        jQuery("#list-educations").show();
-        jQuery("#btn-add-experience").show();
-        jQuery("#main-control").show();
+        hideEducationForm();
     }
     function saveResumeEducation(type) {
+        console.log("saveResumeEducation " + type);
         var content = tinyMCE.activeEditor.getContent(); // get the content
         jQuery('#description').val(content);
         var resume_id = jQuery('#resume_id_education').val();
         var check;
         if (type == 'save') {
             check = true;
-        }
-        else {
+        }else {
             var count_childrent = jQuery('#list-educations table tbody').children().size();
 
             if (count_childrent == 1) {
-
                 check = true;
-            }
-            else {
+            }else {
+                console.log("checked false");
+                
                 check = false;
                 var school_name = checkValid('#school_name', 160);
                 var degree_level_id = $('degree_level_id').value;
@@ -148,17 +159,12 @@ $references = $this->references;
                 if (degree_level_id == false && school_name == false) {
                     var url_next = "<?php echo $this->baseUrl() . '/resumes/skill/index/resume_id/' ?>" + resume_id;
                     window.location.href = url_next;
-                }
-                else {
+                }else {
                     if (degree_level_id == false) {
-
                         if (jQuery('#degree_level_id-element').children().size() < 2) {
-
                             jQuery('#degree_level_id-element').append('<label class="error" for="degree_level_id" generated="true"><?php echo $this->translate("Please select a degree."); ?></label>');
                         }
                     }
-
-
                     if (school_name == false) {
                         if (jQuery('#school_name-element').children().size() < 2) {
                             jQuery('#school_name-element').append('<label class="error" for="school_name" generated="true"><?php echo $this->translate("School name is not empty."); ?></label>');
@@ -166,6 +172,7 @@ $references = $this->references;
                     }
                 }
                 if (valid) {
+                    console.log("checked valid");
                     var url = "<?php echo $this->baseUrl() . '/resumes/education/index' ?>";
                     new Request({
                         url: url,
@@ -205,12 +212,14 @@ $references = $this->references;
 
                         }
                     }).send();
+                }else{
+                    console.log("checked not valid");
                 }
             }
         }
 
         if (check == true) {
-
+            console.log("checked true");
             var degree_level_id = $('degree_level_id').value;
 
             if (degree_level_id == 0) {
@@ -298,10 +307,7 @@ $references = $this->references;
                                     $('starttime-day').set('value', 1).hide();
                                     $('endtime-day').set('value', 1).hide();
                                     
-                                    jQuery("#form-works-education").hide();
-                                    jQuery("#list-educations").show();
-                                    jQuery("#btn-add-experience").show();
-                                    jQuery("#main-control").show();
+                                    hideEducationForm();
                                 }
                             }).send();
 
@@ -313,6 +319,8 @@ $references = $this->references;
                     }
                 }).send();
             }
+        }else{
+            console.log("checked false");
         }
 
     }
@@ -327,6 +335,9 @@ $references = $this->references;
         document.documentElement.scrollTop = 200;
         //alert(education_id);
         //load data into form
+        
+        showEducationForm();
+        
         var degree_level = $('degree_level_edu_' + education_id).value;
 
         var school_name = $('school_name_edu_' + education_id).value;
@@ -409,13 +420,15 @@ $references = $this->references;
         //change action at button save and submit
 
         $('save').destroy();
-        var save_new = new Element('input', {'id': "save", 'onclick': "javascript:edit_edu('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
+        var save_new = new Element('input', {'id': "save", 'onclick': "javascript:edit_edu('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
         save_new.inject('edu_id', 'before');
         //fix ie
         save_new.onclick = function() {
             javascript:edit_edu('save');
             return false;
         };
+        
+        /*
         $('submit').destroy();
         var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:edit_edu('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
         submit_new.inject('cancel', 'after');
@@ -425,6 +438,8 @@ $references = $this->references;
             return false;
         };
         jQuery('#submit').attr('style', 'margin-left: 3px;');
+        */
+           
         $('edu_id').set('value', education_id);
     }
     
@@ -461,7 +476,7 @@ $references = $this->references;
 
         if (valid) {
             $('save').destroy();
-            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeEducation('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
+            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeEducation('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
             save_new.inject('edu_id', 'before');
             //fix ie
             save_new.onclick = function() {
@@ -539,6 +554,8 @@ $references = $this->references;
                                 jQuery('#description').html('');
                                 //$('save').set('onclick', "javascript:saveResumeEducation('save');");
                                 //$('submit').set('onclick', "javascript:saveResumeEducation('next');");
+                                
+                                hideEducationForm();
                             }
                         }).send();
 

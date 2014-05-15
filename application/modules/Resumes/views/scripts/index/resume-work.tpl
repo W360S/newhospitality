@@ -110,11 +110,23 @@ $references = $this->references;
 
             <script>
                 function addExperience(el){
+                    showExperienceForm();
+                }
+                
+                function showExperienceForm(){
                     jQuery("#form-works-experience").show();
                     jQuery("#list-works-experiences").hide();
                     jQuery("#btn-add-experience").hide();
                     jQuery("#main-control").hide();
                 }
+                
+                function hideExperienceForm(){
+                    jQuery("#form-works-experience").hide();
+                    jQuery("#list-works-experiences").show();
+                    jQuery("#btn-add-experience").show();
+                    jQuery("#main-control").show();
+                }
+                
             </script>
 
         </form>
@@ -144,10 +156,7 @@ $references = $this->references;
     function cancelResumeWork(type){
         $('resume_work_form').reset();
         
-        jQuery("#form-works-experience").hide();
-        jQuery("#list-works-experiences").show();
-        jQuery("#btn-add-experience").show();
-        jQuery("#main-control").show();
+        hideExperienceForm();
         
     }
     
@@ -334,10 +343,7 @@ $references = $this->references;
                                     $('endtime-day').set('value', 1).hide();
                                     list_city();
                                     
-                                    jQuery("#form-works-experience").hide();
-                                    jQuery("#list-works-experiences").show();
-                                    jQuery("#main-control").show();
-                                    jQuery("#btn-add-experience").show();
+                                    hideExperienceForm();
                                     
                                 }
                             }).send();
@@ -355,6 +361,10 @@ $references = $this->references;
     }
     function edit_work(experience_id) {
         document.documentElement.scrollTop = 200;
+        
+        console.log(experience_id);
+        showExperienceForm();
+        
         //load data into form
         var num_year = $('num_year_exp_' + experience_id).value;
         var title = $('title_exp_' + experience_id).value;
@@ -466,13 +476,15 @@ $references = $this->references;
         //change action at button save and submit
 
         $('save').destroy();
-        var save_new = new Element('input', {'id': "save", 'onclick': "javascript:edit_work_exp('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
+        var save_new = new Element('input', {'title':"save", 'id': "save", 'onclick': "javascript:edit_work_exp('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Save'); ?>"});
         save_new.inject('exp_id', 'before');
         //fix ie
         save_new.onclick = function() {
             javascript:edit_work_exp('save');
             return false;
         };
+        
+        /*
         $('submit').destroy();
         var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:edit_work_exp('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
         submit_new.inject('cancel', 'after');
@@ -482,6 +494,8 @@ $references = $this->references;
             return false;
         };
         jQuery('#submit').attr('style', 'margin-left: 3px;');
+        */
+        
         $('exp_id').set('value', experience_id);
     }
     function edit_work_exp(type) {
@@ -516,13 +530,16 @@ $references = $this->references;
         var valid = num_year && title && company_name;
         if (valid) {
             $('save').destroy();
-            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeWork('save');return false;", 'type': "button", 'class': "min submit_save", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
+            var save_new = new Element('input', {'id': "save", 'onclick': "javascript:saveResumeWork('save');return false;", 'type': "button", 'class': "button", 'name': "save", 'value': "<?php echo $this->translate('Add'); ?>"});
             save_new.inject('exp_id', 'before');
+            console.log(save_new);
             //fix ie
             save_new.onclick = function() {
                 javascript:saveResumeWork('save');
                 return false;
             };
+            
+            /*
             $('submit').destroy();
             var submit_new = new Element('a', {'id': "submit", 'onclick': "javascript:saveResumeWork('next');return false;", 'name': "submit", 'html': "<?php echo $this->translate('Next'); ?>"});
             submit_new.inject('cancel', 'after');
@@ -532,6 +549,8 @@ $references = $this->references;
                 return false;
             };
             jQuery('#submit').attr('style', 'margin-left: 3px;');
+            */ 
+               
             $('resume_loading').style.display = "block";
             var url = "<?php echo $this->baseUrl() . '/resumes/index/resume-work-edit' ?>";
             new Request({
@@ -593,6 +612,9 @@ $references = $this->references;
                                 jQuery('#description').html('');
                                 //$('save').set('onclick', "javascript:saveResumeWork('save');");
                                 //$('submit').set('onclick', "javascript:saveResumeWork('next');");
+                                
+                                hideExperienceForm();
+                                
                             }
                         }).send();
 

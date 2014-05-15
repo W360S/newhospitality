@@ -29,7 +29,8 @@ class Library_IndexController extends Core_Controller_Action_Standard
     
     $paginators = Engine_Api::_()->library()->getLibraryPaginator($arr_cats, $keyword, $order, '1', $page);
     $this->view->paginator = $paginators;
-    
+
+	
     $categoryTable = Engine_Api::_()->getDbtable('categories', 'library');
     $select = $categoryTable->select()
       ->order('priority ASC');
@@ -64,6 +65,17 @@ class Library_IndexController extends Core_Controller_Action_Standard
     //$page = $this->_getParam('page',1);
     $paginators = Engine_Api::_()->library()->getLibraryPaginator($arr_cats, $keyword, $order, '1', $page);
     $this->view->paginator = $paginators;
+   
+  }
+
+  public function ajaxBookshelfAction(){
+    $this->_helper->layout->disableLayout();
+    
+
+	$user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
+    $paginators = Engine_Api::_()->library()->getBookshelfPaginator($user_id);
+    $this->view->paginator = $paginators;
+    $this->view->user_id = $user_id;
    
   }
   

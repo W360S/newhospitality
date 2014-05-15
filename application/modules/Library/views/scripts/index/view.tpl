@@ -1,4 +1,7 @@
-<?php if(isset($this->book)): ?>
+<style>
+.pt-comment-text .pt-submit-comment { margin-left:0px !important;}
+.pt-comment-text .pt-textarea {width:100% !important;}
+</style>
 <script type="text/javascript">
   var pre_rate = "<?php echo $this->book->rating;?>";
   var rated = "<?php echo $this->rated;?>";
@@ -214,225 +217,170 @@
     $my_books= $this->my_books;
     
 ?>
-<div class="section">
-    <div class="layout_right">
-        <?php
-               echo $this->content()->renderWidget('library.my-bookshelf'); 
-        ?>
-        <div class="subsection">
-            <?php echo $this->content()->renderWidget('library.top-download');  ?>
-        </div>
-        <div class="subsection">
-            <?php echo $this->content()->renderWidget('library.top-views');  ?>
-        </div>
-    </div>
-    <div class="layout_middle">
-        <!--
-        <div class="headline">
-			<div class="breadcrumb_expert">
-				<h2><a class="first" href="<?php echo $this->url(array('module'=>'library','controller'=>'index','action'=>'index'),'default',true); ?>">Library</a> <a href="<?php echo $this->url(); ?>">Book Detail</a></h2>
-			</div>
-			<div class="clear"></div>
-        </div>
-        -->
-		
-		<div class="layout_middle_question">
-			<div class="search_my_question search_library">
-				<?php echo $this->content()->renderWidget('library.search');  ?>
-			</div>	
-            <div class="subsection">
-				<?php
-                   echo $this->content()->renderWidget('library.categories'); 
-                ?>
-			</div>
-			<div class="subsection">
-                <h2><a href="<?php echo $this->url(); ?>"><?php echo $this->translate('Book Detail'); ?></a></h2>
-				<div class="detail_library">
-                    
-					<div class="frame_img">
-						<?php if($book->photo_id): ?>
-                            <?php 
-                                echo $this->itemPhoto($book, 'thumb.normal',null);
-                            ?>
-                        <?php else: ?>
-                            <img src="<?php echo $this->baseUrl().'/application/modules/Core/externals/images/book-no-image.png'; ?>" width="80" height="122"/>
-                        <?php endif; ?>
-						<?php if(intval($book->credit) == 0): ?>
-							<div class="status status_free">
-								<p><?php echo $this->translate('free'); ?></p>
-							</div>
-                        <?php else: ?>
-                            <div class="status">
-								<p><?php  echo $this->translate(array('%s credit', '%s credits', intval($book->credit)), intval($book->credit)); ?></p>
-							</div>
-                        <?php endif; ?>
-					</div>
-					<div class="container_title">
-						<h3><?php echo $book->title; ?></h3>
-						<p>
-                            <span><strong><?php echo $this->translate('Category'); ?>:</strong> <a href="<?php echo $this->url(array('module'=>'library','controller'=>'index','action'=>'index','cat_id'=>$book->category_ids),'default',true); ?>"><?php echo $book->category; ?></a></span>
-                            <div><strong><?php echo $this->translate('Code'); ?>:</strong> <?php echo $book->isbn; ?></div>
-                            <div><strong><?php echo $this->translate('Author'); ?>:</strong> <?php echo $book->author; ?></div>
-                            <div id="book_rating" class="rating" onmouseout="rating_out();">
-                              <span id="rate_1" <?php if (!$rated && $viewer_id):?>onclick="rate(1);"<?php endif; ?> onmouseover="rating_over(1);"></span>
-                              <span id="rate_2" <?php if (!$rated && $viewer_id):?>onclick="rate(2);"<?php endif; ?> onmouseover="rating_over(2);"></span>
-                              <span id="rate_3" <?php if (!$rated && $viewer_id):?>onclick="rate(3);"<?php endif; ?> onmouseover="rating_over(3);"></span>
-                              <span id="rate_4" <?php if (!$rated && $viewer_id):?>onclick="rate(4);"<?php endif; ?> onmouseover="rating_over(4);"></span>
-                              <span id="rate_5" <?php if (!$rated && $viewer_id):?>onclick="rate(5);"<?php endif; ?> onmouseover="rating_over(5);"></span>
-                              <span id="rating_text" class="rating_text"><?php echo $this->translate('click to rate');?></span>
-                            </div>
-                            <?php echo $this->htmlLink(Array('module'=> 'activity', 'controller' => 'index', 'action' => 'share', 'route' => 'default', 'type' => 'library_book', 'id' => $book->book_id, 'format' => 'smoothbox'), $this->translate("Share"), array('class' => 'smoothbox library-share-link')); ?>
-                            <?php echo $this->htmlLink(Array('module'=> 'core', 'controller' => 'report', 'action' => 'create', 'route' => 'default', 'subject' =>  'library_book_' . $book->book_id, 'format' => 'smoothbox'), $this->translate("Report"), array('class' => 'smoothbox library-report-link')); ?>
-                            <?php  echo $this->translate(array('%s download', '%s downloads', intval($book->download_count)), intval($book->download_count)) ?> 
-                            
-                        </p>
-                        <!-- check book already in your shelf-->
-                        <?php if(!in_array($book->book_id, $my_books)):?>
-                        <p class="bt_detail"><a class="bt_download smoothbox" href="<?php echo $this->url(array('module'=>'library','controller'=>'book-shelf', 'action'=>'add','book_id'=>$book->book_id),'default',true); ?>"><?php echo $this->translate('Bookshelf'); ?></a></p>
-                        <?php endif;?>
-                        <!--
-                        <a class="bt_share on_popup" href="#">share</a></p>
-                        -->
-					</div>
-					<div class="content_detail">
-						<p class="p_detail">
-                            <?php echo $book->description; ?>
-                        </p>
-                        <br />
-                        <!-- AddThis Button BEGIN -->
-                		<div class="addthis_toolbox addthis_default_style ">
-                		<a class="addthis_button_preferred_1"></a>
-                		<a class="addthis_button_preferred_2"></a>
-                		<a class="addthis_button_preferred_3"></a>
-                		
-                		<a class="addthis_button_compact"></a>
-                		<a class="addthis_counter addthis_bubble_style"></a>
-                		</div>
-                		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=huynhnv"></script>
-                		<!-- AddThis Button END -->
-					<div class="container_comment">
-                    <?php if($paginator->getTotalItemCount()==0){?>
-                        <h3 class="title_port_question"><?php  echo $this->translate(" 0 Comment") ?></h3>
-                        
-                        
-                    <?php } else {?>
-						<h3 class="title_port_question"><?php  echo $this->translate(array('%s Comment', '%s Comments', intval($paginator->getTotalItemCount())), intval($paginator->getTotalItemCount())) ?></h3>
-                        <?php }?>
-                        <div id="ajax_comment">
-                            <?php if( $paginator->getTotalItemCount() ): ?>
-                            <table cellspacing="0" cellpadding="0" border="0">
-                                <?php foreach ($paginator as $item):?>
-                            	<tr>
-                            		<td class="box_comment">
-                            			<div class="frame_img">
-                                            <?php if(!empty($item->photo)): ?>
-                            				    <img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_icon.png">
-                                            <?php else: ?>
-                                                <?php echo $this->itemPhoto($item, 'thumb.normal', "Image"); ?>
-                                            <?php endif; ?>
-                            			</div>
-                            			<div class="content_comment">
-                            				<p><?php echo $item->content; ?></p>
-				                            <p><em>Post at: <?php echo $item->created_date; ?></em> <?php echo $this->translate("by")?> <a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"> <?php echo $item->username; ?> </a></p>
-                            			</div>
-                            		</td>
-                            	</tr>
-                                <?php endforeach; ?>
-                            </table>
-                            <div>
-                              <?php echo $pagination_control; ?>
-                            </div>
-                            <?php endif; ?>
+<div id="wd-content-container">
+	<div class="wd-center">
+		<div class="wd-content-content-sprite pt-to-send">
+			<div class="wd-content-event">
+				<div class="pt-content-event pt-content-book-details">
+					<div class="pt-reply-how">
+						<ul class="pt-menu-event pt-menu-libraries">
+							<li>
+								Thư viện
+							</li>
+							<li>
+								<a href="<?php echo $this->url(array('module'=>'library','controller'=>'index','action'=>'index','cat_id'=>$book->category_ids),'default',true); ?>"><?php echo $book->category; ?></a>
+							</li>
+							<li>
+								<span><?php echo $book->title; ?></span>
+							</li>
+						</ul>
+						<div class="pt-content-info-book-details">
+							<?php if($book->photo_id): ?>
+							    <?php 
+								echo $this->itemPhoto($book, 'thumb.normal',null);
+							    ?>
+							<?php else: ?>
+							    <img alt="Image" class="pt-img-book" src="<?php echo $this->baseUrl().'/application/modules/Core/externals/images/book-no-image.png'; ?>" width="80" height="122"/>
+							<?php endif; ?>
+							<div class="pt-how-book-details">
+								<h2><?php echo $book->title; ?></h2>
+								<p><?php echo $this->translate('Category'); ?>:</strong> <a href="<?php echo $this->url(array('module'=>'library','controller'=>'index','action'=>'index','cat_id'=>$book->category_ids),'default',true); ?>"><?php echo $book->category; ?></a></p>
+								<p><?php echo $this->translate('Author'); ?>:</strong> <?php echo $book->author; ?></p>
+								<p>
+								<div id="book_rating" class="rating" onmouseout="rating_out();">
+								<span id="rate_1" <?php if (!$rated && $viewer_id):?>onclick="rate(1);"<?php endif; ?> onmouseover="rating_over(1);"></span>
+								<span id="rate_2" <?php if (!$rated && $viewer_id):?>onclick="rate(2);"<?php endif; ?> onmouseover="rating_over(2);"></span>
+								<span id="rate_3" <?php if (!$rated && $viewer_id):?>onclick="rate(3);"<?php endif; ?> onmouseover="rating_over(3);"></span>
+								<span id="rate_4" <?php if (!$rated && $viewer_id):?>onclick="rate(4);"<?php endif; ?> onmouseover="rating_over(4);"></span>
+								<span id="rate_5" <?php if (!$rated && $viewer_id):?>onclick="rate(5);"<?php endif; ?> onmouseover="rating_over(5);"></span>
+								<span id="rating_text" class="rating_text"><?php echo $this->translate('click to rate');?></span>
+								</div>
+								</p>
+								
+								
+								<p class="pt-text">
+								<?php echo $book->description; ?>
+								</p>
 
-                        </div>
-						<?php if(Engine_Api::_()->user()->getViewer()->getIdentity()){?>
-                        <form id="comment_create" method="post" action="<?php echo $this->url(array()) ?>">                       
-    						<div class="input">
-                                <?php echo $this->translate('Your comment'); ?>:
-    							<textarea name="description" id="description" cols="1" rows=""></textarea>
-                                <input type="hidden" id='book_id' name="book_id" value="<?php echo $book->book_id; ?>" />
-    						</div>
-                            <div id="error_content" style="color: red"></div>
-    						<div class="submit">
-    							<input type="submit" class="bt_send_question" value="<?php echo $this->translate('send'); ?>" />
-    							<input type="reset" class="bt_send_question" value="<?php echo $this->translate('cancel'); ?>" />
-    						</div>
-                        </form>
-                        <?php } ?>
+								<div class="pt-info-coupon">
+									<div>
+										
+										<?php  if($book->credit == 0): ?>
+											<span><?php echo $this->translate('free'); ?></span>
+										<?php else: ?>
+										    <span>Coupon: <?php  echo  $book->credit; ?></span>
+										    
+										<?php endif; ?>
+
+										<?php if(!in_array($book->book_id, $my_books)):?>
+										<a class="pt-download smoothbox" href="<?php echo $this->url(array('module'=>'library','controller'=>'book-shelf', 'action'=>'add','book_id'=>$book->book_id),'default',true); ?>"><?php echo $this->translate('Bookshelf'); ?></a>
+										<?php endif;?>
+										<?php echo $this->htmlLink(Array('module'=> 'activity', 'controller' => 'index', 'action' => 'share', 'route' => 'default', 'type' => 'library_book', 'id' => $book->book_id, 'format' => 'smoothbox'), $this->translate("Share"), array('class' => 'smoothbox pt-share')); ?>
+
+
+										<div class="pt-none">
+										
+									</div>
+									</div>
+									
+								</div>
+								
+							</div>
+							<div class="pt-user-post-comment">
+								<!-- AddThis Button BEGIN -->
+								<div class="addthis_toolbox addthis_default_style ">
+								<a class="addthis_button_preferred_1"></a>
+								<a class="addthis_button_preferred_2"></a>
+								<a class="addthis_button_preferred_3"></a>
+								
+								<a class="addthis_button_compact"></a>
+								<a class="addthis_counter addthis_bubble_style"></a>
+								</div>
+								<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=huynhnv"></script>
+								<!-- AddThis Button END -->
+							</div>
+							
+						</div>
+						<div class="pt-to-send-left pt-to-send-left-fix">
+							<div class="pt-to-send-content">
+								<div class="pt-comment-text pt-block">
+									 <form id="comment_create" method="post" action="<?php echo $this->url(array()) ?>">
+									<div class="pt-textarea">
+										<textarea name="description" id="description" cols="1" rows=""></textarea>
+										 <input type="hidden" id='book_id' name="book_id" value="<?php echo $book->book_id; ?>" />
+										 <div id="error_content" style="color: red"></div>
+									</div>
+									<div class="pt-submit-comment">
+										<input type="submit" class="button" value="<?php echo $this->translate('send'); ?>" />
+    										<input type="reset" class="button" value="<?php echo $this->translate('cancel'); ?>" />
+									</div>
+									</form>
+								</div>
+								<?php if( $paginator->getTotalItemCount() ): ?>
+								<?php foreach ($paginator as $item):?>
+								<div class="pt-block">
+									<div class="pt-user-post">
+										<span class="pt-avatar">
+										<?php if(!empty($item->photo)): ?>
+											    <img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_icon.png">
+										<?php else: ?>
+										<?php echo $this->itemPhoto($item, 'thumb.icon', "Image"); ?>
+										<?php endif; ?>
+										</span>
+										<div class="pt-how-info-user-post">
+											<h3><a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"> <?php echo $item->username; ?> </a></h3>
+											<p><span></span>Post at: - <?php echo $item->created_date; ?></p>
+										</div>
+									</div>
+									<div class="pt-content-user-post">
+										<p><?php echo $item->content; ?></p>
+									</div>
+									
+								</div>
+								<?php endforeach; ?>
+								<div>
+								      <?php echo $pagination_control; ?>
+								    </div>
+								<?php endif; ?>
+								
+							</div>
+						</div>
+						<div class="pt-reply-right">
+							<div class="pt-block">
+								<?php echo $this->content()->renderWidget('library.top-views');  ?>
+							</div>
+						
+						</div>
 					</div>
-                    
-                    <?php if(count($other_books)): ?>
-					<div class="other_book">
-						<h3 class="title_port_question"><strong><?php echo $this->translate('Other Books'); ?></strong></h3>
-                        <ul class='content_library_other'>
-                            <?php foreach($other_books as $item):?>
-                            <li>
-                                <div class="frame_img">
-									<?php if($item->photo_id): ?>
-                                        <a href="<?php echo $this->url(array('module'=>'library', 'controller'=>'index','action'=>'view','book_id'=>$item->book_id),'default',true); ?>"><img src="<?php echo $this->baseUrl('/').$item->storage_path; ?>" alt="" width="80" height="122" /></a>
-                                    <?php else: ?>
-                                        <a href="<?php echo $this->url(array('module'=>'library', 'controller'=>'index','action'=>'view','book_id'=>$item->book_id),'default',true); ?>"><img src="<?php echo $this->baseUrl().'/application/modules/Core/externals/images/book-no-image.png'; ?>" width="80" height="122"/></a>
-                                    <?php endif; ?>
-								</div>
-								<div class="infor_book">
-									<h3><a href="<?php echo $this->url(array('module'=>'library', 'controller'=>'index','action'=>'view','book_id'=>$item->book_id),'default',true); ?>"><?php echo $item->title; ?></a></h3>
-									<p>
-                                        <?php 
-                                      	$rating= $item->rating;
-                                      	if($rating>0){
-                                      		for($x=1; $x<=$rating; $x++){?>
-                                      			<span class="rating_star_generic rating_star"></span>
-                                      		<?php }
-                                      		
-                                      		
-                                      		$remainder = round($rating)-$rating;  			
-                                      		if(($remainder<=0.5 && $remainder!=0)):?><span class="rating_star_generic rating_star_half"></span><?php endif;
-                                      		if(($rating<=4)){
-                                      			for($i=round($rating)+1; $i<=5; $i++){?>
-                            					<span class="rating_star_generic rating_star_disabled"></span> 	
-                            			<?php }
-                                      		}
-                        	    			
-                                      	}else{
-                                      		for($x=1; $x<=5; $x++){?>
-                                      		<span class="rating_star_generic rating_star_disabled"></span> 
-                                      	<?php }
-                                      	}
-                                      	?>
-                                        <?php  echo $this->translate(array('%s rating', '%s ratings', intval($item->total)), intval($item->total)) ?>
-                                    </p>
-									<p> 
-                                        <?php if(intval($item->credit) == 0): ?>
-                                            <strong>Free</strong>
-                                        <?php else: ?>
-                                            <?php  echo $this->translate(array('%s credit', '%s credits', intval($item->credit)), intval($item->credit)); ?>
-                                        <?php endif; ?>
-                                        <span class="bd_list">|</span> 
-                                        
-                                        <span><?php  echo $this->translate(array('%s comment', '%s comments', intval($item->cnt_comment)), intval($item->cnt_comment)) ?></span>
-                                    </p>
-                                    <p> 
-                                        <span><?php  echo $this->translate(array('%s view', '%s views', intval($item->view_count)), intval($item->view_count)) ?></span>
-                                        <span class="bd_list">|</span>
-                                        <span><?php  echo $this->translate(array('%s download', '%s downloads', intval($item->download_count)), intval($item->download_count)) ?></span>
-                                    </p>
-								</div>
-                            </li>
-                            <?php endforeach;?> 
-                        </ul>       
-                    </div>
-                    <?php endif; ?>
-                    
 				</div>
 			</div>
 		</div>
-		<div class="clear"></div>
-    </div>
-
-    <div class="clear"></div>
+	</div>
+</div>
+<div id="wd-extras">
+	<div class="wd-center">
+		
+	</div>	
 </div>
 
-<?php else: echo "Invalid data"; ?>
-    
-<?php endif; ?>
 <div id="hidden_load_div_book" style="display:none"></div>
+
+<script type="text/javascript">
+  
+  jQuery(document).ready(function(jQuery) {	
+	
+	
+	jQuery(".pt-textarea").click(function () {
+	  jQuery('.pt-submit-comment').css( "display", "block" ).fadeIn( 1000 );
+	  return false;
+	});
+	jQuery(".pt-textarea").click(function () {
+	  jQuery('.pt-list-click').css( "display", "block" ).fadeIn( 1000 );
+	  return false;
+	});
+	
+  });
+    
+    
+
+</script>

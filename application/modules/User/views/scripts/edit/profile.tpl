@@ -9,42 +9,53 @@
  * @author     John
  */
 ?>
-<div class="headline">
-  <h2>
-    <?php if ($this->viewer->isSelf($this->user)):?>
-      <?php echo $this->translate('Edit My Profile');?>
-    <?php else:?>
-      <?php echo $this->translate('%1$s\'s Profile', $this->htmlLink($this->user->getHref(), $this->user->getTitle()));?>
-    <?php endif;?>
-  </h2>
-  <div class="tabs">
-    <?php
-      // Render the menu
-      echo $this->navigation()
-        ->menu()
-        ->setContainer($this->navigation)
-        ->render();
-    ?>
-  </div>
+<div class="generic_layout_container layout_right">
+    <div class="generic_layout_container layout_resumes_check_list"><div class="pt-right-job"> 
+            <div class="pt-block">
+                <h3 class="pt-title-right">Thong Tin Ca Nhan</h3>
+                <ul class="pt-list-cbth">
+                    <li class="pt-active"><span class="pt-number-1">1</span><span class="pt-text"><a>Thong tin</a></span><span class="pt-icon-oky"></span></li>
+                    <li ><span class="pt-number-1">2</span><span class="pt-text"><a href="/members/edit/photo">Avatar</a></span><span class="pt-icon-oky"></span></li>
+                </ul>
+            </div>	
+        </div></div>
+</div>
+<div class="generic_layout_container layout_middle">
+    <div class="generic_layout_container layout_core_content">
+        <div class="pt-title-event">
+            <ul class="pt-menu-event pt-menu-libraries">
+                <li>
+                    <a href="/resumes/">Người tìm việc</a>
+                </li>
+                <li>
+                    <span>Chỉnh sửa thông tin cá nhân</span>
+                </li>
+            </ul>
+        </div>
+
+        <?php
+        /* Include the common user-end field switching javascript */
+        echo $this->partial('_jsSwitch.tpl', 'fields', array(
+            'topLevelId' => (int) @$this->topLevelId,
+            'topLevelValue' => (int) @$this->topLevelValue
+        ))
+        ?>
+
+        <?php
+        $this->headTranslate(array(
+            'Everyone', 'All Members', 'Friends', 'Only Me',
+        ));
+        ?>
+        <script type="text/javascript">
+            window.addEvent('domready', function() {
+                en4.user.buildFieldPrivacySelector($$('.global_form *[data-field-id]'));
+            });
+        </script>
+        <div class="pt-content">
+            <?php echo $this->form->render($this) ?>
+        </div>
+
+    </div>
+
 </div>
 
-<?php
-  /* Include the common user-end field switching javascript */
-  echo $this->partial('_jsSwitch.tpl', 'fields', array(
-      'topLevelId' => (int) @$this->topLevelId,
-      'topLevelValue' => (int) @$this->topLevelValue
-    ))
-?>
-
-<?php
-  $this->headTranslate(array(
-    'Everyone', 'All Members', 'Friends', 'Only Me',
-  ));
-?>
-<script type="text/javascript">
-  window.addEvent('domready', function() {
-    en4.user.buildFieldPrivacySelector($$('.global_form *[data-field-id]'));
-  });
-</script>
-
-<?php echo $this->form->render($this) ?>

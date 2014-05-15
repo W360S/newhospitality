@@ -93,8 +93,19 @@ $birthday = $this->birthday;
                 </div>
                 <div class="pt-lv-second">
                     <?php foreach ($works as $work): ?>
+                    
+                        <?php 
+                            $month_start = date("m",strtotime($work->starttime));
+                            $month_end = date("m",strtotime($work->endtime));
+                            $year_start = date("Y",strtotime($work->starttime));
+                            $year_end = date("Y",strtotime($work->endtime));
+                        ?>
+                
                         <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->title; ?></h3>
-                        <p><?php echo $work->starttime ?> đến <?php echo $work->endtime ?></p>
+                        <p>
+                             Từ tháng <?php echo $month_start ?> <?php echo $year_start ?> đến 
+                             Tháng <?php echo $month_end ?> <?php echo $year_end ?>
+                        </p>
                         <p><?php echo $work->description; ?></p>
                         <br>
                     <?php endforeach; ?>
@@ -109,9 +120,18 @@ $birthday = $this->birthday;
                 </div>
                 <div class="pt-lv-second">
                     <?php foreach ($educations as $education): ?>
+                        <?php 
+                            $month_start = date("m",strtotime($education->starttime));
+                            $month_end = date("m",strtotime($education->endtime));
+                            $year_start = date("Y",strtotime($education->starttime));
+                            $year_end = date("Y",strtotime($education->endtime));
+                        ?>
 
                         <h3><?php echo $education->school_name; ?></h3>
-                        <p><?php echo $this->degree($education->degree_level_id)->name; ?> - <?php echo $education->major; ?> - <?php echo $education->starttime ?> đến <?php echo $education->endtime ?></p>
+                        <p><?php echo $this->degree($education->degree_level_id)->name; ?>
+                            - Từ tháng <?php echo $month_start ?> <?php echo $year_start ?> đến 
+                             Tháng <?php echo $month_end ?> <?php echo $year_end ?>
+                        </p>
                         <p><?php echo $education->description; ?></p>
                         <br>
                     <?php endforeach; ?>
@@ -157,7 +177,7 @@ $birthday = $this->birthday;
                         <?php foreach ($references as $reference): ?>
                             <h3><?php echo $reference->name; ?></h3>
                             <p><?php echo $reference->title; ?></p>
-                            <p>Email: <?php echo $reference->phone ?> - Điện thoại: <?php $reference->email; ?></p>
+                            <p>Email: <?php echo $reference->email; ?> - Điện thoại: <?php echo $reference->phone ?></p>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>

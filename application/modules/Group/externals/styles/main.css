@@ -690,10 +690,10 @@ TAGS FOR MESSEAGE RECIPIENTS
 
 
 /* ITEM TYPE ICONS */
-.item_icon_group
+/*.item_icon_group
 {
   background-image: url(~/application/modules/Group/externals/images/types/group.png);
-}
+}*/
 .item_icon_group_topic,
 .item_icon_group_post
 {
