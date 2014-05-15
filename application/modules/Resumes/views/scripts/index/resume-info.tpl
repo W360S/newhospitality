@@ -1,8 +1,16 @@
-
 <?php $num_resume = $this->num_resume; ?>
-
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="<?php echo $this->baseUrl() ?>/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Tạo hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <div class="resume_info_main subsection" style="border:none">
-    <h2><?php echo $this->translate('Resume Information') ?></h2>
+    <h3 class="pt-title-right"><?php echo $this->translate('Resume Information') ?></h3>
     <div class="main-form-wrapper">
         <form action="<?php echo $this->baseUrl() ?>/resumes/index/resume-info" method="post" id="resume_info_form">
             <div class="fieldset-wrapper">
@@ -19,16 +27,16 @@
                                 <input type="radio" value="1" name="searchable" checked /> <?php echo $this->translate('Searchable (recommended): ') ?>
                                 <?php echo $this->translate(' This option allows employers to contact you by phone or email and view all your resume information.') ?>
                             </div>
-                            
+
                             <div class="radio-item-wrapper">
                                 <input type="radio" value="0" name="searchable" /><?php echo $this->translate('Non Searchable (not recommended): ') ?>
                                 <?php echo $this->translate("This option does not allow employers to search your resume by making your resume 'invisible'.") ?> 
                             </div>
-                              
+
                         </div>
                     </div>
                     <div class="submit input">
-                        <button type="submit" title="" class="button"><span></span>Tiếp tục</button>
+                        <button type="submit" title="" class="button" style="margin-left: 128px;"><span></span>Tiếp tục</button>
                         <button type="submit" title="" class="button">Hủy</button>
                     </div>
                 </fieldset>

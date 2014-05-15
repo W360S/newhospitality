@@ -579,11 +579,23 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         if ($option != null) {
             $gender = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id_gender, $option);
         }
+        
         //birthday
         $field_id_birthday = Engine_Api::_()->getApi('core', 'recruiter')->getMeta('birthdate');
         $birthday = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_birthday, $user_id);
+        
+        $field_id_from = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('from');
+        $from = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_from, $user_id);
+        $from = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id_from, $from);
+        
+        $field_id_phone = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('phone');
+        $phone = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_phone, $user_id);
+        
         $this->view->gender = $gender;
         $this->view->birthday = $birthday;
+        $this->view->from = $from;
+        $this->view->phone = $phone;
+        
         $this->_helper->content
                 ->setContentName(41) // page_id
                 // ->setNoRender()

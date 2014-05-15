@@ -30,8 +30,18 @@ $languages = $this->languages;
 $group_skills = $this->group_skill;
 $references = $this->references;
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="<?php echo $this->baseUrl() ?>/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Tạo hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <div class="resume_info_main subsection" style="border:none;padding-bottom:20px;">
-    <h2><?php echo $this->translate('Work Experience') ?></h2>
+    <h3 class="pt-title-right"><?php echo $this->translate('Work Experience') ?></h3>
     <div id="resume_loading" style="display: none;">
         <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
         <?php echo $this->translate("Loading ...") ?>
@@ -80,7 +90,9 @@ $references = $this->references;
                         <div id="list_work_temp"></div>
                         <div class="button_control">
                             <!--<button onclick="saveResumeWork('next');" type="button" title="" class="button" id="save">Tiep</button>-->
+                            
                             <button onclick="saveResumeWork('save');" type="button" title="" class="button" id="save">Lưu</button>
+                            <button onclick="cancelResumeWork('save');" type="button" title="" class="button">Cancel</button>
                             <!--<button onclick="back_resume_info();" type="button" title="" class="button">Hủy</button>-->
                             <!--<button onclick="saveResumeWork('next');" type="submit" title="" class="button">Hủy</button>-->
 
@@ -128,6 +140,17 @@ $references = $this->references;
             }
         }).send();
     }
+    
+    function cancelResumeWork(type){
+        $('resume_work_form').reset();
+        
+        jQuery("#form-works-experience").hide();
+        jQuery("#list-works-experiences").show();
+        jQuery("#btn-add-experience").show();
+        jQuery("#main-control").show();
+        
+    }
+    
     function saveResumeWork(type) {
 
         var content = tinyMCE.activeEditor.getContent(); // get the content

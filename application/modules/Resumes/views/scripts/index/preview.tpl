@@ -12,8 +12,18 @@ $user_inform = $this->user_inform;
 $gender = $this->gender;
 $birthday = $this->birthday;
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="<?php echo $this->baseUrl() ?>/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Tạo hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <div class="subsection">
-    <h2><?php echo $this->translate('Resume Information') ?></h2>
+    <h3 class="pt-title-right"><?php echo $this->translate('Resume Information') ?></h3>
     <div class="pt-content-file-record">
         <div class="pt-title-file-record">
             <h3><?php echo $resume->title; ?>
@@ -37,7 +47,7 @@ $birthday = $this->birthday;
                             ?>
                         <?php endif; ?>
                     </p>
-                    <p class="last"><a href="#" class="pt-edit">Chỉnh sửa</a></p>
+                    <p class="last"><a href="<?php echo $this->baseUrl() ?>/members/edit/profile" class="pt-edit">Chỉnh sửa</a></p>
                     <?php if ($user_id == $user_resume): ?>
                         <form style="display: none" method="post" id="updateImage"  enctype="multipart/form-data" action="<?php echo $this->baseUrl() . '/resumes/resume/image'; ?>">
                             <input style="padding-left: 8px;" type="file" id="fileImage" name="fileImage" />
@@ -60,8 +70,8 @@ $birthday = $this->birthday;
                     </h3>
                     <p><?php echo $gender; ?></p>
                     <p>Ngày sinh: <?php echo date('d m Y', strtotime($birthday)); ?></p>
-                    <p>Địa chỉ: 70 Cù Chính Lan - Thành phố Đà Nẵng, Việt Nam</p>
-                    <p>Điện thoại: 0906404101	</p>
+                    <p>Địa chỉ: <?php echo $this->from ?></p>
+                    <p>Điện thoại: <?php echo $this->phone ?>	</p>
                     <p>
                         <?php if (!empty($resume->email)): ?>
                             <?php echo $resume->email; ?>
@@ -84,7 +94,7 @@ $birthday = $this->birthday;
                 <div class="pt-lv-second">
                     <?php foreach ($works as $work): ?>
                         <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->title; ?></h3>
-                        <p>Tháng 6/2012 đến Tháng 6/2013</p>
+                        <p><?php echo $work->starttime ?> đến <?php echo $work->endtime ?></p>
                         <p><?php echo $work->description; ?></p>
                         <br>
                     <?php endforeach; ?>
@@ -99,8 +109,9 @@ $birthday = $this->birthday;
                 </div>
                 <div class="pt-lv-second">
                     <?php foreach ($educations as $education): ?>
+
                         <h3><?php echo $education->school_name; ?></h3>
-                        <p><?php echo $this->degree($education->degree_level_id)->name; ?> - <?php echo $education->major; ?> - Tháng 6/2011 đến Tháng 10/2013</p>
+                        <p><?php echo $this->degree($education->degree_level_id)->name; ?> - <?php echo $education->major; ?> - <?php echo $education->starttime ?> đến <?php echo $education->endtime ?></p>
                         <p><?php echo $education->description; ?></p>
                         <br>
                     <?php endforeach; ?>

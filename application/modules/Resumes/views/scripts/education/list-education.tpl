@@ -15,8 +15,6 @@
 <?php else: ?>
     <strong>Mô tả chi tiết:</strong>
     <ol>
-        <li>Nhiệm vụ chính của từng vị trí bạn đảm trách</li>
-        <li>Dự án đã tham gia hay quản lý (nếu có)</li>
-        <li>Thành tích, kỹ năng đạt được</li>
+        <li>Liệt kê bằng cấp chuyên môn, các khóa ngắn hạn hay những chương trình sau đại học bạn đã theo học.</li>
     </ol>
 <?php endif; ?>

@@ -8,9 +8,18 @@ $references = $this->references;
 ?>
 
 
-
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="<?php echo $this->baseUrl() ?>/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Tạo hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <div class="resume_info_main subsection" style="border:none">
-    <h2><?php echo $this->translate('Resume Information') ?></h2>
+    <h3 class="pt-title-right"><?php echo $this->translate('Resume Information') ?></h3>
     <div class="main-form-wrapper">
         <form action="<?php echo $this->baseUrl() ?>/resumes/index/resume-info-edit/resume_id/<?php echo $resume->resume_id ?>" method="post" id="resume_info_form">
             <div class="fieldset-wrapper">
@@ -36,7 +45,7 @@ $references = $this->references;
                         </div>
                     </div>
                     <div class="submit input">
-                        <button type="submit" title="" class="button"><span></span>Tiếp tục</button>
+                        <button type="submit" title="" class="button" style="margin-left: 128px;"><span></span>Tiếp tục</button>
                         <button type="submit" title="" class="button">Hủy</button>
                     </div>
                 </fieldset>

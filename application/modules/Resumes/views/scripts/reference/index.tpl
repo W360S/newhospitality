@@ -28,8 +28,18 @@ $languages = $this->languages;
 $group_skills = $this->group_skill;
 $references = $this->references;
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="<?php echo $this->baseUrl() ?>/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Tạo hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <div class="resume_skill_main subsection">
-    <h2><?php echo $this->translate('Reference') ?></h2>
+    <h3 class="pt-title-right"><?php echo $this->translate('Reference') ?></h3>
     <div id="resume_loading" style="display: none;">
         <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
         <?php echo $this->translate("Loading ...") ?>
@@ -60,7 +70,8 @@ $references = $this->references;
                                 <?php echo $form->description; ?>
                             </div>
 
-                            <button style="float:right" id="save" onclick="saveResumeReference('save');" type="button" title="" class="button"><span></span>Tiếp tục</button>
+                            <button id="save" onclick="saveResumeReference('save');" type="button" title="" class="button">Lưu</button>
+                            <button onclick="cancelResumeReference('save');" type="button" title="" class="button">Huỷ</button>
 
                         </fieldset>
                         <div id="list_reference_temp">
@@ -91,7 +102,15 @@ $references = $this->references;
 
 </div>
 <script type="text/javascript">
+    function cancelResumeReference(type){
+        $('resume_reference_form').reset();
+                                
+        jQuery("#form-works-references").hide();
+        jQuery("#list-references").show();
+        jQuery("#btn-add-reference").show();
 
+        jQuery("#main-control").show();
+    }
     function saveResumeReference(type) {
         var content = tinyMCE.activeEditor.getContent(); // get the content
         jQuery('#description').val(content);

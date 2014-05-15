@@ -15,8 +15,6 @@
 <?php else: ?>
     <strong>Mô tả chi tiết:</strong>
     <ol>
-        <li>Nhiệm vụ chính của từng vị trí bạn đảm trách</li>
-        <li>Dự án đã tham gia hay quản lý (nếu có)</li>
-        <li>Thành tích, kỹ năng đạt được</li>
+        <li>Những nhận xét từ đồng nghiệp/thầy cô/bạn bè sẽ giúp nhà tuyển dụng hiểu rõ hơn về tính cách và năng lực của bạn. Nên chọn người bạn nghĩ sẽ đưa ra nhận xét tốt.</li>
     </ol>
 <?php endif; ?>

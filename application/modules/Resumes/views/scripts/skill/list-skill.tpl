@@ -16,8 +16,6 @@
 <?php else: ?>
     
     <ol>
-        <li>Nhiệm vụ chính của từng vị trí bạn đảm trách</li>
-        <li>Dự án đã tham gia hay quản lý (nếu có)</li>
-        <li>Thành tích, kỹ năng đạt được</li>
+        <li>Liệt kê những ngôn ngữ mà bạn có</li>
     </ol>
 <?php endif; ?>
