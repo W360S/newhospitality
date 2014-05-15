@@ -4466,3 +4466,10 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
+2014-05-15T18:25:15+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireUser failed check for: activity.notifications.update
+2014-05-15T18:25:17+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireAdmin failed check for: core.admin-index.index
+2014-05-15T18:25:17+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireUser failed check for: core.admin-index.index
+2014-05-15T18:25:17+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireUser failed check for: core.error.requireuser
+2014-05-15T18:25:18+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireAdmin failed check for: core.admin-index.index
+2014-05-15T18:25:18+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireUser failed check for: core.admin-index.index
+2014-05-15T18:25:18+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireUser failed check for: core.error.requireuser

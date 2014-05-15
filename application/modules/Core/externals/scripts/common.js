@@ -1,5 +1,4 @@
-;
-jQuery.noConflict();
+;jQuery.noConflict();
 
 jQuery(document).ready(function($) {
     var member_home_url = "/members/home";
@@ -91,6 +90,11 @@ function isExpertPage() {
     return document.URL.indexOf("/experts");
 }
 
+function isLibraryPage() {
+    return document.URL.indexOf("/library");
+}
+
+
 function isJobPage() {
     return (document.URL.indexOf("/resumes") != -1) || (document.URL.indexOf("/recruiter") != -1);
 }
@@ -108,6 +112,10 @@ jQuery(document).ready(function($) {
 
         if (isExpertPage() != -1) {
             $(".head-menu-item-expert").addClass("pt-active");
+        }
+        
+        if (isLibraryPage() != -1) {
+            $(".head-menu-item-library").addClass("pt-active");
         }
 
     });
