@@ -742,6 +742,10 @@ EOF;
     public function candidateAction() {
         if (!$this->_helper->requireUser()->isValid())
             return;
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     public function addNoteAction() {
@@ -874,6 +878,11 @@ EOF;
         $this->view->page = $page = $this->_getParam('page', 1);
         $paginator->setItemCountPerPage(20);
         $paginator->setCurrentPageNumber($page);
+        
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     //delete apply job of candidate

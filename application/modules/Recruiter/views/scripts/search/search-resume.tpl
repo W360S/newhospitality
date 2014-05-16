@@ -12,7 +12,7 @@ $industry = $this->industry;
 ?>
 <div class="subsection">
     <?php if (count($paginator) > 0): ?>
-        <div class="pt-list-table pt-list-table-01">
+        <div class="pt-list-table pt-list-table-first">
             <table cellspacing="0" cellpadding="0">
                 <thead>
                     <tr>

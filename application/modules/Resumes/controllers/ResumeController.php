@@ -155,6 +155,21 @@ class Resumes_ResumeController extends Core_Controller_Action_Standard {
         $user_inform = Engine_Api::_()->getDbtable('users', 'user')->find($resume->user_id)->current();
         $this->view->user_inform = $user_inform;
         
+        $field_id_from = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('from');
+        $from = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_from, $resume->user_id);
+        $from = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id_from, $from);
+        
+        $field_id_phone = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('phone');
+        $phone = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_phone, $resume->user_id);
+        
+        $this->view->from = $from;
+        $this->view->phone = $phone;
+        
+        //birthday
+        $field_id_birthday = Engine_Api::_()->getApi('core', 'recruiter')->getMeta('birthdate');
+        $birthday = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_birthday, $resume->user_id);
+        $this->view->birthday = $birthday;
+        
         $this->_helper->content
                 ->setContentName(47) // page_id
                 // ->setNoRender()

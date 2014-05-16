@@ -3,7 +3,7 @@
         <p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci.</p>
         <a class="bt_create" href="<?php echo $this->baseUrl() . '/recruiter/job/create' ?>">ĐĂNG TUYỂN DỤNG</a>
         <?php if (count($this->profile) == 0) : ?>
-            <a style="padding: 0 72px;" class="company_profile" href="<?php echo $this->baseUrl() . '/recruiter/index/create-profile' ?>"><?php echo $this->translate("Create Company Profile") ?></a>
+            <a style="" class="company_profile" href="<?php echo $this->baseUrl() . '/recruiter/index/create-profile' ?>"><?php echo $this->translate("Create Company Profile") ?></a>
         <?php else: ?>
             <?php 
             $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($this->profile->company_name);

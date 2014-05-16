@@ -590,11 +590,12 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         
         $field_id_phone = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('phone');
         $phone = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_phone, $user_id);
+        $this->view->from = $from;
+        $this->view->phone = $phone;
         
         $this->view->gender = $gender;
         $this->view->birthday = $birthday;
-        $this->view->from = $from;
-        $this->view->phone = $phone;
+        
         
         $this->_helper->content
                 ->setContentName(41) // page_id

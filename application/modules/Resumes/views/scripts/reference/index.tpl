@@ -86,7 +86,7 @@ $references = $this->references;
             </div>
             <script>
                 function addReference(el) {
-                    
+                    showFormReferences();
                 }
                 
                 function showFormReferences(){

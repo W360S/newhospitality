@@ -9,7 +9,7 @@
     $user_id= $this->user_id;
     $user_resume= $this->user_resume;
     $user_inform = $this->user_inform;
-    
+    $birthday = $this->birthday;
 ?>
 
 <div class="pt-content-info">
@@ -17,6 +17,7 @@
     <div class="pt-content-file-record">
         <div class="pt-title-file-record">
             <h3>Nhân viên kinh doanh</h3>
+            <input type="hidden" value="<?php echo $resume->resume_id?>" id="resume" />
             <a href="#" class="pt-finger-prints"><img src="<?php echo $this->baseUrl() ?>/application/modules/Core/externals/img/thumb/PDF.png" alt="Image">In ra PDF</a>
         </div>
         <div class="pt-content-file">
@@ -31,7 +32,9 @@
                             ?>
                         <?php endif; ?>
                     </p>
+                    <?php if ($user_id == $user_resume): ?>
                     <p class="last"><a href="#" class="pt-edit">Chỉnh sửa</a></p>
+                    <?php endif; ?>
                     <?php if ($user_id == $user_resume): ?>
                         <form style="display: none" method="post" id="updateImage"  enctype="multipart/form-data" action="<?php echo $this->baseUrl() . '/resumes/resume/image'; ?>">
                             <input style="padding-left: 8px;" type="file" id="fileImage" name="fileImage" />
@@ -54,8 +57,8 @@
                     </h3>
                     <p><?php echo $gender; ?></p>
                     <p>Ngày sinh: <?php echo date('d m Y', strtotime($birthday)); ?></p>
-                    <p>Địa chỉ: 70 Cù Chính Lan - Thành phố Đà Nẵng, Việt Nam</p>
-                    <p>Điện thoại: 0906404101	</p>
+                    <p>Địa chỉ: <?php echo $this->from ?></p>
+                    <p>Điện thoại: <?php echo $this->phone ?>	</p>
                     <p>
                         <?php if (!empty($resume->email)): ?>
                             <?php echo $resume->email; ?>
@@ -150,6 +153,7 @@
     
     <!--<a class="print_profile" href="<?php //echo $this->baseUrl() . '/resumes/resume/pdf/resume_id/' . $resume->resume_id ?>"><?php echo $this->translate("Print to profile"); ?></a>-->
 </div>
+
 <script type="text/javascript">
     function save_candidate() {
         var resume_id = $('resume').value;

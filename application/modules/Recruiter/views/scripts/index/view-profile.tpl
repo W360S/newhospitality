@@ -5,7 +5,7 @@ $user_id = $this->user_id;
 $paginator = $this->paginator_jobs;
 ?>
 <div class="subsection">
-    <div class="pt-job-detail-title pt-job-detail-title-01">
+    <div class="pt-job-detail-title pt-job-detail-title-first">
         <?php if ($profile->photo_id != null) { ?>
             <?php echo $this->itemPhoto($profile, 'thumb.profile'); ?>
         <?php } else { ?>
@@ -100,7 +100,7 @@ $paginator = $this->paginator_jobs;
                     $('loading').style.display = "none";
                     if (responseHTML == 1) {
                         //tam thoi cho redirect ve trang nay
-                        window.location.href = "<?php echo $this->baseUrl() . '/recruiter/' ?>";
+                        //window.location.href = "<?php echo $this->baseUrl() . '/recruiter/' ?>";
                     }
 
                 }

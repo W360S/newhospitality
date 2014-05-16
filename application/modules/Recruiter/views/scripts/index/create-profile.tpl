@@ -4,6 +4,16 @@ $this->headScript()
         ->appendFile($this->baseUrl() . '/externals/tinymce/tiny_mce-init.js');
 ?>
 <?php $form = $this->form; ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/recruiter">Dành cho nhà tuyển dụng</a>
+        </li>
+        <li>
+            <span>Tạo hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <div class="subsection">
     <h3 class="pt-title-right">Create new company profile</h3>
     <div class="main-form-wrapper">
@@ -26,15 +36,15 @@ $this->headScript()
                         <?php echo $form->description; ?>
                     </div>
                     <div class="submit">
-                        <input type="submit" value="Create" class="min" />
-                        <input type="reset" value="Reset" class="min" onclick="reset();" />
+                        <button type="submit" value="Create" class="min">Luu</button>
+                        <button type="reset" value="Reset" class="min" onclick="reset();" >Cancel</button>
                     </div>
                 </fieldset>
             </div>
-            
+
         </form>
     </div>
-    
+
 </div>
 <div class="resume_work_main">
 

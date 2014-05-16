@@ -191,7 +191,7 @@ $birthday = $this->birthday;
                 <div class="pt-lv-second">
                     <button type="button" title="" class="button"><span></span>Quay lại</button>
                     <button type="button" onclick="javascript:manage_resume(); return false;" title="" class="button"><span></span>Hoàn tất</button>
-                    <img src="<?php echo $this->baseUrl() ?>/application/modules/core/externals/img/thumb/img-submit-oky.png" alt="Image">
+                    <img src="<?php echo $this->baseUrl() ?>/application/modules/Core/externals/img/thumb/img-submit-oky.png" alt="Image">
                 </div>
             </div>
         </div>

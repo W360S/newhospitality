@@ -5,8 +5,18 @@
 	->appendFile($this->baseUrl().'/externals/tinymce/tiny_mce-init.js');
 ?>
 <?php $form= $this->form;?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/recruiter">Dành cho nhà tuyển dụng</a>
+        </li>
+        <li>
+            <span>Chỉnh sửa hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <div class="subsection">
-    <h3 class="pt-title-right">Create new company profile</h3>
+    <h3 class="pt-title-right">Edit company profile</h3>
     <div class="main-form-wrapper">
         <form id="recruiter_profile_form" action="<?php echo $form->getAction(); ?>" method="post" enctype="multipart/form-data">
             <div class="fieldset-wrapper">
@@ -27,8 +37,8 @@
                         <?php echo $form->description; ?>
                     </div>
                     <div class="submit">
-                        <input type="submit" value="Create" class="min" />
-                        <input type="reset" value="Reset" class="min" onclick="reset();" />
+                        <button type="submit" value="Create" class="min">Luu</button>
+                        <button type="reset" value="Reset" class="min" onclick="reset();">Huy</button>
                     </div>
                 </fieldset>
             </div>

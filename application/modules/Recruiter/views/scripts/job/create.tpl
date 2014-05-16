@@ -8,7 +8,16 @@ $form = $this->form;
 $arr_cats = $this->arr_cats;
 $profile = $this->profile;
 ?>
-
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/recruiter">Dành cho nhà tuyển dụng</a>
+        </li>
+        <li>
+            <span>Tạo hồ sơ</span>
+        </li>
+    </ul>
+</div>
 <?php if ($profile != 0) : ?>
     <div class="subsection">
         <h3 class="pt-title-right"><?php echo $this->translate("Create new job"); ?></h3>
@@ -41,7 +50,10 @@ $profile = $this->profile;
                             <?php echo $form->degree_id; ?>
                         </div>
                         <div class="input">
-                            <?php echo $form->country_id; ?>
+                            <div style="display: none">
+                                <?php echo $form->country_id; ?>
+                            </div>
+                            <div id="city_id-label" class="form-label"><label for="city_id" class="optional">Place to work:</label></div>
                             <?php echo $form->city_id; ?>
                         </div>
                         <div class="input">
@@ -77,8 +89,8 @@ $profile = $this->profile;
                             <?php echo $form->contact_email; ?>
                         </div>
                         <div class="submit">
-                            <input type="submit" value="<?php echo $this->translate('Submit') ?>" class="min" />
-                            <input type="reset" value="<?php echo $this->translate('Reset') ?>" class="min" onclick="reset();" />
+                            <button type="submit" value="<?php echo $this->translate('Submit') ?>" class="min"> Luu </button>
+                            <button type="reset" value="<?php echo $this->translate('Reset') ?>" class="min" onclick="reset();" >Huy</button>
                         </div>
                     </fieldset>
                 </div>
