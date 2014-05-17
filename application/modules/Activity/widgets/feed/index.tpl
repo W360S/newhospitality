@@ -23,6 +23,9 @@
             var endOfFeed = <?php echo ( $this->endOfFeed ? 'true' : 'false' ) ?>;
 
             var activityViewMore = window.activityViewMore = function(next_id, subject_guid) {
+                console.log("window.activityViewMore");
+                console.log(next_id);
+                console.log(subject_guid);
                 if (en4.core.request.isRequestActive())
                     return;
 
@@ -41,9 +44,13 @@
                     },
                     evalScripts: true,
                     onSuccess: function(responseTree, responseElements, responseHTML, responseJavaScript) {
+                        console.log("onSuccess");
+                        console.log(next_id);
+                        console.log(subject_guid);
                         Elements.from(responseHTML).inject($('activity-feed'));
                         en4.core.runonce.trigger();
                         Smoothbox.bind($('activity-feed'));
+                        
                     }
                 });
                 request.send();
@@ -54,8 +61,23 @@
                 $('feed_loading').style.display = 'none';
                 $('feed_viewmore_link').removeEvents('click').addEvent('click', function(event) {
                     event.stop();
-                    activityViewMore(next_id, subject_guid);
+                    console.log("addEvent");
+                    console.log(next_id);
+                    console.log(subject_guid);  
+                    //activityViewMore(next_id, subject_guid);
+                    
                 });
+                jQuery(window).off("scroll");
+                jQuery(window).scroll(function($) {
+                    console.log("jQuery(window).scroll");
+                    if (jQuery('body').height() == (jQuery(window).height() + jQuery(window).scrollTop())) {
+                        console.log('Bottom reached!');
+                        console.log(next_id);
+                        console.log(subject_guid);
+                        activityViewMore(next_id, subject_guid);
+                    }
+                });
+                
             } else {
                 $('feed_viewmore').style.display = 'none';
                 $('feed_loading').style.display = 'none';
@@ -225,3 +247,9 @@ echo $this->activityLoop($this->activity, array(
     <img src='<?php echo $this->layout()->staticBaseUrl ?>application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
 <?php echo $this->translate("Loading ...") ?>
 </div>
+
+<script>
+//    jQuery(document).ready(function($) {
+        
+//    });
+</script>

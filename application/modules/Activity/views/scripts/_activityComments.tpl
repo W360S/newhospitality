@@ -44,7 +44,7 @@ $this->headScript()
                     data: {
                         format: 'json',
                         //type : 'core_comment',
-                        action_id: el.getParent('li').getParent('li').getParent('li').get('id').match(/\d+/)[0],
+                        action_id: el.getParent('li').getParent('li').get('id').match(/\d+/)[0],
                         comment_id: id
                     },
                     onComplete: function(responseJSON) {
@@ -308,18 +308,20 @@ $this->headScript()
                                                         <?php if ($canComment): ?>
                                                             <?php $isLiked = !empty($commentLikes[$comment->comment_id]); ?>
                                                             <?php if (!$isLiked): ?>
-                                                                <a href="javascript:void(0)" onclick="en4.activity.like(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)">
-                                                                    <?php echo $this->translate('like') ?>
-                                                                </a>
+                                                                
+                                                                <a href="javascript:void(0)" class="pt-like"  onclick="en4.activity.like(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)"><span></span></a>
                                                             <?php else: ?>
+                                                                <?php /* temporary not allow unlike
                                                                 <a href="javascript:void(0)" onclick="en4.activity.unlike(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)">
                                                                     <?php echo $this->translate('unlike') ?>
                                                                 </a>
+                                                                 */?>
+                                                                <a href="javascript:void(0)" class="pt-like"><span></span></a>
                                                             <?php endif ?>
                                                         <?php endif ?>
 
                                                         <?php if ($comment->likes()->getLikeCount() > 0): ?>
-                                                            <a class="pt-like" href="javascript:void(0);" id="comments_comment_likes_<?php echo $comment->comment_id ?>" class="comments_comment_likes" title="<?php echo $this->translate('Loading...') ?>">
+                                                            <a href="javascript:void(0);" id="comments_comment_likes_<?php echo $comment->comment_id ?>" class="comments_comment_likes" title="<?php echo $this->translate('Loading...') ?>">
                                                                 <?php echo $this->translate(array('%s likes this', '%s like this', $comment->likes()->getLikeCount()), $this->locale()->toNumber($comment->likes()->getLikeCount())) ?>
                                                             </a>
                                                         <?php endif ?>

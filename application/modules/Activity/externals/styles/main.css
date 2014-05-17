@@ -361,11 +361,14 @@ Compatibility for lack of theme updates
 */
 div.comments_comment_likes_tips
 {
-  border: 1px solid $theme_foreground_border_color;
+  /*border: 1px solid $theme_foreground_border_color;
   padding: 4px 7px;
   background-color: $theme_foreground_background_color;
   color: $theme_font_color_light;
-  font-size: 0.9em;
+  font-size: 0.9em;*/
+  background-color: #282828;color: #fff;
+  /*padding: 6px 8px;*/
+  text-align: left;white-space: nowrap;-webkit-border-radius: 4px;
 }
 
 
