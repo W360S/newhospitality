@@ -10,7 +10,10 @@
  * @author	   John
  */
 ?>
-
+<style type="text/css">
+  #group_form_invite #all-wrapper #all-label{display: none;}
+#group_form_invite #all-wrapper #all-element input{width: auto;}
+</style>
 <?php if( $this->count > 0 ): ?>
   <script type="text/javascript">
     jQuery(document).ready(function(){
