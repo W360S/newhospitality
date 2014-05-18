@@ -36,8 +36,11 @@ $paginator = $this->paginator_jobs;
             ?>
         </span>
         <p><?php echo $profile->description; ?></p>
+        <?php 
+            $user = Engine_Api::_()->getItem('user', $profile->user_id);
+        ?>
         <p>Qui mô công ty: <?php echo $profile->company_size; ?><br>
-            Tên người liên hệ: Ms. Cat Tuong</p>
+            Tên người liên hệ: <a href="<?php echo $user->getHref() ?>"><?php echo $user->getTitle() ?></a></p>
         <?php if ($user_id == $profile->user_id) : ?>
             <a class="pt-icon pt-icon-checkall" href="<?php echo $this->baseUrl() . '/recruiter/index/edit-profile/profile_id/' . $profile->recruiter_id; ?>"></a>
             <a class="pt-icon pt-icon-delete" href="javascript:void(0);" onclick="delete_profile('<?php echo $profile->recruiter_id; ?>');

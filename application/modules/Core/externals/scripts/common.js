@@ -5,6 +5,8 @@ jQuery(document).ready(function($) {
     var message_inbox_url = "/messages";
     var events_index_url = "/events";
     var album_index_url = "/albums";
+    var groups_index_url = "/group";
+//    var groups_index_url = "/groups";
 
     console.log('/application/modules/Core/externals/scripts/common.js');
 
@@ -20,6 +22,9 @@ jQuery(document).ready(function($) {
     }
     if (document.URL.indexOf(album_index_url) != -1) {
         $("#link-albums").addClass("pt-active");
+    }
+    if (document.URL.indexOf(groups_index_url) != -1) {
+        $("#link-groups").addClass("pt-active");
     }
 });
 

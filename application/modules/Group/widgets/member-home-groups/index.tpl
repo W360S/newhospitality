@@ -1,5 +1,4 @@
 <?php
-
 /**
  * SocialEngine
  *
@@ -12,15 +11,15 @@
  */
 ?>
 <div class="pt-menu-left">
-<h3>Nhóm</h3>
-  <ul>
-  <?php foreach( $this->paginator as $group ): ?>
-    <li>
-      <a href="<?php echo $group->getHref() ?>"><span class="pt-icon-menu-left pt-icon-group"></span><span class="pt-menu-text">
-      <?php echo $group->getTitle()?>
-      </span><span class="pt-number"><?php echo $group->member_count ?></span></a>
-      <!-- <?php //echo $this->htmlLink($group, $this->itemPhoto($group, 'thumb.normal')) ?> -->
-    </li>
-    <?php endforeach; ?>
-  </ul>
+    <h3>Nhóm</h3>
+    <ul>
+        <?php foreach ($this->paginator as $group): ?>
+            <li>
+                <a href="<?php echo $group->getHref() ?>"><span class="pt-icon-menu-left pt-icon-group"></span><span class="pt-menu-text">
+                        <?php echo $group->getTitle() ?>
+                    </span><span class="pt-number"><?php echo $group->member_count ?></span></a>
+                <!-- <?php //echo $this->htmlLink($group, $this->itemPhoto($group, 'thumb.normal'))  ?> -->
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </div>
