@@ -4,6 +4,16 @@ $industries = $this->industries;
 $user_id = $this->user_id;
 $paginator = $this->paginator_jobs;
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/recruiter">Dành cho nhà tuyển dụng</a>
+        </li>
+        <li>
+            <span>Hồ sơ công ty </span>
+        </li>
+    </ul>
+</div>
 <div class="subsection">
     <div class="pt-job-detail-title pt-job-detail-title-first">
         <?php if ($profile->photo_id != null) { ?>
@@ -42,47 +52,51 @@ $paginator = $this->paginator_jobs;
 
 </div>
 <div class="subsection search_result">
-
-    <h2><?php echo $this->translate('Jobs of '); ?><?php echo $profile->company_name; ?></h2>
     <?php if (count($paginator) > 0): ?>
-        <table cellspacing="0" cellpadding="0">
-            <tr>
-                <th style="width:240px"><?php echo $this->translate("Job Title"); ?></th>
-
-                <th style="width:92px"><?php echo $this->translate("Location"); ?></th>
-                <th><?php echo $this->translate("Date Posted"); ?></th>
-            </tr>
-            <?php
-            $i = 0;
-            foreach ($paginator as $item):
-                $i++;
-                if ($i % 2 == 0) {
-                    $class = "bg_color";
-                } else {
-                    $class = "";
-                }
-                ?>
-                <tr class="<?php echo $class ?>">
-                    <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->position); ?>
-                    <td class="align_l"><?php echo $this->htmlLink(array('route' => 'view-job', 'id' => $item->job_id, 'slug' => $slug), $item->position, array('target' => '_blank')) ?></td>
-
-                    <td><?php echo $this->city($item->city_id)->name ?> - <?php echo $this->country($item->country_id)->name; ?></td>
-                    <td><?php echo date('d F Y', strtotime($item->creation_date)); ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    <?php else: ?>
-        <div style="margin-top: 5px; margin-left: 5px;" class="tip">
-            <span>
-                <?php echo $this->translate("Haven't job in company during this time.") ?>
-            </span>
+        <h3 class="pt-style-title">CÔNG VIỆC CỦA <?php echo $profile->company_name; ?></h3>
+        <div class="pt-list-job">
+            <ul class="pt-list-job-ul">
+                <?php $i = 0; ?>
+                <?php foreach ($paginator as $item): ?>
+                    <?php $selected_types = Engine_Api::_()->getApi('job', 'recruiter')->getTypeOfJob($item->job_id); ?>
+                    <?php $label = Engine_Api::_()->getApi('job', 'recruiter')->getJobLabels($selected_types); ?>
+                    <li>
+                        <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->position); ?>
+                        <div class="pt-lv1"><span class="<?php echo $label[0] ?>"><?php echo $label[1] ?></span></div>
+                        <div class="pt-lv2">
+                            <h3>
+                                <?php $text = $item->position; ?>
+                                <?php echo $this->htmlLink(array('route' => 'view-job', 'id' => $item->job_id, 'slug' => $slug), $text) ?>
+                            </h3>
+                            <span>Company Name</span>
+                        </div>
+                        <div class="pt-lv3">
+                            <p class="pt-address"><span></span><?php echo $this->city($item->city_id)->name ?></p>
+                        </div>
+                        <div class="pt-lv4">
+                            <div class="pt-user-name">
+                                <?php $user = $item->getUser(); ?>
+                                <?php $avatar = $this->itemPhoto($user, 'thumb.icon', $user->getTitle()) ?>
+                                <a href="<?php echo $user->getHref() ?>" class="pt-avatar">
+                                    <?php echo $avatar ?>
+                                </a>
+                                <strong>Đăng bởi:</strong>
+                                <p><a href="<?php echo $user->getHref() ?>"><?php echo $user->getTitle() ?></a><span>- <?php echo date('d F Y', strtotime($item->creation_date)); ?></span></p><p></p>
+                            </div>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <div class="pt-paging">
+                <?php echo $this->paginationControl($paginator); ?>
+            </div>
         </div>
-
+    <?php else: ?>
+        <span>
+            <?php echo $this->translate("Haven't job in company during this time.") ?>
+        </span>
     <?php endif; ?>
 </div>
-<?php if (count($paginator) > 0): ?>
-    <?php echo $this->paginationControl($paginator); ?>
-<?php endif; ?>
 <script type="text/javascript">
     function delete_profile(profile_id) {
         var url = "<?php echo $this->baseUrl() . '/recruiter/index/delete-profile' ?>";

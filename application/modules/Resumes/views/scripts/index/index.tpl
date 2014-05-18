@@ -2,7 +2,9 @@
     <ul class="pt-list-job-ul">
         <?php foreach ($this->paginator as $item): ?>
             <li class="news">
-                <div class="pt-lv1"><span class="pt-fulltime">Full Time</span></div>
+                <?php $selected_types = Engine_Api::_()->getApi('job', 'recruiter')->getTypeOfJob($item->job_id); ?>
+                <?php $label = Engine_Api::_()->getApi('job', 'recruiter')->getJobLabels($selected_types); ?>
+                <div class="pt-lv1"><span class="<?php echo $label[0] ?>"><?php echo $label[1] ?></span></div>
                 <div class="pt-lv2">
                     <h3>
                         <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->position); ?>

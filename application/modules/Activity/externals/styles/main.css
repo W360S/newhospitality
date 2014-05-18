@@ -351,7 +351,10 @@ ul.feed .feed_item_posted .view_less_link
 div.feed_viewmore
 {
   border-top-width: 1px;
-  padding-top: 5px;
+  width: 85px;
+  margin: 0 auto;
+  padding: 15px;
+
 }
 
 

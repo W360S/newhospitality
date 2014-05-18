@@ -96,7 +96,10 @@ function isLibraryPage() {
 
 
 function isJobPage() {
-    return (document.URL.indexOf("/resumes") != -1) || (document.URL.indexOf("/recruiter") != -1);
+    return (document.URL.indexOf("/resumes") != -1) 
+                || (document.URL.indexOf("/recruiter") != -1)
+                || (document.URL.indexOf("/profile_company") != -1)
+    ;
 }
 
 jQuery(document).ready(function($) {

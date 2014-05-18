@@ -22,12 +22,16 @@
             var subject_guid = '<?php echo $this->subjectGuid ?>';
             var endOfFeed = <?php echo ( $this->endOfFeed ? 'true' : 'false' ) ?>;
 
+            var is_loading_more = false;
+
             var activityViewMore = window.activityViewMore = function(next_id, subject_guid) {
                 console.log("window.activityViewMore");
                 console.log(next_id);
                 console.log(subject_guid);
                 if (en4.core.request.isRequestActive())
                     return;
+
+                //is_loading_more = true;
 
                 var url = '<?php echo $this->url(array('module' => 'core', 'controller' => 'widget', 'action' => 'index', 'content_id' => $this->identity), 'default', true) ?>';
                 $('feed_viewmore').style.display = 'none';
@@ -51,9 +55,17 @@
                         en4.core.runonce.trigger();
                         Smoothbox.bind($('activity-feed'));
                         
+                        is_loading_more = false;
                     }
                 });
-                request.send();
+                
+                if(is_loading_more === true){
+                    
+                }else{
+                    request.send();
+                    is_loading_more = true;
+                }
+                
             }
 
             if (next_id > 0 && !endOfFeed) {

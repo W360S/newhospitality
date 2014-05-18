@@ -72,6 +72,10 @@ $profile = $this->profile;
                         <div class="job_date">
                             <?php echo $form->deadline; ?>
                         </div>
+                    </fieldset>
+                </div>
+                <div class="fieldset-wrapper">
+                    <fieldset>
                         <h3 class="pt-title-right"><?php echo $this->translate("Contact information"); ?></h3>
                         <div class="input contact_name">
                             <?php echo $form->contact_name; ?>

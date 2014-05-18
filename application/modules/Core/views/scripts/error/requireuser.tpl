@@ -10,6 +10,18 @@
  * @author     John
  */
 ?>
+<style type="text/css"> 
+    #global_page_core-error-requireuser #global_content .layout_middle{min-height: inherit;width: inherit;float: none;  padding: 0; border: none;}
+    #global_page_core-error-requireuser #global_content .layout_middle #wd-content-container{margin: 30px 0px}
+    #global_page_core-error-requireuser .layout_page_header .layout_main{width: 990px}
+    #global_page_core-error-requireuser .layout_page_footer .layout_main{width: 990px}
+    #global_page_core-error-requireuser input[type='password']{width: inherit;}
+    #global_page_core-error-requireuser .form-element input{width: inherit;}
+    #global_page_core-error-requireuser .form-wrapper{height: 45px;margin: 15px 0px}
+    #global_page_core-error-requireuser .form-element {width: 275px}
+    #global_page_core-error-requireuser .form-label {font-size: 12px}
+    #global_page_core-error-requireuser .form-errors {display: none;}
+</style>
 <div id="wd-content-container">
     <div class="wd-center">
         <div class="pt-signin">

@@ -351,6 +351,12 @@ EOF;
 
         if (!$this->_helper->requireSubject()->isValid())
             return;
+        
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+        
         //Save entry
         if (!$this->getRequest()->isPost()) {
 
@@ -393,6 +399,8 @@ EOF;
             $db->rollBack();
             throw $e;
         }
+        
+        
     }
 
     //manage job
@@ -997,7 +1005,10 @@ EOF;
 
     //member view applied job
     public function myApplyAction() {
-        
+        $this->_helper->content
+                ->setContentName(45) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     //authoried to resolved

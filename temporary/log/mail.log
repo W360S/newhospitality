@@ -22,3 +22,17 @@
 2014-05-17T02:43:35+00:00 DEBUG (7): [System] (notify_liked) hoa.ngo@hospitality.vn <- email@domain.com
 2014-05-17T02:43:35+00:00 DEBUG (7): [Zend] huyvu223@gmail.com <- email@domain.com
 2014-05-17T02:43:35+00:00 DEBUG (7): [System] (notify_liked) huyvu223@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [Zend] thanhnhi.t2@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [System] (notify_liked) thanhnhi.t2@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [Zend] nganthao90@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [System] (notify_liked) nganthao90@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [Zend] Hongnudl@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [System] (notify_commented) Hongnudl@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [Zend] Hongnudl@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [System] (notify_commented) Hongnudl@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [Zend] ngocvinhxt@gmail.com <- email@domain.com
+2014-05-17T07:09:36+00:00 DEBUG (7): [System] (notify_liked) ngocvinhxt@gmail.com <- email@domain.com
+2014-05-18T08:38:06+00:00 DEBUG (7): [Zend] huynhnv88@gmail.com <- email@domain.com
+2014-05-18T08:38:06+00:00 DEBUG (7): [System] (notify_commented) huynhnv88@gmail.com <- email@domain.com
+2014-05-18T12:51:00+00:00 DEBUG (7): [Zend] ngocvinhxt@gmail.com <- email@domain.com
+2014-05-18T12:51:00+00:00 DEBUG (7): [System] (notify_liked) ngocvinhxt@gmail.com <- email@domain.com
