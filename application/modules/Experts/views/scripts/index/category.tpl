@@ -1,7 +1,4 @@
-<style>
-.wd-content-left { width:204px; float:left; padding-top:20px;}
-.pt-subpage  .wd-center  {width:1188px !important}
-</style>
+
 <div id="wd-content-container">
 <div class="wd-center">
 	<div class="wd-content-left">
@@ -39,7 +36,10 @@
 										<a href="#" class="pt-replys pt-replys-no" ><span><span><?php echo $item->cnt_answer; ?></span><span>Trả lời</span></a>
 									</div>
 									<h3><a href="<?php echo $this->url(array('module' => 'experts', 'controller' => 'index', 'action' => 'detail', 'question_id' => $item->question_id, 'slug' => $slug), 'default', true); ?>"><?php echo $item->title; ?></a></h3>
-									<p><?php //echo $this->substring($item->content,200); ?></p>
+									<p><?php //echo $this->substring($item->content,200); 
+									$content = Engine_Api::_()->library()->truncate($item->content, 200, "...", false); 
+									echo $content;
+									?></p>
 									<p class="last"><strong>Chuyên mục:</strong><a href="<?php echo $this->url(array('module' => 'experts', 'controller' => 'index', 'action' => 'category', 'category_id' => $this->paginator->category_id,), 'default', true); ?>"><?php echo $this->paginator->category_name; ?> </a>-<strong><?php echo $this->translate('Asked by') ?>:</strong><a href="<?php echo $this->baseUrl("/") . "profile/" . $item->username; ?>"> <?php echo $item->username; ?> </a>- <span><?php echo $this->timestamp($item->created_date); ?></span></p>
 								</li>
 								<?php endforeach; ?>

@@ -41,7 +41,7 @@
 	<?php endforeach; ?>
 </ul>
 <div class="pt-paging">
-	<?php echo $this->paginationControl($this->paginator, null, "application/modules/Experts/views/scripts/pagination-category.tpl"); ?>
+	<?php echo $this->paginationControl($this->paginator, null, "application/modules/Experts/views/scripts/pagination-search.tpl"); ?>
 </div>
 <?php else: ?>
 <?php echo $this->translate("Haven't question in this category"); ?>

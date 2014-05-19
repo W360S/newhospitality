@@ -69,11 +69,7 @@
 							</div>
 						</div>
 						<div class="pt-block">
-							<h3 class="pt-title-right">tiểu sử </h3>
-							<div class="pt-how-story">
-								<a href="#" class="pt-link-01">Câu hỏi của tôi</a>
-								<a href="#" class="pt-link-02">Câu trả lời của tôi</a>
-							</div>
+							<?php echo $this->content()->renderWidget('experts.my-accounts'); ?>
 						</div>
 					
 						<div class="pt-block">

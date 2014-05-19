@@ -1,15 +1,7 @@
+
 <style style="text/css">
-	.wd-content-container .wd-center {
-	width: 1188px !important;
-}
-</style>
-<style style="text/css">
-.wd-content-left { width:204px; float:left; padding-top:20px;}
 .panel {float:left;margin-right:3px;position:relative;z-index:99;margin-top:1px}
-/*
-.panel .trigger {background:#fff url(~/application/modules/Core/externals/images/arrow-17.gif) right 2px no-repeat;border:1px solid #999;cursor:pointer;height:20px;overflow:hidden;width:148px;padding-left:10px;line-height:22px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px}
-.panel .content {background:#fff url(~/application/modules/Core/externals/images/gradient-1.gif) left bottom repeat-x;border:1px solid #DCDCDC;padding:10px;right:0;top:24px;width:138px;z-index:100; height: 205px; overflow: auto;}
-*/
+
 .panel .content .s-input{float:left;margin-bottom:6px;clear:both;width:138px}
 .panel .content .s-input input{margin:0 3px 0 0;width:auto;border:none;color:#fff;font-size:0px;display:inline-block }
 .panel .content .s-input label {font-weight:normal;line-height:15px; float:left;display:inline-block;width:115px}
@@ -22,10 +14,11 @@ text-align:left;
 }
 .panel #content_compose_title, .panel #content_compose_experts{
 width: 268px;
+height: auto;
 }
 
 #content_compose_title div.s-input{
-width: 400px;
+width: auto;
 }    
 
 #content_compose_title div.s-input label{
@@ -133,11 +126,11 @@ z-index: 90;
     jQuery('#questions_create').validate({
 		messages : {
 			"title" : {
-			     required: "<?php echo $this->translate('Title is not empty (*)')?>",
+			     required: "<?php echo $this->translate('Question is not empty (*)')?>",
                  maxlength: "<?php echo $this->translate('Please enter no more than 160 characters.')?>"
              },
             "description" : {
-                required: "<?php echo $this->translate('Description is not empty (*)')?>"
+                required: "<?php echo $this->translate('Content is not empty (*)')?>"
             },
             "check_select_experts" : {
                 required: "<?php echo $this->translate('Please choose expert (*)')?>"
@@ -207,9 +200,9 @@ z-index: 90;
           }
         });
     });
-    
+    jQuery('#content_compose_title').hide();
     jQuery('#trigger_compose_title').bind('click', function(){
-        jQuery(this).siblings('#content_compose_title').slideDown();
+        jQuery(this).siblings('#content_compose_title').slideToggle();
     });
  });
 </script>
@@ -312,7 +305,7 @@ if(isset($this->description)) $desc = $this->description;
 							<?php echo $this->content()->renderWidget('experts.post-question'); ?>
 						</div>
 						<div class="pt-block">
-							<?php echo $this->content()->renderWidget('experts.post-question'); ?>
+							<?php echo $this->content()->renderWidget('experts.my-accounts'); ?>
 						</div>
 					
 						<div class="pt-block">

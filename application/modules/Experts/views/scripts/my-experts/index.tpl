@@ -1,8 +1,4 @@
 <style>
-.wd-content-left { width:204px; float:left; padding-top:20px;}
-.pt-subpage  .wd-center  {width:1188px !important}
-.pt-comment-text .pt-submit-comment { margin-left:0px !important;}
-.pt-comment-text .pt-textarea {width:528px !important;}
 
 </style>
 <div id="wd-content-container">

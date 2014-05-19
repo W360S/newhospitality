@@ -72,7 +72,8 @@ a.library-report-link { background: url(~/application/modules/Library/externals/
 }
 ul.pt-list-library li{
     margin-right: 45px !important;
-    width: 142px !important;;
+    width: 142px !important;
+    height: 435px;
 }
 
 ul.pt-list-library li span {

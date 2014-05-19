@@ -1078,7 +1078,7 @@ class Experts_Api_Core extends Core_Api_Abstract
   }
   
   public function myExpertCount($user_id){
-    $table  = Engine_Api::_()->getDbTable('questions', 'experts');
+    $table  = Engine_Api::_()->getDbTable('answers', 'experts');
     $rName = $table->info('name');
     
     $select = $table->select()

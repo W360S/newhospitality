@@ -68,7 +68,7 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
     ->group('engine4_experts_questionscategories.question_id')
     ->order('engine4_experts_questions.created_date DESC');
     
-    $this->view->view_user = $this->_getParam('displayname');
+    $this->view->view_user = $this->_getParam('view_user');
     $this->view->status = $status;
     $paginator = $this->view->paginator = Zend_Paginator::factory($questions_select);
     $paginator->setItemCountPerPage(10);
@@ -227,7 +227,7 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
             Engine_Api::_()->experts()->createCategoriesQuestion($arr_cats, $new_id_question);
             
             // Add Recipients
-            Engine_Api::_()->experts()->createRecipients($arr_exp, $new_id_question);
+            //Engine_Api::_()->experts()->createRecipients($arr_exp, $new_id_question);
             
             // send email to experts 
             $link = 'http://'
@@ -247,31 +247,8 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
             $body = $content;
             
             $db->commit();
-            /*huynhnv add */
             
-			// Send
-              try {
-                foreach($arr_exp as $item){
-                    $expert_data = Engine_Api::_()->getDbtable('users', 'user')->find($item)->current();
-                    // Main params
-                   $defaultParams = array(
-                    'host' => $_SERVER['HTTP_HOST'],
-                    'email' => $expert_data->email,
-                    'date' => time(),
-                    'sender_title'=> $user_data->displayname,
-                    'object_title'=> $title,
-                    'object_link' => $link, 
-                    'object_description' => $body
-                  );
-                    Engine_Api::_()->getApi('mail', 'core')->sendSystem($expert_data,
-                    'expert_question', $defaultParams);
-                }
-                
-              } catch( Exception $e ) {
-                // Silence exception
-              }
-              /*huynhnv end*/
-			   print_r('{"message": "success"}');die;
+			 //  print_r('{"message": "success"}');die;
             
            }
            catch( Exception $e )

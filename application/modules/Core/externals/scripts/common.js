@@ -1,4 +1,5 @@
-;jQuery.noConflict();
+;
+jQuery.noConflict();
 
 jQuery(document).ready(function($) {
     var member_home_url = "/members/home";
@@ -6,7 +7,7 @@ jQuery(document).ready(function($) {
     var events_index_url = "/events";
     var album_index_url = "/albums";
     var groups_index_url = "/group";
-//    var groups_index_url = "/groups";
+    //    var groups_index_url = "/groups";
 
     console.log('/application/modules/Core/externals/scripts/common.js');
 
@@ -92,7 +93,7 @@ function isMemberHomePage() {
 }
 
 function isExpertPage() {
-    return document.URL.indexOf("/experts");
+    return document.URL.indexOf("/expert");
 }
 
 function isLibraryPage() {
@@ -101,10 +102,7 @@ function isLibraryPage() {
 
 
 function isJobPage() {
-    return (document.URL.indexOf("/resumes") != -1) 
-                || (document.URL.indexOf("/recruiter") != -1)
-                || (document.URL.indexOf("/profile_company") != -1)
-    ;
+    return (document.URL.indexOf("/resumes") != -1) || (document.URL.indexOf("/recruiter") != -1) || (document.URL.indexOf("/profile_company") != -1);
 }
 
 jQuery(document).ready(function($) {
@@ -121,7 +119,7 @@ jQuery(document).ready(function($) {
         if (isExpertPage() != -1) {
             $(".head-menu-item-expert").addClass("pt-active");
         }
-        
+
         if (isLibraryPage() != -1) {
             $(".head-menu-item-library").addClass("pt-active");
         }

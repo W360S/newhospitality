@@ -1,10 +1,3 @@
-<style>
-    .error{ color: red}
-    label.error{width: 100px !important;}
-    .list_my_questions table.my_experts tr.form_answer td p {
-        width: auto !important;
-    }
-</style>
 <script type="text/javascript" src="<?php echo $this->baseUrl('/').'externals/tinymce/tiny_mce.js' ?>"></script> 
 <script type="text/javascript"> 
     tinyMCE.init({ 
@@ -389,21 +382,21 @@
 							</table>
 						</td>
 					</tr>
-                    <tr class="container_func">
+					<tr class="container_func">
     					<td>
     						<?php if($data->status == 1): ?>
-                                <a href="<?php echo $this->baseUrl("/")."experts/my-experts/cancel/question_id/".$data->question_id; ?>" class="smoothbox bt_cancel"><?php echo $this->translate('cancel'); ?></a>
-                            <?php endif; ?>
+						<a href="<?php echo $this->baseUrl("/")."experts/my-experts/cancel/question_id/".$data->question_id; ?>" class="smoothbox bt_cancel"><?php echo $this->translate('cancel'); ?></a>
+						<?php endif; ?>
                             
-                            <?php if($data->status == 2): ?>
-                                <a href="<?php echo $this->baseUrl("/")."experts/my-experts/close/question_id/".$data->question_id; ?>" class="smoothbox bt_cancel"><?php echo $this->translate('close'); ?></a>
-                            <?php endif; ?>
+						<?php if($data->status == 2): ?>
+						<a href="<?php echo $this->baseUrl("/")."experts/my-experts/close/question_id/".$data->question_id; ?>" class="smoothbox bt_cancel"><?php echo $this->translate('close'); ?></a>
+						<?php endif; ?>
                             
-                            <?php if(in_array($data->status,array(1,3,4))): ?>
-                                <a href="<?php echo $this->baseUrl("/")."experts/my-experts/delete/question_id/".$data->question_id; ?>" class="smoothbox bt_cancel"><?php echo $this->translate('delete'); ?></a>
-                            <?php endif; ?>
+						<?php if(in_array($data->status,array(1,3,4))): ?>
+						<a href="<?php echo $this->baseUrl("/")."experts/my-experts/delete/question_id/".$data->question_id; ?>" class="smoothbox bt_cancel"><?php echo $this->translate('delete'); ?></a>
+						<?php endif; ?>
     					</td>
-    				</tr>
+    					</tr>
 				</table>
             </div>
 		</div>
