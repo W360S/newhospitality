@@ -65,11 +65,11 @@
 	width:215px;
 	color: #777F82;
 }
-.pt-title-from-02 {
+.pt-title-from-second {
     margin: 30px 100px;
     overflow: hidden;
 }
-.pt-title-from-02 ol {
+.pt-title-from-second ol {
     list-style: initial;
     margin-left: 16px;
 }
@@ -150,9 +150,9 @@
       <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
       <?php echo $this->translate("Loading ...") ?>
     </div>
-    <div class="pt-signin pt-from-01 pt-from-02">
+    <div class="pt-signin pt-from-first pt-from-second">
     <form id="resume_reference_form" action="<?php echo $form->getAction();?>" method="post" enctype="application/x-www-form-urlencoded">
-    	<div class="pt-title-from-02">
+    	<div class="pt-title-from-second">
 			<strong>Mô tả chi tiết:</strong>
 			<ol>
 				<li>Những nhận xét từ đồng nghiệp/thầy cô/bạn bè sẽ giúp nhà tuyển dụng hiểu rõ hơn về tính cách và năng lực của bạn. Nên chọn người bạn nghĩ sẽ đưa ra nhận xét tốt.</li>

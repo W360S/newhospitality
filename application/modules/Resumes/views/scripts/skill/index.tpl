@@ -47,7 +47,7 @@ $references = $this->references;
     </div>
 
     <div class="main-form-wrapper">
-        <div class="pt-title-from-02">
+        <div class="pt-title-from-second">
             <div class="lang-skill">
                 <div id="list-skills">
 

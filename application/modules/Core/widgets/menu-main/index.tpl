@@ -22,7 +22,7 @@
       ?>
      * 
      */ ?>
-    <ul class="pt-menu-header-line">
+<ul class="pt-menu-header-line">
         <li>
             <a href="<?php echo rtrim($this->baseUrl(), '/') ?>" class="head-menu-item head-menu-item-member-home">
                 <span class="pt-icon-menu-header-line pt-icon-community"></span>
@@ -41,12 +41,12 @@
                 <p>Hỏi Đáp</p>
             </a>
         </li>
-        <li>
+<!--        <li>
             <a href="javascript:void(0)" class="head-menu-item">
                 <span class="pt-icon-menu-header-line pt-icon-fair"></span>
                 <p>Chợ Phiên</p>
             </a>
-        </li>
+        </li>-->
         <li>
             <a href="<?php echo rtrim($this->baseUrl(), '/') ?>/library" class="head-menu-item head-menu-item-library">
                 <span class="pt-icon-menu-header-line pt-icon-library"></span>

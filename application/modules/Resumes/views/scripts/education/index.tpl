@@ -47,7 +47,7 @@ $references = $this->references;
     </div>
     <div class="main-form-wrapper">
         <form id="resume_education_form" method="post" action="<?php echo $form->getAction(); ?>" enctype="application/x-www-form-urlencoded">
-            <div class="pt-title-from-02">
+            <div class="pt-title-from-second">
                 <div id="list-educations">
 
                 </div>

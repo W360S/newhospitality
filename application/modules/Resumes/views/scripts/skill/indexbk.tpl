@@ -64,11 +64,11 @@
 	width:215px;
 	color: #777F82;
 }
-.pt-title-from-02 {
+.pt-title-from-second {
     margin: 30px 100px;
     overflow: hidden;
 }
-.pt-title-from-02 ol {
+.pt-title-from-second ol {
     list-style: initial;
     margin-left: 16px;
 }
@@ -147,7 +147,7 @@
       <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
       <?php echo $this->translate("Loading ...") ?>
     </div>
-    <div class="pt-signin pt-from-01 pt-from-02">
+    <div class="pt-signin pt-from-first pt-from-second">
    <form id="resume_skill_form" action="<?php echo $form->getAction();?>" method="post" enctype="application/x-www-form-urlencoded">
      <fieldset class="job-form job-form-step-2">
 		<div class="input">
@@ -167,7 +167,7 @@
     <input type="hidden" value="<?php echo $resume_id ?>" id="resume_id_skill" />
     <!-- other skill-->
     <form id="resume_other_skill_form" action="<?php echo $form_other->getAction();?>" method="post" enctype="application/x-www-form-urlencoded">
-    <div class="pt-title-from-02">
+    <div class="pt-title-from-second">
 			<strong>Mô tả chi tiết:</strong>
 			<ol>
 				<li>Liệt kê những kỹ năng chuyên môn mà bạn có.</li>

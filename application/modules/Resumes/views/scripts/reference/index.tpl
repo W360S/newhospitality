@@ -45,7 +45,7 @@ $references = $this->references;
         <?php echo $this->translate("Loading ...") ?>
     </div>
     <div class="main-form-wrapper">
-        <div class="pt-title-from-02">
+        <div class="pt-title-from-second">
             <div id="list-references">
 
             </div>

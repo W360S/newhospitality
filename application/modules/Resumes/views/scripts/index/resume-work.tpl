@@ -46,9 +46,9 @@ $references = $this->references;
         <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
         <?php echo $this->translate("Loading ...") ?>
     </div>
-    <div class="pt-signin pt-from-01 pt-from-02">
+    <div class="pt-signin pt-from-first pt-from-second">
         <form id="resume_work_form" action="<?php echo $this->baseUrl() . $form->getAction(); ?>" method="post" enctype="application/x-www-form-urlencoded">
-            <div class="pt-title-from-02">
+            <div class="pt-title-from-second">
                 <div id="list-works-experiences">
                 </div>
                 <div id="form-works-experience" style="display: none">
