@@ -16,12 +16,13 @@
     <a href="#"><span class="pt-avatar"><?php echo $this->itemPhoto($subject) ?></span></a>
     <div class="pt-how-info-boss">
             <h3><a href="javascript:void(0)"><?php echo $subject->getTitle() ?></a></h3>
-            <p><a href="javascript:void(0)">Bartender tại Crown Plaza</a></p>
-            <p><a href="javascript:void(0)"><span></span>Đà nẵng, Việt nam</a></p>
+            <p><?php echo $subject->getFieldByAlias("occupation") ?></p>
+            <p><a><span></span></a><?php echo $subject->getFieldByAlias("from") ?></p>
     </div>
     <div class="pt-how-link">
-            <a href="#" class="pt-friends"><span></span>Bạn bè</a>
-            <a href="#pt-fancybox-message" class="pt-message-boss"><span></span></a>
+            <!--<a href="#" class="pt-friends"><span></span>Bạn bè</a>-->
+            <?php echo $this->userFriendship($subject, null, " pt-friends") ?>
+            <a href="/messages/compose/to/<?php echo $subject->user_id ?>" class="pt-message-boss"><span></span></a>
             <div class="pt-none">
                     <div id="pt-fancybox-message" class="pt-info-message">
                             <h3>Gửi tin nhắn</h3>

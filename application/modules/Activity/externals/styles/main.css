@@ -306,28 +306,6 @@ ul.feed .feed_item_link_desc
   font-size: 0.8em;
 }
 
-/*ul.feed .comments
-{
-  width: 360px;
-}
-ul.feed .comments textarea
-{
-  font-size: 8pt;
-}
-ul.feed .comments textarea + button
-{
-  display: none;
-  font-size: .8em;
-}
-ul.feed .comments textarea:focus + button
-{
-  display: block;
-}
-ul.feed .comments > ul > li > div > a > img
-{
-  width: 32px;
-  height: 32px;
-}*/
 ul.feed span.view_more .view_more_link
 {
   display: inline-block;
@@ -364,13 +342,7 @@ Compatibility for lack of theme updates
 */
 div.comments_comment_likes_tips
 {
-  /*border: 1px solid $theme_foreground_border_color;
-  padding: 4px 7px;
-  background-color: $theme_foreground_background_color;
-  color: $theme_font_color_light;
-  font-size: 0.9em;*/
   background-color: #282828;color: #fff;
-  /*padding: 6px 8px;*/
   text-align: left;white-space: nowrap;-webkit-border-radius: 4px;
 }
 

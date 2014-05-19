@@ -119,40 +119,42 @@
                         <a href="<?php echo $member->getHref() ?>"><span class="pt-avatar"><?php echo $this->itemPhoto($member, 'thumb.icon') ?></span></a>
                         <div class="pt-how-info-user-post">
                                 <h3><a href="<?php echo $member->getHref() ?>"><?php echo $member->getTitle() ?></a></h3>
-                                <p>Bartender tại Crown Plaza</p>
+                                <p><?php echo $member->getFieldByAlias("occupation") ?></p>
                         </div>
-                        <a href="#" class="pt-link-add">Kết bạn</a>
+                        <!--<a href="#" class="pt-link-add">Kết bạn</a>-->
+                        <?php echo $this->userFriendship($member) ?>
+                        <?php if ($this->group->isOwner($this->viewer())): ?>
+                            <?php if (!$this->group->isOwner($member) && $memberInfo->active == true): ?>
+                                <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'remove', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Remove Member'), array(
+                                    'class' => 'buttonlink smoothbox icon_friend_remove')) ?>
+                            <?php endif; ?>
+                            <?php if ($memberInfo->active == false && $memberInfo->resource_approved == false): ?>
+                                <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'approve', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Approve Request'), array(
+                                    'class' => 'buttonlink smoothbox icon_group_accept'))?>
+                                <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'reject', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Reject Request'), array(
+                                    'class' => 'buttonlink smoothbox icon_group_reject'))?>
+                            <?php endif; ?>
+                            <?php if ($memberInfo->active == false && $memberInfo->resource_approved == true): ?>
+                                <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'deinvite', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Cancel Invite'), array(
+                                    'class' => 'buttonlink smoothbox icon_group_cancel'))?>
+                            <?php endif; ?>
+                            <?php if ($memberInfo->active): ?>
+                                <?php if ($isOfficer): ?>
+                                    <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'demote', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Demote Officer'), array(
+                                        'class' => 'buttonlink smoothbox icon_group_demote'))?>
+                                <?php elseif (!$this->group->isOwner($member)): ?>
+                                    <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'promote', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Make Officer'), array(
+                                        'class' => 'buttonlink smoothbox icon_group_promote'))?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
                 </div>
                 
                 <?php /*
                 <?php echo $this->htmlLink($member->getHref(), $this->itemPhoto($member, 'thumb.icon'), array('class' => 'group_members_icon')) ?>
                 <div class='group_members_options'>
                     <?php echo $this->userFriendship($member) ?>
-                    <?php if ($this->group->isOwner($this->viewer())): ?>
-                        <?php if (!$this->group->isOwner($member) && $memberInfo->active == true): ?>
-                            <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'remove', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Remove Member'), array(
-                                'class' => 'buttonlink smoothbox icon_friend_remove')) ?>
-                        <?php endif; ?>
-                        <?php if ($memberInfo->active == false && $memberInfo->resource_approved == false): ?>
-                            <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'approve', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Approve Request'), array(
-                                'class' => 'buttonlink smoothbox icon_group_accept'))?>
-                            <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'reject', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Reject Request'), array(
-                                'class' => 'buttonlink smoothbox icon_group_reject'))?>
-                        <?php endif; ?>
-                        <?php if ($memberInfo->active == false && $memberInfo->resource_approved == true): ?>
-                            <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'deinvite', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Cancel Invite'), array(
-                                'class' => 'buttonlink smoothbox icon_group_cancel'))?>
-                        <?php endif; ?>
-                        <?php if ($memberInfo->active): ?>
-                            <?php if ($isOfficer): ?>
-                                <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'demote', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Demote Officer'), array(
-                                    'class' => 'buttonlink smoothbox icon_group_demote'))?>
-                            <?php elseif (!$this->group->isOwner($member)): ?>
-                                <?php echo $this->htmlLink(array('route' => 'group_extended', 'controller' => 'member', 'action' => 'promote', 'group_id' => $this->group->getIdentity(), 'user_id' => $member->getIdentity()), $this->translate('Make Officer'), array(
-                                    'class' => 'buttonlink smoothbox icon_group_promote'))?>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    <?php endif; ?>
+                    
                 </div>
                 <div class='group_members_body'>
                     <div>

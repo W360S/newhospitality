@@ -63,34 +63,6 @@ li .content_questions h3 a:hover { color: #027a9f; }
 #breadcrumb a, #breadcrumb span, #breadcrumb strong { float: left; }
 #breadcrumb span { background: url(~/application/modules/Core/externals/images/arrow_title.gif) no-repeat center; overflow: hidden; text-indent: -1983em; width: 30px; }
 
-/* job-form */
-/*
-.job-form { padding: 19px; }
-.job-form h3 { border-bottom: #cfcfcf solid 1px; color: #808080; font-size: 1.15em; margin: 10px 0; padding: 5px 0; text-transform: uppercase; }
-.job-form .input { overflow: hidden; padding: 7px 0; }
-.job-form .input label { color: #000; float: left; font-weight: bolder; line-height: 37px; margin-right: 10px; text-align: right; width: 90px; text-transform:capitalize; }
-.job-form .input input, .job-form .input select, .job-form .input textarea { border: #e5e5e5 solid 1px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; float: left; margin-right: 20px; padding: 9px; }
-.job-form .input select#country_id,.job-form .input select#city_id{width: 200px;}
-.job-form .job_date select#deadline-month, .job-form .job_date select#deadline-day, .job-form .job_date select#deadline-year{width: 110px;}
-.job-form .input input:focus, .job-form .input select:focus, .job-form .input textarea:focus { border-color: #999; }
-.job-form .input input { width: 350px; }
-.job-form .input input.min { width: 160px; }
-.job-form .input select { width: 370px; }
-.job-form .job_date label{ color: #000; float: left; font-weight: bolder; line-height: 37px; margin-top: 8px; margin-right: 10px; text-align: right; width: 90px; }
-.job-form .job_date select{ border: #e5e5e5 solid 1px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-top:9px; margin-right: 20px; padding: 9px; }
-
-.job-form .input textarea { height: 150px; overflow: auto; width: 460px !important; }
-.job-form .file label { line-height: 23px; }
-.job-form .file input { width: auto; }
-.job-form .input ul li { float: left; }
-.job-form .input ul li input { border: none; margin: 11px 7px 0 0; padding: 0; width: auto; }
-.job-form .input ul li label { font-weight: normal; margin-right: 20px; width: auto; }
-.job-form .submit { margin-top: 10px; overflow: hidden; padding-left: 100px; }
-.job-form .submit input { background: url(~/application/modules/Core/externals/images/bg-btn-1.png) no-repeat; border: none; color: #fff; cursor: pointer; float: left; font-size: 1.25em; font-weight: bolder; height: 35px; line-height: 35px; margin-right: 10px; text-align: center; width: 127px; }
-.job-form .submit input:hover { background-position: left -35px; }
-.job-form .submit input.min { background-image:  url(~/application/modules/Core/externals/images/bg-btn-2.png); width: 79px; }
-*/
-
 /* job-view-profile */
 .recruiter-view-profile .layout_left{padding-right:32px}
 .recruiter-view-profile .layout_middle{padding:0;margin-bottom:50px}
@@ -122,6 +94,5 @@ p a.share_job { background: url(~/application/modules/Recruiter/externals/images
 .link_jobs p.new_resume a{color: #028EB9;font-size: 1em; text-decoration: none; font-weight: normal;}
 .link_jobs p.new_resume a:hover{color: #000;}
 .function_extra a.save_candidate{background: url(~/application/modules/Recruiter/externals/images/bt_function_extra_save.png) no-repeat 0 -37px;}
-/*.share_job_icon{background: url(~/application/modules/School/externals/images/bg-share.gif) no-repeat; padding:6px 10px 5px 26px;}*/
 .search-company{padding:10px;}
 p.new_resume{width:195px;}

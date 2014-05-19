@@ -20,13 +20,6 @@ Styles for the browse and view album pages.
   margin-right: 15px;
 }
 
-.icon_photos_new
-{
-  xbackground-image: url(~/application/modules/Album/externals/images/add.png);
-}
-
-
-
 
 /*
 ACTIVITY FEED COMPOSER PHOTO
@@ -49,20 +42,6 @@ main feed.
   width: 160px;
   height:auto;
 }
-#compose-photo-form-fancy-file
-{
-  xbackground-image: url(~/application/modules/Album/externals/images/add.png);
-  margin-left:0;
-}
-
-
-
-
-
-
-
-
-
 
 /*
 VIEW MY ALBUMS
@@ -295,46 +274,11 @@ span.albums_tag_listcontainer > a
   font-weight: bold;
 }
 
-
-
-
 /* ACTION TYPE ICONS */
 .activity_icon_comment_album,
 .activity_icon_comment_album_photo
 {
   background-image: url(~/application/modules/Core/externals/images/types/post.png);
-}
-
-
-
-
-
-/* ITEM TYPE ICONS */
-.item_icon_album,
-.item_icon_album_photo
-{
-  xbackground-image: url(~/application/modules/Album/externals/images/types/album.png);
-}
-
-
-
-
-/* ICONS */
-.icon_photos_new
-{
-  xbackground-image: url(~/application/modules/Album/externals/images/add.png);
-}
-.icon_photos_manage
-{
-  xbackground-image: url(~/application/modules/Album/externals/images/album_manage.png);
-}
-.icon_photos_settings
-{
-  xbackground-image: url(~/application/modules/Album/externals/images/album_editinfo.png);
-}
-.icon_photos_delete
-{
-  xbackground-image: url(~/application/modules/Album/externals/images/album_delete.png);
 }
 
 #global_page_album-album-edit #albums_edit #buttons-wrapper #fieldset-buttons{padding-left: 167px;}

@@ -1239,51 +1239,10 @@ html[dir="rtl"] .icon_next
 {
   background-image: url(~/application/modules/Core/externals/images/comments.png);
 }
-/*.icon_viewmore
-{
-  background-image: url(~/application/modules/Core/externals/images/viewmore.png);
-}*/
 .icon_clearlist
 {
   background-image: url(~/application/modules/Core/externals/images/clear.png);
 }
-/*.icon_friend_add
-{
-  background-image: url(~/application/modules/User/externals/images/friends/add.png);
-}*/
-/*.icon_friend_remove
-{
-  background-image: url(~/application/modules/User/externals/images/friends/remove.png);
-}
-.icon_friend_cancel
-{
-  background-image: url(~/application/modules/User/externals/images/friends/remove.png);
-}
-.icon_friend_accept
-{
-  background-image: url(~/application/modules/User/externals/images/friends/add.png);
-}
-.icon_activity_post
-{
-  background-image: url(~/application/modules/Activity/externals/images/post.png);
-}
-.icon_report
-{
-  background-image: url(~/application/modules/Core/externals/images/report.png);
-}
-.icon_loading
-{
-  background-image: url(~/application/modules/Core/externals/images/loading.gif);
-}
-.icon_delete
-{
-  background-image: url(~/application/modules/Core/externals/images/delete.png);
-}*/
-
-
-
-
-
 
 
 

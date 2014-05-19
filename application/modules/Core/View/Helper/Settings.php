@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SocialEngine
  *
@@ -15,10 +16,10 @@
  * @package    Core
  * @copyright  Copyright 2006-2010 webligo Developments
  * @license    http://www.socialengine.com/license/ */
-class Core_View_Helper_Settings extends Zend_View_Helper_Abstract
-{
-  public function settings($key, $default = null)
-  {
-    return Engine_Api::_()->getApi('settings', 'core')->getSetting($key, $default);
-  }
+class Core_View_Helper_Settings extends Zend_View_Helper_Abstract {
+
+    public function settings($key, $default = null) {
+        return Engine_Api::_()->getApi('settings', 'core')->getSetting($key, $default);
+    }
+
 }

@@ -26,9 +26,20 @@
                     </p>
                 </div>
                 <div class="pt-how-link">
-                    <a href="/groups/member/join/group_id/<?php echo $this->group->group_id ?>" class="pt-adherence buttonlink smoothbox ">Join Group</a>
+                    <?php
+                    $group_actions = $this->actions();
+//                    print_r($group_actions);die;
+                    ?>
+                    <?php if (!isset($group_actions['label'])): ?>
+                        <?php foreach ($group_actions as $actions): ?>
+                            <?php echo $this->htmlLink(array('route' => $actions['route'], 'controller' => $actions['params']['controller'], 'action' => $actions['params']['action'], 'group_id' => $actions["params"]['group_id']), $actions['label'], array('class' => "pt-adherence buttonlink smoothbox")) ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <?php $actions = $group_actions; ?>
+                        <?php echo $this->htmlLink(array('route' => $actions['route'], 'controller' => $actions['params']['controller'], 'action' => $actions['params']['action'], 'group_id' => $actions["params"]['group_id']), $actions['label'], array('class' => "pt-adherence buttonlink smoothbox")) ?>
+                    <?php endif; ?>
+
                     <a href="/activity/index/share/type/group/id/<?php echo $this->group->group_id ?>/format/smoothbox" class="pt-share buttonlink smoothbox menu_group_profile group_profile_share">Share Group</a>
-                    
                     <a href="#" class="pt-editing">Editing</a>
                     <div class="pt-toggle-layout">
                         <div class="pt-icon-arrow"><span></span></div>
@@ -52,7 +63,7 @@
                 </div>
             </div>
             <div class="pt-conent-info-group-text">
-                <?php if( '' !== ($description = $this->group->description) ): ?>
+                <?php if ('' !== ($description = $this->group->description)): ?>
                     <?php echo $this->viewMore($description) ?>
                 <?php endif; ?>
             </div>

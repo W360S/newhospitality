@@ -36,3 +36,9 @@
 2014-05-18T08:38:06+00:00 DEBUG (7): [System] (notify_commented) huynhnv88@gmail.com <- email@domain.com
 2014-05-18T12:51:00+00:00 DEBUG (7): [Zend] ngocvinhxt@gmail.com <- email@domain.com
 2014-05-18T12:51:00+00:00 DEBUG (7): [System] (notify_liked) ngocvinhxt@gmail.com <- email@domain.com
+2014-05-19T16:31:18+00:00 DEBUG (7): [Zend] hoangbok@gmail.com <- support@hospitality.vn
+2014-05-19T16:31:18+00:00 DEBUG (7): [System] (notify_friend_request) hoangbok@gmail.com <- support@hospitality.vn
+2014-05-19T16:31:18+00:00 DEBUG (7): [Zend] bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-19T16:31:18+00:00 DEBUG (7): [System] (notify_liked) bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-19T16:31:18+00:00 DEBUG (7): [Zend] bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-19T16:31:18+00:00 DEBUG (7): [System] (notify_commented) bangvn.dng@gmail.com <- support@hospitality.vn

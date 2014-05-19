@@ -382,13 +382,6 @@ td.activitypoints_help_table_options > a + span.sep
   background-color: #79B4D4
 }
 
-/*
-.activitypoints-progress-wrap, .activitypoints-progress-value {
-  background: #bdbdbd url(/application/modules/Activitypoints/externals/images/progress.png) top left no-repeat;
-  background-color: #79B4D4
-}
-*/
-
 .activitypoints-progress-text {
   position: absolute;
   top:0; left:0;
