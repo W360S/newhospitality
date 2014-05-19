@@ -10,7 +10,7 @@
  */
 ?>
 <div class="pt-sigup">
-    <div class="pt-title-sigup-01">
+    <div class="pt-title-sigup-first">
     </div>
     <script type="text/javascript">
     //<![CDATA[

@@ -10,7 +10,7 @@
  */
 ?>
 <div class="pt-sigup">
-    <div class="pt-title-sigup-03">
+    <div class="pt-title-sigup-third">
     </div>
     <?php echo $this->form->render($this); ?>
 </div>

@@ -9,5 +9,6 @@
  * @author     Steve
  */
 ?>
-
+<div class="pt-content">
 <?php echo $this->form->render($this) ?>
+</div>

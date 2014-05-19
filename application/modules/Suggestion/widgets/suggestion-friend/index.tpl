@@ -52,7 +52,7 @@ $suggestion_home_array = ltrim($suggestion_home_array, ',');
                     </a>
                     <div class="pt-how-info-user-post">
                         <?php //echo	'<a style="margin-top:5px;" class="suggest_cancel" title="' . $this->translate('Do not show this suggestion') . '" href="javascript:void(0);" onclick="mixInfo(' . $path_info->user_id . ', \'suggestion_friend_' . $div_id . '\', \'friend\', \'friend\');"></a>'; ?>
-                        <h3 style="font-size:12px"><a href="<?php echo $path_info->getHref() ?>"><?php echo $path_info->getTitle() ?></a></h3>
+                        <h3><a href="<?php echo $path_info->getHref() ?>"><?php echo $path_info->getTitle() ?></a></h3>
                         <b><?php //echo $this->htmlLink($path_info->getHref(), Engine_Api::_()->suggestion()->truncateTitle($path_info->getTitle()), array('title' => $path_info->getTitle()));    ?></b>
                         <p>
                             <?php if (!empty($this->mutual_friend_array[$path_info->user_id])) : 
@@ -61,7 +61,7 @@ $suggestion_home_array = ltrim($suggestion_home_array, ',');
                         </p>
 
                     </div>
-                    <?php echo $this->userFriendship($path_info, null, "pt-link-add"); ?>
+                    <?php echo $this->userFriendship($path_info, null, " pt-link-add"); ?>
                     <div style="display:none">
                         <form enctype="application/x-www-form-urlencoded" id="ajax-add-friend-<?php echo $path_info->user_id ?>" action="/members/friends/add/user_id/<?php echo $path_info->user_id ?>">
 

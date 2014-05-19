@@ -10,18 +10,26 @@
  * @author     Steve
  */
 ?>
-
-<div class="headline">
-  <h2>
-    <?php echo $this->translate('My Settings');?>
-  </h2>
-  <div class="tabs">
-    <?php
-      // Render the menu
-      echo $this->navigation()
-        ->menu()
-        ->setContainer($this->navigation)
-        ->render();
-    ?>
-  </div>
+<div class="pt-block">
+    <h3 class="pt-title-right">Thong Tin Ca Nhan</h3>
+    <ul class="pt-list-cbth">
+        <li>
+            <span class="pt-text"><a class="menu_user_settings user_settings_general" href="/members/settings/general">General</a><span>
+        </li>
+<!--        <li>
+            <span class="pt-text"><a class="menu_user_settings user_settings_privacy" href="/members/settings/privacy">Privacy</a></span>
+        </li>
+        <li>
+            <span class="pt-text"><a class="menu_user_settings user_settings_network" href="/members/settings/network">Networks</a></span>
+        </li>
+        <li>
+            <span class="pt-text"><a class="menu_user_settings user_settings_notifications" href="/members/settings/notifications">Notifications</a></span>
+        </li>-->
+        <li>
+            <span class="pt-text"><a class="menu_user_settings user_settings_password" href="/members/settings/password">Change Password</a></span>
+        </li>
+        <li>
+            <span class="pt-text"><a class="menu_user_settings user_settings_delete" href="/members/settings/delete">Delete Account</a></span>
+        </li>
+    </ul>
 </div>

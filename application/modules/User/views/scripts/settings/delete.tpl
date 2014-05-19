@@ -9,7 +9,7 @@
  * @author     Steve
  */
 ?>
-
+<div class="pt-content">
 <?php if( $this->isLastSuperAdmin ):?>
   <div class="tip">
     <span>
@@ -19,3 +19,4 @@
 <?php return; endif; ?>
 
 <?php echo $this->form->setAttrib('id', 'user_form_settings_delete')->render($this) ?>
+</div>

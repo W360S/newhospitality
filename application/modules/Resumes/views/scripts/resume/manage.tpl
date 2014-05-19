@@ -4,9 +4,18 @@ $paginator = $this->paginator;
 $viewer_id = $this->viewer_id;
 $paginator_jobs = $this->paginator_jobs;
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Quản lý hồ sơ của tôi</span>
+        </li>
+    </ul>
+</div>
 <div class="resume_preview_main">
     <div class="subsection">
-        <h2><?php echo $this->translate('My Resumes') ?></h2>
         <div id="resume_loading" style="display: none;">
             <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
             <?php echo $this->translate("Loading ...") ?>
@@ -128,7 +137,6 @@ $paginator_jobs = $this->paginator_jobs;
 
         <?php if (count($paginator_jobs)): ?>
             <div class="banner_your_resumes">
-                <img src="<?php echo $this->baseUrl() . '/application/modules/Resumes/externals/images/img_banner_resume.jpg' ?>" alt="Banner" />
                 <p><strong><?php echo $this->translate("Found ") . $paginator_jobs->getTotalItemCount() . $this->translate(" jobs matching your resume.") ?></strong></p>
                 <p><?php echo $this->translate('There are no exact matching jobs, but below are the closest we could find in our system.'); ?></p>
 

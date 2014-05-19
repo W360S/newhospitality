@@ -9,12 +9,13 @@
  * @author     Steve
  */
 ?>
-
+<div class="pt-content">
 <div class="global_form">
   <?php if ($this->form->saveSuccessful): ?>
     <h3><?php echo $this->translate('Settings were successfully saved.');?></h3>
   <?php endif; ?>
   <?php echo $this->form->render($this) ?>
+</div>
 </div>
 
 <?php if( Zend_Controller_Front::getInstance()->getRequest()->getParam('format') == 'html' ): ?>

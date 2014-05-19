@@ -55,13 +55,13 @@
                     <div class="pt-toggle-layout-content">
                             <ul class="pt-edit">
                                     <li>
-                                            <a href="#"><span class="pt-icon-01"></span>Tặng coupon</a>
+                                            <a href="javascript:void(0)"><span class="pt-icon-01"></span>Tặng coupon</a>
                                     </li>
                                     <li>
-                                            <a href="#"><span class="pt-icon-02"></span>Thông báo</a>
+                                            <a href="javascript:void(0)"><span class="pt-icon-02"></span>Thông báo</a>
                                     </li>
                                     <li>
-                                            <a href="#"><span class="pt-icon-03"></span>Chặng thành viên</a>
+                                            <a href="javascript:void(0)"><span class="pt-icon-03"></span>Chặng thành viên</a>
                                     </li>
                             </ul>
                     </div>

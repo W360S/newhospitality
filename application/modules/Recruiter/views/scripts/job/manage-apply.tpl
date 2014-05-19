@@ -2,6 +2,16 @@
 $paginator = $this->paginator;
 $user_id = $this->user_id;
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Hồ sơ đã nộp</span>
+        </li>
+    </ul>
+</div>
 <div class="job_main_manage">
 
     <div id="loading" style="display: none;">

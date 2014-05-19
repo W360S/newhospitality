@@ -25,6 +25,16 @@
 $paginator = $this->paginator;
 $viewer_id = $this->viewer_id;
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Các công việc đã lưu</span>
+        </li>
+    </ul>
+</div>
 <div class="job_main_manage">
     <div class="bt-loading-detele pt-fix-title">
         <a class="pt-loading" href="<?php echo $this->baseUrl() . '/recruiter/job/save-job' ?>"></a>

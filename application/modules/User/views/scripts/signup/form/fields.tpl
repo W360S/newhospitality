@@ -11,7 +11,7 @@
  */
 ?>
 <div class="pt-sigup">
-    <div class="pt-title-sigup-02">
+    <div class="pt-title-sigup-second">
     </div>
     <?php
     /* Include the common user-end field switching javascript */
