@@ -1,13 +1,3 @@
-
-/* $Id: main.css 10039 2013-04-11 22:08:32Z john $ */
-
-
-
-/*
-SIGN IN OR JOIN WIDGET
-Used to style the mini login form, usually
-diplayed on the main portal page.
-*/
 .layout_user_login_or_signup
 {
   margin-bottom: 15px;
@@ -170,21 +160,6 @@ html[dir="rtl"] .layout_user_list_online .whosonline_thumb
   padding: 4px 0px 3px 4px;
 }
 
-
-
-
-
-
-
-
-
-
-
-/*
-POPULAR MEMBERS WIDGET
-Lists the most popular members, typically placed
-on the main home page.
-*/
 .layout_user_list_popular
 {
   clear: both;
@@ -776,13 +751,6 @@ img.loading_icon
   float: left;
 }
 
-
-
-
-/*
-EDIT PROFILE STYLE
-Used to style the edit profile style form.
-*/
 #style-wrapper .form-label
 {
   text-align: left;
@@ -800,16 +768,6 @@ Used to style the edit profile style form.
   display: none;
 }
 
-
-
-
-
-
-/*
-PROFILE (FRIENDS TAB)
-Used for listing a member's friends within
-the friends profile tab
-*/
 ul.profile_friends
 {
   margin-bottom: 8px;
@@ -951,16 +909,6 @@ html[dir="rtl"] .profile_friends_lists li.friend_list_unjoined
   font-size: 1.2em;
 }
 
-
-
-
-
-
-/*
-BROWSE MEMBERS
-Used to style the browse members page,
-including the search from and results.
-*/
 .browsemembers_criteria
 {
   +rounded;
@@ -1152,19 +1100,10 @@ body .activity_icon_tagged
   background-image: url(~/application/modules/User/externals/images/types/tag.png);
 }
 
-
-
-
-/* ITEM TYPE ICONS */
 .item_icon_user
 {
   background-image: url(~/application/modules/User/externals/images/types/user.png);
 }
-
-
-
-
-/* NOTIFICATION TYPE ICONS */
 .notification_type_post_user
 {
   background-image: url(~/application/modules/Core/externals/images/types/post.png);

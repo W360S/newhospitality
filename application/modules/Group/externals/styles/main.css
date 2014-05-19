@@ -831,3 +831,55 @@ li.last_li{border-top:none !important;}
 .select_cat{margin-left: 20px;}
 .select_browse{margin-right: 11px;}
 .subcontent .filter .search_group input#text{float: none;}
+
+/*CUSTOM STYLE*/
+/*GROUP INDEX*/ 
+#global_page_group-index-browse .layout_right{float: right;width: 270px;}
+#global_page_group-index-browse #global_content .layout_middle {min-height: 800px; width:944px; float:left; padding-top:20px; padding-left:37px; border-left:1px solid #e6e8ea}
+
+#global_page_group-index-create #global_content .layout_middle {min-height: 800px; width:944px; float:left; padding-top:20px; padding-left:37px; border-left:1px solid #e6e8ea}
+#global_page_group-index-manage #global_content .layout_middle {min-height: 800px; width:944px; float:left; padding-top:20px; padding-left:37px; border-left:1px solid #e6e8ea}
+
+/*GROUP CREATE*/
+#global_page_group-index-create .form-element input{border: 1px solid #e4e3e8;background: none;color: #777f82;font-weight: bold;font-size: 12px;border-radius: 2px;padding: 10px; width: auto;}
+#global_page_group-index-create .form-element{width: 470px}
+
+/* ------------------- Group ----------------- */
+.pt-how-list-group {overflow:hidden; float:left; width:100%; margin-top:22px;}
+.pt-how-list-group .pt-content-event-left{overflow:hidden; float:left; width:642px;}
+.pt-list-group {overflow:hidden}
+.pt-list-group  li  { overflow:hidden; margin-bottom:15px; background-color:#fff; padding-right:15px;box-shadow: 0px 4px 5px -2px rgba(184, 184, 184, 1);}
+.pt-list-group  li .pt-img-group { display:block;float:left; width:146px; height:104px; margin-right:15px;}
+.pt-list-group  li .pt-img-group img { display:block; width:146px; height:104px; }
+.pt-list-group  li h3 {overflow:hidden; margin:15px 0px 0px}
+.pt-list-group  li h3 a { font-size:14px; color:#30aee9}
+.pt-list-group  li h3 a:hover {text-decoration:underline}
+.pt-list-group  li p.pt-info-group { font-size:11px; color:#9c9c9c}
+.pt-list-group  li p.pt-info-group  a { font-size:11px; color:#30aee9; padding:0px 4px}
+.pt-list-group  li p.pt-info-group  a:hover {text-decoration:underline}
+.pt-list-group  li p { font-size:13px; color:#768082; margin-bottom:8px}
+.pt-list-group  li a.pt-link-group {font-size:11px; color:#30aee9; display:block; float:right; margin:10px 0px 0px 4px}
+.pt-list-group  li a.pt-link-group:hover {color:#768082}
+.pt-list-areas {overflow:hidden; padding:0px 10px}
+.pt-list-areas li {width:30%; margin:5px 2% 5px 0px; float:left}
+.pt-list-areas li a {display:block; padding-left:10px; color:#fff;background: url(images/front/icon-areas.png) no-repeat left 6px; font-size:12px;}
+.pt-list-areas li a:hover {text-decoration:underline}
+.pt-list-areas li a span { display:inline-block; background-color:#fff; color:#4fc1e9; font-size:11px;border-radius: 50px; padding:0px 4px; margin-left:5px; line-height:14px }
+.pt-link-group {}
+.pt-link-group  .pt-how-info-user-post{ float:left}
+.pt-link-group  .pt-how-link { float:right; position:relative}
+.pt-link-group  .pt-how-info-user-post h3 {overflow:hidden; margin:0px 0px 0px; text-align:left}
+.pt-link-group  .pt-how-info-user-post  h3 a { font-size:14px; color:#30aee9; padding:0px; margin:0px}
+.pt-link-group  .pt-how-info-user-post  h3 a:hover {text-decoration:underline}
+.pt-link-group  .pt-how-info-user-post  p.pt-info-group { font-size:11px; color:#9c9c9c}
+.pt-link-group  .pt-how-info-user-post  p.pt-info-group  a { font-size:11px; color:#30aee9; padding:0px 4px}
+.pt-link-group  .pt-how-info-user-post  p.pt-info-group  a:hover {text-decoration:underline}
+.pt-conent-info-group-text {overflow:hidden; float:left; width:100%; padding-top:10px}
+.pt-conent-info-group-text p {font-size:14px; color:#9c9c9c; margin:12px 0px}
+.pt-link-group .pt-editing {display:block; float:right; width:42px; height:34px;background: url(images/front/pt-sprite.png) no-repeat left -441px; text-indent:-999999px; padding:0px !important }
+.pt-link-group .pt-editing:hover {background-position: -49px -441px}
+.pt-link-group .pt-how-link a {float:left}
+.pt-link-group .pt-editing-block {top:30px; right:-10px}
+.pt-link-group .pt-how-link .pt-toggle-layout .pt-toggle-layout-content .pt-edit li  a {display:block; float:none; text-align:left}
+.pt-link-group .pt-how-link .pt-toggle-layout .pt-toggle-layout-content .pt-edit li  a:hover {text-decoration:none}
+.pt-right-group .pt-list-right-fix .pt-user-post .pt-how-info-user-post h3 {margin-top:10px}
