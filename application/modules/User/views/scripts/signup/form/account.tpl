@@ -35,6 +35,18 @@
                 }
             }
         });
+        <?php if(isset($_POST['password'])): ?>
+            var password = '<?php echo $_POST['password'] ?>';
+            jQuery(document).ready(function($){
+                $("input#password").val(password);
+                $("input#passconf").val(password);
+            });
+        <?php endif; ?>
+        
+        jQuery(document).ready(function($){
+            $("#submit-element button#submit").html("<span></span>Tiếp tục");
+        });
+        
     //]]>
     </script>
 

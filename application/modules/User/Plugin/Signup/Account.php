@@ -110,6 +110,15 @@ class User_Plugin_Signup_Account extends Core_Plugin_FormSequence_Abstract {
                     // Silence?
                 }
             }
+        }else{
+            if(!empty($_POST['password'])){
+                $form = $this->getForm();
+                $password = $form->getElement('password');
+                $password->setValue($_POST['password']);
+                
+                $passconf = $form->getElement('passconf');
+                $passconf->setValue($_POST['password']);
+            }
         }
     }
 
@@ -126,7 +135,7 @@ class User_Plugin_Signup_Account extends Core_Plugin_FormSequence_Abstract {
             $super_admin = $users_table->fetchRow($users_select);
         }
         $data = $this->getSession()->data;
-
+        
         // Add email and code to invite session if available
         $inviteSession = new Zend_Session_Namespace('invite');
         if (isset($data['email'])) {

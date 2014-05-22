@@ -13,7 +13,8 @@ label.error{width: 100px !important;}
 .pt-comment-text .pt-submit-comment { margin-left:0px !important;}
 .pt-comment-text .pt-textarea {width:528px !important;}
 
-#wd-content-container {padding-bottom:0px !important;padding-top:0px !important;}
+#wd-content-container {padding-bottom:0px;padding-top:0px;}
+/*#wd-content-container {padding-bottom:0px !important;padding-top:0px !important;}*/
 .layout_experts_featured_experts .pt-list-right .pt-user-post .pt-how-info-user-post {
     width: 177px !important;
 }

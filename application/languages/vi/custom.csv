@@ -185,7 +185,7 @@ Description: [object_description]
 "%s comment";"%s bình luận"
 "%d hour ago";"cách đây %d giờ"
 "There was an error processing your request.  Please try again later.";"có lỗi sai trong quá trình xử lý. Xin vui lòng thử lại."
-"View all %s comment";"Xem tất cả %s bình luận"
+"View all %s comment";"Xem g tất cả %s bình luận"
 "Like This";"Thích điều này"
 "Like";"Thích"
 "Unlike";"Không thích"

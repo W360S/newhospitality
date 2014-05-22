@@ -42,3 +42,5 @@
 2014-05-19T16:31:18+00:00 DEBUG (7): [System] (notify_liked) bangvn.dng@gmail.com <- support@hospitality.vn
 2014-05-19T16:31:18+00:00 DEBUG (7): [Zend] bangvn.dng@gmail.com <- support@hospitality.vn
 2014-05-19T16:31:18+00:00 DEBUG (7): [System] (notify_commented) bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-22T18:45:10+00:00 DEBUG (7): [Zend] bangvn.dng29@gmail.com <- support@hospitality.vn
+2014-05-22T18:45:10+00:00 DEBUG (7): [System] (core_welcome) bangvn.dng29@gmail.com <- support@hospitality.vn

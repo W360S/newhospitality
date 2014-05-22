@@ -261,7 +261,7 @@ echo $this->activityLoop($this->activity, array(
 </div>
 
 <script>
-//    jQuery(document).ready(function($) {
-        
-//    });
+    jQuery(document).ready(function($) {
+        $("button#compose-submit").html("<span></span> Chia sẻ");
+    });
 </script>

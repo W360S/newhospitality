@@ -1,6 +1,5 @@
 <?php
   $this->headScript()
-    
     ->appendFile($this->baseUrl().'/externals/tinymce/tiny_mce.js')
 	->appendFile($this->baseUrl().'/externals/tinymce/tiny_mce-init.js');
 ?>
@@ -37,8 +36,8 @@
                         <?php echo $form->description; ?>
                     </div>
                     <div class="submit">
-                        <button type="submit" value="Create" class="min">Luu</button>
-                        <button type="reset" value="Reset" class="min" onclick="reset();">Huy</button>
+                        <button type="submit" value="Create" class="min">Lưu</button>
+                        <button type="reset" value="Reset" class="min" onclick="reset();">Đặt lại</button>
                     </div>
                 </fieldset>
             </div>

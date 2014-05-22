@@ -802,6 +802,20 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
     }
 
     /**
+     * Set all var from obj
+     *
+     */
+    public function setVars($obj)
+    {     
+        foreach($obj as $key => $val)
+        {
+            if ('_' != substr($key, 0, 1)) {
+               $this->assign($key,$val);
+            }       
+        }                    
+    }
+
+    /**
      * Clear all assigned variables
      *
      * Clears all variables assigned to Zend_View either via {@link assign()} or

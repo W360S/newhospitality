@@ -59,6 +59,12 @@ class User_Plugin_Signup_Fields extends Core_Plugin_FormSequence_Abstract {
             $this->_form = new $class($formArgs);
             $data = $this->getSession()->data;
 
+            if(isset($_POST['1_1_3'])){
+                $data['1_1_3'] = $_POST['1_1_3'];
+            }
+            if(isset($_POST['1_1_4'])){
+                $data['1_1_4'] = $_POST['1_1_4'];
+            }
 
             if (!empty($_SESSION['facebook_signup'])) {
                 try {
@@ -199,7 +205,6 @@ class User_Plugin_Signup_Fields extends Core_Plugin_FormSequence_Abstract {
     }
 
     public function onView() {
-        
     }
 
     public function onSubmit(Zend_Controller_Request_Abstract $request) {

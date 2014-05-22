@@ -1046,8 +1046,8 @@ class Activity_IndexController extends Core_Controller_Action_Standard
     }
 
     $likes = $comment->likes()->getAllLikesUsers();
-    $this->view->body = $this->view->translate(array('%s likes this', '%s like this',
-      count($likes)), strip_tags($this->view->fluentList($likes)));
+    //$this->view->body = $this->view->translate(array('%s likes this', '%s like this', count($likes)), strip_tags($this->view->fluentList($likes)));
+    $this->view->body = sprintf("%s thích điều này", strip_tags($this->view->fluentList($likes)));
     $this->view->status = true;
   }
 }

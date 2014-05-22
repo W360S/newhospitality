@@ -239,6 +239,15 @@ $this->headScript()
                     <?php endif; ?>
                     <!--LIKE END-->
 
+                    <?php if ($action->likes()->getLikeCount() > 0 && (count($action->likes()->getAllLikesUsers()) > 0)): ?>
+                        <div class="comments_likes">
+                            <?php if ($action->likes()->getLikeCount() <= 3 || $this->viewAllLikes): ?>
+                                <?php echo sprintf('%s thích điều này.', $this->fluentList($action->likes()->getAllLikesUsers())) ?>
+                            <?php else: ?>
+                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), sprintf("%s người thích điều này", $action->likes()->getLikeCount()))?>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                 </div> 
                 <!--LIKE SHARE COMMENT SECTION END-->
 
@@ -247,25 +256,13 @@ $this->headScript()
                     <?php if ($action->comments()->getCommentCount() > 0): ?>
                         <div class='comments pt-user-comtent'>
                             <ul>
-                                <?php if ($action->likes()->getLikeCount() > 0 && (count($action->likes()->getAllLikesUsers()) > 0)): ?>
-                                    <li>
-                                        <div></div>
-                                        <div class="comments_likes">
-                                            <?php if ($action->likes()->getLikeCount() <= 3 || $this->viewAllLikes): ?>
-                                                <?php echo $this->translate(array('%s likes this.', '%s like this.', $action->likes()->getLikeCount()), $this->fluentList($action->likes()->getAllLikesUsers())) ?>
-                                            <?php else: ?>
-                                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), $this->translate(array('%s person likes this', '%s people like this', $action->likes()->getLikeCount()), $this->locale()->toNumber($action->likes()->getLikeCount()))) ?>
-                                            <?php endif; ?>
-                                        </div>
-                                    </li>
-                                <?php endif; ?>
                                 <?php if ($action->comments()->getCommentCount() > 0): ?>
                                     <?php if ($action->comments()->getCommentCount() > 5 && !$this->viewAllComments): ?>
                                         <li>
-                                            <div></div>
                                             <div class="comments_viewall">
                                                 <?php if ($action->comments()->getCommentCount() > 2): ?>
-                                                    <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_comments' => true)), $this->translate(array('View all %s comment', 'View all %s comments', $action->comments()->getCommentCount()), $this->locale()->toNumber($action->comments()->getCommentCount()))) ?>
+                                                    <?php //echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_comments' => true)), $this->translate(array('View all %s comment', 'View all %s comments', $action->comments()->getCommentCount()), $this->locale()->toNumber($action->comments()->getCommentCount()))) ?>
+                                                    <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_comments' => true)), sprintf("Xem tất cả %s bình luận", $action->comments()->getCommentCount())) ?>
                                                 <?php else: ?>
                                                     <?php echo $this->htmlLink('javascript:void(0);', $this->translate(array('View all %s comment', 'View all %s comments', $action->comments()->getCommentCount()), $this->locale()->toNumber($action->comments()->getCommentCount())), array('onclick' => 'en4.activity.viewComments(' . $action->action_id . ');')) ?>
                                                 <?php endif; ?>
@@ -301,18 +298,15 @@ $this->headScript()
 
                                                                 <a href="javascript:void(0)" class="pt-like" onclick="en4.activity.like(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)"><span></span></a>
                                                             <?php else: ?>
-                                                                <?php /* temporary not allow unlike
-                                                                  <a href="javascript:void(0)" onclick="en4.activity.unlike(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)">
-                                                                  <?php echo $this->translate('unlike') ?>
-                                                                  </a>
-                                                                 */ ?>
+                                                                
                                                                 <a href="javascript:void(0)" class="pt-like"><span></span></a>
                                                             <?php endif ?>
                                                         <?php endif ?>
 
                                                         <?php if ($comment->likes()->getLikeCount() > 0): ?>
                                                             <a href="javascript:void(0);" id="comments_comment_likes_<?php echo $comment->comment_id ?>" class="comments_comment_likes" title="<?php echo $this->translate('Loading...') ?>">
-                                                                <?php echo $this->translate(array('%s likes this', '%s like this', $comment->likes()->getLikeCount()), $this->locale()->toNumber($comment->likes()->getLikeCount())) ?>
+                                                                <?php //echo $this->translate(array('%s likes this', '%s like this', $comment->likes()->getLikeCount()), $this->locale()->toNumber($comment->likes()->getLikeCount())) ?>
+                                                                <?php echo sprintf("%s Người thích điều này", $comment->likes()->getLikeCount()) ?>
                                                             </a>
                                                         <?php endif ?>    
 

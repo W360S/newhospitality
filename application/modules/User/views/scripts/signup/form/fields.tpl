@@ -22,4 +22,9 @@
     ?>
 
     <?php echo $this->form->render($this) ?>
+    <script>
+        jQuery(document).ready(function($){
+            $("#submit-element button#submit").html("<span></span>Tiếp tục");
+        });
+    </script>
 </div>

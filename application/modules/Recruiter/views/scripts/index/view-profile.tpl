@@ -43,9 +43,10 @@ $paginator = $this->paginator_jobs;
             Tên người liên hệ: <a href="<?php echo $user->getHref() ?>"><?php echo $user->getTitle() ?></a></p>
         <?php if ($user_id == $profile->user_id) : ?>
             <a class="pt-icon pt-icon-checkall" href="<?php echo $this->baseUrl() . '/recruiter/index/edit-profile/profile_id/' . $profile->recruiter_id; ?>"></a>
-            <a class="pt-icon pt-icon-delete" href="javascript:void(0);" onclick="delete_profile('<?php echo $profile->recruiter_id; ?>');
-                    return false;"></a>
-           <?php endif; ?>
+            <?php /*
+            <a class="pt-icon pt-icon-delete" href="javascript:void(0);" onclick="delete_profile('<?php echo $profile->recruiter_id; ?>');return false;"></a>
+            */ ?>
+            <?php endif; ?>
     </div>
 
     <div id="loading" style="display: none;">

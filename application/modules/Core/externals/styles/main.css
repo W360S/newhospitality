@@ -970,7 +970,7 @@ html[dir="rtl"] div.compose-menu a.compose-activator
 }
 .compose-menu
 {
-  overflow: hidden;
+  /*overflow: hidden;*/
   margin-top: 9px;
 }
 .compose-tray .compose-menu > span

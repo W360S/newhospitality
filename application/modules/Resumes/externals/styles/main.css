@@ -28,7 +28,7 @@ table.last_resume{border-bottom: 1px dotted; padding: 0 3px; }
 .job-form .radio input{float:left;margin:0 12px 12px 0;padding:0}
 *:first-child+html .job-form .radio input{margin-top:-4px}
 .job-form .radio label{text-align:left;line-height:21px}
-.job-form-step-1 .submit{padding-left:252px}
+/*.job-form-step-1 .submit{padding-left:252px}*/
 .resume_info_main .job-form-step-1 label{width:98px}
 .job-form-step-1 label.error{width: auto; position: relative; left: 107px; clear: left;color: red;}
 .job-form .resume_date label{ color: #000; float: left; font-weight: bolder; line-height: 37px; margin-top: 8px; margin-right: 10px; text-align: right; width: 150px; }
