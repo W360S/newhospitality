@@ -9,7 +9,7 @@
  * @author     John
  */
 ?>
-<div class="pt-sigup">
+<div class="pt-sigup form-account">
     <div class="pt-title-sigup-first">
     </div>
     <script type="text/javascript">
@@ -45,6 +45,10 @@
         
         jQuery(document).ready(function($){
             $("#submit-element button#submit").html("<span></span>Tiếp tục");
+            
+            $("#1_1_4-wrapper").hide();
+            $("#1_1_3-wrapper").hide();
+            
         });
         
     //]]>

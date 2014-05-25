@@ -1,0 +1,128 @@
+2014-05-25T03:47:52+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: 5ea654
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(153): Engine_Package_Manager->listInstalledPackages(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->indexAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('indexAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-05-25T03:48:02+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: 8005e0
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(153): Engine_Package_Manager->listInstalledPackages(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->indexAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('indexAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-05-25T03:48:04+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: 39ae19
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(153): Engine_Package_Manager->listInstalledPackages(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->indexAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('indexAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-05-25T03:48:06+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: 6901be
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(153): Engine_Package_Manager->listInstalledPackages(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->indexAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('indexAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-05-25T03:48:53+00:00 WARN (4): [2] file_exists() expects parameter 1 to be a valid path, string given (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/PEAR/Archive/Tar.php) [1588]
+Error Code: e84065
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/PEAR/Archive/Tar.php(1588): file_exists('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/PEAR/Archive/Tar.php(471): Archive_Tar->_extractList('/Applications/XAMPP/xamppfiles/h...', Array, 'complete', 0, '')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/PEAR/Archive/Tar.php(238): Archive_Tar->extractModify('/Applications/XAMPP/xamppfiles/h...', '')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Archive.php(51): Archive_Tar->extract('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(367): Engine_Package_Archive::inflate('/Applications/XAMPP/xamppfiles/h...', '/Applications/XAMPP/xamppfiles/h...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->extractAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('extractAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-05-25T03:49:35+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: 387f3e
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(153): Engine_Package_Manager->listInstalledPackages(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->indexAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('indexAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-05-25T03:49:48+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: 707c82
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(1151): Engine_Package_Manager->listInstalledPackages()
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->installAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('installAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+
+2014-05-25T03:51:26+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: ee0e42
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(153): Engine_Package_Manager->listInstalledPackages(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->indexAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('indexAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+

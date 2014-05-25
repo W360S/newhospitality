@@ -39,10 +39,7 @@
     </div>
 </div>
 <style>
-    .block_content{
-        width:273px;
-    }
-    .pt-user-post .pt-how-info-user-post h3 a{
-        font-size:12px;
-    }
+    .block_content{width:273px;}
+    #global_page_user-index-home .block_content{width:auto;}
+    .pt-user-post .pt-how-info-user-post h3 a{font-size:12px;}
 </style>

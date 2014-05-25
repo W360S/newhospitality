@@ -48,7 +48,7 @@
                             <p>Khi nhấp chuột vào Đăng Ký, bạn đồng ý với Các điều khoản của chúng tôi </p>
                             <button type="submit" title="" class="button">Đăng ký</button>
                             <!--<span>Hoặc có thể</span>-->
-                            <a href="#" class="facebook">Facebook</a>
+                            <a href="/user/auth/facebook" class="facebook">Facebook</a>
                         </div>
                         <div style="display: none">
                             <!--<input type="hidden" id="timezone" name="timezone" value="">-->

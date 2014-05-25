@@ -4,7 +4,8 @@
 .list_my_job table td{padding: 12px 0;}
 .list_my_job table {width: 100%;}
 .list_my_job table tr.back_gr_gray{background-color: #F4F3F3;}
-.list_job_saved table td{padding: 12px 0;}
+.list_job_saved table th{text-align: left;padding: 15px;background-color: #fafafa;border-bottom: 1px solid #e9e9e9;}
+.list_job_saved table td{padding: 15px;}
 .list_job_saved table {width: 100%;}
 .list_job_saved table tr.back_gr_gray{background-color: #F4F3F3;}
 .list_job_saved table input[type="checkbox"] { margin-left: 10px; margin-top: 3px;}

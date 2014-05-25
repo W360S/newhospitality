@@ -55,8 +55,8 @@ $check = $this->check;
                             </div>
                             <div class="submit">
 
-                                <input type="submit" value="<?php echo $this->translate('Apply'); ?>" class="min" />
-                                <input style="background:#50C1E9;padding-left:0px" type="reset" value="<?php echo $this->translate('Reset'); ?>" class="min" onclick="reset();" />
+                                <button type="submit" value="<?php echo $this->translate('Apply'); ?>" class="min">Nộp đơn</button>
+                                <button type="reset" value="<?php echo $this->translate('Reset'); ?>" class="min" onclick="reset();">Đặt lại</button>
                             </div>
                         </fieldset>
                     </div>

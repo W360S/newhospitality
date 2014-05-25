@@ -14,6 +14,6 @@ class Recruiter_Form_Profile_Edit extends Recruiter_Form_Profile_Create
         parent::init();
     
         
-        $this->submit->setLabel('Save');
+        $this->submit->setLabel('Lưu');
     }
 }

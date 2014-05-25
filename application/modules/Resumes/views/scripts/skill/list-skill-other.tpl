@@ -5,7 +5,10 @@
         <ol>
             <li><strong><?php echo $skill->name; ?></strong></li>
         </ol>
-        <span><?php echo date('d F Y', strtotime($skill->creation_date)); ?></span>
+        <span>
+            <?php //echo date('d F Y', strtotime($skill->creation_date)); ?>
+            <?php echo $skill->description ?>
+        </span>
         <p>
             <a class="edit" title="<?php echo $this->translate('Edit') ?>" href="javascript:void(0);" onclick="edit_skill_other('<?php echo $skill->skill_id ?>');">Edit</a> | 
             <a class="smoothbox" title="<?php echo $this->translate('Delete') ?>" href="javascript:void(0);" onclick="delete_skill_other('<?php echo $skill->skill_id ?>');">Delete</a>

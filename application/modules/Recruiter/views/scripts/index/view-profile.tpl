@@ -46,6 +46,7 @@ $paginator = $this->paginator_jobs;
             <?php /*
             <a class="pt-icon pt-icon-delete" href="javascript:void(0);" onclick="delete_profile('<?php echo $profile->recruiter_id; ?>');return false;"></a>
             */ ?>
+            
             <?php endif; ?>
     </div>
 

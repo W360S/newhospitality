@@ -118,7 +118,13 @@ class User_Plugin_Signup_Account extends Core_Plugin_FormSequence_Abstract {
                 
                 $passconf = $form->getElement('passconf');
                 $passconf->setValue($_POST['password']);
+                
+                
             }
+            if(isset($_POST['language'])){
+                
+            }
+            
         }
     }
 

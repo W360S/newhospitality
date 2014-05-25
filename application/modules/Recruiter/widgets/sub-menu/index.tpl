@@ -1,6 +1,6 @@
 <div class="pt-block">
     <div class="pt-contents-response">
-        <p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci.</p>
+        <p>Cơ hội tiếp cận hàng ngàn ứng viên đang hoạt động trong ngành Du lịch Khách sạn.</p>
         <a class="bt_create" href="<?php echo $this->baseUrl() . '/recruiter/job/create' ?>">ĐĂNG TUYỂN DỤNG</a>
         <?php if (count($this->profile) == 0) : ?>
             <a style="" class="company_profile" href="<?php echo $this->baseUrl() . '/recruiter/index/create-profile' ?>"><?php echo $this->translate("Create Company Profile") ?></a>

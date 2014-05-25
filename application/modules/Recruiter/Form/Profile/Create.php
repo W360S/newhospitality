@@ -19,7 +19,7 @@ class Recruiter_Form_Profile_Create extends Engine_Form {
 
         //company name
         $this->addElement('Text', 'company_name', array(
-            'label' => 'Company Name:',
+            'label' => 'Tên công ty:',
             'allowEmpty' => false,
             'required' => true,
             'maxlength' => 160,
@@ -35,7 +35,7 @@ class Recruiter_Form_Profile_Create extends Engine_Form {
         ));
         //company name
         $this->addElement('Text', 'company_size', array(
-            'label' => 'Company Size:',
+            'label' => 'Số lượng nhân viên:',
             'allowEmpty' => false,
             'required' => true,
             'maxlength' => 160,
@@ -60,8 +60,8 @@ class Recruiter_Form_Profile_Create extends Engine_Form {
         ));
         $this->logo->addValidator('Extension', false, 'jpg,png,gif,jpeg');
         //industry
-        $this->addElement('MultiCheckbox', 'industries', array(
-            'label' => 'Industries:',
+        $this->addElement('Select', 'industries', array(
+            'label' => 'Lĩnh vực hoạt động:',
             'id' => 'industry_re',
             'allowEmpty' => false,
             'required' => true,
@@ -72,7 +72,7 @@ class Recruiter_Form_Profile_Create extends Engine_Form {
         )));
 
         $this->addElement('Textarea', 'description', array(
-            'label' => 'Company Description:',
+            'label' => 'Thông tin công ty:',
             //'maxlength' => '512',
             'filters' => array(
                 new Engine_Filter_Censor(),
@@ -80,7 +80,7 @@ class Recruiter_Form_Profile_Create extends Engine_Form {
         ));
         // Buttons Back
         $this->addElement('Cancel', 'cancel', array(
-            'label' => 'Reset',
+            'label' => 'Đặt lại',
             'onclick' => 'javascript: reset();',
             'ignore' => true,
             'decorators' => array(
@@ -89,7 +89,7 @@ class Recruiter_Form_Profile_Create extends Engine_Form {
         ));
         // Buttons Next
         $this->addElement('Button', 'submit', array(
-            'label' => 'Save',
+            'label' => 'Hoàn tất',
             'type' => 'submit',
             'ignore' => true,
             'decorators' => array(

@@ -36,8 +36,8 @@ $this->headScript()
                         <?php echo $form->description; ?>
                     </div>
                     <div class="submit">
-                        <button type="submit" value="Create" class="min">Luu</button>
-                        <button type="reset" value="Reset" class="min" onclick="reset();" >Cancel</button>
+                        <button type="submit" value="Create" class="min"><span></span>Hoàn tất</button>
+                        <button type="reset" value="Reset" class="min" onclick="reset();" >Đặt lại</button>
                     </div>
                 </fieldset>
             </div>

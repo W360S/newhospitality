@@ -248,6 +248,7 @@ class User_Form_Signup_Account extends Engine_Form {
             $defaultLanguage => $defaultLanguage
                 ), $languageNameList);
 
+        /*
         if (count($languageNameList) > 1) {
             $this->addElement('Select', 'language', array(
                 'label' => 'Language',
@@ -260,7 +261,21 @@ class User_Form_Signup_Account extends Engine_Form {
                 'value' => current((array) $languageNameList)
             ));
         }
-
+        */
+        $this->addElement('text', 'language', array(
+                'value' => "vi",
+            ));
+        if(isset($_POST['1_1_3'])){
+            $this->addElement('text', '1_1_3', array(
+                'value' => $_POST['1_1_3'],
+            ));
+        }
+        if(isset($_POST['1_1_4'])){
+            $this->addElement('text', '1_1_4', array(
+                'value' => $_POST['1_1_4'],
+            ));
+        }
+        
         // Element: captcha
         if (Engine_Api::_()->getApi('settings', 'core')->core_spam_signup) {
             $this->addElement('captcha', 'captcha', Engine_Api::_()->core()->getCaptchaOptions(array(
@@ -322,16 +337,9 @@ class User_Form_Signup_Account extends Engine_Form {
 //      }
         }
         
-        if(isset($_POST['1_1_3'])){
-            $this->addElement('Hidden', '1_1_3', array(
-                'value' => $_POST['1_1_3']
-            ));
-        }
-        if(isset($_POST['1_1_4'])){
-            $this->addElement('Hidden', '1_1_4', array(
-                'value' => $_POST['1_1_4']
-            ));
-        }
+        
+        
+            
         
         // Set default action
         $this->setAction(Zend_Controller_Front::getInstance()->getRouter()->assemble(array(), 'user_signup', true));

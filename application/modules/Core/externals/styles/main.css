@@ -1398,7 +1398,7 @@ ul.notifications
 ul.notifications_menu > li,
 ul.notifications_menu > div
 {
-  padding: .5em;
+  /*padding: .5em;*/
   min-width: 160px;
 }
 ul.notifications_menu > li

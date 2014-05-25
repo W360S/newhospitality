@@ -11,7 +11,7 @@
 ?>
 
 <div class="pt-number-message">
-    <?php echo $this->translate(array('You have %1$s new message, %2$s total', 'You have %1$s new messages, %2$s total', $this->unread),
+    <?php echo $this->translate(array('Bạn có %1$s tin nhắn mới, trong tổng số %2$s tin nhắn', 'Bạn có %1$s tin nhắn mới, trong tổng số %2$s tin nhắn', $this->unread),
     $this->locale()->toNumber($this->unread),
     $this->locale()->toNumber($this->paginator->getTotalItemCount())) ?>
     <?php if( count($this->paginator) ): ?>

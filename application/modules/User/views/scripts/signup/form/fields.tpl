@@ -10,7 +10,7 @@
  * @author     John
  */
 ?>
-<div class="pt-sigup">
+<div class="pt-sigup form-fields">
     <div class="pt-title-sigup-second">
     </div>
     <?php

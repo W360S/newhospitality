@@ -78,9 +78,9 @@
         </div>
         <div class="group_members_total">
             <?php if ('' == $this->search): ?>
-                <?php echo $this->translate(array('This group has %1$s member.', 'This group has %1$s members.', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount())) ?>
+                <?php echo $this->translate(array('Nhóm này có %1$s thành viên.', 'Nhóm này có %1$s thành viên.', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount())) ?>
             <?php else: ?>
-                <?php echo $this->translate(array('This group has %1$s member that matched the query "%2$s".', 'This group has %1$s members that matched the query "%2$s".', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount()), $this->search) ?>
+                <?php echo $this->translate(array('Nhóm này có %1$s thành viên thoả mãn điều kiện tìm kiếm "%2$s".', 'Nhóm này có %1$s thành viên thoả mãn điều kiện tìm kiếm "%2$s".', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount()), $this->search) ?>
             <?php endif; ?>
         </div>
         <?php if (!empty($this->waitingMembers) && $this->waitingMembers->getTotalItemCount() > 0): ?>

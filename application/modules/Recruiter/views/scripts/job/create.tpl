@@ -93,8 +93,8 @@ $profile = $this->profile;
                             <?php echo $form->contact_email; ?>
                         </div>
                         <div class="submit">
-                            <button type="submit" value="<?php echo $this->translate('Submit') ?>" class="min"> Luu </button>
-                            <button type="reset" value="<?php echo $this->translate('Reset') ?>" class="min" onclick="reset();" >Huy</button>
+                            <button type="submit" value="<?php echo $this->translate('Submit') ?>" class="min"> Hoàn tất </button>
+                            <button type="reset" value="<?php echo $this->translate('Reset') ?>" class="min" onclick="reset();" >Huỷ</button>
                         </div>
                     </fieldset>
                 </div>
@@ -105,7 +105,12 @@ $profile = $this->profile;
 
     </div>
 <?php else : ?>
-    <p><?php echo $this->translate("You have not create your company profile. Please"); ?> <a href="<?php echo $this->baseUrl() . '/recruiter/index/create-profile' ?>"><?php echo $this->translate(" create new company profile "); ?></a><?php echo $this->translate("in order to post a job!"); ?></p>
+    <div class="empty-profile-message">
+        <p><?php echo $this->translate("You have not create your company profile. Please"); ?> <a href="<?php echo $this->baseUrl() . '/recruiter/index/create-profile' ?>"><?php echo $this->translate(" create new company profile "); ?></a><?php echo $this->translate("in order to post a job!"); ?></p>
+    </div>
+<style>
+    .empty-profile-message{min-height: 400px; background: #FFF; padding: 20px}
+</style>
 <?php endif; ?>
 <script type="text/javascript">
     function list_city() {
