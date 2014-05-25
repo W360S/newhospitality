@@ -22,7 +22,9 @@
                                                 <?php $text = $item->position; ?>
                                                 <?php echo $this->htmlLink(array('route' => 'view-job', 'id' => $item->job_id, 'slug' => $slug), $text) ?>
                                             </h3>
-                                            <p><?php echo date('d F Y', strtotime($item->creation_date)); ?> <?php echo $this->city($item->city_id)->name ?></p>
+                                            <p>
+                                                <?php //echo date('d F Y', strtotime($item->creation_date)); ?> 
+                                                <?php echo $this->timestamp($item->creation_date, array("notag" => 1)) ?> - <?php echo $this->city($item->city_id)->name ?></p>
                                             
                                     </div>
                             </div>

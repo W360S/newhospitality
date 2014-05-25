@@ -13,7 +13,7 @@ class Recruiter_Widget_HotJobController extends Engine_Content_Widget_Abstract
                         ->from($table->info('name'))
                         ->where('status =?', 2)
                         ->where('deadline > ?', date('Y-m-d'))
-                        ->limit(4)
+                        ->limit(3)
                         
                         ->order('num_apply DESC');
         $records= $table->fetchAll($hot_select);

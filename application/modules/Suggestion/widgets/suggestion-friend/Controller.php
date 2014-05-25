@@ -21,7 +21,7 @@ class Suggestion_Widget_SuggestionFriendController extends Engine_Content_Widget
             // Geting number of display suggestion which are set by admin?
             $number_of_sugg = Engine_Api::_()->getApi('settings', 'core')->getSetting('sugg.friend.wid');
             //Current user Id
-            $number_of_sugg = 5;
+            $number_of_sugg = 3;
             
             $this->view->user_id = $user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
             // The users being currently suggested/displayed in the widget		

@@ -78,7 +78,8 @@
     <div class="pt-conent-info-event">
         <div class="pt-conent-info-event-img">
 
-            <?php echo $this->itemPhoto($this->subject(), 'thumb.profile') ?>
+            <?php echo $this->itemPhoto($this->subject(), null) ?>
+            <!-- <?php echo $this->itemPhoto($this->subject()) ?> -->
         </div>
         <div class="pt-link-event">
             <a href="/events/member/join/event_id/<?php echo $event->event_id ?>" class="buttonlink smoothbox menu_event_profile event_profile_member pt-adherence"><span></span>Join Event</a>
@@ -93,7 +94,7 @@
                 </tr>
                 <tr class="pt-odd">
                     <td class="pt-title"><strong>Thời gian</strong></td>
-                    <td>: <?php echo date('h:i', strtotime($this->subject()->starttime)); ?></td>
+                    <td>: <?php echo date('h:i a', strtotime($this->subject()->starttime)); ?></td>
                 </tr>
                 <tr>
                     <td class="pt-title"><strong><?php echo $this->translate('Place') ?></strong></td>
@@ -101,7 +102,7 @@
                 </tr>
                 <tr class="pt-odd">
                     <td class="pt-title"><strong>Đơn vị tổ chức</strong></td>
-                    <td>: Sun, 27 October 2013</td>
+                    <td>: <?php echo $this->subject()->host; ?></td>
                 </tr>
                 <tr>
                     <td class="pt-title"><strong><?php echo $this->translate('Led by'); ?></strong></td>
