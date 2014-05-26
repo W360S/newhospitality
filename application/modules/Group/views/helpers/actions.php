@@ -3,7 +3,7 @@
 class Group_View_Helper_Actions extends Zend_View_Helper_Abstract {
 
     public function actions() {
-
+        
         $viewer = Engine_Api::_()->user()->getViewer();
         $subject = Engine_Api::_()->core()->getSubject();
         if ($subject->getType() !== 'group') {

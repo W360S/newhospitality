@@ -84,3 +84,7 @@
 2014-05-23T14:17:14+00:00 DEBUG (7): [System] (core_welcome) bangvn.dng23@gmail.com <- support@hospitality.vn
 2014-05-23T14:51:53+00:00 DEBUG (7): [Zend] wancheung@zing.vn <- support@hospitality.vn
 2014-05-23T14:51:53+00:00 DEBUG (7): [System] (notify_liked) wancheung@zing.vn <- support@hospitality.vn
+2014-05-26T07:20:34+00:00 DEBUG (7): [Zend] bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-26T07:20:34+00:00 DEBUG (7): [System] (notify_liked) bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-26T07:20:34+00:00 DEBUG (7): [Zend] bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-26T07:20:34+00:00 DEBUG (7): [System] (notify_liked) bangvn.dng@gmail.com <- support@hospitality.vn
