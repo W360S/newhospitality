@@ -44,20 +44,19 @@ $suggestion_home_array = ltrim($suggestion_home_array, ',');
             ?>
             <li id="suggestion_friend_<?php echo $div_id; ?>">
                 <div class="pt-user-post">				
-                    <?php //echo $this->htmlLink($path_info->getHref(), $this->itemPhoto($path_info, 'thumb.icon'), array('class' => 'pt-avatar')); ?>
                     <a href="<?php echo $path_info->getHref() ?>">
                         <span class="pt-avatar">
                             <?php echo $this->itemPhoto($path_info, 'thumb.icon') ?>
                         </span>
                     </a>
                     <div class="pt-how-info-user-post">
-                        <?php //echo	'<a style="margin-top:5px;" class="suggest_cancel" title="' . $this->translate('Do not show this suggestion') . '" href="javascript:void(0);" onclick="mixInfo(' . $path_info->user_id . ', \'suggestion_friend_' . $div_id . '\', \'friend\', \'friend\');"></a>'; ?>
                         <h3><a href="<?php echo $path_info->getHref() ?>"><?php echo $path_info->getTitle() ?></a></h3>
-                        <b><?php //echo $this->htmlLink($path_info->getHref(), Engine_Api::_()->suggestion()->truncateTitle($path_info->getTitle()), array('title' => $path_info->getTitle()));    ?></b>
                         <p>
-                            <?php if (!empty($this->mutual_friend_array[$path_info->user_id])) : 
+                            <?php
+                            if (!empty($this->mutual_friend_array[$path_info->user_id])) :
                                 echo '<a class="smoothbox" style="color:#656565" href="' . $this->url(array('module' => 'suggestion', 'controller' => 'index', 'action' => 'mutualfriend', 'sugg_friend_id' => $path_info->user_id), 'default', true) . '">' . $this->translate(array('%s mutual friend', '%s mutual friends', $this->mutual_friend_array[$path_info->user_id]), $this->locale()->toNumber($this->mutual_friend_array[$path_info->user_id])) . '</a>';
-                            endif;?>
+                            endif;
+                            ?>
                         </p>
 
                     </div>
@@ -75,15 +74,7 @@ $suggestion_home_array = ltrim($suggestion_home_array, ',');
         ?>
     </ul>
     <div style="clear:both"></div>
-    <!--
-    <div class="books"><div class="more"><a href="<?php echo $this->url(array(), 'friends_suggestions_viewall') ?>" title="<?php echo $this->translate("Find your Friends"); ?>">
-    <?php
-    $suggestion_field_cat = Engine_Api::_()->getApi('settings', 'core')->getSetting('suggestion.field.cat');
-    if (!empty($suggestion_field_cat)) {
-        echo $this->translate("More") . ' &raquo;';
-    }
-    ?></a>
-     </div></div>-->
+    
 </div>
 
 <?php $ajaxloaderimg = $this->baseUrl() . "/externals/smoothbox/ajax-loader.gif"; ?>
@@ -96,8 +87,9 @@ $suggestion_home_array = ltrim($suggestion_home_array, ',');
         var form = jQuery(form_id);
         var url = form.attr("action");
 
+        console.log(url);
+        
         var parentObject = jQuery(object).parent();
-        //mixInfo(id, parentObject.parent().parent().attr('id'), 'friend', 'friend');
 
         var item_response = new Array();
 
@@ -114,26 +106,19 @@ $suggestion_home_array = ltrim($suggestion_home_array, ',');
                 page_name: 'friend'
             },
             beforeSend: function(xhr) {
-                //xhr.overrideMimeType("text/plain; charset=x-user-defined");
-                parentObject.html('Sending... <img src="<?php echo $ajaxloaderimg ?>"/>');
-                //mixInfo(id, parentObject.parent().parent().parent().attr('id'), 'friend', 'friend');
+                jQuery(object).html('<img src="<?php echo $ajaxloaderimg ?>"/>');
             },
             success: function(response) {
-                //console.log(response);
+                console.log(response);
                 item_response[id] = response;
                 jQuery.ajax({
                     type: "POST",
                     url: url,
                     data: form.serialize(),
                     beforeSend: function(xhr) {
-                        //xhr.overrideMimeType("text/plain; charset=x-user-defined");
-                        //parentObject.html('Sending your request <img src="<?php echo $ajaxloaderimg ?>"/>');		
-                        //mixInfo(id, parentObject.parent().parent().parent().attr('id'), 'friend', 'friend');
                     },
                     success: function(response) {
-                        //parentObject.parent().parent().parent().remove();
-                        //mixInfo(id, parentObject.parent().parent().parent().attr('id'), 'friend', 'friend');
-                        parentObject.parent().parent().parent().html(item_response[id]);
+                        parentObject.parent().html(item_response[id]);
                         var count = jQuery("div.suggestion_friends").children().length;
                         if (count == 0) {
                             //jQuery("div.suggestion_friends").parent().remove();console.log("removeed");

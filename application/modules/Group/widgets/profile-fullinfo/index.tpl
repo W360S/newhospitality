@@ -26,10 +26,7 @@
                     </p>
                 </div>
                 <div class="pt-how-link">
-                    <?php
-                    $group_actions = $this->actions();
-//                    print_r($group_actions);die;
-                    ?>
+                    <?php $group_actions = $this->actions();?>
                     <?php if (!isset($group_actions['label'])): ?>
                         <?php foreach ($group_actions as $actions): ?>
                             <?php echo $this->htmlLink(array('route' => $actions['route'], 'controller' => $actions['params']['controller'], 'action' => $actions['params']['action'], 'group_id' => $actions["params"]['group_id']), $actions['label'], array('class' => "pt-adherence buttonlink smoothbox")) ?>

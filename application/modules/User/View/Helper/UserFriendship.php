@@ -66,8 +66,13 @@ class User_View_Helper_UserFriendship extends Zend_View_Helper_Abstract {
         if (!$direction) {
             // one-way mode
             if (null === $row) {
-                return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $user->user_id), $this->view->translate('Follow'), array(
-                            'class' => 'buttonlink smoothbox icon_friend_add pt-link-add' . $class
+//                return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $user->user_id), $this->view->translate('Follow'), array(
+//                            'class' => 'buttonlink smoothbox icon_friend_add pt-link-add' . $class
+//                ));
+                return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $user->user_id), $this->view->translate('Add Friend'), array(
+                            'class' => 'buttonlink icon_friend_add pt-link-add'. $class,
+                            //'onclick'=>'javascript:openUrl($(this));return false;'
+                            'onclick' => 'javascript:sendAjaxAddfriend(' . $user->user_id . ',true,this);return false;'
                 ));
             } else if ($row->resource_approved == 0) {
                 return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'cancel', 'user_id' => $user->user_id), $this->view->translate('Cancel Follow Request'), array(
@@ -81,8 +86,15 @@ class User_View_Helper_UserFriendship extends Zend_View_Helper_Abstract {
         } else {
             // two-way mode
             if (null === $row) {
+//                return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $user->user_id), $this->view->translate('Add Friend'), array(
+//                            'class' => 'buttonlink smoothbox icon_friend_add pt-link-add' . $class
+//                ));
+
+                //return '<a href="#" onclick="javascript:sendAjaxAddfriend(' . $user->user_id . ',true,this);return false;">' . $this->view->translate('Add Friend').'</a>';
                 return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'add', 'user_id' => $user->user_id), $this->view->translate('Add Friend'), array(
-                            'class' => 'buttonlink smoothbox icon_friend_add pt-link-add' . $class
+                            'class' => 'buttonlink icon_friend_add  pt-link-add'. $class,
+                            //'onclick'=>'javascript:openUrl($(this));return false;'
+                            'onclick' => 'javascript:sendAjaxAddfriend(' . $user->user_id . ',true,this);return false;'
                 ));
             } else if ($row->user_approved == 0) {
                 return $this->view->htmlLink(array('route' => 'user_extended', 'controller' => 'friends', 'action' => 'cancel', 'user_id' => $user->user_id), $this->view->translate('Cancel'), array(

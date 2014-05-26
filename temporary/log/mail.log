@@ -88,3 +88,17 @@
 2014-05-26T07:20:34+00:00 DEBUG (7): [System] (notify_liked) bangvn.dng@gmail.com <- support@hospitality.vn
 2014-05-26T07:20:34+00:00 DEBUG (7): [Zend] bangvn.dng@gmail.com <- support@hospitality.vn
 2014-05-26T07:20:34+00:00 DEBUG (7): [System] (notify_liked) bangvn.dng@gmail.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [Zend] truonghuuduc2005@gmail.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [System] (notify_friend_request) truonghuuduc2005@gmail.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [Zend] hung.mappy@gmail.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [System] (notify_friend_request) hung.mappy@gmail.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [Zend] hoangtu_ductin@yahoo.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [System] (notify_friend_request) hoangtu_ductin@yahoo.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [Zend] mr.lednvn@gmail.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [System] (notify_friend_request) mr.lednvn@gmail.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [Zend] travel_hotel@yahoo.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [System] (notify_friend_request) travel_hotel@yahoo.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [Zend] kan_min2002@yahoo.com <- support@hospitality.vn
+2014-05-26T15:19:22+00:00 DEBUG (7): [System] (notify_friend_request) kan_min2002@yahoo.com <- support@hospitality.vn
+2014-05-26T15:37:58+00:00 DEBUG (7): [Zend] thanghoanght@gmail.com <- support@hospitality.vn
+2014-05-26T15:37:58+00:00 DEBUG (7): [System] (notify_friend_request) thanghoanght@gmail.com <- support@hospitality.vn
