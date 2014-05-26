@@ -51,6 +51,11 @@ class Activity_Model_DbTable_Notifications extends Engine_Db_Table {
             $cache->save(true, $id);
         }
 
+        $body_comment = "";
+        if (isset($params['body']) && !empty($params['body'])) {
+            $body_comment = $params['body'];
+        }
+
         // Try to send an email
         $notificationSettingsTable = Engine_Api::_()->getDbtable('notificationSettings', 'activity');
         if ($notificationSettingsTable->checkEnabledNotification($user, $type) && !empty($user->email)) {
@@ -81,6 +86,7 @@ class Activity_Model_DbTable_Notifications extends Engine_Db_Table {
                 'object_link' => $object->getHref(),
                 'object_photo' => $object->getPhotoUrl('thumb.icon'),
                 'object_description' => $object->getDescription(),
+                'body_comment'=>$body_comment
             );
             // Extra params
             try {
