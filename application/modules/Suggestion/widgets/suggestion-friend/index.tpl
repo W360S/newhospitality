@@ -54,7 +54,7 @@ $suggestion_home_array = ltrim($suggestion_home_array, ',');
                         <p>
                             <?php
                             if (!empty($this->mutual_friend_array[$path_info->user_id])) :
-                                echo '<a class="smoothbox" style="color:#656565" href="' . $this->url(array('module' => 'suggestion', 'controller' => 'index', 'action' => 'mutualfriend', 'sugg_friend_id' => $path_info->user_id), 'default', true) . '">' . $this->translate(array('%s mutual friend', '%s mutual friends', $this->mutual_friend_array[$path_info->user_id]), $this->locale()->toNumber($this->mutual_friend_array[$path_info->user_id])) . '</a>';
+                                echo '<a class="smoothbox" style="color:#656565" href="' . $this->url(array('module' => 'suggestion', 'controller' => 'index', 'action' => 'mutualfriend', 'sugg_friend_id' => $path_info->user_id), 'default', true) . '">' . $this->translate(array('%s bạn chung', '%s bạn chung', $this->mutual_friend_array[$path_info->user_id]), $this->locale()->toNumber($this->mutual_friend_array[$path_info->user_id])) . '</a>';
                             endif;
                             ?>
                         </p>

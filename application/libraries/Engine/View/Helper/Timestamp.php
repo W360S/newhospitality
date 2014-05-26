@@ -136,14 +136,14 @@ class Engine_View_Helper_Timestamp extends Zend_View_Helper_HtmlElement {
         if (null !== $timezone) {
             date_default_timezone_set($prevTimezone);
         }
-
+        
         // Right now
         if ($delta < 1) {
             $val = null;
             if ($isPlus) {
-                $key = 'now';
+                $key = 'ngay lúc này';
             } else {
-                $key = 'now';
+                $key = 'ngay lúc này';
             }
         }
 
@@ -151,9 +151,9 @@ class Engine_View_Helper_Timestamp extends Zend_View_Helper_HtmlElement {
         else if ($delta < 60) {
             $val = null;
             if ($isPlus) {
-                $key = 'in a few seconds';
+                $key = 'trong một vài giây trước';
             } else {
-                $key = 'a few seconds ago';
+                $key = 'một vài giây trước';
             }
         }
 
@@ -184,19 +184,27 @@ class Engine_View_Helper_Timestamp extends Zend_View_Helper_HtmlElement {
                             Zend_Registry::get('Locale'), 'day', array('gregorian', 'format', 'abbreviated', strtolower($tsDayOfWeek))
             );
 
+            
             return $this->view->translate(
-                            '%s at %s', $dayOfWeek, $this->view->locale()->toTime($time, array('size' => 'short'))
+                            '%s lúc %s', $dayOfWeek, $this->view->locale()->toTime($time, array('size' => 'short'))
             );
         }
 
         // less than a year and same year
         else if ($delta < self::YEAR && date('Y', $time) == date('Y', $now)) {
+            return $this->view->translate(
+                            '%s lúc %s', $this->view->locale()->toTime($time, array('type' => 'dateitem', 'size' => 'MMMMd')), $this->view->locale()->toTime($time, array('size' => 'short'))
+            );
             return $this->view->locale()->toTime($time, array('type' => 'dateitem', 'size' => 'MMMMd'));
         }
 
         // Otherwise use the full date
         else {
             return $this->view->locale()->toDate($time, array('size' => 'long'));
+            
+            return sprintf(
+                            '%s lúc %s', $this->view->locale()->toDate($time, array('size' => 'long')), $this->view->locale()->toTime($time, array('size' => 'short'))
+            );
         }
 
         $this->_extraClass = 'timestamp-update';
