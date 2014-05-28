@@ -124,3 +124,9 @@
 2014-05-26T16:28:29+00:00 DEBUG (7): [System] (notify_friend_request) jannie_capri01@yahoo.com <- support@hospitality.vn
 2014-05-26T16:28:29+00:00 DEBUG (7): [Zend] dtanhdao247@gmail.com <- support@hospitality.vn
 2014-05-26T16:28:29+00:00 DEBUG (7): [System] (notify_friend_request) dtanhdao247@gmail.com <- support@hospitality.vn
+2014-05-28T07:00:45+00:00 DEBUG (7): [Zend] ledaoquang@gmail.com <- support@hospitality.vn
+2014-05-28T07:00:45+00:00 DEBUG (7): [System] (notify_friend_request) ledaoquang@gmail.com <- support@hospitality.vn
+2014-05-28T07:00:45+00:00 DEBUG (7): [Zend] walkapple.minh@gmail.com <- support@hospitality.vn
+2014-05-28T07:00:45+00:00 DEBUG (7): [System] (notify_friend_request) walkapple.minh@gmail.com <- support@hospitality.vn
+2014-05-28T07:00:45+00:00 DEBUG (7): [Zend] nnminh.CE@gmail.com <- support@hospitality.vn
+2014-05-28T07:00:45+00:00 DEBUG (7): [System] (core_welcome) nnminh.CE@gmail.com <- support@hospitality.vn

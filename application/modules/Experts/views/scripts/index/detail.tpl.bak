@@ -140,7 +140,7 @@
 									    <?php endif; ?>
 									</span>
 									<h3><a href="<?php echo $this->baseUrl("/")."profile/".$data->username; ?>"><?php echo $data->username; ?></a></h3>
-									<span class="pt-times"> - <?php echo date("Y-m-d",strtotime($data->created_date)); ?></span>
+									<span class="pt-times">Đăng lúc - <?php echo $this->timestamp($data->created_date); ?></span>
 									<div class="pt-link-group pt-link-group-01">
 										<div  class="pt-editing">Editing</div>
 										<div class="pt-toggle-layout pt-toggle-layout-01">
@@ -167,7 +167,7 @@
 									-->
 									<div class="pt-content-questions-how">
 										<h2><?php echo $data->title ?></h2>
-										Danh mục: <?php echo $data->category; ?>
+										<div class="pt-event0management"><?php echo $data->category; ?></div>
 										<div id="question_rating" class="rating" onmouseout="rating_out();">
 										  <span id="rate_1" <?php if (!$rated && $viewer_id):?>onclick="rate(1);"<?php endif; ?> onmouseover="rating_over(1);"></span>
 										  <span id="rate_2" <?php if (!$rated && $viewer_id):?>onclick="rate(2);"<?php endif; ?> onmouseover="rating_over(2);"></span>
@@ -187,6 +187,15 @@
 								</div>
 								<div class="pt-comment-text">
 									<form name="upload" method="post" action="<?php echo $this->baseUrl().'/experts/my-experts/detail/question_id/'.$data->question_id; ?>"  enctype="multipart/form-data" id="questions_add_detail">
+									
+									<span class="pt-avatar">
+									<?php if($viewer_id->photo_id): ?>
+										<?php echo $this->itemPhoto($viewer_id, 'thumb.normal', "Image"); ?>
+									    <?php else: ?>
+										<img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_profile.png">
+									    <?php endif; ?>
+									</span>
+
 									<div class="pt-textarea">
 										<textarea id="description"  name="description" title="Viết bình luận..." placeholder="Write a comment ..." value="Write a comment ..." data-reactid="" aria-owns="" aria-haspopup="true" aria-expanded="false" aria-label="Write a comment ..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 45px;"></textarea>
 									</div>
@@ -213,9 +222,12 @@
 												</span>
 												<h3><a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"><?php echo $item->username; ?></a>
 												<span style="font-size: 0.8em;"><?php  echo $this->translate(array('%s Year experience', '%s Years experience', intval($this->expert($item->userid)->experience)), intval($this->expert($item->userid)->experience)) ?></span>
+												<?php if($data->answer_id == $item->answer_id){
+													echo " - Câu trả lời hay nhất";
+												} ?>
 												</h3>
-												<span class="pt-times">Trả lời lúc: - <?php echo date("Y-m-d h:i:s",strtotime($item->created_date)); ?></span>
-												<!--
+												<span class="pt-times">Trả lời lúc: - <?php echo $this->timestamp($data->created_date); ?></span>
+												
 												<div class="pt-link-group pt-link-group-01">
 													<a href="#" class="pt-editing">Editing</a>
 													<div class="pt-toggle-layout pt-toggle-layout-01">
@@ -223,8 +235,8 @@
 														<div class="pt-toggle-layout-content">
 															<ul class="pt-edit">
 																<li>
-																	<a href="#" class="icon-01">Báo cáo</a>
-
+																	<a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'best-answer', 'question_id'=>$item->question_id,'answer_id'=>$item->answer_id),'default',true); ?>" class="icon-01">Câu trả lời hay nhất</a>
+																		
 																</li>
 																<li>
 																	
@@ -233,7 +245,7 @@
 														</div>
 													</div>
 												</div>
-												-->
+												
 											</div>
 											<div class="pt-content-questions-content">
 												<!--
@@ -297,6 +309,11 @@
 
 	jQuery('.pt-editing').bind('click', function(){
 		jQuery(this).siblings('.pt-toggle-layout').slideToggle();
+	});
+
+	jQuery('#url_tab03').bind('click', function(){
+		
+		
 	});
 
   });

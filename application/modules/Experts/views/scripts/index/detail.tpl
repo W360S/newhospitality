@@ -1,3 +1,9 @@
+<style>
+.pt-comment-text #pt-textarea-description{width: 464px !important;}
+.pt-comment-text .pt-submit-comment {
+    margin-left: 62px !important;
+}
+</style>
 <script type="text/javascript">
   var pre_rate = "<?php echo $this->data->rating;?>";
   var rated = "<?php echo $this->rated;?>";
@@ -120,6 +126,7 @@
 								    // rating
 								    $rated = $this->rated;
 								    $viewer_id = $this->viewer_id;
+									$view_by = $this->view_by;
 								    $rating_count = $this->rating_count;
 								    
 								    $data = $this->data;
@@ -140,7 +147,7 @@
 									    <?php endif; ?>
 									</span>
 									<h3><a href="<?php echo $this->baseUrl("/")."profile/".$data->username; ?>"><?php echo $data->username; ?></a></h3>
-									<span class="pt-times"> - <?php echo date("Y-m-d",strtotime($data->created_date)); ?></span>
+									<span class="pt-times">Đăng lúc - <?php echo $this->timestamp($data->created_date); ?></span>
 									<div class="pt-link-group pt-link-group-01">
 										<div  class="pt-editing">Editing</div>
 										<div class="pt-toggle-layout pt-toggle-layout-01">
@@ -187,7 +194,16 @@
 								</div>
 								<div class="pt-comment-text">
 									<form name="upload" method="post" action="<?php echo $this->baseUrl().'/experts/my-experts/detail/question_id/'.$data->question_id; ?>"  enctype="multipart/form-data" id="questions_add_detail">
-									<div class="pt-textarea">
+									
+									<span class="pt-avatar">
+									<?php if($view_by->photo_id): ?>
+										<?php echo $this->itemPhoto($view_by, 'thumb.normal', "Image"); ?>
+									    <?php else: ?>
+										<img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_profile.png">
+									    <?php endif; ?>
+									</span>
+
+									<div class="pt-textarea" id="pt-textarea-description" >
 										<textarea id="description"  name="description" title="Viết bình luận..." placeholder="Write a comment ..." value="Write a comment ..." data-reactid="" aria-owns="" aria-haspopup="true" aria-expanded="false" aria-label="Write a comment ..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 45px;"></textarea>
 									</div>
 									<div href="#" class="pt-up-img"><input type="file" id="file" name="file" aria-label=""></div>
@@ -213,18 +229,21 @@
 												</span>
 												<h3><a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"><?php echo $item->username; ?></a>
 												<span style="font-size: 0.8em;"><?php  echo $this->translate(array('%s Year experience', '%s Years experience', intval($this->expert($item->userid)->experience)), intval($this->expert($item->userid)->experience)) ?></span>
+												<?php if($data->answer_id == $item->answer_id){
+													echo " - Câu trả lời hay nhất";
+												} ?>
 												</h3>
-												<span class="pt-times">Trả lời lúc: - <?php echo date("Y-m-d h:i:s",strtotime($item->created_date)); ?></span>
-												<!--
+												<span class="pt-times">Trả lời lúc: - <?php echo $this->timestamp($item->created_date); ?></span>
+												<?php if($data->userid == $viewer_id): ?>
 												<div class="pt-link-group pt-link-group-01">
-													<a href="#" class="pt-editing">Editing</a>
+													<div class="pt-editing">Editing</div>
 													<div class="pt-toggle-layout pt-toggle-layout-01">
 														<div class="pt-icon-arrow"><span></span></div>
 														<div class="pt-toggle-layout-content">
 															<ul class="pt-edit">
 																<li>
-																	<a href="#" class="icon-01">Báo cáo</a>
-
+																	<a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'best-answer', 'question_id'=>$item->question_id,'answer_id'=>$item->answer_id),'default',true); ?>" class="icon-01">Câu trả lời hay nhất</a>
+																		
 																</li>
 																<li>
 																	
@@ -233,7 +252,7 @@
 														</div>
 													</div>
 												</div>
-												-->
+												<?php endif; ?>
 											</div>
 											<div class="pt-content-questions-content">
 												<!--
@@ -244,7 +263,7 @@
 												-->
 												<div class="pt-content-questions-how">
 													<?php if($item->attach_id): ?>
-														<p><a class="attack_file" href="<?php echo $this->baseUrl("/").$item->storage_path; ?>"><?php $size = round($item->size/1024,2); echo $item->attach_name. " (".$size." KB)"; ?></a></p>
+														<p><img src="<?php echo $this->baseUrl("/").$item->storage_path; ?>"/></p>
 													<?php endif; ?>
 													<p><?php echo $item->content; ?></p>
 												</div>
@@ -295,9 +314,11 @@
 	  return false;
 	});
 
-	jQuery('.pt-editing').bind('click', function(){
-		jQuery(this).siblings('.pt-toggle-layout').slideToggle();
+	jQuery(".pt-editing").bind("click", function(){
+		jQuery(this).siblings(".pt-toggle-layout").slideToggle();
 	});
+	
+
 
   });
     

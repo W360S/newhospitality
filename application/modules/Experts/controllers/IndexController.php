@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class Experts_IndexController extends Core_Controller_Action_Standard
 {
@@ -180,6 +180,8 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     if(isset($data_question)){
         $viewer = $this->_helper->api()->user()->getViewer();
 		$this->view->viewer_id = $viewer->getIdentity();
+                $view_by = Engine_Api::_()->getDbtable('users', 'user')->find($viewer->getIdentity())->current();
+		$this->view->view_by = $view_by;
         $this->view->rating_count = Engine_Api::_()->experts()->ratingCount($question_id);
         $this->view->rated = Engine_Api::_()->experts()->checkRated($question_id, $viewer->getIdentity());
         //$this->view->categories =  Engine_Api::_()->experts()->getCategoriesOfQuestion($question_id);
@@ -208,6 +210,18 @@ class Experts_IndexController extends Core_Controller_Action_Standard
         return $this->_helper->redirector->gotoRoute(array('action' => 'index'));
     }
     
+  }
+
+  public function bestAnswerAction()
+  {
+	$viewer = Engine_Api::_()->user()->getViewer();
+    $user_id = $viewer->getIdentity();
+	$question_id = intval($this->_getParam('question_id'));
+	$answer_id = intval($this->_getParam('answer_id'));
+	$question = Engine_Api::_()->getDbtable('questions', 'experts')->find($question_id)->current();
+    $question->answer_id= $answer_id;
+    $question->save();
+	return $this->_helper->redirector->gotoRoute(array('action' => 'detail','question_id'=>$question_id));
   }
   
   public function rateAction()

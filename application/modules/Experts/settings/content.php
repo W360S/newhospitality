@@ -64,6 +64,13 @@ return array(
         'name' => 'experts.top-views'
   ),
   array(
+	'title'=> 'Top Home',
+        'description' => 'Top Home',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.top-home'
+  ),
+  array(
 	'title'=> 'Top Rating',
         'description' => 'Top Rating',
         'category' => 'Experts',

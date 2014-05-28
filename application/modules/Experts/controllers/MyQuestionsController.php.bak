@@ -165,15 +165,15 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
       $content      =   $html;
       
       // get category ids            
-      $cats         =   $this->getRequest()->getPost('categories_experts');
+      $cats         =   $this->getRequest()->getPost('expert_category');
       //$expert_id    =  (int) $this->getRequest()->getPost('compose_select_experts');
-      $arr_cats     =   array();
-      $arr_cats     =   explode(",",$cats);
-      //Zend_Debug::dump($arr_cats);
+      //$arr_cats     =   array();
+      //$arr_cats     =   explode(",",$cats);
+      Zend_Debug::dump($cats);exit;
       // get experts ids
-      $exp_cats    =   $this->getRequest()->getPost('check_select_experts');
-      $arr_exp     =   array();
-      $arr_exp     =   explode(",",$exp_cats);
+      //$exp_cats    =   $this->getRequest()->getPost('check_select_experts');
+      $arr_cats     =   array($cats);
+      //$arr_exp     =   explode(",",$exp_cats);
             
       $check_file = true;
       
@@ -193,7 +193,7 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
           }
       }  
       
-      if(!empty($title) && !empty($content) && (count($arr_exp) < 4) && (count($arr_exp) > 0) && $check_file){
+      if(!empty($title) && !empty($content)&& $check_file){
           $this->_helper->layout->disableLayout();
           $this->_helper->viewRenderer->setNoRender();
           
@@ -247,7 +247,7 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard
             $body = $content;
             
             $db->commit();
-            
+            $this->_helper->redirector->gotoRoute(array('action' => 'index'));
 			 //  print_r('{"message": "success"}');die;
             
            }

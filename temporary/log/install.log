@@ -206,3 +206,19 @@ Stack trace:
 #10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
 #11 {main}
 
+2014-05-28T05:51:30+00:00 WARN (4): [2] file_get_contents(/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/packages/module-hecore-4.2.0p9.json): failed to open stream: Permission denied (/Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php) [55]
+Error Code: 95c179
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Parser/Json.php(55): file_get_contents('/Applications/XAMPP/xamppfiles/h...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(1145): Engine_Package_Manifest_Parser_Json->fromFile('/Applications/XAMPP/xamppfiles/h...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manifest/Entity/Package.php(137): Engine_Package_Manifest_Entity_Package->read('/Applications/XAMPP/xamppfiles/h...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Package/Manager.php(733): Engine_Package_Manifest_Entity_Package->__construct('/Applications/XAMPP/xamppfiles/h...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/controllers/ManageController.php(153): Engine_Package_Manager->listInstalledPackages(Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): ManageController->indexAction()
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('indexAction')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(77): Zend_Controller_Front->dispatch()
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Application.php(358): Zend_Application_Bootstrap_Bootstrap->run()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/install/index.php(87): Zend_Application->run()
+#11 {main}
+

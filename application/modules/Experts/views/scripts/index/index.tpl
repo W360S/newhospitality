@@ -24,7 +24,7 @@
 								</ul>
 							</div>
 							<div id="tab-01">
-								<?php echo $this->content()->renderWidget('experts.lasted-questions'); ?>
+								<?php echo $this->content()->renderWidget('experts.top-home'); ?>
 							</div>
 							<div id="tab-02">
 								<?php echo $this->content()->renderWidget('experts.top-views'); ?>

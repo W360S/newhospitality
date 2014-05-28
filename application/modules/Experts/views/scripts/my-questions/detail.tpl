@@ -153,23 +153,23 @@
 			</div>	
 			<div class="list_my_questions">
                 <table cellspacing="0" cellpadding="0" border="0" class="my_experts">
-                    <tr class="container_func">
-                        <td>
-                            <?php if($data->status == 1): ?>
-                                <a href="<?php echo $this->url(array('action'=>'cancel','question_id'=>$data->question_id)); ?>" class="smoothbox bt_cancel"><?php echo $this->translate('Cancel'); ?></a>
-                            <?php endif; ?>
-                            
-                            <?php if($data->status == 2): ?>
-                                <a href="<?php echo $this->url(array('action'=>'close','question_id'=>$data->question_id)); ?>" class="smoothbox bt_cancel"><?php echo $this->translate('Close'); ?></a>
-                            <?php endif; ?>
-                            
-                            <?php if(in_array($data->status,array(1,3,4))): ?>
-                                <a href="<?php echo $this->url(array('action'=>'delete','question_id'=>$data->question_id)); ?>" class="smoothbox bt_cancel"><?php echo $this->translate('Delete'); ?></a>
-                            <?php endif; ?>
-    					</td>
-                    </tr>
-					<tr class="form_answer">
-						<td>
+			<tr class="container_func">
+			<td>
+			    <?php if($data->status == 1): ?>
+				<a href="<?php echo $this->url(array('action'=>'cancel','question_id'=>$data->question_id)); ?>" class="smoothbox bt_cancel"><?php echo $this->translate('Cancel'); ?></a>
+			    <?php endif; ?>
+			    
+			    <?php if($data->status == 2): ?>
+				<a href="<?php echo $this->url(array('action'=>'close','question_id'=>$data->question_id)); ?>" class="smoothbox bt_cancel"><?php echo $this->translate('Close'); ?></a>
+			    <?php endif; ?>
+			    
+			    <?php if(in_array($data->status,array(1,3,4))): ?>
+				<a href="<?php echo $this->url(array('action'=>'delete','question_id'=>$data->question_id)); ?>" class="smoothbox bt_cancel"><?php echo $this->translate('Delete'); ?></a>
+			    <?php endif; ?>
+			</td>
+			</tr>
+			<tr class="form_answer">
+				<td>
 							<table>
                                 <tr>
                                 	<td>
@@ -193,65 +193,65 @@
                                         </p>
                                 	</td>
                                 </tr>
-								<tr>
-									<td>
-										<p><?php echo $data->content; ?></p>
-										<?php if($data->file_id): ?>
-    									<p><a class="attack_file" href="<?php echo $this->baseUrl("/").$data->storage_path; ?>"><?php $size = round($data->size/1024,2); echo $data->name. " (".$size." KB)"; ?></a></p>
-                                        <?php endif; ?>
-                                        <?php if(($data->status==1) && ($data->add_detail == null)): ?>
-                                        <a class="smoothbox" href="<?php echo $this->url(array('action'=>'add-detail','question_id'=>$data->question_id)); ?>">Add detail</a>
-                                        <?php endif; ?>
-                                        <?php if(!empty($data->add_detail)): ?>
-                                        <p class="title_answer"><?php echo $this->translate("Update detail"); ?></p>
-                                        <p><?php echo $data->add_detail; ?></p>    
-                                        <?php endif; ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="border_none">
-										
-                                        <p ><strong><?php echo $this->translate("Experts selected"); ?>:</strong> <?php echo $data->experts; ?></p>
-                                        <?php if(count($answers)): ?>
-                                        <?php foreach($answers as $item): ?>
-                                        <div class="detail_expert">
-											<div class="frame_img">
-                                                <div style="float: left;">
-    												<a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'profile','user_id'=>$item->userid),'default',true); ?>">
-    													<?php if(!empty($item->photo_id)): ?>
-                                                            <?php echo $this->itemPhoto($item, 'thumb.icon', "Image"); ?>
-                                                        <?php else: ?>
-                                                            <img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_icon.png">
-                                                        <?php endif; ?>
-    												</a>
-                                                </div>
-                                                
-                                                <?php if($item->userid): ?>
-                                                <div style="float: left; padding-left: 5px;">
-                                                    <strong><a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"><?php echo $item->username; ?></a></strong>
-                                                    <em><?php $this->translate('in') ?> <?php echo $this->expert($item->userid)->company;?></em><br />
-                                                    <span style="font-size: 0.8em;"><a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'answered-by-experts','user_id'=>$item->userid),'default',true); ?>"><?php  echo $this->translate(array('%s Answer', '%s Answers', intval($this->countAnswer($item->userid))), intval($this->countAnswer($item->userid))) ?></a></span><br />
-                                                    <span style="font-size: 0.8em;"><?php  echo $this->translate(array('%s Year experience', '%s Years experience', intval($this->expert($item->userid)->experience)), intval($this->expert($item->userid)->experience)) ?></span>
-                                                </div>
-                                                <?php endif; ?> 
-											</div>
-                                            <div style="clear: both;"></div>
-											<div class="text_expert">
-												<p>
-                                                   <?php echo $item->content; ?>
-                                                </p>
-                                                <?php if($item->attach_id): ?>
-            									<p><a class="attack_file" href="<?php echo $this->baseUrl("/").$item->storage_path; ?>"><?php $size = round($item->size/1024,2); echo $item->attach_name. " (".$size." KB)"; ?></a></p>
-                                                <?php endif; ?>
-												<p><em><strong><?php echo $this->translate('Answered at'); ?></strong> <?php echo date("Y-m-d h:i:s",strtotime($item->created_date)); ?></em></p>
-											</div>
-										</div>
-										<?php endforeach; ?>
-                                        <?php endif; ?>
-									</td>
-								</tr>
+				<tr>
+					<td>
+						<p><?php echo $data->content; ?></p>
+						<?php if($data->file_id): ?>
+						<p><a class="attack_file" href="<?php echo $this->baseUrl("/").$data->storage_path; ?>"><?php $size = round($data->size/1024,2); echo $data->name. " (".$size." KB)"; ?></a></p>
+						<?php endif; ?>
+						<?php if(($data->status==1) && ($data->add_detail == null)): ?>
+						<a class="smoothbox" href="<?php echo $this->url(array('action'=>'add-detail','question_id'=>$data->question_id)); ?>">Add detail</a>
+						<?php endif; ?>
+						<?php if(!empty($data->add_detail)): ?>
+						<p class="title_answer"><?php echo $this->translate("Update detail"); ?></p>
+						<p><?php echo $data->add_detail; ?></p>    
+						<?php endif; ?>
+					</td>
+				</tr>
+				<tr>
+					<td class="border_none">
+						
+					<p ><strong><?php echo $this->translate("Experts selected"); ?>:</strong> <?php echo $data->experts; ?></p>
+					<?php if(count($answers)): ?>
+					<?php foreach($answers as $item): ?>
+					<div class="detail_expert">
+						<div class="frame_img">
+							<div style="float: left;">
+									<a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'profile','user_id'=>$item->userid),'default',true); ?>">
+										<?php if(!empty($item->photo_id)): ?>
+									    <?php echo $this->itemPhoto($item, 'thumb.icon', "Image"); ?>
+									<?php else: ?>
+									    <img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_icon.png">
+									<?php endif; ?>
+									</a>
+							</div>
+			
+							<?php if($item->userid): ?>
+							<div style="float: left; padding-left: 5px;">
+							    <strong><a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"><?php echo $item->username; ?></a></strong>
+							    <em><?php $this->translate('in') ?> <?php echo $this->expert($item->userid)->company;?></em><br />
+							    <span style="font-size: 0.8em;"><a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'answered-by-experts','user_id'=>$item->userid),'default',true); ?>"><?php  echo $this->translate(array('%s Answer', '%s Answers', intval($this->countAnswer($item->userid))), intval($this->countAnswer($item->userid))) ?></a></span><br />
+							    <span style="font-size: 0.8em;"><?php  echo $this->translate(array('%s Year experience', '%s Years experience', intval($this->expert($item->userid)->experience)), intval($this->expert($item->userid)->experience)) ?></span>
+							</div>
+							<?php endif; ?> 
+						</div>
+						<div style="clear: both;"></div>
+							<div class="text_expert">
+							<p>
+							   <?php echo $item->content; ?>
+							</p>
+							<?php if($item->attach_id): ?>
+							<p><a class="attack_file" href="<?php echo $this->baseUrl("/").$item->storage_path; ?>"><?php $size = round($item->size/1024,2); echo $item->attach_name. " (".$size." KB)"; ?></a></p>
+							<?php endif; ?>
+							<p><em><strong><?php echo $this->translate('Answered at'); ?></strong> <?php echo date("Y-m-d h:i:s",strtotime($item->created_date)); ?></em></p>
+							</div>
+						</div>
+						<?php endforeach; ?>
+						 <?php endif; ?>
+					</td>
+				</tr>
                                 					
-							</table>
+			</table>
 						</td>
 					</tr>
                     <tr class="container_func">

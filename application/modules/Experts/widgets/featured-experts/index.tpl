@@ -1,15 +1,8 @@
-<h3 class="pt-title-right"><?php echo $this->translate("featured experts."); ?></h3>
-<?php 
-            $n= count($this->list_experts); 
-        if($n): 
-        ?>
-            <ul class="pt-list-right pt-list-right-fix">
-            <?php $dem = 0;  foreach($this->list_experts as $item): $dem++;  ?>
-            <?php  if((($dem-1) %5 == 0) && (($dem - 1) > 1)): ?>
-            </ul>
-            <ul class="pt-list-right pt-list-right-fix">
-            <?php endif; ?>
-                <li>
+<h3 class="pt-title-right"><?php echo "Chuyên gia tích cực"; ?></h3>
+<?php if(count($this->list_experts)): ?>
+	  <ul class="pt-list-right pt-list-right-fix">
+	   <?php foreach($this->list_experts as $item): ?>
+            <li>
 
 		<div class="pt-user-post">
 			<a href="#"><span class="pt-avatar">
@@ -27,7 +20,7 @@
 			</div>
 		</div>
 		
-	</li>
+	    </li>
 	<?php endforeach; ?> 
 	</ul>
  <?php else: ?>

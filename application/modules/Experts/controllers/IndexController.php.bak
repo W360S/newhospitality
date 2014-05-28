@@ -44,7 +44,7 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     ->order('engine4_experts_questions.created_date Desc');
     
     $paginator = $this->view->paginator = Zend_Paginator::factory($questions_select);
-    $paginator->setItemCountPerPage(15);
+    $paginator->setItemCountPerPage(10);
     $paginator->setCurrentPageNumber( $this->_getParam('page') );
     $this->view->user = $user;
   }
@@ -73,7 +73,7 @@ class Experts_IndexController extends Core_Controller_Action_Standard
         //$this->view->category_name = $category->category_name;
 		$this->view->category_id = $category_id;
         $paginator = $this->view->paginator = Zend_Paginator::factory($questions_select);
-        $paginator->setItemCountPerPage(15);
+        $paginator->setItemCountPerPage(10);
 		$paginator->category_name = $category->category_name;
 		$paginator->category_id = $category_id;
         $paginator->setCurrentPageNumber( $this->_getParam('page') );
@@ -208,6 +208,17 @@ class Experts_IndexController extends Core_Controller_Action_Standard
         return $this->_helper->redirector->gotoRoute(array('action' => 'index'));
     }
     
+  }
+
+  public function bestAnswerAction()
+  {
+	$viewer = Engine_Api::_()->user()->getViewer();
+    $user_id = $viewer->getIdentity();
+	$question_id = intval($this->_getParam('question_id'));
+	$answer_id = intval($this->_getParam('answer_id'));
+	$question = Engine_Api::_()->getDbtable('questions', 'experts')->find($question_id)->current();
+    $question->answer_id= $answer_id;
+    $question->save();
   }
   
   public function rateAction()

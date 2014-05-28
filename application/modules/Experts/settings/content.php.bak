@@ -111,6 +111,13 @@ return array(
     'category' => 'Experts widgets',
     'type' => 'widget',
     'name' => 'experts.answered-by-experts',
+  ),
+  array(
+	'title'=> 'Post question',
+        'description' => 'Post question',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.post-question'
   )
 ) 
 ?>

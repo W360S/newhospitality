@@ -1,40 +1,3 @@
-
-<style style="text/css">
-.panel {float:left;margin-right:3px;position:relative;z-index:99;margin-top:1px}
-
-.panel .content .s-input{float:left;margin-bottom:6px;clear:both;width:138px}
-.panel .content .s-input input{margin:0 3px 0 0;width:auto;border:none;color:#fff;font-size:0px;display:inline-block }
-.panel .content .s-input label {font-weight:normal;line-height:15px; float:left;display:inline-block;width:115px}
-
-    
-#content_compose_title .s-input label, #content_compose_experts .s-input label{
-padding-right:2px;
-padding-top: 2px;
-text-align:left;
-}
-.panel #content_compose_title, .panel #content_compose_experts{
-width: 268px;
-height: auto;
-}
-
-#content_compose_title div.s-input{
-width: auto;
-}    
-
-#content_compose_title div.s-input label{
-width: auto;
-}
-
-.panel #trigger_compose_title, .panel #trigger_compose_experts{
-width: 280px;
-}
-#panel_compose_title{
-z-index: 90;
-}
-
-    
-</style>
-
 <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/custom.expert.js'?>" type="text/javascript"></script>
 <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.lib.min.js'?>" type="text/javascript"></script>
 <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.tooltip.min.js'?>" type="text/javascript"></script>
@@ -131,12 +94,6 @@ z-index: 90;
              },
             "description" : {
                 required: "<?php echo $this->translate('Content is not empty (*)')?>"
-            },
-            "check_select_experts" : {
-                required: "<?php echo $this->translate('Please choose expert (*)')?>"
-            },
-            "categories_experts" : {
-                required: "<?php echo $this->translate('Please choose category (*)')?>"
             }
 		},
 		rules: {
@@ -147,70 +104,15 @@ z-index: 90;
             "description" : {
 		      required: true,
 		      maxlength: 10000
-		    },
-            "check_select_experts" : {
-		      required: true
-		    },
-            "categories_experts" : {
-		      required: true
 		    }
         }
     });
-    jQuery('.compose_category').bind('click', function(){
-        var category_ids = jQuery("input[name='composecategory']:checked");
-        var str_category = "";
-        var cat_cnt = 1;
-        var str_strcategory = "";
-
-        jQuery.each(category_ids, function() {
-          if(cat_cnt < category_ids.length) {
-            str_category += jQuery(this).val()+",";
-            str_strcategory += jQuery(this).attr("title") + ", ";
-            cat_cnt ++;
-          } else {
-            str_category += jQuery(this).val();
-            str_strcategory += jQuery(this).attr("title");
-          }
-        });
-        jQuery("#categories_experts").attr("value",str_category);
-        jQuery("#categories_experts").attr("title",str_strcategory);
-    });
-    //trigger_compose_experts
-    jQuery('#compose_select_cats').click(function() {
-        var url = "<?php echo $this->baseUrl().'/experts/ajax-request/get-experts-from-cats?cats='; ?>";
-        var check_cat = jQuery("#categories_experts").attr("value");
-        var str_check_cat = jQuery("#categories_experts").attr("title");
-
-        if(check_cat == '') {
-            jQuery("#compose_select_experts").html("");
-            alert("<?php echo $this->translate('Please select category')?>"); return false;
-		}
-        url = url + check_cat;
-        
-        jQuery("#trigger_compose_title").html(str_check_cat);
-
-        jQuery.ajax({
-          url: url,
-          cache: false,
-          success: function(html){
-            jQuery("#content_compose_title").slideToggle();
-            jQuery("#content_compose_title").hide();
-            jQuery("#compose_select_experts").html(html);
-            jQuery("#check_select_expert").next().remove();
-          }
-        });
-    });
-    jQuery('#content_compose_title').hide();
-    jQuery('#trigger_compose_title').bind('click', function(){
-        jQuery(this).siblings('#content_compose_title').slideToggle();
-    });
- });
+    
 </script>
 
 <?php $categories = $this->categories1; $title = $desc = "" ; 
 if(isset($this->title)) $title = $this->title; 
 if(isset($this->description)) $desc = $this->description;
-
 ?>
 
 <div id="wd-content-container">
@@ -243,32 +145,18 @@ if(isset($this->description)) $desc = $this->description;
 														<ul>
 															
 															<li>
-																<div class="input" id="input_compose_title">
-																	<label><?php echo $this->translate('Choose category') ?>:</label>
-																	<div style="" class="select_sort">
-																		<div class="panel" id="panel_compose_title">
-																			<div class="trigger" id="trigger_compose_title"><?php echo $this->translate('All category'); ?></div>
-																			<div class="content" id="content_compose_title">
-																			    <?php if(count($categories)): ?>
-																				<input style="margin-bottom: 10px;" type="button" id="compose_select_cats" class="bt_send_question" value="<?php echo $this->translate('Chọn') ?>">
-																				<?php foreach( $categories as $item ): ?>
-																						<div class="s-input">
-																							<input type="checkbox" class="compose_category" name="composecategory" value="<?php echo $item->category_id;?>" title="<?php echo $item->category_name; ?>"/>
-																							<label><?php echo $item->category_name; ?></label>
-																						</div>
-																					<?php endforeach; ?>
-																			    <?php endif; ?>
-																		    
-																			</div>
-																		</div>
-																	</div>
-																	<div class="clear"></div>
-																	<input style="width: 10px; float: left;" type="hidden" id="categories_experts" name="categories_experts" value="" />
-																    </div>
-																<div id="hidden_load_div" style="display:none"></div>
+																<label><?php echo $this->translate('Choose category') ?>:</label>
+																<div class="select_sort">
+																	<select name="expert_category" id="expert_category">
+																		<?php foreach($categories as $item): ?>
+																		<option value="<?php echo $item->category_id; ?>"><?php echo $item->category_name; ?></option>
+																		<?php endforeach; ?>
+																	</select>
+																</div>
+																
 															</li>
 															<li>
-																<label>Chi tiết câu hỏi</label>
+																<label>Tiêu đề câu hỏi</label>
 																<input  class="input-text" type="text" id="title" name="title" value="<?php echo $title; ?>" />
 															</li>
 															<li>
@@ -283,12 +171,12 @@ if(isset($this->description)) $desc = $this->description;
         															<input type="file" id="file" name="file"/>
 																
 															</li>
-															<li>
+															<li style="padding-left:130px;">
 																<?php echo $this->translate("(files: txt,png,jpg,gif,doc,docx,rar Maxsize: 5Mb)") ?>
 															</li>
 															<li class="last">
 																<button type="submit" title="" class="button">Đăng câu hỏi</button>
-																<button type="submit" title="" class="button">Hủy</button>
+																<button style="margin-left: 10px;" type="cancel" title="" class="button">Hủy</button>
 															</li>
 														</ul>
 													</fieldset>

@@ -10,11 +10,21 @@ label.error{width: 100px !important;}
 .list_my_questions table.my_experts tr.form_answer td p {width: auto !important;}
 .wd-content-left { width:204px; float:left; padding-top:20px;}
 .pt-subpage  .wd-center  {width:1188px !important}
-.pt-comment-text .pt-submit-comment { margin-left:0px !important;}
-.pt-comment-text .pt-textarea {width:528px !important;}
+.pt-comment-text .pt-submit-comment { margin-left:63px !important;}
 
-#wd-content-container {padding-bottom:0px;padding-top:0px;}
-/*#wd-content-container {padding-bottom:0px !important;padding-top:0px !important;}*/
-.layout_experts_featured_experts .pt-list-right .pt-user-post .pt-how-info-user-post {
+
+#wd-content-container {padding-bottom:0px !important;padding-top:0px !important;}
+
+.pt-list-right .pt-user-post .pt-how-info-user-post {
     width: 177px !important;
+}
+span.pt-avatar img{
+border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    display: block;
+    float: left;
+    height: 45px;
+    width: 45px;
 }
