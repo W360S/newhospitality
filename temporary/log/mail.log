@@ -130,3 +130,17 @@
 2014-05-28T07:00:45+00:00 DEBUG (7): [System] (notify_friend_request) walkapple.minh@gmail.com <- support@hospitality.vn
 2014-05-28T07:00:45+00:00 DEBUG (7): [Zend] nnminh.CE@gmail.com <- support@hospitality.vn
 2014-05-28T07:00:45+00:00 DEBUG (7): [System] (core_welcome) nnminh.CE@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] luyentran.dulichdongxuan@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) luyentran.dulichdongxuan@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] qnhut23@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) qnhut23@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] phuonglhk@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) phuonglhk@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] diem.quynh1702@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) diem.quynh1702@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] hanhbuitravel@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) hanhbuitravel@gmail.com <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] inizu_my3bie@yahoo.com.vn <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) inizu_my3bie@yahoo.com.vn <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] wancheung@zing.vn <- support@hospitality.vn
+2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) wancheung@zing.vn <- support@hospitality.vn

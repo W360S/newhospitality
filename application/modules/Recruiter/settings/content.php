@@ -59,6 +59,13 @@ return array(
         'name' => 'recruiter.hot-job',
     ),
     array(
+        'title' => 'Home Job',
+        'description' => 'Displays latest jobs at home page.',
+        'category' => 'Recruiter',
+        'type' => 'widget',
+        'name' => 'recruiter.home-job',
+    ),
+    array(
         'title' => 'Job Detail Tools',
         'description' => 'Tools used in job detail page, including applying job, share...',
         'category' => 'Recruiter',

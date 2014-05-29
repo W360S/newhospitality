@@ -18,7 +18,7 @@ class Recruiter_Form_Job_Create extends Engine_Form {
                 ->setAction(Zend_Controller_Front::getInstance()->getRouter()->assemble(array()));
         //position
         $this->addElement('Text', 'position', array(
-            'label' => 'Job Title:',
+            'label' => 'Chức danh (*) :',
             'required' => true,
             'maxlength' => 160,
             'validators' => array(
@@ -54,7 +54,7 @@ class Recruiter_Form_Job_Create extends Engine_Form {
 
         //number
         $this->addElement('Text', 'num', array(
-            'label' => 'Quantity:',
+            'label' => 'Số lượng (*) :',
             'allowEmpty' => false,
             'required' => true,
             'maxlength' => 160,
@@ -70,7 +70,7 @@ class Recruiter_Form_Job_Create extends Engine_Form {
         ));
         //year experience
         $this->addElement('Text', 'year_experience', array(
-            'label' => 'Year Experience:',
+            'label' => 'Số năm kinh nghiệm (*) :',
             'allowEmpty' => false,
             'required' => true,
             'maxlength' => 160,
@@ -86,7 +86,7 @@ class Recruiter_Form_Job_Create extends Engine_Form {
         ));
         //degree level
         $this->addElement('Select', 'degree_id', array(
-            'label' => 'Degree Level: ',
+            'label' => 'Bằng cấp (*) : ',
             'allowEmpty' => false,
             'required' => true,
             'multiOptions' => array(
@@ -167,7 +167,7 @@ class Recruiter_Form_Job_Create extends Engine_Form {
         //contact information
         //contact name
         $this->addElement('Text', 'contact_name', array(
-            'label' => 'Contact to:',
+            'label' => 'Liên hệ với (*) : ',
             'allowEmpty' => false,
             'required' => true,
             'maxlength' => 160,
@@ -183,9 +183,9 @@ class Recruiter_Form_Job_Create extends Engine_Form {
         ));
         //address
         $this->addElement('Text', 'contact_address', array(
-            'label' => 'Address:',
+            'label' => 'Địa chỉ (*) : ',
             'allowEmpty' => false,
-            //'required' => true,
+            'required' => true,
             'maxlength' => 160,
             'validators' => array(
                 array('NotEmpty', true),
@@ -209,14 +209,14 @@ class Recruiter_Form_Job_Create extends Engine_Form {
         )));
         //phone
         $this->addElement('Text', 'contact_phone', array(
-            'label' => 'Phone:',
+            'label' => 'Số điện thoại (*) : ',
             'allowEmpty' => false,
-            //'required' => true,
+            'required' => true,
             'maxlength' => 160,
-            //'validators' => array(
-            //array('NotEmpty', true),
-            //array('StringLength', false, array(1, 21)),
-            //),
+            'validators' => array(
+            array('NotEmpty', true),
+            // array('StringLength', false, array(1, 21)),
+            ),
             'filters' => array(
                 'StripTags',
                 new Engine_Filter_Censor(),
@@ -225,14 +225,14 @@ class Recruiter_Form_Job_Create extends Engine_Form {
         ));
         //email  
         $this->addElement('Text', 'contact_email', array(
-            'label' => 'Email:',
+            'label' => 'Email (*) : ',
             'allowEmpty' => false,
-            //'required' => true,
+            'required' => true,
             'maxlength' => 160,
-            //'validators' => array(
-            //array('NotEmpty', true),
-            //array('StringLength', false, array(1, 21)),
-            //),
+            'validators' => array(
+            array('NotEmpty', true),
+            // array('StringLength', false, array(1, 21)),
+            ),
             'filters' => array(
                 'StripTags',
                 new Engine_Filter_Censor(),

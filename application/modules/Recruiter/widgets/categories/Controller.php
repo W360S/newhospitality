@@ -24,7 +24,7 @@ class Recruiter_Widget_CategoriesController extends Engine_Content_Widget_Abstra
                                 ->select()
                                 ->where('category_id = ?', $category->category_id)
                                 ->where('job_id > ?', 0)
-                        //->where('status =?', 2)
+                        // ->where('status =?', 2)
                 );
 
                 $sum = 0;
@@ -33,8 +33,8 @@ class Recruiter_Widget_CategoriesController extends Engine_Content_Widget_Abstra
                     foreach ($row as $val) {
 
                         $job = Engine_Api::_()->getDbtable('jobs', 'recruiter')->find($val->job_id)->current();
-                        //if (($job->status == 2) && ($job->deadline > date('Y-m-d'))) {
-                        if (($job->status == 2)) {
+                        if (($job->status == 2) && ($job->deadline > date('Y-m-d'))) {
+                        // if (($job->status == 2)) {
                             $sum +=1;
                         }
                     }

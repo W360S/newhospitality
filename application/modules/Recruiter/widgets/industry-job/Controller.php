@@ -51,8 +51,8 @@ class Recruiter_Widget_IndustryJobController extends Engine_Content_Widget_Abstr
             foreach ($row as $val) {
 
                 $job = Engine_Api::_()->getDbtable('jobs', 'recruiter')->find($val->job_id)->current();
-                if ($job->status == 2) {
-//                if ($job->status == 2 && $job->deadline > date('Y-m-d H:i:s')) {
+                // if ($job->status == 2) {
+               if ($job->status == 2 && $job->deadline > date('Y-m-d H:i:s')) {
                     $sum +=1;
                 }
             }

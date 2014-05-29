@@ -33,8 +33,8 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
              */
             $select = $table->select()
                     ->where('job_id IN(?)', $job_ids)
-                    ->where('status =?', 2);
-//                    ->where('deadline >?', date('Y-m-d H:i:s'));
+                    ->where('status =?', 2)
+                   ->where('deadline >?', date('Y-m-d H:i:s'));
             $this->view->page = $page = $this->_getParam('page', 1);
             $paginator = $this->view->paginator = Zend_Paginator::factory($select);
             //Zend_Debug::dump($paginator);exit;
@@ -75,8 +75,8 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
               status= 3=> Expired
              */
             $select = $table->select()->where('job_id IN(?)', $job_ids)
-                    ->where('status =?', 2);
-//                    ->where('deadline >?', date('Y-m-d H:i:s'));
+                    ->where('status =?', 2)
+                   ->where('deadline >?', date('Y-m-d H:i:s'));
             $this->view->page = $page = $this->_getParam('page', 1);
             $paginator = $this->view->paginator = Zend_Paginator::factory($select);
             //Zend_Debug::dump($paginator);exit;
@@ -138,7 +138,7 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
         $selectIndustry = $table
                 ->select()
                 ->where('job_id > ?', 0)
-                //->where('status =?', 2)
+                ->where('status =?', 2)
                 ->group('job_id')
         ;
         //$rows = $table->fetchAll(

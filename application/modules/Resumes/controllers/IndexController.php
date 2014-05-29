@@ -10,7 +10,7 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         $select = $table->select()
                 ->from($table->info('name'))
                 ->where('status =?', 2)
-//                        ->where('deadline > ?', date('Y-m-d'))
+                ->where('deadline > ?', date('Y-m-d'))
                 ->limit(50)
                 ->order('creation_date DESC');
         $records = $table->fetchAll($select);
@@ -40,7 +40,7 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
                 ->setContentName(41) // page_id
                 // ->setNoRender()
                 ->setEnabled();
-        
+
         if (!$this->getRequest()->isPost()) {
             return;
         }
@@ -117,12 +117,12 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         $references = Engine_Api::_()->getApi('core', 'resumes')->getListReference($resume_id);
         $this->view->references = $references;
         $this->view->resume = $resume;
-        
+
         $this->_helper->content
                 ->setContentName(41) // page_id
                 // ->setNoRender()
                 ->setEnabled();
-        
+
         if (!$this->getRequest()->isPost()) {
             return;
         }
@@ -285,14 +285,14 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
             } else {
                 $this->dateAction(3);
             }
-        }else{
+        } else {
             $this->_helper->content
-                ->setContentName(41) // page_id
-                // ->setNoRender()
-                ->setEnabled();
+                    ->setContentName(41) // page_id
+                    // ->setNoRender()
+                    ->setEnabled();
         }
 
-        
+
         // Not post/invalid
         if (!$this->getRequest()->isPost()) {
             //list education
@@ -579,24 +579,24 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
         if ($option != null) {
             $gender = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id_gender, $option);
         }
-        
+
         //birthday
         $field_id_birthday = Engine_Api::_()->getApi('core', 'recruiter')->getMeta('birthdate');
         $birthday = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_birthday, $user_id);
-        
+
         $field_id_from = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('from');
         $from = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_from, $user_id);
         $from = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id_from, $from);
-        
+
         $field_id_phone = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('phone');
         $phone = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_phone, $user_id);
         $this->view->from = $from;
         $this->view->phone = $phone;
-        
+
         $this->view->gender = $gender;
         $this->view->birthday = $birthday;
-        
-        
+
+
         $this->_helper->content
                 ->setContentName(41) // page_id
                 // ->setNoRender()

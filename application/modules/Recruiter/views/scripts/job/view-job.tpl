@@ -10,6 +10,16 @@ $user_id = $this->user_id;
 $des = str_replace("\n", "<br />", $job->description);
 $skill_des = str_replace("\n", "<br />", $job->skill);
 ?>
+<div class="pt-title-event">
+    <ul class="pt-menu-event pt-menu-libraries">
+        <li>
+            <a href="/resumes/">Người tìm việc</a>
+        </li>
+        <li>
+            <span>Chi tiết công việc</span>
+        </li>
+    </ul>
+</div>
 <div class="pt-job-detail">
     <h3><?php echo $job->position; ?></h3>
 
