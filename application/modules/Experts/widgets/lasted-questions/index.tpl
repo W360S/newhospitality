@@ -1,8 +1,8 @@
 <div class="pt-block">
     <h3 class="pt-title-right">Chuyên gia <a href="#">Tất cả</a></h3>
-    <?php if (count($this->data)): ?>
+    <?php if (count($this->paginator)): ?>
         <ul class="pt-list-right">
-            <?php foreach ($this->data as $item): ?>
+            <?php foreach ($this->paginator as $item): ?>
                 <li>
                     <div class="pt-user-post">
                         <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->title); ?>

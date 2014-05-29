@@ -118,7 +118,7 @@ $this->headScript()
 
                 <div class="pt-content-user-post">
                     <p><?php echo $action->getContent() ?></p>
-                    <!-- <p><?php //echo $action->VHgetBodyText()    ?></p> -->
+                    <!-- <p><?php //echo $action->VHgetBodyText()      ?></p> -->
                 </div>
 
                 <!--BEGIN ATTACHMENT-->
@@ -249,14 +249,39 @@ $this->headScript()
                         <?php endif ?>
                     <?php endif; ?>
                     <!--LIKE END-->
-                    
+
+                    <!--DELETE BEGIN -->
+                    <?php
+                    if ($this->viewer()->getIdentity() && (
+                            $this->activity_moderate || (
+                            ($this->viewer()->getIdentity() == $this->activity_group) || (
+                            $this->allow_delete && (
+                            ('user' == $action->subject_type && $this->viewer()->getIdentity() == $action->subject_id) ||
+                            ('user' == $action->object_type && $this->viewer()->getIdentity() == $action->object_id)
+                            )
+                            )
+                            )
+                            )):
+                        ?>
+                        <?php
+                        echo $this->htmlLink(array(
+                            'route' => 'default',
+                            'module' => 'activity',
+                            'controller' => 'index',
+                            'action' => 'delete',
+                            'action_id' => $action->action_id
+                                ), $this->translate('Delete'), array('class' => 'smoothbox'))
+                        ?>
+                    <?php endif; ?>
+                    <!--DELETE END-->
+
                     <!--MAIN ACTION LIKE STATUS-->
                     <?php if ($action->likes()->getLikeCount() > 0 && (count($action->likes()->getAllLikesUsers()) > 0)): ?>
                         <div class="comments_likes">
                             <?php if ($action->likes()->getLikeCount() <= 3 || $this->viewAllLikes): ?>
                                 <?php echo sprintf('%s thích điều này.', $this->fluentList($action->likes()->getAllLikesUsers())) ?>
                             <?php else: ?>
-                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), sprintf("%s người thích điều này", $action->likes()->getLikeCount()))?>
+                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), sprintf("%s người thích điều này", $action->likes()->getLikeCount())) ?>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
@@ -269,7 +294,7 @@ $this->headScript()
                     <?php if ($action->comments()->getCommentCount() > 0): ?>
                         <div class='comments pt-user-comtent'>
                             <ul>
-                                
+
                                 <?php if ($action->comments()->getCommentCount() > 0): ?>
                                     <?php if ($action->comments()->getCommentCount() > 5 && !$this->viewAllComments): ?>
                                         <li>
@@ -308,10 +333,10 @@ $this->headScript()
                                                         <?php if ($canComment): ?>
                                                             <?php $isLiked = !empty($commentLikes[$comment->comment_id]); ?>
                                                             <?php if (!$isLiked): ?>
-                                                                
+
                                                                 <a href="javascript:void(0)" class="pt-like"  onclick="en4.activity.like(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)"><span></span></a>
                                                             <?php else: ?>
-                                                                
+
                                                                 <a href="javascript:void(0)" class="pt-like"><span></span></a>
                                                             <?php endif ?>
                                                         <?php endif ?>
@@ -329,6 +354,25 @@ $this->headScript()
                                                                 )
                                                         )
                                                         ?>
+                                                        <!--COMMENT DELETE BEGIN-->        
+                                                        <?php
+                                                        if ($this->viewer()->getIdentity() &&
+                                                                (('user' == $action->subject_type && $this->viewer()->getIdentity() == $action->subject_id) ||
+                                                                ($this->viewer()->getIdentity() == $comment->poster_id) ||
+                                                                $this->activity_moderate )):
+                                                            ?>
+                                                            <?php
+                                                            echo $this->htmlLink(array(
+                                                                'route' => 'default',
+                                                                'module' => 'activity',
+                                                                'controller' => 'index',
+                                                                'action' => 'delete',
+                                                                'action_id' => $action->action_id,
+                                                                'comment_id' => $comment->comment_id,
+                                                                    ), $this->translate('delete'), array('class' => 'smoothbox'))
+                                                            ?>
+                                                        <?php endif; ?>
+                                                        <!--COMMENT DELETE END-->
                                                     </h3>
                                                     <p><?php echo $this->viewMore($comment->body) ?></p>
                                                 </div>

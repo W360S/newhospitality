@@ -239,12 +239,37 @@ $this->headScript()
                     <?php endif; ?>
                     <!--LIKE END-->
 
+                    <!--DELETE BEGIN -->
+                    <?php
+                    if ($this->viewer()->getIdentity() && (
+                            $this->activity_moderate || (
+                            ($this->viewer()->getIdentity() == $this->activity_group) || (
+                            $this->allow_delete && (
+                            ('user' == $action->subject_type && $this->viewer()->getIdentity() == $action->subject_id) ||
+                            ('user' == $action->object_type && $this->viewer()->getIdentity() == $action->object_id)
+                            )
+                            )
+                            )
+                            )):
+                        ?>
+                            <?php
+                            echo $this->htmlLink(array(
+                                'route' => 'default',
+                                'module' => 'activity',
+                                'controller' => 'index',
+                                'action' => 'delete',
+                                'action_id' => $action->action_id
+                                    ), $this->translate('Delete'), array('class' => 'smoothbox'))
+                            ?>
+                    <?php endif; ?>
+                    <!--DELETE END-->
+
                     <?php if ($action->likes()->getLikeCount() > 0 && (count($action->likes()->getAllLikesUsers()) > 0)): ?>
                         <div class="comments_likes">
                             <?php if ($action->likes()->getLikeCount() <= 3 || $this->viewAllLikes): ?>
                                 <?php echo sprintf('%s thích điều này.', $this->fluentList($action->likes()->getAllLikesUsers())) ?>
                             <?php else: ?>
-                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), sprintf("%s người thích điều này", $action->likes()->getLikeCount()))?>
+                                <?php echo $this->htmlLink($action->getSubject()->getHref(array('action_id' => $action->action_id, 'show_likes' => true)), sprintf("%s người thích điều này", $action->likes()->getLikeCount())) ?>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
@@ -298,14 +323,14 @@ $this->headScript()
 
                                                                 <a href="javascript:void(0)" class="pt-like" onclick="en4.activity.like(<?php echo sprintf("'%d', %d", $action->getIdentity(), $comment->getIdentity()) ?>)"><span></span></a>
                                                             <?php else: ?>
-                                                                
+
                                                                 <a href="javascript:void(0)" class="pt-like"><span></span></a>
                                                             <?php endif ?>
                                                         <?php endif ?>
 
                                                         <?php if ($comment->likes()->getLikeCount() > 0): ?>
                                                             <a href="javascript:void(0);" id="comments_comment_likes_<?php echo $comment->comment_id ?>" class="comments_comment_likes" title="<?php echo $this->translate('Loading...') ?>">
-                                                                <?php //echo $this->translate(array('%s likes this', '%s like this', $comment->likes()->getLikeCount()), $this->locale()->toNumber($comment->likes()->getLikeCount())) ?>
+                                                                <?php //echo $this->translate(array('%s likes this', '%s like this', $comment->likes()->getLikeCount()), $this->locale()->toNumber($comment->likes()->getLikeCount()))  ?>
                                                                 <?php echo sprintf("%s Người thích điều này", $comment->likes()->getLikeCount()) ?>
                                                             </a>
                                                         <?php endif ?>    
@@ -317,6 +342,26 @@ $this->headScript()
                                                                 )
                                                         )
                                                         ?>
+                                                        <!--COMMENT DELETE BEGIN-->        
+                                                        <?php
+                                                        if ($this->viewer()->getIdentity() &&
+                                                                (('user' == $action->subject_type && $this->viewer()->getIdentity() == $action->subject_id) ||
+                                                                ($this->viewer()->getIdentity() == $comment->poster_id) ||
+                                                                $this->activity_moderate )):
+                                                            ?>
+                                                            <?php
+                                                            echo $this->htmlLink(array(
+                                                                'route' => 'default',
+                                                                'module' => 'activity',
+                                                                'controller' => 'index',
+                                                                'action' => 'delete',
+                                                                'action_id' => $action->action_id,
+                                                                'comment_id' => $comment->comment_id,
+                                                                    ), $this->translate('delete'), array('class' => 'smoothbox'))
+                                                            ?>
+                                                        <?php endif; ?>
+                                                        <!--COMMENT DELETE END-->
+                                                        
                                                     </h3>
                                                     <p><?php echo $this->viewMore($comment->body) ?></p>
                                                 </div>

@@ -25,9 +25,9 @@ class Experts_Widget_LastedQuestionsController extends Engine_Content_Widget_Abs
 	
 	$paginator = $this->view->paginator = Zend_Paginator::factory($data);
 	$request = Zend_Controller_Front::getInstance()->getRequest();
-	$paginator->setItemCountPerPage(10);
+	$paginator->setItemCountPerPage(3);
 	$paginator->setCurrentPageNumber($request->getParam('page'));
-	$paginator->setPageRange(2);
+	// $paginator->setPageRange(2);
 	//zend_debug::dump($data); exit;
 
   }
