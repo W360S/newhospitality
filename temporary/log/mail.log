@@ -144,3 +144,15 @@
 2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) inizu_my3bie@yahoo.com.vn <- support@hospitality.vn
 2014-05-29T12:44:26+00:00 DEBUG (7): [Zend] wancheung@zing.vn <- support@hospitality.vn
 2014-05-29T12:44:26+00:00 DEBUG (7): [System] (notify_liked_commented) wancheung@zing.vn <- support@hospitality.vn
+2014-05-29T16:33:30+00:00 DEBUG (7): [Zend] leetrien@yahoo.com <- support@hospitality.vn
+2014-05-29T16:33:30+00:00 DEBUG (7): [System] (notify_friend_request) leetrien@yahoo.com <- support@hospitality.vn
+2014-05-29T16:33:30+00:00 DEBUG (7): [Zend] phamtungpqt@gmail.com <- support@hospitality.vn
+2014-05-29T16:33:30+00:00 DEBUG (7): [System] (notify_friend_request) phamtungpqt@gmail.com <- support@hospitality.vn
+2014-05-29T16:33:31+00:00 DEBUG (7): [Zend] bttt1993@yahoo.com <- support@hospitality.vn
+2014-05-29T16:33:31+00:00 DEBUG (7): [System] (notify_friend_request) bttt1993@yahoo.com <- support@hospitality.vn
+2014-05-29T16:33:31+00:00 DEBUG (7): [Zend] thebluesky_12@yahoo.com <- support@hospitality.vn
+2014-05-29T16:33:31+00:00 DEBUG (7): [System] (notify_friend_request) thebluesky_12@yahoo.com <- support@hospitality.vn
+2014-05-29T16:33:31+00:00 DEBUG (7): [Zend] thai.pham@sheraton.com <- support@hospitality.vn
+2014-05-29T16:33:31+00:00 DEBUG (7): [System] (notify_friend_request) thai.pham@sheraton.com <- support@hospitality.vn
+2014-05-31T04:44:00+00:00 DEBUG (7): [Zend] tranlennb1989@gmail.com <- support@hospitality.vn
+2014-05-31T04:44:00+00:00 DEBUG (7): [System] (notify_friend_request) tranlennb1989@gmail.com <- support@hospitality.vn

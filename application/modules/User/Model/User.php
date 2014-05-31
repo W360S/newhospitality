@@ -551,7 +551,12 @@ class User_Model_User extends Core_Model_Item_Abstract {
         if($alias == "from"){
             $field_id = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('from');
             $value = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id, $this->user_id);
-            $value = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id, $value);
+            if ($value) {
+                $value = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id, $value);
+            }else{
+                return "Một nơi xa xôi";
+            }
+            
         }
         
         return $value;

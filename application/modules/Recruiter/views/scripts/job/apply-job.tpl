@@ -23,6 +23,7 @@ $this->headScript()
 <?php
 $form = $this->form;
 $check = $this->check;
+$resumes = $this->resumes;
 ?>
 <div class="apply_job">
 
@@ -87,19 +88,35 @@ $check = $this->check;
             },
             onSuccess: function(responseHTML)
             {
-
                 $('list_resume').set('html', responseHTML);
-
             }
         }).send();
     }
     window.addEvent('domready', function() {
-        if ($('resume_id').value == '') {
-            jQuery('#resume_id-element').append("<span style='position:relative;top:11px;'><?php echo $this->translate('Please') ?> <a href='<?php echo $this->baseUrl() . PATH_SERVER_INDEX ?>/resumes/index/resume-info' ><?php echo $this->translate('create a new resume') ?> </a><?php echo $this->translate('before apply job') ?>.</span>");
-            jQuery('#resume_id').css('display', 'none');
-            jQuery('#resume_id').append("<option value='0'></option>");
 
+        var APPROVED_RESUMES = <?php echo count($this->approved_resumes) ?>;
+        var CREATED_RESUMES = <?php echo count($this->created_resumes) ?>;
+
+        if (CREATED_RESUMES > 0) {
+
+            if (APPROVED_RESUMES > 0) {
+                
+            }else{
+                jQuery('#resume_id-element').append("<span style='position:relative;top:11px;'>Hồ sơ của bạn đang được duyệt, khi được kiểm duyệt xong bạn có thể nộp hồ sơ ngay</span>");
+                jQuery('#resume_id').css('display', 'none');
+                jQuery('#resume_id').append("<option value='0'></option>");
+            }
+
+        }else{
+            if ($('resume_id').value == '') {
+                jQuery('#resume_id-element').append("<span style='position:relative;top:11px;'><?php echo $this->translate('Please') ?> <a href='<?php echo $this->baseUrl() ?>/resumes/index/resume-info' ><?php echo $this->translate('create a new resume') ?> </a><?php echo $this->translate('before apply job') ?>.</span>");
+                jQuery('#resume_id').css('display', 'none');
+                jQuery('#resume_id').append("<option value='0'></option>");
+
+            }
         }
+
+        
         var list_resume = new Element('div', {id: 'list_resume', 'class': 'list_resume'});
         list_resume.inject($('resume_id-wrapper'), 'after');
 

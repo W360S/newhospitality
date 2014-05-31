@@ -77,9 +77,9 @@
             <div class="event_members_total">
                 <p>
                 <?php if ('' == $this->search): ?>
-                    <?php echo $this->translate(array('This event has %1$s guest.', 'This event has %1$s guests.', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount())) ?>
+                    <?php echo $this->translate(array('Sự kiện này có %1$s thành viên tham dự.', 'Sự kiện này có %1$s thành viên tham dự', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount())) ?>
                 <?php else: ?>
-                    <?php echo $this->translate(array('This event has %1$s guest that matched the query "%2$s".', 'This event has %1$s guests that matched the query "%2$s".', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount()), $this->search) ?>
+                    <?php echo $this->translate(array('Có %1$s thành viên giống "%2$s".', 'Có %1$s thành viên giống "%2$s".', $this->members->getTotalItemCount()), $this->locale()->toNumber($this->members->getTotalItemCount()), $this->search) ?>
                 <?php endif; ?>
                 </p>
             </div>
@@ -123,9 +123,9 @@
                         <a href="#"><span class="pt-avatar"><?php echo $this->itemPhoto($member, 'thumb.icon') ?></span></a>
                         <div class="pt-how-info-user-post">
                                 <h3><a href="<?php echo $member->getHref() ?>"><?php echo $member->getTitle() ?></a></h3>
-                                <p>Bartender tại Crown Plaza</p>
+                                <p><?php echo $member->getFieldByAlias("occupation") ?></p>
                         </div>
-                        <a href="#" class="pt-link-add">Kết bạn</a>
+                        <?php echo $this->userFriendship($member) ?>
                     </div>
                     <?php /*
                     <?php echo $this->htmlLink($member->getHref(), $this->itemPhoto($member, 'thumb.icon'), array('class' => 'event_members_icon')) ?>

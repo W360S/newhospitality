@@ -17,11 +17,22 @@
     <div class="pt-how-info-boss">
             <h3><a href="javascript:void(0)"><?php echo $subject->getTitle() ?></a></h3>
             <p><?php echo $subject->getFieldByAlias("occupation") ?></p>
-            <p><a><span></span></a><?php echo $subject->getFieldByAlias("from") ?></p>
+            <p><a><span></span></a>
+            <?php if($subject->getFieldByAlias("from") == ""): ?>
+
+            <?php else: ?>
+                Một nơi xa xôi
+            <?php endif ?>
+            </p>
     </div>
     <div class="pt-how-link">
             <!--<a href="#" class="pt-friends"><span></span>Bạn bè</a>-->
             <?php echo $this->userFriendship($subject, null, " pt-friends") ?>
+            <div style="display:none">
+                <form enctype="application/x-www-form-urlencoded" id="ajax-add-friend-<?php echo $subject->getIdentity() ?>" action="/members/friends/add/user_id/<?php echo $subject->getIdentity() ?>">
+
+                </form>
+            </div>
             <a href="/messages/compose/to/<?php echo $subject->user_id ?>" class="pt-message-boss"><span></span></a>
             <div class="pt-none">
                     <div id="pt-fancybox-message" class="pt-info-message">
@@ -69,6 +80,49 @@
     </div>
     <div class="clear-both"></div>
 </div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+        var add_friend_a = $(".layout_user_profile_leftinfo a.icon_friend_add");
+        if (add_friend_a && add_friend_a[0]) {
+            if (add_friend_a[0].innerHTML === "Kết bạn") {
+                $("a.pt-message-boss").hide();
+            };
+        };
+
+    });
+
+    function openUrl(url) {
+        Smoothbox.open(url);
+    }
+    function sendAjaxAddfriend(id, isAjax, object) {
+        var form_id = '#ajax-add-friend-' + id;
+        var form = jQuery(form_id);
+        var url = form.attr("action");
+
+        console.log(url);
+        
+        var parentObject = jQuery(object).parent();
+
+        var item_response = new Array();
+
+        jQuery(object).html('<img src="/externals/smoothbox/ajax-loader.gif"/>');
+
+        jQuery.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(),
+            beforeSend: function(xhr) {
+            },
+            success: function(response) {
+                // parentObject.html('');
+            },
+            complete: function() {
+                jQuery(object).hide();
+            }
+        });
+    }
+</script>
 
 <?php /*
 <ul>

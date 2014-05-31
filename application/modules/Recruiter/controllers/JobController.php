@@ -572,10 +572,18 @@ EOF;
             //create form
             $this->view->form = $form = new Recruiter_Form_Job_Apply();
             $tableResume = Engine_Api::_()->getDbtable('resumes', 'resumes');
+            
             $selectResume = $tableResume->select()
                     ->where('user_id=?', $user_id)
                     ->where('approved =?', 1);
             $resumes = $tableResume->fetchAll($selectResume);
+            $this->view->approved_resumes = $resumes;
+
+            $selectResume = $tableResume->select()
+                    ->where('user_id=?', $user_id);
+            $created_resumes = $tableResume->fetchAll($selectResume);
+            $this->view->created_resumes = $created_resumes;
+
             $arr_cat = array();
             if ($resumes->count()) {
                 foreach ($resumes as $item) {

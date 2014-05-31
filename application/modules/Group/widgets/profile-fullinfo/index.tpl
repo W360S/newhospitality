@@ -33,27 +33,32 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <?php $actions = $group_actions; ?>
+                        <?php if ($actions['label'] == "Request") $actions['label'] = "Tham gia" ?>
+                        <?php if ($actions['label'] == "Leave Group") $actions['label'] = "Rời nhóm" ?>
+                        <!-- <?php if ($actions['label'] == "Request") $actions['label'] = "Tham gia" ?> -->
                         <?php echo $this->htmlLink(array('route' => $actions['route'], 'controller' => $actions['params']['controller'], 'action' => $actions['params']['action'], 'group_id' => $actions["params"]['group_id']), $actions['label'], array('class' => "pt-adherence buttonlink smoothbox")) ?>
                     <?php endif; ?>
 
-                    <a href="/activity/index/share/type/group/id/<?php echo $this->group->group_id ?>/format/smoothbox" class="pt-share buttonlink smoothbox menu_group_profile group_profile_share">Share Group</a>
+                    <a href="/activity/index/share/type/group/id/<?php echo $this->group->group_id ?>/format/smoothbox" class="pt-share buttonlink smoothbox menu_group_profile group_profile_share">Chia sẻ nhóm</a>
                     <a href="#" class="pt-editing">Editing</a>
                     <div class="pt-toggle-layout">
                         <div class="pt-icon-arrow"><span></span></div>
                         <div class="pt-toggle-layout-content">
                             <ul class="pt-edit">
                                 <li>
-                                    <a href="/groups/member/invite/group_id/<?php echo $this->group->group_id ?>/format/smoothbox" class="buttonlink smoothbox menu_group_profile group_profile_invite" >Invite Members</a>
+                                    <a href="/groups/member/invite/group_id/<?php echo $this->group->group_id ?>/format/smoothbox" class="buttonlink smoothbox menu_group_profile group_profile_invite" >Mời thành viên</a>
                                 </li>
                                 <li>
-                                    <a href="#">Gửi tin nhắn</a>
+                                    <a href="javascript:void(0)">Gửi tin nhắn</a>
                                 </li>
                                 <li>
-                                    <a href="/activity/index/share/type/group/id/<?php echo $this->group->group_id ?>/format/smoothbox" class="buttonlink smoothbox menu_group_profile group_profile_share">Share Group</a>
+                                    <a href="/activity/index/share/type/group/id/<?php echo $this->group->group_id ?>/format/smoothbox" class="buttonlink smoothbox menu_group_profile group_profile_share">Chia sẻ nhóm</a>
                                 </li>
+                                <?php /*
                                 <li>
                                     <a href="/groups/member/leave/group_id/<?php echo $this->group->group_id ?>" class="buttonlink smoothbox menu_group_profile group_profile_member">Leave Group</a>
                                 </li>
+                                */ ?>
                             </ul>
                         </div>
                     </div>

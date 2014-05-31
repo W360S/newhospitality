@@ -24,9 +24,11 @@
         <li>
             <a href="<?php echo $this->baseUrl() ?>/events" id="link-events"><span class="pt-icon-menu-left pt-icon-event"></span><span class="pt-menu-text">Sự kiện</span></a>
         </li>
+        <?php /*
         <li>
             <a href="javascript:void(0)" id="link-albums"><span class="pt-icon-menu-left pt-icon-album"></span><span class="pt-menu-text">Album ảnh</span></a>
         </li>
+        */ ?>
         <li>
             <a href="<?php echo $this->baseUrl() ?>/groups" id="link-groups"><span class="pt-icon-menu-left pt-icon-event"></span><span class="pt-menu-text">Nhóm</span></a>
         </li>

@@ -10,6 +10,12 @@
  */
 ?>
 
+<style type="text/css">
+  .form-description{
+    display: none;
+  }
+</style>
+
 <?php
   $this->headScript()
     ->appendFile($this->layout()->staticBaseUrl . 'externals/autocompleter/Observer.js')

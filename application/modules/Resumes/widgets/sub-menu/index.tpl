@@ -52,7 +52,6 @@ echo $re . $this->translate(" Left"); ?>)</a>
 <?php } ?>
         </select>           
 
-<!--<a style="padding-left: 57px;" href="<?php echo $this->baseUrl() . '/resumes/resume/manage' ?>"><?php echo $this->translate("My Resume"); ?></a>-->
     </div>
 </div>
 
@@ -63,4 +62,20 @@ echo $re . $this->translate(" Left"); ?>)</a>
             window.location.href = "<?php echo $this->baseUrl() . '/resumes/index/preview/resume_id/' ?>" + value;
         }
     }
+
+    var TOTAL_RESUMES = <?php echo count($this->sum_resume) ?>;
+    var APPROVED_RESUMES = <?php echo count($this->approved_resumes) ?>;
+
+    jQuery(document).ready(function($){
+        if (TOTAL_RESUMES == 0) {
+            $("button.icon-02").attr("onclick","alert('Bạn phải tạo hồ sơ trước khi ứng tuyển')");
+            $("button.icon-01").attr("onclick","alert('Bạn phải tạo hồ sơ trước khi ứng tuyển')");
+        }else{
+            if(APPROVED_RESUMES == 0){
+                $("button.icon-02").attr("onclick","alert('Hồ sơ của bạn đang được duyệt, bạn có thể nộp hồ sơ ngay sau khi hồ sơ được duyệt hoặc gọi ngay cho bộ phận admin')");
+                $("button.icon-01").attr("onclick","alert('Hồ sơ của bạn đang được duyệt, bạn có thể nộp hồ sơ ngay sau khi hồ sơ được duyệt hoặc gọi ngay cho bộ phận admin')");
+            }
+        }
+    });
+
 </script>

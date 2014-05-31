@@ -179,6 +179,7 @@ function crop($text, $qty) {
                             </div>
                             <div class="pt-more-heder">
                                 <a  href="<?php echo $this->baseUrl() ?>/activity/notifications" id="notifications_viewall_link"><?php echo $this->translate('See all'); ?></a>
+                                <a href="javascript:void(0);" id="notifications_markread_link">Đánh dấu đã đọc</a>
                             </div>
                         </div>	
                     </div>	
