@@ -82,8 +82,8 @@
             <!-- <?php echo $this->itemPhoto($this->subject()) ?> -->
         </div>
         <div class="pt-link-event">
-            <a href="/events/member/join/event_id/<?php echo $event->event_id ?>" class="buttonlink smoothbox menu_event_profile event_profile_member pt-adherence"><span></span>Join Event</a>
-            <a href="/activity/index/share/type/event/id/<?php echo $event->event_id ?>/format/smoothbox" class="pt-share buttonlink smoothbox menu_event_profile event_profile_share">Share This Event</a>
+            <a href="/events/member/join/event_id/<?php echo $event->event_id ?>" class="buttonlink smoothbox menu_event_profile event_profile_member pt-adherence"><span></span>Tham gia sự kiện</a>
+            <a href="/activity/index/share/type/event/id/<?php echo $event->event_id ?>/format/smoothbox" class="pt-share buttonlink smoothbox menu_event_profile event_profile_share">Chia sẻ sự kiện này</a>
         </div>
     </div>
     <div class="pt-conent-info-event-text">

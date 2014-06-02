@@ -43,7 +43,7 @@ class Activity_Form_Comment extends Engine_Form {
             'filters' => array(
                 new Engine_Filter_Html(array('AllowedTags' => $allowed_html)),
                 //new Engine_Filter_HtmlSpecialChars(),
-                //new Engine_Filter_EnableLinks(),
+                new Engine_Filter_EnableLinks(),
                 new Engine_Filter_Censor(),
             ),
         ));

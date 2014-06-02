@@ -35,6 +35,8 @@
                         <?php $actions = $group_actions; ?>
                         <?php if ($actions['label'] == "Request") $actions['label'] = "Tham gia" ?>
                         <?php if ($actions['label'] == "Leave Group") $actions['label'] = "Rời nhóm" ?>
+                        <?php if ($actions['label'] == "Accept Request") $actions['label'] = "Nhận lời mời" ?>
+                        <?php if ($actions['label'] == "Cancel Request") $actions['label'] = "Từ chối lời mời" ?>
                         <!-- <?php if ($actions['label'] == "Request") $actions['label'] = "Tham gia" ?> -->
                         <?php echo $this->htmlLink(array('route' => $actions['route'], 'controller' => $actions['params']['controller'], 'action' => $actions['params']['action'], 'group_id' => $actions["params"]['group_id']), $actions['label'], array('class' => "pt-adherence buttonlink smoothbox")) ?>
                     <?php endif; ?>

@@ -21,7 +21,7 @@
             <?php if($subject->getFieldByAlias("from") == ""): ?>
 
             <?php else: ?>
-                Một nơi xa xôi
+                <?php echo $subject->getFieldByAlias("from") ?>
             <?php endif ?>
             </p>
     </div>
@@ -33,33 +33,11 @@
 
                 </form>
             </div>
+            <?php if ($subject->user_id != $this->viewer->user_id):  ?>
             <a href="/messages/compose/to/<?php echo $subject->user_id ?>" class="pt-message-boss"><span></span></a>
-            <div class="pt-none">
-                    <div id="pt-fancybox-message" class="pt-info-message">
-                            <h3>Gửi tin nhắn</h3>
-                            <form name="frm_contact" method="post" accept-charset="utf-8">
-                                    <fieldset>
-                                            <ul>
-                                                    <li>
-                                                            <label>Đến</label>
-                                                            <input type="text" name="name">
-                                                            <div class="wd-adap-tag-composercitytagger">
-                                                                    <span>Backstreet Boys</span>
-                                                                    <a href="#">Delete</a>
-                                                            </div>
-                                                    </li>
-                                                    <li>
-                                                            <div class="pt-textarea-01"><textarea></textarea></div>
-                                                    </li>
-                                                    <li class="last">
-                                                            <a href="#" class="pt-file"><span class="pt-icon-list"></span>Đính kèm<input type="file" title="" multiple="1" name="composer-unpublished-photo[]" aria-label=""></a>
-                                                            <button type="submit" title="" class="button">Gửi</button>
-                                                    </li>
-                                            </ul>
-                                    </fieldset>
-                            </form>
-                    </div>
-            </div>
+            <?php else: ?>
+            <a href="/members/edit/profile" class="pt-friends">Chỉnh sửa</a>
+            <?php endif ?>
             <a href="#" class="pt-editing">Editing</a>
             <div class="pt-toggle-layout">
                     <div class="pt-icon-arrow"><span></span></div>
