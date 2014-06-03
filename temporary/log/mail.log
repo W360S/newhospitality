@@ -156,3 +156,5 @@
 2014-05-29T16:33:31+00:00 DEBUG (7): [System] (notify_friend_request) thai.pham@sheraton.com <- support@hospitality.vn
 2014-05-31T04:44:00+00:00 DEBUG (7): [Zend] tranlennb1989@gmail.com <- support@hospitality.vn
 2014-05-31T04:44:00+00:00 DEBUG (7): [System] (notify_friend_request) tranlennb1989@gmail.com <- support@hospitality.vn
+2014-06-02T14:36:18+00:00 DEBUG (7): [Zend] kieuanhhotel.com@gmail.com <- support@hospitality.vn
+2014-06-02T14:36:18+00:00 DEBUG (7): [System] (notify_friend_accepted) kieuanhhotel.com@gmail.com <- support@hospitality.vn

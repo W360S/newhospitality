@@ -64,10 +64,10 @@ $skill_des = str_replace("\n", "<br />", $job->skill);
             }
             ?>
         </li>
-        <li>
+        <!-- <li>
             <strong>Ngôn ngữ trình bày hồ sơ</strong>
             <span>Tiếng Việt</span>
-        </li>
+        </li> -->
     </ul>
     <h4>Mô tả công việc</h4>
     <p>

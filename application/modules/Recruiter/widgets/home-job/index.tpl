@@ -9,24 +9,25 @@
                     <?php foreach ($this->hot_paginator as $item): ?>
                         <li>
                             <div class="pt-user-post">
-                                    <a href="#">
-                                        <span class="pt-avatar">
-                                            <?php $recruiter = $this->company($item->user_id); ?>
-                                            <?php echo $this->itemPhoto($recruiter, 'thumb.icon') ?>
-                                        </span>
-                                    </a>
-                                    <div class="pt-how-info-user-post">
-                                            <h3>
-                                                <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->position); ?>
-                                                <!--<a href="#">Giám Sát Nhà Hàng &amp; Chăm Sóc Khách Hàng - Hà Nội ...</a>-->
-                                                <?php $text = $item->position; ?>
-                                                <?php echo $this->htmlLink(array('route' => 'view-job', 'id' => $item->job_id, 'slug' => $slug), $text) ?>
-                                            </h3>
-                                            <p>
-                                                <?php //echo date('d F Y', strtotime($item->creation_date)); ?> 
-                                                <?php echo $this->timestamp($item->creation_date, array("notag" => 1)) ?> - <?php echo $this->city($item->city_id)->name ?></p>
-                                            
-                                    </div>
+                                <a href="#">
+                                    <span class="pt-avatar">
+                                        <?php $recruiter = $this->company($item->user_id); ?>
+                                        <?php echo $this->itemPhoto($recruiter, 'thumb.icon') ?>
+                                    </span>
+                                </a>
+                                <div class="pt-how-info-user-post">
+                                    <h3>
+                                        <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->position); ?>
+                                        <?php $text = $item->position; ?>
+                                        <?php echo $this->htmlLink(array('route' => 'view-job', 'id' => $item->job_id, 'slug' => $slug), $text) ?>
+                                        
+                                    </h3>
+                                    Hết hạn: <?php echo $item->deadline ?>
+                                    <p>
+                                        <?php //echo date('d F Y', strtotime($item->creation_date)); ?> 
+                                        Đăng ngày <?php echo $this->timestamp($item->creation_date, array("notag" => 1)) ?> - <?php echo $this->city($item->city_id)->name ?></p>
+
+                                </div>
                             </div>
                         </li>
                     <?php endforeach; ?>

@@ -192,17 +192,17 @@ function crop($text, $qty) {
                     <div class="pt-toggle-layout-content">
                         <ul class="pt-edit">
                             <li>
-                                <a  href="<?php echo $this->baseUrl() . '/profile/' . $this->viewer->getOwner()->username; ?>">
-                                    <?php echo $this->translate('Account setting'); ?></a>
+                                <a  href="<?php echo $this->baseUrl() . '/members/edit/profile' ?>">
+                                    <?php echo $this->translate('Chỉnh sửa tài khoản'); ?></a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl() . '/members/settings/general'; ?>"><?php echo $this->translate('Private setting'); ?></a>
+                                <a href="<?php echo $this->baseUrl() . '/members/settings/general'; ?>"><?php echo $this->translate('Thiết lập chung'); ?></a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)"><?php echo $this->translate('Help'); ?></a>
+                                <a href="javascript:void(0)"><?php echo $this->translate('Trợ giúp'); ?></a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl() . '/logout'; ?>"><?php echo $this->translate('Logout'); ?></a>
+                                <a href="<?php echo $this->baseUrl() . '/logout'; ?>"><?php echo $this->translate('Đăng xuất'); ?></a>
                             </li>
                         </ul>
                     </div>

@@ -42,6 +42,11 @@ class Event_IndexController extends Core_Controller_Action_Standard {
         //Zend_Debug::dump($paginator);exit();
         $request = $this->getRequest();
 
+        if (!$this->_helper->requireUser->isValid())
+            return;
+        if (!$this->_helper->requireAuth()->setAuthParams('event', null, 'create')->isValid())
+            return;
+
         $filter = $request->getParam('filter', 'future');
         if ($filter != 'past' && $filter != 'future') {
             $filter = 'future';

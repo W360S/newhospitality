@@ -33,15 +33,14 @@
 */ ?>
 <div class="pt-footer-left">
   <ul class="pt-menu-footer">
-    <li><a href="#">Giới thiệu</a></li>
-    <li><a href="#">Điều khoản sử dụng</a></li>
-    <li><a href="#">Đối tác</a></li>
-    <li><a href="#">Chính sách bảo mật</a></li>
-    <li><a href="#">Giới thiệu</a></li>
-    <li><a href="#">Coupon</a></li>
-    <li class="last"><a href="#">Liên hệ</a></li>
+    <li><a href="/statistics/index/about-us">Giới thiệu</a></li>
+    <li><a href="/statistics/index/terms-of-services">Điều khoản sử dụng</a></li>
+    <!-- <li><a href="#">Đối tác</a></li> -->
+    <li><a href="/statistics/index/privacy">Chính sách bảo mật</a></li>
+    <li><a href="/statistics/index/coupon">Coupon</a></li>
+    <li class="last"><a href="/statistics/index/contact-us">Liên hệ</a></li>
   </ul>
-  <p>Bản quyền © 2013 <a href="Hospitality.vn">Hospitality.vn</a></p>
+  <p>Bản quyền © 2014 <a href="Hospitality.vn">Hospitality.vn</a></p>
 </div>
 <div class="pt-footer-right">
   <ul>
