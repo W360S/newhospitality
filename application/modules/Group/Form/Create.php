@@ -203,15 +203,15 @@ class Group_Form_Create extends Engine_Form
         'ViewHelper',
       ),
     ));
-
-    $this->addElement('Cancel', 'cancel', array(
-      'label' => 'cancel',
-      'link' => true,
-      'prependText' => ' or ',
-      'decorators' => array(
-        'ViewHelper',
-      ),
-    ));
+    
+    // $this->addElement('Cancel', 'cancel', array(
+    //   'label' => 'cancel',
+    //   'link' => true,
+    //   'prependText' => ' or ',
+    //   'decorators' => array(
+    //     'ViewHelper',
+    //   ),
+    // ));
 
     $this->addDisplayGroup(array('submit', 'cancel'), 'buttons', array(
       'decorators' => array(

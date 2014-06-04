@@ -49,6 +49,55 @@ class Recruiter_Form_Profile_Create extends Engine_Form {
                 new Engine_Filter_EnableLinks(),
             ),
         ));
+
+        $this->addElement('Text', 'address', array(
+            'label' => 'Địa chỉ:',
+            'allowEmpty' => false,
+            'required' => true,
+            'maxlength' => 160,
+            'validators' => array(
+                array('NotEmpty', true),
+            //array('StringLength', false, array(1, 21)),
+            ),
+            'filters' => array(
+                'StripTags',
+                new Engine_Filter_Censor(),
+                new Engine_Filter_EnableLinks(),
+            ),
+        ));
+
+        $this->addElement('Text', 'website', array(
+            'label' => 'Website:',
+            'allowEmpty' => false,
+            'required' => true,
+            'maxlength' => 160,
+            'validators' => array(
+                array('NotEmpty', true),
+            //array('StringLength', false, array(1, 21)),
+            ),
+            'filters' => array(
+                'StripTags',
+                new Engine_Filter_Censor(),
+                new Engine_Filter_EnableLinks(),
+            ),
+        ));
+
+        $this->addElement('Text', 'phone', array(
+            'label' => 'Số điện thoại:',
+            'allowEmpty' => false,
+            'required' => true,
+            'maxlength' => 160,
+            'validators' => array(
+                array('NotEmpty', true),
+            //array('StringLength', false, array(1, 21)),
+            ),
+            'filters' => array(
+                'StripTags',
+                new Engine_Filter_Censor(),
+                new Engine_Filter_EnableLinks(),
+            ),
+        ));
+
         $this->addElement('File', 'logo', array(
             'label' => 'Logo:',
             //'required' => true,

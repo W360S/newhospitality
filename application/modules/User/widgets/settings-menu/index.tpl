@@ -11,10 +11,10 @@
  */
 ?>
 <div class="pt-block">
-    <h3 class="pt-title-right">Thong Tin Ca Nhan</h3>
+    <h3 class="pt-title-right">Danh mục</h3>
     <ul class="pt-list-cbth">
         <li>
-            <span class="pt-text"><a class="menu_user_settings user_settings_general" href="/members/settings/general">General</a><span>
+            <span class="pt-text"><a class="menu_user_settings user_settings_general" href="/members/settings/general">Thông tin cơ bản</a><span>
         </li>
 <!--        <li>
             <span class="pt-text"><a class="menu_user_settings user_settings_privacy" href="/members/settings/privacy">Privacy</a></span>
@@ -26,10 +26,10 @@
             <span class="pt-text"><a class="menu_user_settings user_settings_notifications" href="/members/settings/notifications">Notifications</a></span>
         </li>-->
         <li>
-            <span class="pt-text"><a class="menu_user_settings user_settings_password" href="/members/settings/password">Change Password</a></span>
+            <span class="pt-text"><a class="menu_user_settings user_settings_password" href="/members/settings/password">Đổi mât khẩu</a></span>
         </li>
         <li>
-            <span class="pt-text"><a class="menu_user_settings user_settings_delete" href="/members/settings/delete">Delete Account</a></span>
+            <span class="pt-text"><a class="menu_user_settings user_settings_delete" href="/members/settings/delete">Xoá tài khoản</a></span>
         </li>
     </ul>
 </div>

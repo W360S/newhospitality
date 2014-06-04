@@ -193,7 +193,7 @@ function crop($text, $qty) {
                         <ul class="pt-edit">
                             <li>
                                 <a  href="<?php echo $this->baseUrl() . '/members/edit/profile' ?>">
-                                    <?php echo $this->translate('Chỉnh sửa tài khoản'); ?></a>
+                                    <?php echo $this->translate('Sửa trang cá nhân'); ?></a>
                             </li>
                             <li>
                                 <a href="<?php echo $this->baseUrl() . '/members/settings/general'; ?>"><?php echo $this->translate('Thiết lập chung'); ?></a>

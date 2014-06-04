@@ -2,7 +2,7 @@
 
     <div class="pt-block">
 
-        <h3 style="border-bottom: 1px solid #E5E5E5;color: #262626;font-size: 14px; font-weight: normal; margin: 0 10px;overflow: hidden; padding: 10px 0;  text-transform: uppercase;"><?php echo $this->translate('Hot Jobs'); ?></h3><a style="color: rgb(79, 193, 233); display: inline-block; float: right; font-size: 12px; text-transform: none; position: relative; margin-right: 21px; margin-top: -28px;" ><?php echo $this->translate('All'); ?></a>
+        <h3 style="border-bottom: 1px solid #E5E5E5;color: #262626;font-size: 14px; font-weight: normal; margin: 0 10px;overflow: hidden; padding: 10px 0;  text-transform: uppercase;"><?php echo $this->translate('Hot Jobs'); ?></h3><a href="/recruiter" style="color: rgb(79, 193, 233); display: inline-block; float: right; font-size: 12px; text-transform: none; position: relative; margin-right: 21px; margin-top: -28px;" ><?php echo $this->translate('All'); ?></a>
         <div id="ajax_hot_job">
             <?php if ($this->hot_paginator->getTotalItemCount()): ?>
                 <ul class="pt-list-right">

@@ -15,7 +15,7 @@ $this->headScript()
     </ul>
 </div>
 <div class="subsection">
-    <h3 class="pt-title-right">Create new company profile</h3>
+    <h3 class="pt-title-right">Tạo hồ sơ công ty</h3>
     <div class="main-form-wrapper">
         <form id="recruiter_profile_form" action="<?php echo $form->getAction(); ?>" method="post" enctype="multipart/form-data">
             <div class="fieldset-wrapper">
@@ -25,6 +25,15 @@ $this->headScript()
                     </div>
                     <div class="input company_size">
                         <?php echo $form->company_size; ?>
+                    </div>
+                    <div class="input company_name">
+                        <?php echo $form->address; ?>
+                    </div>
+                    <div class="input company_name">
+                        <?php echo $form->website; ?>
+                    </div>
+                    <div class="input company_name">
+                        <?php echo $form->phone; ?>
                     </div>
                     <div class="input file">
                         <?php echo $form->logo; ?>

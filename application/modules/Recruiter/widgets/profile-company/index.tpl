@@ -1,6 +1,9 @@
 <?php
 $profile = $this->profile;
 $industries = $this->industries;
+
+$user = Engine_Api::_()->getApi('core','user')->getUser($profile->user_id);
+
 ?>
 <?php if (!empty($profile)) { ?>
     <div class="pt-job-detail-title">
@@ -10,6 +13,9 @@ $industries = $this->industries;
             <img src='application/modules/Job/externals/images/no_image.gif' class="thumb_profile item_photo_recruiter  thumb_profile" />
         <?php } ?>
         <h4><?php echo $profile->company_name; ?></h4>
+        <span>
+            Đăng bởi: <a href="<?php echo $user->getHref() ?>"><?php echo $user->getTitle() ?></a> vào lúc <?php echo $this->timestamp($profile->creation_date, array('notag' => 1)) ?>
+        </span>
         <span>
             <?php
             $i = 0;
@@ -25,10 +31,6 @@ $industries = $this->industries;
         </span>
         <p><?php echo $profile->description; ?></p>
         <p>Qui mô công ty: <?php echo $profile->company_size; ?>
-            <!--            
-            <br>
-                        Tên người liên hệ: Ms. Cat Tuong
-            -->
         </p>
     </div>
 <?php } ?>

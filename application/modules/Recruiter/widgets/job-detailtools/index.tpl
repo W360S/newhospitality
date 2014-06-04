@@ -13,7 +13,7 @@ $user_id = $this->user_id;
             <a class="pt-link-save" href="<?php echo $this->baseUrl() . '/recruiter/job/send-email/job_id/' . $job->job_id ?>"><?php echo $this->translate('Email this job to a friend'); ?></a>
             */ ?>
             <?php if ($user_id) { ?>
-                <a class="share_job smoothbox pt-link-07" href="<?php echo $this->baseUrl() ?>/activity/index/share/type/job/id/<?php echo $job->job_id ?>/format/smoothbox" ><?php echo $this->translate('Share to network') ?></a>
+                <a class="share_job smoothbox pt-link-share" href="<?php echo $this->baseUrl() ?>/activity/index/share/type/job/id/<?php echo $job->job_id ?>/format/smoothbox" ><?php echo $this->translate('Share to network') ?></a>
             <?php } ?>
     </div>
 </div>

@@ -25,10 +25,7 @@ $skill_des = str_replace("\n", "<br />", $job->skill);
 
     <!--COMPANY INFO-->
     <?php echo $this->content()->renderWidget('recruiter.profile-company'); ?>
-    <!--    
     
-    -->
-
     <!--JOB INFO-->
     <ul class="pt-list-content">
         <li>
@@ -110,13 +107,15 @@ $skill_des = str_replace("\n", "<br />", $job->skill);
                 <li class="last"><span>9</span></li>
             </ul>
         </div>-->
-
+    <div class="share42init"></div>
     <div class="pt-lv-02">
         <button type="submit" title="" class="button icon-01" onclick="save_job('<?php echo $job->job_id; ?>')"><span></span>Lưu việc này</button>
         <button type="submit" title="" class="button icon-02" onclick="apply_job('<?php echo $job->job_id; ?>')"><span></span>Nộp đơn</button>
         <img src="application/themes/newhospitality/images/thumb/img-submit-oky1.png" alt="Image">
     </div>
 </div>
+
+<script type="text/javascript" src="/share42/share42.js"></script>
 <script type="text/javascript">
     function apply_job(job_id) {
         var url = "<?php echo $this->baseUrl() . '/recruiter/job/apply-job/job_id/' ?>" + job_id;

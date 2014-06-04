@@ -12,10 +12,10 @@
 <div class="generic_layout_container layout_right">
     <div class="generic_layout_container layout_resumes_check_list"><div class="pt-right-job"> 
             <div class="pt-block">
-                <h3 class="pt-title-right">Thong Tin Ca Nhan</h3>
+                <h3 class="pt-title-right">Danh mục</h3>
                 <ul class="pt-list-cbth">
-                    <li class="pt-active"><span class="pt-number-1">1</span><span class="pt-text"><a>Thong tin</a></span><span class="pt-icon-oky"></span></li>
-                    <li ><span class="pt-number-1">2</span><span class="pt-text"><a href="/members/edit/photo">Avatar</a></span><span class="pt-icon-oky"></span></li>
+                    <li class="pt-active"><span class="pt-number-1">1</span><span class="pt-text"><a>Thông tin cơ bản</a></span><span class="pt-icon-oky"></span></li>
+                    <li ><span class="pt-number-1">2</span><span class="pt-text"><a href="/members/edit/photo">Hình đại diện</a></span><span class="pt-icon-oky"></span></li>
                 </ul>
             </div>	
         </div></div>
