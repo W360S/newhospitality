@@ -9,7 +9,7 @@
 </style>
 <script type="text/javascript">
 	
-        function ajaxTopViewPaginagation(page)
+        function ajaxTopHomePaginagation(page)
         {  
         
 		$('topview_loading').style.display = 'block';
@@ -20,7 +20,7 @@
 			       
 			    },
 			    function (data){                       
-				jQuery('#ajax_topview-tab').html(data);
+				jQuery('#ajax_tophome-tab').html(data);
 			    }
                     );
         }    
@@ -35,7 +35,7 @@
   <?php if (isset($this->previous)): ?>
   
     <span>
-    <a href="javascript:void(0);" onclick="javascript:ajaxTopViewPaginagation( '<?php echo $this->previous; ?>')">
+    <a href="javascript:void(0);" onclick="javascript:ajaxTopHomePaginagation( '<?php echo $this->previous; ?>')">
       <?php echo $this->translate('Prev'); ?>
     </a>
     </span> 
@@ -45,7 +45,7 @@
   <?php foreach ($this->pagesInRange as $page): ?>
     <?php if ($page != $this->current): ?> 
       <span>
-      <a href="javascript:void(0);" onclick="javascript:ajaxTopViewPaginagation( '<?php echo $page; ?>')">
+      <a href="javascript:void(0);" onclick="javascript:ajaxTopHomePaginagation( '<?php echo $page; ?>')">
           <?php echo $page; ?>
       </a>
       </span> 
@@ -57,7 +57,7 @@
   <?php if (isset($this->next)): ?>
   
     <span>
-    <a href="javascript:void(0);" onclick="javascript:ajaxTopViewPaginagation('<?php echo $this->next; ?>')">
+    <a href="javascript:void(0);" onclick="javascript:ajaxTopHomePaginagation('<?php echo $this->next; ?>')">
     <?php echo $this->translate('Next'); ?>
      </a>
     </span>

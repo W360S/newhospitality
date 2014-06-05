@@ -19,22 +19,22 @@
 .pt-content-tababout { }
 .pt-content-tababout p { font-size:12px; margin:12px 0px; }
 
-.pt-content-tababout-02 {margin-top: 15px}
-.pt-content-tababout-02 .pt-block-about {overflow: hidden;margin-bottom: 15px}
-.pt-content-tababout-02 .pt-block-about span {display: block; padding: 6px 0px; margin-right:15px; border-radius:3px;  width:68px; text-align:center; float:left; font-size: 13px; color: #fff; background-color: #5dc1ed}
-.pt-content-tababout-02 .pt-block-about p {margin: 2px 0px 8px; font-size: 12px}
-.pt-content-tababout-02 .pt-block-about .pt-how-text {overflow: hidden;}
+.pt-content-tababout-second {margin-top: 15px}
+.pt-content-tababout-second .pt-block-about {overflow: hidden;margin-bottom: 15px}
+.pt-content-tababout-second .pt-block-about span {display: block; padding: 6px 0px; margin-right:15px; border-radius:3px;  width:68px; text-align:center; float:left; font-size: 13px; color: #fff; background-color: #5dc1ed}
+.pt-content-tababout-second .pt-block-about p {margin: 2px 0px 8px; font-size: 12px}
+.pt-content-tababout-second .pt-block-about .pt-how-text {overflow: hidden;}
 
-.pt-content-tababout-01 {}
-.pt-content-tababout-01 p {margin: 12px 0px}
-.pt-content-tababout-01 p.pt-fix-ml {margin-left: 12px}
+.pt-content-tababout-first {}
+.pt-content-tababout-first p {margin: 12px 0px}
+.pt-content-tababout-first p.pt-fix-ml {margin-left: 12px}
 
-.pt-block-about-01 { overflow: hidden;}
-.pt-block-about-01 img { float: left; margin-right: 20px;width: 90px}
-.pt-block-tab-02 {margin: 0px 0px 0px; padding-bottom: 0px}
+.pt-block-about-first { overflow: hidden;}
+.pt-block-about-first img { float: left; margin-right: 20px;width: 90px}
+.pt-block-tab-second {margin: 0px 0px 0px; padding-bottom: 0px}
 .pt-how-text {overflow: hidden; border-bottom: 1px solid #e8e8e8}
-.pt-color-01 {color: #1498c8; font-weight: bold;}
-.pt-color-02 {color: #049601; font-weight: bold;}
-.pt-color-03 {color: #395691; font-weight: bold;}
+.pt-color-first {color: #1498c8; font-weight: bold;}
+.pt-color-second {color: #049601; font-weight: bold;}
+.pt-color-third {color: #395691; font-weight: bold;}
 
 .pt-subpage .wd-center{margin: 0 auto}

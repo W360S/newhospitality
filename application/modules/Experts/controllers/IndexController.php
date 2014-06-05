@@ -1,10 +1,10 @@
-﻿<?php
+<?php
 
 class Experts_IndexController extends Core_Controller_Action_Standard
 {
   public function init()
   {
-     if( !$this->_helper->requireUser()->isValid() ) return;
+     //if( !$this->_helper->requireUser()->isValid() ) return;
   }
   
   public function indexAction(){
@@ -137,6 +137,7 @@ class Experts_IndexController extends Core_Controller_Action_Standard
         }
     $userName = Engine_Api::_()->getDbtable('users', 'user')->info('name'); 
     $questionsName = Engine_Api::_()->getDbtable('questions', 'experts')->info('name'); 
+	
     $answerName = Engine_Api::_()->getDbtable('answers', 'experts')->info('name');
     $questionsCatName = Engine_Api::_()->getDbtable('questionscategories', 'experts')->info('name');
     $categoriesName = Engine_Api::_()->getDbtable('categories', 'experts')->info('name');
@@ -146,7 +147,8 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     $questions_select = Engine_Api::_()->getDbtable('questionscategories', 'experts')->select()
     ->setIntegrityCheck(false)
     ->from($questionsCatName, 
-          new Zend_Db_Expr("GROUP_CONCAT(Distinct(engine4_experts_categories.category_name) SEPARATOR ', ') as category, 
+          new Zend_Db_Expr("
+		GROUP_CONCAT(Distinct(engine4_experts_categories.category_name) SEPARATOR ', ') as category, 
                             GROUP_CONCAT(Distinct(engine4_experts_categories.category_id)) as category_ids,
                             (SELECT 
                                 GROUP_CONCAT(
@@ -167,7 +169,7 @@ class Experts_IndexController extends Core_Controller_Action_Standard
                             ")
         )
     ->joinLeft($questionsName,'engine4_experts_questions.question_id=engine4_experts_questionscategories.question_id',array())
-    ->joinLeft($categoriesName,'engine4_experts_categories.category_id=engine4_experts_questionscategories.category_id',array())
+	->joinLeft($categoriesName,'engine4_experts_categories.category_id=engine4_experts_questionscategories.category_id',array())
     ->joinLeft($recipientsName,'engine4_experts_recipients.question_id=engine4_experts_questionscategories.question_id',array())
     ->joinLeft($userName,'engine4_users.user_id=engine4_experts_questions.user_id',array())
     ->joinLeft($filesName,'engine4_storage_files.file_id = engine4_experts_questions.file_id',array())
@@ -176,12 +178,13 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     
     $data_question = Engine_Api::_()->getDbtable('questionscategories', 'experts')->fetchRow($questions_select);
     $asked_by = Engine_Api::_()->getDbtable('users', 'user')->find($data_question->userid)->current();
+	
     
     if(isset($data_question)){
+		$view_by = Engine_Api::_()->getDbtable('users', 'user')->find($viewer->user_id)->current();
+		$this->view->view_by = $view_by;
         $viewer = $this->_helper->api()->user()->getViewer();
 		$this->view->viewer_id = $viewer->getIdentity();
-                $view_by = Engine_Api::_()->getDbtable('users', 'user')->find($viewer->getIdentity())->current();
-		$this->view->view_by = $view_by;
         $this->view->rating_count = Engine_Api::_()->experts()->ratingCount($question_id);
         $this->view->rated = Engine_Api::_()->experts()->checkRated($question_id, $viewer->getIdentity());
         //$this->view->categories =  Engine_Api::_()->experts()->getCategoriesOfQuestion($question_id);
@@ -224,6 +227,52 @@ class Experts_IndexController extends Core_Controller_Action_Standard
 	return $this->_helper->redirector->gotoRoute(array('action' => 'detail','question_id'=>$question_id));
   }
   
+  public function likeAction()
+  {
+	$viewer = Engine_Api::_()->user()->getViewer();
+    $user_id = $viewer->getIdentity();
+
+	 $answer_id = $this->_getParam('answer_id');
+	
+	$table  = Engine_Api::_()->getDbTable('likes', 'experts');
+    $rName = $table->info('name');
+    $select = $table->select()
+                    ->from($rName)
+                    ->where($rName.'.answer_id = ?', $answer_id);
+    $row = $table->fetchAll($select);
+    $total = count($row);
+
+	$data = array();
+	
+
+    $select1 = $table->select()
+                    ->from($rName)
+                    ->where($rName.'.answer_id = ?', $answer_id)
+                    ->where($rName.'.user_id = ?', $user_id);
+    $row1 = $table->fetchRow($select1);
+    if (empty($row1)) {
+      // create rating
+      Engine_Api::_()->getDbTable('likes', 'experts')->insert(array(
+        'answer_id' => $answer_id,
+        'user_id' => $user_id
+      ));
+	$data[] = array(
+	  'total' => $total + 1
+	);
+	   return $this->_helper->json($data);
+	  $data = Zend_Json::encode($data);
+      $this->getResponse()->setBody($data);
+    } else {
+		$data[] = array(
+		'total' => $total
+		);
+		 return $this->_helper->json($data);
+	  $data = Zend_Json::encode($data);
+      $this->getResponse()->setBody($data);
+	}
+
+	
+  }
   public function rateAction()
   {
     $viewer = Engine_Api::_()->user()->getViewer();
@@ -231,7 +280,12 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     
     $rating = $this->_getParam('rating');
     $question_id =  $this->_getParam('question_id');
+	
+	
 
+	$question->rating = $rating;
+	$question->total= $total;
+	$question->save();
     
     $table = Engine_Api::_()->getDbtable('ratings', 'experts');
     $db = $table->getAdapter();

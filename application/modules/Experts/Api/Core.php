@@ -378,15 +378,18 @@ class Experts_Api_Core extends Core_Api_Abstract
     $answersName = Engine_Api::_()->getDbtable('answers', 'experts')->info('name');
     $expertsName = Engine_Api::_()->getDbtable('experts', 'experts')->info('name');
     $filesName = Engine_Api::_()->getDbtable('files', 'storage')->info('name');
-    
+    $likesName = Engine_Api::_()->getDbtable('likes', 'experts')->info('name');
+
     $answersName = Engine_Api::_()->getDbtable('answers', 'experts')->select()
                         ->setIntegrityCheck(false)
-                        ->from($answersName,new Zend_Db_Expr('engine4_experts_answers.*, engine4_users.*, engine4_users.user_id as userid, engine4_storage_files.*, engine4_storage_files.file_id as attach_id, engine4_storage_files.name as attach_name'))
+                        ->from($answersName,new Zend_Db_Expr('COUNT(engine4_experts_likes.answer_id) as cnt_like, engine4_experts_answers.*, engine4_users.*, engine4_users.user_id as userid, engine4_storage_files.*, engine4_storage_files.file_id as attach_id, engine4_storage_files.name as attach_name'))
                         ->joinLeft($filesName,'engine4_experts_answers.file_id = engine4_storage_files.file_id',array())
                         ->joinLeft($usersName,'engine4_users.user_id = engine4_experts_answers.user_id',array())
+						->joinLeft($likesName,'engine4_experts_answers.answer_id = engine4_experts_likes.answer_id',array())
                         ->where('engine4_experts_answers.question_id = ?', $question_id)
+						->group('engine4_experts_answers.answer_id')
                         ->order('engine4_experts_answers.created_date ASC');
-    
+    //Zend_Debug::dump(Engine_Api::_()->getDbtable('answers', 'experts')->fetchAll($answersName)); exit;
     return Engine_Api::_()->getDbtable('answers', 'experts')->fetchAll($answersName);   
   }
   

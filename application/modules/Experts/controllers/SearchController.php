@@ -5,7 +5,7 @@ class Experts_SearchController extends Core_Controller_Action_Standard
   public function init()
   {
      //if( Engine_Api::_()->user()->getViewer()->getIdentity() == 0 ) return;
-     if( !$this->_helper->requireUser()->isValid() ) return;
+    //if( !$this->_helper->requireUser()->isValid() ) return;
   }
   public function indexAction(){
     // lay tham so

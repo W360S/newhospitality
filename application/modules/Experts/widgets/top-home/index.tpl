@@ -18,7 +18,7 @@
     background-image: url("application/modules/Core/externals/images/sprite.png") !important;
 }
 </style>
-<div id="ajax_topview-tab">
+<div id="ajax_tophome-tab">
 <?php 
     if( $this->paginator->getTotalItemCount() ): 
 ?>
@@ -56,7 +56,7 @@
 	<?php endforeach; ?>
 </ul>
 <div class="pt-paging">
-	<?php echo $this->paginationControl($this->paginator, null, "application/modules/Experts/views/scripts/pagination-view.tpl"); ?>
+	<?php echo $this->paginationControl($this->paginator, null, "application/modules/Experts/views/scripts/pagination-home.tpl"); ?>
 </div>
 <?php endif; ?>
 

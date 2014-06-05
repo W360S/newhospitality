@@ -1,3 +1,10 @@
+<style type="text/css">
+.wd-adap-select {width:65% !important; border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px;}
+.pt-content-sigup-02 .pt-signin .login-checkout {width: 440px !important;}
+.pt-content-sigup-02 .pt-signin .login-checkout ul li input { width:337px important;}
+.pt-content-sigup-02 .pt-signin .login-checkout ul li label{width:95px important;}
+.pt-content-sigup-02 .pt-signin .login-checkout ul li div.pt-textarea textarea#description {width:345px important;}
+</style>
 <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/custom.expert.js'?>" type="text/javascript"></script>
 <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.lib.min.js'?>" type="text/javascript"></script>
 <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery.tooltip.min.js'?>" type="text/javascript"></script>
@@ -139,13 +146,13 @@ if(isset($this->description)) $desc = $this->description;
 									<h3 class="pt-title-right">Gửi câu hỏi</h3>
 									<div class="pt-content-sigup-02">
 										<div class="pt-signin">
-											<div class="login-checkout">
+											<div class="login-checkout" style="border: 0px;">
 												<form name="upload" method="post" action="<?php echo $this->baseUrl().'/experts/my-questions/compose'; ?>"  enctype="multipart/form-data" id="questions_create">
 													<fieldset>
 														<ul>
 															
 															<li>
-																<label><?php echo $this->translate('Choose category') ?>:</label>
+																<label style="width:120px;"><?php echo $this->translate('Choose category') ?></label>
 																<div class="select_sort">
 																	<select name="expert_category" id="expert_category">
 																		<?php foreach($categories as $item): ?>
@@ -156,25 +163,25 @@ if(isset($this->description)) $desc = $this->description;
 																
 															</li>
 															<li>
-																<label>Tiêu đề câu hỏi</label>
+																<label style="width:120px;">Tiêu đề câu hỏi</label>
 																<input  class="input-text" type="text" id="title" name="title" value="<?php echo $title; ?>" />
 															</li>
 															<li>
-																<label>Nội dung</label>
+																<label style="width:120px;">Nội dung</label>
 																<div class="wd-adap-select wd-adap-select-01 pt-textarea">
-																	<textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;" rows="" cols="" id="description"  name="description"><?php echo $desc ?></textarea>
+																	<textarea style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 120px;  width: 350px" rows="" cols="" id="description"  name="description"><?php echo $desc ?></textarea>
 																</div>
 															</li>
 															<li>
 																
-																<label>File minh họa</label>
+																<label style="width:120px;">File minh họa</label>
         															<input type="file" id="file" name="file"/>
 																
 															</li>
 															<li style="padding-left:130px;">
 																<?php echo $this->translate("(files: txt,png,jpg,gif,doc,docx,rar Maxsize: 5Mb)") ?>
 															</li>
-															<li class="last">
+															<li style="padding-left:35px;" class="last">
 																<button type="submit" title="" class="button">Đăng câu hỏi</button>
 																<button style="margin-left: 10px;" type="cancel" title="" class="button">Hủy</button>
 															</li>

@@ -1,16 +1,51 @@
-<style>
-.pt-comment-text #pt-textarea-description{width: 464px !important;}
-.pt-comment-text .pt-submit-comment {
-    margin-left: 62px !important;
+<style type="text/css">
+.pt-like-how div {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("/newhospitality-master/application/themes/newhospitality/images/front/pt-sprite.png?c=34");
+    background-origin: padding-box;
+    background-position: -207px -489px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    display: inline-block;
+    height: 19px;
+    width: 19px;
+    cursor:pointer;
+}
+.pt-like-how div:hover {
+    background-position: -207px -512px;
 }
 </style>
 <script type="text/javascript">
+  
+
   var pre_rate = "<?php echo $this->data->rating;?>";
   var rated = "<?php echo $this->rated;?>";
   var question_id = "<?php echo $this->data->question_id;?>";
   var total_votes = <?php echo $this->rating_count;?>;
   var viewer = "<?php echo $this->viewer_id;?>";
   var tt_rating= <?php echo $this->tt_rating;?>;
+
+  function ajaxLike(answer_id, cnt)
+  {  
+	(new Request.JSON({
+	      'format': 'json',
+	      'url' : '<?php echo $this->url(array('module' => 'experts', 'controller' => 'index', 'action' => 'like'), 'default', true) ?>',
+	      'data' : {
+		'format' : 'json',
+		'answer_id': answer_id
+	      },
+	      'onRequest' : function(){
+		
+	      },
+	      'onSuccess' : function(responseJSON, responseText)
+	      {
+	        var last = cnt+1;
+		$(answer_id+'-number-like').innerHTML = responseJSON[0].total;
+	      }
+	    })).send();
+  }  
   
   function rating_over(rating) {
     if (rated == 1){
@@ -126,13 +161,12 @@
 								    // rating
 								    $rated = $this->rated;
 								    $viewer_id = $this->viewer_id;
-									$view_by = $this->view_by;
 								    $rating_count = $this->rating_count;
 								    
 								    $data = $this->data;
 								    $categories = $this->categories;
 								    $answers = $this->answers;
-								    //Zend_Debug::dump($answers);exit;
+								    //Zend_Debug::dump($data);exit;
 								    $related_old_questions = $this->related_old_questions;
 								    $related_new_questions = $this->related_new_questions;
 								    $asked_by = $this->asked_by;
@@ -196,14 +230,14 @@
 									<form name="upload" method="post" action="<?php echo $this->baseUrl().'/experts/my-experts/detail/question_id/'.$data->question_id; ?>"  enctype="multipart/form-data" id="questions_add_detail">
 									
 									<span class="pt-avatar">
-									<?php if($view_by->photo_id): ?>
-										<?php echo $this->itemPhoto($view_by, 'thumb.normal', "Image"); ?>
+									<?php if($viewer_id->photo_id): ?>
+										<?php echo $this->itemPhoto($viewer_id, 'thumb.normal', "Image"); ?>
 									    <?php else: ?>
 										<img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_profile.png">
 									    <?php endif; ?>
 									</span>
 
-									<div class="pt-textarea" id="pt-textarea-description" >
+									<div class="pt-textarea">
 										<textarea id="description"  name="description" title="Viết bình luận..." placeholder="Write a comment ..." value="Write a comment ..." data-reactid="" aria-owns="" aria-haspopup="true" aria-expanded="false" aria-label="Write a comment ..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 45px;"></textarea>
 									</div>
 									<div href="#" class="pt-up-img"><input type="file" id="file" name="file" aria-label=""></div>
@@ -233,8 +267,8 @@
 													echo " - Câu trả lời hay nhất";
 												} ?>
 												</h3>
-												<span class="pt-times">Trả lời lúc: - <?php echo $this->timestamp($item->created_date); ?></span>
-												<?php if($data->userid == $viewer_id): ?>
+												<span class="pt-times">Trả lời lúc: - <?php echo $this->timestamp($data->created_date); ?></span>
+												<?php  if($data->userid == $viewer_id): ?>
 												<div class="pt-link-group pt-link-group-01">
 													<div class="pt-editing">Editing</div>
 													<div class="pt-toggle-layout pt-toggle-layout-01">
@@ -255,15 +289,15 @@
 												<?php endif; ?>
 											</div>
 											<div class="pt-content-questions-content">
-												<!--
+												
 												<div class="pt-like-how">
-													<a href="#"></a>
-													<span class="pt-number-like">1</span>
+													<a href="javascript:void(0);"  onclick="javascript:ajaxLike(<?php echo $item->answer_id; ?>,<?php echo $item->cnt_like; ?>)"></a>
+													<span id="<?php echo $item->answer_id; ?>-number-like"  class="pt-number-like"><?php echo $item->cnt_like ?></span>
 												</div>
-												-->
+												
 												<div class="pt-content-questions-how">
 													<?php if($item->attach_id): ?>
-														<p><img src="<?php echo $this->baseUrl("/").$item->storage_path; ?>"/></p>
+														<p><a class="attack_file" href="<?php echo $this->baseUrl("/").$item->storage_path; ?>"><?php $size = round($item->size/1024,2); echo $item->attach_name. " (".$size." KB)"; ?></a></p>
 													<?php endif; ?>
 													<p><?php echo $item->content; ?></p>
 												</div>
@@ -309,16 +343,20 @@
 	  jQuery('.pt-submit-comment').css( "display", "block" ).fadeIn( 1000 );
 	  return false;
 	});
+
 	jQuery(".pt-textarea").click(function () {
 	  jQuery('.pt-list-click').css( "display", "block" ).fadeIn( 1000 );
 	  return false;
 	});
 
-	jQuery(".pt-editing").bind("click", function(){
-		jQuery(this).siblings(".pt-toggle-layout").slideToggle();
+	jQuery('.pt-editing').bind('click', function(){
+		jQuery(this).siblings('.pt-toggle-layout').slideToggle();
 	});
-	
 
+	jQuery('#url_tab03').bind('click', function(){
+		
+		
+	});
 
   });
     
