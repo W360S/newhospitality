@@ -160,7 +160,12 @@ class Resumes_ResumeController extends Core_Controller_Action_Standard {
         $from = Engine_Api::_()->getApi('core', 'recruiter')->getOption($field_id_from, $from);
         
         $field_id_phone = Engine_Api::_()->getApi('core', 'recruiter')->getMetaFromAlias('phone');
-        $phone = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_phone, $resume->user_id);
+        if ($field_id_phone) {
+            $phone = Engine_Api::_()->getApi('core', 'recruiter')->getValue($field_id_phone, $resume->user_id);
+        }else{
+            $phone = "";
+        }
+        
         
         $this->view->from = $from;
         $this->view->phone = $phone;
