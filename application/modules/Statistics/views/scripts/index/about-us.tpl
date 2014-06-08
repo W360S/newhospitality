@@ -12,10 +12,10 @@
         <div class="wd-center">
             <div class="pt-left-aobut">
                 <ul>
-                    <li><a href="#" class="active">Giới thiệu</a></li>
-                    <li><a href="#">Ban cố vấn</a></li>
-                    <li><a href="#">Đối tác & Nhà tài trợ</a></li>
-                    <li><a href="#">Người sáng lập & Ban điều hành</a></li>
+                    <li><a href="/statistics/index/about-us" class="active">Giới thiệu</a></li>
+                    <li><a href="/statistics/index/terms-of-services">Điều khoản sử dụng</a></li>
+                    <li><a href="/statistics/index/privacy">Chính sách bảo mật</a></li>
+                    <li><a href="/statistics/index/coupon">Coupon</a></li>
                 </ul>
             </div>
             <div class="pt-right-about">
@@ -92,7 +92,7 @@
 
                                     </div>
                                 </div>
-                                <div class="pt-block-tab-02">
+                                <div class="pt-block-tab-second">
                                     <img src="img/thumb/img-about-tab-02.png" alt="Image" />
                                     <div class="pt-how-text">
                                         <p><span class="pt-color-02">Green Hospit@lity</span></p>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div id="tabs-3" class="pt-content-tab"  style="display:none">
-                        <div class="pt-content-tababout-02">
+                        <div class="pt-content-tababout-second">
                             <div class="pt-block-about">
                                 <span>
                                     2008
@@ -121,7 +121,7 @@
                             </div>
                             <div class="pt-block-about">
                                 <span>
-                                    2008
+                                    2009
                                 </span>
                                 <div class="pt-how-text">
                                     <p>Chính thức thành lập dự án Mạng du lịch Khách sạn Việt Nam (VHN)</p>
@@ -129,7 +129,7 @@
                             </div>
                             <div class="pt-block-about">
                                 <span>
-                                    2008
+                                    2010
                                 </span>
                                 <div class="pt-how-text">
                                     <p>Đưa cổng tương tác www.hospitality.vn vào hoạt động
@@ -140,7 +140,7 @@
                             </div>
                             <div class="pt-block-about">
                                 <span>
-                                    2008
+                                    2011
                                 </span>
                                 <div class="pt-how-text">
                                     <p>Hợp tác với Công ty Giải pháp kinh doanh khách sạn Sao Việt (VietStar HBS) và Công ty DanhTin Thụy Sỹ tổ chức các khóa học "Đánh giá chất lượng hoạt động" và "Kỹ năng quản lý khiếu nại, sự thay đổi và xung đột" cho dành cho Nhà quản lý điều hành.
@@ -151,7 +151,7 @@
                             </div>
                             <div class="pt-block-about">
                                 <span>
-                                    2008
+                                    2013
                                 </span>
                                 <div class="pt-how-text">
                                     <p>Phối hợp với đối tác Đại học Hoa Sen tổ chức sự kiện hàng tháng “Coffee with GM” – tăng nhận thức và tầm nhìn cho nhân lực ngành DLKS

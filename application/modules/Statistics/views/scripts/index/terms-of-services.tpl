@@ -1,23 +1,33 @@
-<style type="text/css">
-#global_content .layout_middle, .layout_left{padding-right: 0;}
-.layout-about-us ul.left-menu-about li a.terms{color:#fff;font-size:13px;text-transform:uppercase;background: url(<?php echo "/application/modules/Statistics/externals/images/help/title-about-us.gif" ?>) repeat-x;font-weight:bold}
 
+<?php $data = $this->data ?>
+<style type="text/css">
+    #global_content{
+        width: auto;
+        margin: 0;
+    }
 </style>
-<?php
-    $data= $this->data; 
-?>
-<div id="content">
-    <div class="section layout-about-us">
-        <div class="layout_left">
-            <?php echo $this->content()->renderWidget('statistics.panel-left');?>
+<div class="pt-about pt-subpage">
+    <div class="pt-banner-about">
+        <img src="img/thumb/img-about.png" alt="Image">
+    </div>
+    <div class="pt-content-about">
+        <div class="wd-center">
+            <div class="pt-left-aobut">
+                <ul>
+                    <li><a href="/statistics/index/about-us" >Giới thiệu</a></li>
+                    <li><a href="/statistics/index/terms-of-services" class="active">Điều khoản sử dụng</a></li>
+                    <li><a href="/statistics/index/privacy">Chính sách bảo mật</a></li>
+                    <li><a href="/statistics/index/coupon">Coupon</a></li>
+                </ul>
+            </div>
+            <div class="pt-right-about">
+                <?php 
+                    if($data){
+                        echo $data['body'];
+                    }
+                ?>
+
+            </div>
         </div>
-        <div class="layout_middle">
-            <?php 
-                if($data){
-                    echo $data['body'];
-                }
-            ?>
-        </div>
-        <?php echo $this->content()->renderWidget('statistics.footer');?>
     </div>
 </div>

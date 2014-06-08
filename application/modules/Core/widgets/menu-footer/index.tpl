@@ -40,7 +40,7 @@
     <li><a href="/statistics/index/coupon">Coupon</a></li>
     <li class="last"><a href="/statistics/index/contact-us">Liên hệ</a></li>
   </ul>
-  <p>Bản quyền © 2014 <a href="Hospitality.vn">Hospitality.vn</a></p>
+  <p>Bản quyền © 2014 <a href="Hospitality.vn">Hospitality.vn</a> . Đang chờ cấp phép mạng xã hội</p>
 </div>
 <div class="pt-footer-right">
   <ul>
