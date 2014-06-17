@@ -68,7 +68,7 @@ $skill_des = str_replace("\n", "<br />", $job->skill);
     </ul>
     <h4>Mô tả công việc</h4>
     <p>
-        <?php echo $skill_des ?>
+        <?php //echo $skill_des ?>
         <?php echo $des ?>
     </p>
     <h4>Yêu cầu công việc</h4>

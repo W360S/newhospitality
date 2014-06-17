@@ -235,11 +235,11 @@ class Core_LinkController extends Core_Controller_Action_Standard
         preg_match('/charset=([a-zA-Z0-9-_]+)/i', $response->getBody(), $matches) ) {
       $charset = trim($matches[1]);
     } else {
-      $charset = 'UTF-8';
+      $charset = 'utf-8';
     }
-//    if( function_exists('mb_convert_encoding') ) {
-//      $body = mb_convert_encoding($body, 'HTML-ENTITIES', $charset);
-//    }
+   if( function_exists('mb_convert_encoding') ) {
+     $body = mb_convert_encoding($body, 'HTML-ENTITIES', $charset);
+   }
 
     // Reduce whitespace
     $body = preg_replace('/[\n\r\t\v ]+/', ' ', $body);
@@ -256,11 +256,11 @@ class Core_LinkController extends Core_Controller_Action_Standard
         preg_match('/charset=([a-zA-Z0-9-_]+)/i', $response->getBody(), $matches) ) {
       $this->view->charset = $charset = trim($matches[1]);
     } else {
-      $this->view->charset = $charset = 'UTF-8';
+      $this->view->charset = $charset = 'utf-8';
     }
-//    if( function_exists('mb_convert_encoding') ) {
-//      $body = mb_convert_encoding($body, 'HTML-ENTITIES', $charset);
-//    }
+   if( function_exists('mb_convert_encoding') ) {
+     $body = mb_convert_encoding($body, 'HTML-ENTITIES', $charset);
+   }
 
     // Get DOM
     if( class_exists('DOMDocument') ) {
