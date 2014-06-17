@@ -1371,8 +1371,13 @@ class Suggestion_IndexController extends Core_Controller_Action_Standard {
 
         // Resize image (profile)
         $image = Engine_Image::factory();
-        $image->open($file)
-                ->resize(200, 400)
+        $image->open($file);
+
+        $size = min($image->height, $image->width);
+        $x = ($image->width - $size) / 2;
+        $y = ($image->height - $size) / 2;
+
+        $image->resample($x, $y, $size, $size, 200, 200)
                 ->write($path . '/p_' . $name)
                 ->destroy();
 

@@ -344,10 +344,17 @@ class User_EditController extends Core_Controller_Action_User
           try {
             $tmpFile = $newStorageFile->temporary();
             $image = Engine_Image::factory();
-            $image->open($tmpFile)
-              ->resize(200, 400)
-              ->write($tmpFile)
-              ->destroy();
+
+            $image->open($tmpFile);
+
+            $size = min($image->height, $image->width);
+            $x = ($image->width - $size) / 2;
+            $y = ($image->height - $size) / 2;
+
+            $image->resample($x, $y, $size, $size, 200, 200)
+                    ->write($tmpFile)
+                    ->destroy();
+            
             $iProfile = $filesTable->createFile($tmpFile, array(
               'parent_type' => $user->getType(),
               'parent_id' => $user->getIdentity(),

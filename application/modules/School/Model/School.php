@@ -67,10 +67,15 @@ class School_Model_School extends Core_Model_Item_Abstract {
     
         // Resize image (profile)
         $image = Engine_Image::factory();
-        $image->open($file)
-          ->resize(200, 400)
-          ->write($path.'/p_'.$name)
-          ->destroy();
+        $image->open($file);
+
+        $size = min($image->height, $image->width);
+        $x = ($image->width - $size) / 2;
+        $y = ($image->height - $size) / 2;
+
+        $image->resample($x, $y, $size, $size, 200, 200)
+                ->write($path . '/p_' . $name)
+                ->destroy();
     
         // Resize image (normal)
         $image = Engine_Image::factory();

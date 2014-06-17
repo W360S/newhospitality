@@ -8,7 +8,7 @@ $user = Engine_Api::_()->getApi('core','user')->getUser($profile->user_id);
 <?php if (!empty($profile)) { ?>
     <div class="pt-job-detail-title">
         <?php if ($profile->photo_id != null) { ?>
-            <?php echo $this->itemPhoto($profile, 'thumb.profile'); ?>
+            <?php echo $this->itemPhoto($profile, 'thumb.icon'); ?>
         <?php } else { ?>
             <img src='application/modules/Job/externals/images/no_image.gif' class="thumb_profile item_photo_recruiter  thumb_profile" />
         <?php } ?>

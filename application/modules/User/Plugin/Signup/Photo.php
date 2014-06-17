@@ -225,8 +225,13 @@ class User_Plugin_Signup_Photo extends Core_Plugin_FormSequence_Abstract {
         // Resize image (profile)
         $iProfilePath = $path . '/p_' . $name;
         $image = Engine_Image::factory();
-        $image->open($file)
-                ->resize(200, 400)
+        $image->open($file);
+        
+        $size = min($image->height, $image->width);
+        $x = ($image->width - $size) / 2;
+        $y = ($image->height - $size) / 2;
+
+        $image->resample($x, $y, $size, $size, 200, 200)
                 ->write($iProfilePath)
                 ->destroy();
 

@@ -17,7 +17,7 @@ $paginator = $this->paginator_jobs;
 <div class="subsection">
     <div class="pt-job-detail-title pt-job-detail-title-first">
         <?php if ($profile->photo_id != null) { ?>
-            <?php echo $this->itemPhoto($profile, 'thumb.profile'); ?>
+            <?php echo $this->itemPhoto($profile, 'thumb.icon'); ?>
         <?php } else { ?>
             <img src='application/modules/Job/externals/images/no_image.gif' class="thumb_profile item_photo_recruiter  thumb_profile" />
         <?php } ?>
