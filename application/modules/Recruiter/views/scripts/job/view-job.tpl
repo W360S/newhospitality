@@ -22,9 +22,10 @@ $skill_des = str_replace("\n", "<br />", $job->skill);
 </div>
 <div class="pt-job-detail">
     <h3><?php echo $job->position; ?></h3>
-
+    <div class="pt-job-detail-title">
     <!--COMPANY INFO-->
     <?php echo $this->content()->renderWidget('recruiter.profile-company'); ?>
+    </div>
     
     <!--JOB INFO-->
     <ul class="pt-list-content">
