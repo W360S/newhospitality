@@ -199,9 +199,6 @@ function crop($text, $qty) {
                                 <a href="<?php echo $this->baseUrl() . '/members/settings/general'; ?>"><?php echo $this->translate('Thiết lập chung'); ?></a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->baseUrl() . '/members/settings/password'; ?>"><?php echo $this->translate('Đổi mật khẩu'); ?></a>
-                            </li>
-                            <li>
                                 <a href="javascript:void(0)"><?php echo $this->translate('Trợ giúp'); ?></a>
                             </li>
                             <li>

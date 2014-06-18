@@ -58,16 +58,16 @@ class Experts_IndexController extends Core_Controller_Action_Standard
 	$answerTable    = Engine_Api::_()->getDbtable('answers', 'experts');
     //Zend_Debug::dump($category_id); exit;
     if($category_id){
-        $questions_select = $questionTable->select()
+       
+		$questions_select = $questionTable->select()
         ->setIntegrityCheck(false)
-        ->from($questionTable->info('name'), new Zend_Db_Expr('engine4_experts_questions.*, engine4_users.username, COUNT(engine4_experts_ratings.question_id) as cnt_rating, COUNT(DISTINCT(engine4_experts_answers.question_id)) as cnt_answer'))
-        ->joinLeft($ratingTable->info('name'),'engine4_experts_questions.question_id = engine4_experts_ratings.question_id',array())
+        ->from($questionTable->info('name'), new Zend_Db_Expr('engine4_experts_questions.*, engine4_users.username, COUNT((engine4_experts_answers.question_id)) as cnt_answer'))
         ->joinLeft($userTable->info('name'),'engine4_experts_questions.user_id = engine4_users.user_id',array())
 		->joinLeft($answerTable->info('name'),'engine4_experts_questions.question_id = engine4_experts_answers.question_id',array())
         ->joinLeft($catquestionTable->info('name'),'engine4_experts_questions.question_id = engine4_experts_questionscategories.question_id',array())
         //->where('engine4_experts_questions.status in (2,3)')
         ->where('engine4_experts_questionscategories.category_id = ?',$category_id)
-        ->group('engine4_experts_questions.question_id')
+        ->group('engine4_experts_answers.question_id')
         ->order('created_date desc');
         $category = Engine_Api::_()->getDbtable('categories', 'experts')->find($category_id)->current();
         //$this->view->category_name = $category->category_name;
@@ -143,11 +143,13 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     $categoriesName = Engine_Api::_()->getDbtable('categories', 'experts')->info('name');
     $recipientsName = Engine_Api::_()->getDbtable('recipients', 'experts')->info('name');
     $filesName = Engine_Api::_()->getDbtable('files', 'storage')->info('name');
+	$likesName = Engine_Api::_()->getDbtable('likes', 'experts')->info('name');
 
     $questions_select = Engine_Api::_()->getDbtable('questionscategories', 'experts')->select()
     ->setIntegrityCheck(false)
     ->from($questionsCatName, 
           new Zend_Db_Expr("
+		COUNT(engine4_experts_likes.answer_id) as cnt_like,
 		GROUP_CONCAT(Distinct(engine4_experts_categories.category_name) SEPARATOR ', ') as category, 
                             GROUP_CONCAT(Distinct(engine4_experts_categories.category_id)) as category_ids,
                             (SELECT 
@@ -173,13 +175,15 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     ->joinLeft($recipientsName,'engine4_experts_recipients.question_id=engine4_experts_questionscategories.question_id',array())
     ->joinLeft($userName,'engine4_users.user_id=engine4_experts_questions.user_id',array())
     ->joinLeft($filesName,'engine4_storage_files.file_id = engine4_experts_questions.file_id',array())
+	->joinLeft($likesName,'engine4_experts_questions.question_id = engine4_experts_likes.question_id',array())
     ->where('engine4_experts_questions.question_id = ?', $question_id)
     ->group('engine4_experts_questionscategories.question_id');
     
+	
     $data_question = Engine_Api::_()->getDbtable('questionscategories', 'experts')->fetchRow($questions_select);
     $asked_by = Engine_Api::_()->getDbtable('users', 'user')->find($data_question->userid)->current();
 	
-    
+    //Zend_Debug::dump($data_question); exit;
     if(isset($data_question)){
 		$view_by = Engine_Api::_()->getDbtable('users', 'user')->find($viewer->user_id)->current();
 		$this->view->view_by = $view_by;
@@ -273,6 +277,54 @@ class Experts_IndexController extends Core_Controller_Action_Standard
 
 	
   }
+
+  public function qlikeAction()
+  {
+	$viewer = Engine_Api::_()->user()->getViewer();
+    $user_id = $viewer->getIdentity();
+
+	 $question_id = $this->_getParam('question_id');
+	
+	$table  = Engine_Api::_()->getDbTable('likes', 'experts');
+    $rName = $table->info('name');
+    $select = $table->select()
+                    ->from($rName)
+                    ->where($rName.'.question_id = ?', $question_id);
+    $row = $table->fetchAll($select);
+    $total = count($row);
+
+	$data = array();
+	
+
+    $select1 = $table->select()
+                    ->from($rName)
+                    ->where($rName.'.question_id = ?', $question_id)
+                    ->where($rName.'.user_id = ?', $user_id);
+    $row1 = $table->fetchRow($select1);
+    if (empty($row1)) {
+      // create rating
+      Engine_Api::_()->getDbTable('likes', 'experts')->insert(array(
+        'question_id' => $question_id,
+        'user_id' => $user_id
+      ));
+	$data[] = array(
+	  'total' => $total + 1
+	);
+	   return $this->_helper->json($data);
+	  $data = Zend_Json::encode($data);
+      $this->getResponse()->setBody($data);
+    } else {
+		$data[] = array(
+		'total' => $total
+		);
+		 return $this->_helper->json($data);
+	  $data = Zend_Json::encode($data);
+      $this->getResponse()->setBody($data);
+	}
+
+	
+  }
+
   public function rateAction()
   {
     $viewer = Engine_Api::_()->user()->getViewer();

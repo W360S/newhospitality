@@ -152,13 +152,8 @@ class User_Model_User extends Core_Model_Item_Abstract {
         // Resize image (profile)
         $profilePath = $path . DIRECTORY_SEPARATOR . $base . '_p.' . $extension;
         $image = Engine_Image::factory();
-        $image->open($file);
-
-        $size = min($image->height, $image->width);
-        $x = ($image->width - $size) / 2;
-        $y = ($image->height - $size) / 2;
-
-        $image->resample($x, $y, $size, $size, 200, 200)
+        $image->open($file)
+                ->resize(200, 400)
                 ->write($profilePath)
                 ->destroy();
 

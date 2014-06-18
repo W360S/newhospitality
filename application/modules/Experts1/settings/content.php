@@ -1,0 +1,130 @@
+<?php
+/**
+ * Viethospitality
+ *
+ * @category   Application_Extensions
+ * @package    Group
+ * @author     quangnvh@webdev.vn
+ */
+return array(
+  array(
+  'title'=> 'Most Effective Experts',
+        'description' => 'Displays most effective experts of the month',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.mosteffective-experts'
+  ),
+  array(
+	'title'=> 'Featured Experts',
+        'description' => 'Displays featured in experts',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.featured-experts'
+  ),
+  array(
+	'title'=> 'Search',
+        'description' => 'Search Experts',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.search'
+  ),
+  array(
+	'title'=> 'My Questions',
+        'description' => 'My Question',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.my-questions'
+  ),
+  array(
+	'title'=> 'My Experts',
+        'description' => 'My Experts',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.my-experts'
+  ),
+  array(
+	'title'=> 'Categories',
+        'description' => 'Categories',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.categories'
+  ),
+  array(
+	'title'=> 'Lasted Quesitons',
+        'description' => 'Lasted Quesitons',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.lasted-questions'
+  ),
+  array(
+	'title'=> 'Top Views',
+        'description' => 'Top Views',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.top-views'
+  ),
+  array(
+	'title'=> 'Top Home',
+        'description' => 'Top Home',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.top-home'
+  ),
+  array(
+	'title'=> 'Top Rating',
+        'description' => 'Top Rating',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.top-rating'
+  ),
+  array(
+	'title'=> 'My Accounts',
+        'description' => 'My Accounts',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.my-accounts'
+  ),
+  array(
+    'title' => 'Admin search question',
+    'description' => 'Admin search question',
+    'category' => 'Experts widgets',
+    'type' => 'widget',
+    'name' => 'experts.admin-search-question',
+  ),
+  array(
+    'title' => 'Admin search expert',
+    'description' => 'Admin search expert',
+    'category' => 'Experts widgets',
+    'type' => 'widget',
+    'name' => 'experts.admin-search-experts',
+  ),
+  array(
+    'title' => 'Admin search profile',
+    'description' => 'Admin search question of experts',
+    'category' => 'Experts widgets',
+    'type' => 'widget',
+    'name' => 'experts.admin-search-question-profile',
+  ),
+  array(
+    'title' => 'Ask Experts',
+    'description' => 'Ask Expertss',
+    'category' => 'Experts widgets',
+    'type' => 'widget',
+    'name' => 'experts.ask-experts',
+  ),
+  array(
+    'title' => 'Answered by Experts',
+    'description' => 'Answered by Experts',
+    'category' => 'Experts widgets',
+    'type' => 'widget',
+    'name' => 'experts.answered-by-experts',
+  ),
+  array(
+	'title'=> 'Post question',
+        'description' => 'Post question',
+        'category' => 'Experts',
+        'type' => 'widget',
+        'name' => 'experts.post-question'
+  )
+) 
+?>

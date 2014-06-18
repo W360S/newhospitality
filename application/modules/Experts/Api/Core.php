@@ -389,7 +389,7 @@ class Experts_Api_Core extends Core_Api_Abstract
                         ->where('engine4_experts_answers.question_id = ?', $question_id)
 						->group('engine4_experts_answers.answer_id')
                         ->order('engine4_experts_answers.created_date ASC');
-    //Zend_Debug::dump(Engine_Api::_()->getDbtable('answers', 'experts')->fetchAll($answersName)); exit;
+   //Zend_Debug::dump(Engine_Api::_()->getDbtable('answers', 'experts')->fetchAll($answersName)); exit;
     return Engine_Api::_()->getDbtable('answers', 'experts')->fetchAll($answersName);   
   }
   

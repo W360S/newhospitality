@@ -1,0 +1,51 @@
+.list_my_questions table{width:100%;border:1px solid #d0e2ec}
+.list_my_questions table tr.container_func{background:#fff url(~/application/modules/Core/externals/images/bg-content.gif) 0 -14px repeat-x !important}
+.list_my_questions table tr.container_func td .paginationControl{padding:4px 5px;}
+.list_my_questions table tr.container_func td{padding:8px 8px;border-top:1px solid #d0e2ec;border-bottom:1px solid #d0e2ec !important;}
+.list_my_questions table tr:hover.container_func td{background:#fff url(~/application/modules/Core/externals/images/bg-content.gif) 0 -14px repeat-x !important}
+.list_my_questions table td{padding:12px 8px}
+.list_my_questions table tr.background_gray td{background-color:#f4f3f3}
+.list_my_questions table tr:hover td{background-color:#E9F4FA !important}
+.list_my_questions table tr:hover td a.title{font-weight:bold}
+.list_my_questions table td a.title{color:#414141}
+.list_my_questions table td a:hover.title{font-weight:bold}
+.list_my_questions table table{border:none;margin:10px auto;width:92%;}
+.list_my_questions table tr:hover.form_answer td{background-color:#fff !important}
+.list_my_questions table tr.form_answer td{border-bottom:1px solid #d8d8d8;padding:4px 0}
+.list_my_questions table tr.form_answer td a.title_answer{color:#414141;font-size:17px;font-weight:bold;line-height:19px}
+.list_my_questions table tr.form_answer td p{line-height:17px;margin:8px 0; }
+.list_my_questions table.my_experts tr.form_answer td p{line-height:17px;margin:8px 0; width:428px;}
+.list_my_questions table tr.form_answer td p.user_port{text-align:right}
+.list_my_questions table tr.form_answer td textarea{width:98%;min-height:200px;margin:5px 0;padding:5px;border:1px solid #dbdbdb}
+.list_my_questions table tr.form_answer td a.attack_file{padding:1px 0 1px 22px;background:url(~/application/modules/Core/externals/images/ico_attack_file.gif)  no-repeat}
+.list_my_questions table tr.form_answer td.container_button{text-align:center;border-bottom:none;padding:15px 0}
+.list_my_questions table tr.form_answer td.border_none{border-bottom:none}
+.list_my_questions table tr td.answered{padding:6px 22px}
+.list_my_questions table tr td.answered p{margin:5px 0;line-height:17px;color:#414141}
+.list_my_questions table tr td p a.share_it{float:right;font-weight:bold}
+.list_my_questions table tr td h2.title_related_questions{font-size:13px;font-weight:bold;border-bottom:1px solid #b6b6b6;padding-bottom:6px;text-transform:uppercase;color:#414141}
+.list_my_questions table tr td ul.list_questions{padding:5px 0}
+.list_my_questions table tr td ul.list_questions li{padding:6px 0;}
+.list_my_questions table tr td ul.list_questions li.finish{border-bottom:none !important}
+.list_my_questions table tr td ul.list_questions li a.title{font-size:12px}
+.list_my_questions table tr td ul.list_questions li p{margin:0}
+.list_my_questions table tr td .detail_expert{margin:16px 0;padding:14px 14px 0;overflow:hidden;background-color:#f2faff;border:1px solid #d6e5ef}
+.list_my_questions table tr td .detail_expert .frame_img{float:left;width:54px;margin:3px 0; text-align: center}
+.list_my_questions table tr td .detail_expert .frame_img img{width:49px;height:45px;border:1px solid #d0e2ec;padding:1px}
+.list_my_questions table tr td .detail_expert .text_expert{float:left; margin-left:  20px; width: 763px}
+.list_my_questions table.my_experts tr td .detail_expert .text_expert{float:left; margin-left:  20px; width: auto}
+.list_my_questions table tr td .detail_expert .text_expert p em{float:right; font-style:italic;}
+/* small icons */
+.rating_star, .rating_star_half, .rating_star_disabled, .rating_star_hidden{display: inline-block;background-image: url(~/application/modules/Core/externals/images/star.png);width: 8px;height: 8px;background-repeat: no-repeat;font-size: 1px;cursor: default;}
+.rating_star_half{width: 4px;}
+.rating_star_disabled{background-image: url(~/application/modules/Core/externals/images/star_disabled.png);}
+.rating_star_hidden{background-image: none;}
+.rating_star_big,
+.rating_star_big_half,
+.rating_star_big_disabled, .rating_star_big_hidden{float: left;display: inline-block;background-image: url(~/application/modules/Core/externals/images/star_big.png);width: 16px;height: 16px;background-repeat: no-repeat;font-size: 1px;cursor: pointer;}
+.rating_star_big_half{background-image: url(~/application/modules/Core/externals/images/star_big_half.png);}
+.rating_star_big_disabled{background-image: url(~/application/modules/Core/externals/images/star_big_disabled.png);}
+.rating_star_big_hidden{background-image: none;}
+.rating_text{float: left;display: inline-block;height: 20px;color: #aaa;font-size: 9px;line-height:20px;cursor: pointer;margin-left: 5px;cursor: default;}
+
+table.admin_profile_table tr td{padding-top: 10px;padding-left: 20px;}

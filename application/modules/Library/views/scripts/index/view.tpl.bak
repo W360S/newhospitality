@@ -1,6 +1,40 @@
 <style>
-.pt-comment-text .pt-submit-comment { margin-left:0px !important;}
+
 .pt-comment-text .pt-textarea {width:100% !important;}
+.button {-moz-border-bottom-colors: none; -moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;background-color: #50C1E9;
+    background-image: url("/application/modules/Core/externals/images/buttonbg.png?c=34");background-position: 0 1px;
+    background-repeat: repeat-x;border-bottom-color: #50809B; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;
+    border-bottom-style: solid;border-bottom-width: 0px;border-image-outset: 0 0 0 0;border-image-repeat: stretch stretch;border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none; border-image-width: 1 1 1 1; border-left-color-ltr-source: physical;border-left-color-rtl-source: physical;
+    border-left-color-value: #50809B; border-left-style-ltr-source: physical;border-left-style-rtl-source: physical; border-left-style-value: solid;
+    border-left-width-ltr-source: physical; border-left-width-rtl-source: physical;border-left-width-value: 1px;border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;border-right-color-value: #50809B;border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;border-right-style-value: solid;border-right-width-ltr-source: physical;border-right-width-rtl-source: physical;
+    border-right-width-value: 1px; border-top-color: #50809B;border-top-left-radius: 3px;border-top-right-radius: 3px;border-top-style: solid;
+    border-top-width: 0px;color: #FFFFFF;font-size: 13px;font-weight: 700;padding-bottom: 8px;padding-left: 8px;padding-right: 10px;padding-top: 8px;
+}
+.button:hover {background-color: #2F95B9;}
+.pt-content-user-post p{padding-left:10px;}
+
+
+.pt-like-how a { height: 8px !important;}
+
+
+a.pt-like-how {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(~/application/themes/newhospitality/images/front/pt-sprite.png?c=34);
+    background-origin: padding-box;
+    background-position: -207px -489px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    display: inline-block;
+    height: 8px;
+    width: 21px;
+}
+
+
 </style>
 <script type="text/javascript">
   var pre_rate = "<?php echo $this->book->rating;?>";
@@ -10,109 +44,30 @@
   var viewer = "<?php echo $this->viewer_id;?>";
   var tt_rating= <?php echo $this->tt_rating;?>;
   
-  function rating_over(rating) {
-    if (rated == 1){
-      $('rating_text').innerHTML = "<?php echo $this->translate('you already rated');?>";
-      //set_rating();
-    }
-    else if (viewer == 0){
-      $('rating_text').innerHTML = "<?php echo $this->translate('please login to rate');?>";
-    }
-    else{
-      $('rating_text').innerHTML = "<?php echo $this->translate('click to rate');?>";
-      for(var x=1; x<=5; x++) {
-        if(x <= rating) {
-          $('rate_'+x).set('class', 'rating_star_big');
-        } else {
-          $('rate_'+x).set('class', 'rating_star_big_disabled');
-        }
-      }
-    }
-  }
-  
-  function rating_out() {
-    
-    if((total_votes == 0) ||(total_votes == 1)){
-		$('rating_text').innerHTML = total_votes+" rating";
-	}
-	else{
-		$('rating_text').innerHTML = total_votes+" ratings";
-	}
-    
-    if (pre_rate != 0){
-      set_rating();
-    }
-    else {
-      for(var x=1; x<=5; x++) {
-        $('rate_'+x).set('class', 'rating_star_big_disabled');
-      }
-    }
-  }
-
-  function set_rating() {
-    var rating = pre_rate;
-    
-    if((total_votes == 0) ||(total_votes == 1)){
-		$('rating_text').innerHTML = total_votes+" rating";
-	}
-	else{
-		$('rating_text').innerHTML = total_votes+" ratings";
-	}
-    for(var x=1; x<=parseInt(rating); x++) {
-      $('rate_'+x).set('class', 'rating_star_big');
-    }
-
-    for(var x=parseInt(rating)+1; x<=5; x++) {
-      $('rate_'+x).set('class', 'rating_star_big_disabled');
-    }
-
-    var remainder = Math.round(rating)-rating;
-    if (remainder <= 0.5 && remainder !=0){
-      var last = parseInt(rating)+1;
-      $('rate_'+last).set('class', 'rating_star_big_half');
-    }
-  }
-  
-  function rate(rating) {
-    $('rating_text').innerHTML = "<?php echo $this->translate('Thanks for rating!');?>";
-    for(var x=1; x<=5; x++) {
-      $('rate_'+x).set('onclick', '');
-    }
-    (new Request.JSON({
-      'format': 'json',
-      'url' : '<?php echo $this->url(array('module' => 'library', 'controller' => 'index', 'action' => 'rate'), 'default', true) ?>',
-      'data' : {
-        'format' : 'json',
-        'rating' : rating,
-        'book_id': book_id
-      },
-      'onRequest' : function(){
-        rated = 1;
-        total_votes = total_votes+1;
-        pre_rate = (tt_rating+rating)/total_votes;
-        
-        set_rating();
-      },
-      'onSuccess' : function(responseJSON, responseText)
-      {
-        
-        if(responseJSON[0].total==1){
-        	$('rating_text').innerHTML = responseJSON[0].total+" rating";
-        }else{
-            $('rating_text').innerHTML = responseJSON[0].total+" ratings";
-        }
-      }
-    })).send();
-    
-  }
-  var tagAction =function(tag){
-    $('tag').value = tag;
-    $('filter_form').submit();
-  }
-  en4.core.runonce.add(set_rating);
+ 
 </script>
 
 <script type="text/javascript">
+  function ajaxLike(book_id, cnt)
+  {  
+	(new Request.JSON({
+	      'format': 'json',
+	      'url' : '<?php echo $this->url(array('module' => 'library', 'controller' => 'index', 'action' => 'like'), 'default', true) ?>',
+	      'data' : {
+		'format' : 'json',
+		'book_id': book_id
+	      },
+	      'onRequest' : function(){
+		
+	      },
+	      'onSuccess' : function(responseJSON, responseText)
+	      {
+	        var last = cnt+1;
+		$('like_book').innerHTML = responseJSON[0].total;
+	      }
+	    })).send();
+  }
+
   function showResponse(responseText)  {
             if(responseText.message == 'success')
             {      
@@ -225,7 +180,7 @@
 					<div class="pt-reply-how">
 						<ul class="pt-menu-event pt-menu-libraries">
 							<li>
-								<a href="#">Thư viện</a>
+								Thư viện
 							</li>
 							<li>
 								<a href="<?php echo $this->url(array('module'=>'library','controller'=>'index','action'=>'index','cat_id'=>$book->category_ids),'default',true); ?>"><?php echo $book->category; ?></a>
@@ -237,7 +192,7 @@
 						<div class="pt-content-info-book-details">
 							<?php if($book->photo_id): ?>
 							    <?php 
-								echo $this->itemPhoto($book, 'thumb.normal',null);
+								echo $this->itemPhoto($book, 'thumb.normal pt-img-book',null);
 							    ?>
 							<?php else: ?>
 							    <img alt="Image" class="pt-img-book" src="<?php echo $this->baseUrl().'/application/modules/Core/externals/images/book-no-image.png'; ?>" width="80" height="122"/>
@@ -246,41 +201,35 @@
 								<h2><?php echo $book->title; ?></h2>
 								<p><?php echo $this->translate('Category'); ?>:</strong> <a href="<?php echo $this->url(array('module'=>'library','controller'=>'index','action'=>'index','cat_id'=>$book->category_ids),'default',true); ?>"><?php echo $book->category; ?></a></p>
 								<p><?php echo $this->translate('Author'); ?>:</strong> <?php echo $book->author; ?></p>
-								<p>
-								<div id="book_rating" class="rating" onmouseout="rating_out();">
-								<span id="rate_1" <?php if (!$rated && $viewer_id):?>onclick="rate(1);"<?php endif; ?> onmouseover="rating_over(1);"></span>
-								<span id="rate_2" <?php if (!$rated && $viewer_id):?>onclick="rate(2);"<?php endif; ?> onmouseover="rating_over(2);"></span>
-								<span id="rate_3" <?php if (!$rated && $viewer_id):?>onclick="rate(3);"<?php endif; ?> onmouseover="rating_over(3);"></span>
-								<span id="rate_4" <?php if (!$rated && $viewer_id):?>onclick="rate(4);"<?php endif; ?> onmouseover="rating_over(4);"></span>
-								<span id="rate_5" <?php if (!$rated && $viewer_id):?>onclick="rate(5);"<?php endif; ?> onmouseover="rating_over(5);"></span>
-								<span id="rating_text" class="rating_text"><?php echo $this->translate('click to rate');?></span>
-								</div>
-								</p>
-								
 								
 								<p class="pt-text">
 								<?php echo $book->description; ?>
 								</p>
 
 								<div class="pt-info-coupon">
+									
 									<div>
+									
 										
 										<?php  if($book->credit == 0): ?>
-											<span><?php echo $this->translate('free'); ?></span>
+										<span><?php echo $this->translate('free'); ?></span>
 										<?php else: ?>
-										    <span>Coupon: <?php  echo  $book->credit; ?></span>
+										 <span><?php  echo $book->credit. $this->translate(' Coupon'); ?></span>
 										    
 										<?php endif; ?>
 
 										<?php if(!in_array($book->book_id, $my_books)):?>
-										<a class="pt-download smoothbox" href="<?php echo $this->url(array('module'=>'library','controller'=>'book-shelf', 'action'=>'add','book_id'=>$book->book_id),'default',true); ?>"><?php echo $this->translate('Bookshelf'); ?></a>
+										
+										<?php echo $this->htmlLink(array('route' => 'default', 'module' => 'library', 'controller' => 'book-shelf', 'action' => 'download','fid'=>substr(base64_encode($user_id.Zend_Session::getId()),0,7) .substr(base64_encode($book->book_id . rand(1000000,9999999)),0,8) . base64_encode($book->url),'code'=>substr(md5(microtime()), 0, 10) . ".pdf"),$this->translate('Download'), array(
+										    'class' => 'download_book smoothbox buttonlink  pt-download'
+										)) ?>
 										<?php endif;?>
 										<?php echo $this->htmlLink(Array('module'=> 'activity', 'controller' => 'index', 'action' => 'share', 'route' => 'default', 'type' => 'library_book', 'id' => $book->book_id, 'format' => 'smoothbox'), $this->translate("Share"), array('class' => 'smoothbox pt-share')); ?>
 
-
-										<div class="pt-none">
+										<a class="pt-like-how" href="javascript:void(0);"  onclick="javascript:ajaxLike(<?php echo $book->book_id; ?>,<?php echo $book->cnt_like; ?>)"></a>
+										<span style="border:0px;" id="like_book" class="like_book"><?php echo $book->cnt_like; ?></span>
 										
-									</div>
+										<div  class="pt-none"></div>
 									</div>
 									
 								</div>
@@ -319,19 +268,19 @@
 								<?php if( $paginator->getTotalItemCount() ): ?>
 								<?php foreach ($paginator as $item):?>
 								<div class="pt-block">
-									<div class="pt-user-post">
+									<span class="pt-avatar">
 										
 										<?php if(!empty($item->photo)): ?>
 											    <span class="pt-avatar"><img alt="Image" src="<?php echo $this->baseUrl(); ?>/application/modules/User/externals/images/nophoto_user_thumb_icon.png"></span>
 										<?php else: ?>
-										<?php echo $this->itemPhoto($item, 'pt-avatar', "Image"); ?>
+										<?php echo $this->itemPhoto($item, 'thumb.icon', "Image"); ?>
 										<?php endif; ?>
 
-										<div class="pt-how-info-user-post">
+										<div style="padding-left: 57px;" class="pt-how-info-user-post">
 											<h3><?php echo $this->translate("by")?> <a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"> <?php echo $item->username; ?> </a></h3>
 											<p><span></span>Post at: - <?php echo $item->created_date; ?></p>
 										</div>
-									</div>
+									</span>
 									<div class="pt-content-user-post">
 										<p><?php echo $item->content; ?></p>
 									</div>
@@ -347,33 +296,7 @@
 						</div>
 						<div class="pt-reply-right">
 							<div class="pt-block">
-								<h3 class="pt-title-right">được tải về nhiều</h3>
-								<ul class="pt-list-views">
-									<li>
-										<a href="#"><img src="img/thumb/hinh-04.jpg" alt="Image"></a>
-										<h2><a href="#">Top Secret Des...</a></h2>
-										<span>30 Coupon</span>
-										<p><img src="img/thumb/4sao.png" alt="Image"><span>30 Coupon</span></p>
-									</li>
-									<li>
-										<a href="#"><img src="img/thumb/hinh-04.jpg" alt="Image"></a>
-										<h2><a href="#">Top Secret Des...</a></h2>
-										<span>30 Coupon</span>
-										<p><img src="img/thumb/4sao.png" alt="Image"><span>30 Coupon</span></p>
-									</li>
-									<li>
-										<a href="#"><img src="img/thumb/hinh-04.jpg" alt="Image"></a>
-										<h2><a href="#">Top Secret Des...</a></h2>
-										<span>30 Coupon</span>
-										<p><img src="img/thumb/4sao.png" alt="Image"><span>30 Coupon</span></p>
-									</li>
-									<li>
-										<a href="#"><img src="img/thumb/hinh-04.jpg" alt="Image"></a>
-										<h2><a href="#">Top Secret Des...</a></h2>
-										<span>30 Coupon</span>
-										<p><img src="img/thumb/4sao.png" alt="Image"><span>30 Coupon</span></p>
-									</li>
-								</ul>
+								<?php echo $this->content()->renderWidget('library.top-views');  ?>
 							</div>
 						
 						</div>

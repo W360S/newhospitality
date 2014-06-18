@@ -6,11 +6,22 @@ width: 157px !important;
 display: inline-table !important;
 }
 </style>
+
 <?php if(count($this->data)): ?>
 <div class="list_carousel responsive" id="topdownload_library">
 	
 	<ul id="wd-foo">
-		<?php $dem = 0;  foreach($this->data as $item): $dem++;  ?>
+		<?php $dem = 0;  foreach($this->data as $item): $dem++;  
+		$arr_like_displayname = explode("&&",$item->like_name);
+		$str ="";
+		for($i=0; $i<count($arr_like_displayname); $i++){
+		   if($i < count($arr_like_displayname) - 1){
+		   $str = $str.$arr_like_displayname[$i]. ",";
+		   } else {
+		   $str = $str.$arr_like_displayname[$i];
+		   }
+		}
+		?>
 		<li>
 			<?php if($item->photo_id): ?>
 			<a href="<?php echo $this->url(array('module'=>'library', 'controller'=>'index','action'=>'view','book_id'=>$item->book_id),'default',true); ?>"><img src="<?php echo $this->baseUrl('/').$item->storage_path; ?>" alt="" class='img_product' /></a>
@@ -20,39 +31,17 @@ display: inline-table !important;
 			<?php $slug= Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->title);?>
 			<h2><a href="<?php echo $this->url(array('module'=>'library', 'controller'=>'index','action'=>'view','book_id'=>$item->book_id, 'slug'=>$slug),'default',true); ?>"><?php echo $item->title; ?></a></h2>
                     
-			<p>Young Designers</p>
+			<p >
+			<span title="<?php echo $str; ?>" style="float:left;margin-top:3px;padding-right:5px;"  id="<?php echo $item->book_id; ?>_like_book"><?php echo $item->cnt_like; ?></span>
+			<a class="pt-like-how" href="javascript:void(0);"  onclick="javascript:ajaxLike(<?php echo $item->book_id; ?>,<?php echo $item->cnt_like; ?>)"></a>
 			
-			<p>
-			<?php 
-                              	$rating= $item->rating;
-                              	if($rating>0){
-                              		for($x=1; $x<=$rating; $x++){?>
-                              			<span class="rating_star_generic rating_star"></span>
-                              		<?php }
-                              		
-                              		
-                              		$remainder = round($rating)-$rating;  			
-                              		if(($remainder<=0.5 && $remainder!=0)):?><span class="rating_star_generic rating_star_half"></span><?php endif;
-                              		if(($rating<=4)){
-                              			for($i=round($rating)+1; $i<=5; $i++){?>
-                    					<span class="rating_star_generic rating_star_disabled"></span> 	
-                    			<?php }
-                              		}
-                	    			
-                              	}else{
-                              		for($x=1; $x<=5; $x++){?>
-                              		<span class="rating_star_generic rating_star_disabled"></span> 
-                              	<?php }
-                              	}
-                               
-                              	?>
-                            <?php  echo $this->translate(array(' %s rating', ' %s ratings', intval($item->cnt_rating)), intval($item->cnt_rating)) ?>
-			</p>
+			<span style="margin-top:3px;"><?php echo $item->download_count; ?></span> Lượt tải.
+			</p> 
 			
 			<?php if(intval($item->credit) == 0): ?>
 			<span>Free</span>
 			<?php else: ?>
-			<span><?php  echo $this->translate(array('%s credit', '%s credits', intval($item->credit)), intval($item->credit)); ?></span>
+			<span><?php  echo $item->credit; ?> Coupon</span>
 			<?php endif; ?>
 		</li>
 		<?php endforeach; ?>	

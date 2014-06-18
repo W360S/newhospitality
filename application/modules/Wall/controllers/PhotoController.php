@@ -256,17 +256,10 @@ class Wall_PhotoController extends Core_Controller_Action_Standard
           try {
             $tmpFile = $newStorageFile->temporary();
             $image = Engine_Image::factory();
-
-            $image->open($tmpFile);
-
-            $size = min($image->height, $image->width);
-            $x = ($image->width - $size) / 2;
-            $y = ($image->height - $size) / 2;
-
-            $image->resample($x, $y, $size, $size, 200, 200)
-                    ->write($tmpFile)
-                    ->destroy();
-
+            $image->open($tmpFile)
+              ->resize(200, 400)
+              ->write($tmpFile)
+              ->destroy();
                         $params['name'] = basename($tmpFile);
                         $iProfile = $filesTable->createFile($tmpFile, $params);
             $newStorageFile->bridge($iProfile, 'thumb.profile');

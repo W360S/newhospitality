@@ -3,7 +3,7 @@
     background-attachment: scroll;
     background-clip: border-box;
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("/newhospitality-master/application/themes/newhospitality/images/front/pt-sprite.png?c=34");
+    background-image: url(/application/themes/newhospitality/images/front/pt-sprite.png?c=34);
     background-origin: padding-box;
     background-position: -207px -489px;
     background-repeat: no-repeat;
@@ -16,6 +16,52 @@
 .pt-like-how div:hover {
     background-position: -207px -512px;
 }
+span#report_share a.icon-01{
+   background-attachment: scroll !important;
+    background-clip: border-box !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    background-image: url(/application/themes/newhospitality/images/front/icon-08.png?c=34) !important;
+    background-origin: padding-box !important;
+    background-position: 0px 2px !important;
+    background-repeat: no-repeat !important;
+    background-size: auto auto !important;
+    padding-left: 17px;
+}
+span#report_share a.icon-02{
+   background-attachment: scroll !important;
+    background-clip: border-box !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    background-image: url(/application/themes/newhospitality/images/front/icon-09.png?c=34) !important;
+    background-origin: padding-box !important;
+    background-position: 0px 2px !important;
+    background-repeat: no-repeat !important;
+    background-size: auto auto !important;
+    padding-left: 17px;
+}
+span#im_agree a.icon-02{
+   background-attachment: scroll !important;
+    background-clip: border-box !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    background-image: url(/application/themes/newhospitality/images/front/icon-oky.png?c=34) !important;
+    background-origin: padding-box !important;
+    background-position: 0px 2px !important;
+    background-repeat: no-repeat !important;
+    background-size: auto auto !important;
+    padding-left: 17px;
+}
+
+a.icon-03{
+   background-attachment: scroll !important;
+    background-clip: border-box !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    background-image: url(/application/themes/newhospitality/images/front/icon-oky.png?c=34) !important;
+    background-origin: padding-box !important;
+    background-position: 0px 2px !important;
+    background-repeat: no-repeat !important;
+    background-size: auto auto !important;
+    padding-left: 22px;
+}
+.pt-content-questions-content{margin-top:0px !important}
 </style>
 <script type="text/javascript">
   
@@ -45,105 +91,29 @@
 		$(answer_id+'-number-like').innerHTML = responseJSON[0].total;
 	      }
 	    })).send();
-  }  
-  
-  function rating_over(rating) {
-    if (rated == 1){
-      $('rating_text').innerHTML = "<?php echo $this->translate('you already rated');?>";
-      //set_rating();
-    }
-    else if (viewer == 0){
-      $('rating_text').innerHTML = "<?php echo $this->translate('please login to rate');?>";
-    }
-    else{
-      $('rating_text').innerHTML = "<?php echo $this->translate('click to rate');?>";
-      for(var x=1; x<=5; x++) {
-        if(x <= rating) {
-          $('rate_'+x).set('class', 'rating_star_big');
-        } else {
-          $('rate_'+x).set('class', 'rating_star_big_disabled');
-        }
-      }
-    }
-  }
-  function rating_out() {
-    if((total_votes == 0) ||(total_votes == 1)){
-		$('rating_text').innerHTML = total_votes+" rating";
-	}
-	else{
-		$('rating_text').innerHTML = total_votes+" ratings";
-	}
-    if (pre_rate != 0){
-      set_rating();
-    }
-    else {
-      for(var x=1; x<=5; x++) {
-        $('rate_'+x).set('class', 'rating_star_big_disabled');
-      }
-    }
-  }
-
-  function set_rating() {
-    var rating = pre_rate;
-    if((total_votes == 0) ||(total_votes == 1)){
-		$('rating_text').innerHTML = total_votes+" rating";
-	}
-	else{
-		$('rating_text').innerHTML = total_votes+" ratings";
-	}
-    for(var x=1; x<=parseInt(rating); x++) {
-      $('rate_'+x).set('class', 'rating_star_big');
-    }
-
-    for(var x=parseInt(rating)+1; x<=5; x++) {
-      $('rate_'+x).set('class', 'rating_star_big_disabled');
-    }
-
-    var remainder = Math.round(rating)-rating;
-    if (remainder <= 0.5 && remainder !=0){
-      var last = parseInt(rating)+1;
-      $('rate_'+last).set('class', 'rating_star_big_half');
-    }
   }
   
-  function rate(rating) {
-    $('rating_text').innerHTML = "<?php echo $this->translate('Thanks for rating!');?>";
-    for(var x=1; x<=5; x++) {
-      $('rate_'+x).set('onclick', '');
-    }
-    (new Request.JSON({
-      'format': 'json',
-      'url' : '<?php echo $this->url(array('module' => 'experts', 'controller' => 'index', 'action' => 'rate'), 'default', true) ?>',
-      'data' : {
-        'format' : 'json',
-        'rating' : rating,
-        'question_id': question_id
-      },
-      'onRequest' : function(){
-        rated = 1;
-        total_votes = total_votes+1;
-        pre_rate = (tt_rating+rating)/total_votes;
-        
-        set_rating();
-      },
-      'onSuccess' : function(responseJSON, responseText)
-      {
-        if(responseJSON[0].total==1){
-        	$('rating_text').innerHTML = responseJSON[0].total+" rating";
-        }else{
-            $('rating_text').innerHTML = responseJSON[0].total+" ratings";
-        }
-      }
-    })).send();
-    
-  }
+  function ajaxQLike(question_id, cnt)
+  {  
+	(new Request.JSON({
+	      'format': 'json',
+	      'url' : '<?php echo $this->url(array('module' => 'experts', 'controller' => 'index', 'action' => 'qlike'), 'default', true) ?>',
+	      'data' : {
+		'format' : 'json',
+		'question_id': question_id
+	      },
+	      'onRequest' : function(){
+		
+	      },
+	      'onSuccess' : function(responseJSON, responseText)
+	      {
+	        var last = cnt+1;
+		$('question-number-like').innerHTML = responseJSON[0].total;
+	      }
+	    })).send();
+  } 
   
-  var tagAction =function(tag){
-    $('tag').value = tag;
-    $('filter_form').submit();
-  }
   
-  en4.core.runonce.add(set_rating);
 </script>
 <div id="wd-content-container">
 <div class="wd-center">
@@ -181,42 +151,21 @@
 									    <?php endif; ?>
 									</span>
 									<h3><a href="<?php echo $this->baseUrl("/")."profile/".$data->username; ?>"><?php echo $data->username; ?></a></h3>
-									<span class="pt-times">Đăng lúc - <?php echo $this->timestamp($data->created_date); ?></span>
-									<div class="pt-link-group pt-link-group-01">
-										<div  class="pt-editing">Editing</div>
-										<div class="pt-toggle-layout pt-toggle-layout-01">
-											<div class="pt-icon-arrow"><span></span></div>
-											<div class="pt-toggle-layout-content">
-												<ul class="pt-edit">
-													<li>
-														<a href="<?php echo $this->baseUrl() ?>/report/create/subject/question_<?php echo $data->question_id ?>/format/smoothbox" class="icon-01 smoothbox experts-report-link"><?php echo $this->translate('Report') ?></a>
-													</li>
-													<li>
-														<a href="<?php echo $this->baseUrl() ?>/activity/index/share/type/experts_question/id/<?php echo $data->question_id ?>/format/smoothbox" class="icon-02 smoothbox experts-share-link"><?php echo $this->translate('Share') ?></a>
-													</li>
-												</ul>
-											</div>
-										</div>
-									</div>
+									<span class="pt-times">Đăng lúc - <?php echo $this->timestamp($data->created_date); ?></span><br/>
+									<span id="report_share"><a href="<?php echo $this->baseUrl() ?>/report/create/subject/question_<?php echo $data->question_id ?>/format/smoothbox" class="icon-01 smoothbox experts-report-link"><?php echo $this->translate('Report') ?></a>
+									<a href="<?php echo $this->baseUrl() ?>/activity/index/share/type/experts_question/id/<?php echo $data->question_id ?>/format/smoothbox" class="icon-02 smoothbox experts-share-link"><?php echo $this->translate('Share') ?></a>
+									</span>
+									
 								</div>
 								<div class="pt-content-questions-content">
-									<!--
 									<div class="pt-like-how">
-										<div href="#"></div>
-										<span class="pt-number-like">1</span>
+										<a href="javascript:void(0);"  onclick="javascript:ajaxQLike(<?php echo $data->question_id; ?>,<?php echo $data->cnt_like; ?>)"></a>
+										<span id="question-number-like"  class="pt-number-like"><?php echo $data->cnt_like ?></span>
 									</div>
-									-->
 									<div class="pt-content-questions-how">
 										<h2><?php echo $data->title ?></h2>
 										<div class="pt-event0management"><?php echo $data->category; ?></div>
-										<div id="question_rating" class="rating" onmouseout="rating_out();">
-										  <span id="rate_1" <?php if (!$rated && $viewer_id):?>onclick="rate(1);"<?php endif; ?> onmouseover="rating_over(1);"></span>
-										  <span id="rate_2" <?php if (!$rated && $viewer_id):?>onclick="rate(2);"<?php endif; ?> onmouseover="rating_over(2);"></span>
-										  <span id="rate_3" <?php if (!$rated && $viewer_id):?>onclick="rate(3);"<?php endif; ?> onmouseover="rating_over(3);"></span>
-										  <span id="rate_4" <?php if (!$rated && $viewer_id):?>onclick="rate(4);"<?php endif; ?> onmouseover="rating_over(4);"></span>
-										  <span id="rate_5" <?php if (!$rated && $viewer_id):?>onclick="rate(5);"<?php endif; ?> onmouseover="rating_over(5);"></span>
-										  <span id="rating_text" class="rating_text"><?php echo $this->translate('click to rate');?></span>
-										</div>
+										
 										<p><?php echo $data->content; ?></p>
 										
 									</div>
@@ -263,30 +212,16 @@
 												</span>
 												<h3><a href="<?php echo $this->baseUrl("/")."profile/".$item->username; ?>"><?php echo $item->username; ?></a>
 												<span style="font-size: 0.8em;"><?php  echo $this->translate(array('%s Year experience', '%s Years experience', intval($this->expert($item->userid)->experience)), intval($this->expert($item->userid)->experience)) ?></span>
-												<?php if($data->answer_id == $item->answer_id){
-													echo " - Câu trả lời hay nhất";
-												} ?>
+												<?php if($data->answer_id == $item->answer_id): ?>
+
+													<?php echo " - Câu trả lời hay nhất"; ?>
+												<?php endif; ?>
+												<?php  if($data->userid == $viewer_id): ?>
+												<span style="float: right;" id="im_agree"><a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'best-answer', 'question_id'=>$item->question_id,'answer_id'=>$item->answer_id),'default',true); ?>" class="icon-03">Tôi đồng ý</a></span>
+												<?php endif; ?>
 												</h3>
 												<span class="pt-times">Trả lời lúc: - <?php echo $this->timestamp($data->created_date); ?></span>
-												<?php  if($data->userid == $viewer_id): ?>
-												<div class="pt-link-group pt-link-group-01">
-													<div class="pt-editing">Editing</div>
-													<div class="pt-toggle-layout pt-toggle-layout-01">
-														<div class="pt-icon-arrow"><span></span></div>
-														<div class="pt-toggle-layout-content">
-															<ul class="pt-edit">
-																<li>
-																	<a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'best-answer', 'question_id'=>$item->question_id,'answer_id'=>$item->answer_id),'default',true); ?>" class="icon-01">Câu trả lời hay nhất</a>
-																		
-																</li>
-																<li>
-																	
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<?php endif; ?>
+												
 											</div>
 											<div class="pt-content-questions-content">
 												
@@ -317,7 +252,9 @@
 						<div class="pt-block">
 							<?php echo $this->content()->renderWidget('experts.my-accounts'); ?>
 						</div>
-					
+						<div class="pt-block">
+							<?php echo $this->content()->renderWidget('experts.lasted-questions'); ?>
+						</div>
 						<div class="pt-block">
 							<?php echo $this->content()->renderWidget('experts.featured-experts'); ?>
 						</div>
