@@ -97,6 +97,8 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
                         ->prependStylesheet($staticBaseUrl . 'application/css.php?request=application/themes/' . $theme . '/theme.css');
                 $this->headLink()
                         ->prependStylesheet($staticBaseUrl . 'application/modules/Core/externals/styles/jquery.fancybox.css');
+                        $this->headLink()
+                        ->prependStylesheet($staticBaseUrl . 'application/themes/newhospitality/phuongtt.css');
                 
 
                 // $this->headLink()
@@ -109,6 +111,8 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
             
                 $this->headLink()
                         ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/modules/Core/externals/styles/jquery.fancybox.css');
+                        $this->headLink()
+                        ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/themes/newhospitality/phuongtt.css');
                 
                 // $this->headLink()
                         // ->prependStylesheet(rtrim($this->baseUrl(), '/') . '/application/modules/Core/externals/styles/jquery.classyscroll.css');
@@ -217,6 +221,7 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
         </style>
 
         
+
     </head>
     <body id="global_page_<?php echo $identity ?>">
         <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
