@@ -282,6 +282,7 @@ class Recruiter_AdminManageController extends Core_Controller_Action_Admin {
 
             try {
                 $job = Engine_Api::_()->getItem('job', $id);
+                
                 $job->status = 2;
                 //find user resolved
                 $resolved_id = $viewer->getIdentity();
@@ -289,7 +290,19 @@ class Recruiter_AdminManageController extends Core_Controller_Action_Admin {
                 //$resolved_name= $resolved_by->displayname;
                 $job->resolved_by = $resolved_id;
                 //$job->resolved_name= $resolved_name;
-                $job->save();
+                 $job->save();
+                
+                //$owner = Engine_Api::_()->getDbtable('users', 'user')->find($job->user_id);
+                $owner = Engine_Api::_()->getApi('core', 'user')->getUser($job->user_id);
+                
+                // Add action
+                $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+                $action = $activityApi->addActivity($owner, $job, 'job_create');
+                if ($action) {
+                    $activityApi->attachActivity($action, $job);
+                }else{
+                    
+                }
 
                 $db->commit();
             } catch (Exception $e) {

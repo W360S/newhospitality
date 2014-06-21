@@ -162,3 +162,15 @@
 2014-06-04T17:44:50+00:00 DEBUG (7): [System] (notify_friend_accepted) hoa.ngo@hospitality.vn <- support@hospitality.vn
 2014-06-04T18:10:29+00:00 DEBUG (7): [Zend] cotuyet91@gmail.com <- support@hospitality.vn
 2014-06-04T18:10:29+00:00 DEBUG (7): [System] (notify_friend_request) cotuyet91@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [Zend] Hongnudl@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [System] (notify_friend_request) Hongnudl@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [Zend] ngocdiem85@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [System] (notify_friend_request) ngocdiem85@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [Zend] quyenpham202.qtdl@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [System] (notify_friend_request) quyenpham202.qtdl@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [Zend] trangk46b1.ksdl@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [System] (notify_friend_request) trangk46b1.ksdl@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [Zend] aboutpro@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [System] (notify_friend_request) aboutpro@gmail.com <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [Zend] tuankiet20063344@yahoo.com.vn <- support@hospitality.vn
+2014-06-21T11:59:20+00:00 DEBUG (7): [System] (notify_friend_request) tuankiet20063344@yahoo.com.vn <- support@hospitality.vn

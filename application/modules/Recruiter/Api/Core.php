@@ -118,8 +118,8 @@ class Recruiter_Api_Core extends Core_Api_Abstract {
     public function getAdminIndustry($category_id) {
         return Engine_Api::_()->getDbtable('industries', 'recruiter')->find($category_id)->current();
     }
-    
-    public function getMetaFromAlias($alias){
+
+    public function getMetaFromAlias($alias) {
         $fields = Engine_Api::_()->fields()->getFieldsMeta('user');
 
         foreach ($fields as $field) {

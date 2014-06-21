@@ -1090,7 +1090,7 @@ EOF;
                 //$job->resolved_name= $resolved_name;
                 //save
                 $job->save();
-
+                
                 $db->commit();
                 //gửi mail cho người tạo công việc
                 $link = 'http://'

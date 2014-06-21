@@ -56,7 +56,17 @@
     'resumes_education'
   ),
   'routes' => array(
-    
+    // 'view-resume' => array(
+    //   'route' => 'resumes/resume/view/resume_id/:id/*',
+    //   'defaults' => array(
+    //     'module' => 'resumes',
+    //     'controller' => 'resume',
+    //     'action' => 'view',
+    //     ),
+
+    //   'reqs' => array(
+    //     'id' => '\d+',
+    //   )),
     'resume_work' => array(
       'route' => 'resume_work/:id/*',
       'defaults' => array(

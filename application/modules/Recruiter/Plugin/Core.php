@@ -55,4 +55,19 @@ class Recruiter_Plugin_Core
         }
         
     }
+    public function addActivity($event)
+    {
+        // Payload is viewer
+        $payload = $event->getPayload();
+        $subject = $payload['subject'];
+        $object = $payload['object'];
+
+        // Only for object=event
+        if( $object instanceof Recruiter_Model_Job) {
+          $event->addResponse(array(
+            'target' => 'registered',
+          ));
+        }
+    }
+
 }

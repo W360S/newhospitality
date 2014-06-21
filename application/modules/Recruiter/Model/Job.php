@@ -37,4 +37,9 @@ class Recruiter_Model_Job extends Core_Model_Item_Abstract {
         return $recruiter->company_name;
     }
 
+    public function getParent($type = null){
+    
+        return $this;
+    }
+
 }
