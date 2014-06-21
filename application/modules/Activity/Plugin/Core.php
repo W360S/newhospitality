@@ -266,6 +266,13 @@ class Activity_Plugin_Core {
                 'identity' => 0
             ));
         }
+        
+        if($object instanceof Experts_Model_Question){
+            $event->addResponse(array(
+                'type' => 'registered',
+                'identity' => 0
+            ));
+        }
 
         // Registered
         if ($content == 'everyone' &&

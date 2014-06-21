@@ -1,195 +1,37 @@
-2014-06-21T15:52:04+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:16:57+00:00 WARN (4): exception 'Engine_Api_Exception' with message 'Unknown item type: experts_answer' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Api.php:393
 Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
-#1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(342): call_user_func_array(Array, Array)
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View_Abstract->__call('activityLoop', Array)
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View->activityLoop(Array, Array)
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/X...')
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(849): Zend_View->_run('/Applications/X...')
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(255): Zend_View_Abstract->render('application/mod...')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(224): Engine_Content_Widget_Abstract->renderScript()
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Widget.php(72): Engine_Content_Widget_Abstract->render(NULL)
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(582): Engine_Content_Element_Widget->_render()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#13 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#14 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#15 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#16 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#17 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content.php(207): Engine_Content_Element_Abstract->render()
-#18 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(113): Engine_Content->render('user_index_home')
-#19 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(32): Engine_Content_Controller_Action_Helper_Content->render()
-#20 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Engine_Content_Controller_Action_Helper_Content->postDispatch()
-#21 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
-#22 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('homeAction')
-#23 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#24 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#25 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#28 {main}
-2014-06-21T15:52:40+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Api.php(495): Engine_Api->getItemInfo('experts_answer', 'moduleInflected')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Api.php(308): Engine_Api->getItemApi('experts_answer')
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/Action.php(177): Engine_Api->getItem('experts_answer', 189)
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(455): Activity_Model_Action->getObject()
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(53): Activity_Model_DbTable_Actions->addActivityBindings(Object(Activity_Model_Action), 'answer_create', Object(User_Model_User), Object(Experts_Model_Answer))
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Semods/Model/DbTable/Actions.php(19): Activity_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create', NULL, NULL)
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Experts/controllers/MyExpertsController.php(144): Semods_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create')
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Experts_MyExpertsController->detailAction()
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('detailAction')
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#14 {main}
+2014-06-21T18:21:04+00:00 WARN (4): exception 'Core_Model_Item_Exception' with message 'Unable to determine parent type or parent type doesn't exist' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Model/Item/Abstract.php:699
 Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
-#1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(342): call_user_func_array(Array, Array)
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View_Abstract->__call('activityLoop', Array)
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View->activityLoop(Array, Array)
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/X...')
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(849): Zend_View->_run('/Applications/X...')
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(255): Zend_View_Abstract->render('application/mod...')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(224): Engine_Content_Widget_Abstract->renderScript()
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Widget.php(72): Engine_Content_Widget_Abstract->render(NULL)
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(582): Engine_Content_Element_Widget->_render()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#13 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#14 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#15 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#16 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#17 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content.php(207): Engine_Content_Element_Abstract->render()
-#18 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(113): Engine_Content->render('user_index_home')
-#19 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(32): Engine_Content_Controller_Action_Helper_Content->render()
-#20 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Engine_Content_Controller_Action_Helper_Content->postDispatch()
-#21 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
-#22 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('homeAction')
-#23 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#24 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#25 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#28 {main}
-2014-06-21T15:53:15+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
-#1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(342): call_user_func_array(Array, Array)
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View_Abstract->__call('activityLoop', Array)
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View->activityLoop(Array, Array)
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/X...')
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(849): Zend_View->_run('/Applications/X...')
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(255): Zend_View_Abstract->render('application/mod...')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(224): Engine_Content_Widget_Abstract->renderScript()
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Widget.php(72): Engine_Content_Widget_Abstract->render(NULL)
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(582): Engine_Content_Element_Widget->_render()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#13 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#14 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#15 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#16 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#17 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content.php(207): Engine_Content_Element_Abstract->render()
-#18 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(113): Engine_Content->render('user_index_home')
-#19 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(32): Engine_Content_Controller_Action_Helper_Content->render()
-#20 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Engine_Content_Controller_Action_Helper_Content->postDispatch()
-#21 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
-#22 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('homeAction')
-#23 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#24 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#25 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#28 {main}
-2014-06-21T15:53:42+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
-#1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(342): call_user_func_array(Array, Array)
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View_Abstract->__call('activityLoop', Array)
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View->activityLoop(Array, Array)
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/X...')
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(849): Zend_View->_run('/Applications/X...')
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(255): Zend_View_Abstract->render('application/mod...')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(224): Engine_Content_Widget_Abstract->renderScript()
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Widget.php(72): Engine_Content_Widget_Abstract->render(NULL)
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(582): Engine_Content_Element_Widget->_render()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#13 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#14 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#15 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#16 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#17 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content.php(207): Engine_Content_Element_Abstract->render()
-#18 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(113): Engine_Content->render('user_index_home')
-#19 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(32): Engine_Content_Controller_Action_Helper_Content->render()
-#20 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Engine_Content_Controller_Action_Helper_Content->postDispatch()
-#21 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
-#22 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('homeAction')
-#23 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#24 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#25 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#28 {main}
-2014-06-21T15:59:57+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
-#1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(342): call_user_func_array(Array, Array)
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View_Abstract->__call('activityLoop', Array)
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View->activityLoop(Array, Array)
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/X...')
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(849): Zend_View->_run('/Applications/X...')
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(255): Zend_View_Abstract->render('application/mod...')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(224): Engine_Content_Widget_Abstract->renderScript()
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Widget.php(72): Engine_Content_Widget_Abstract->render(NULL)
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(582): Engine_Content_Element_Widget->_render()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#13 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#14 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#15 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#16 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#17 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content.php(207): Engine_Content_Element_Abstract->render()
-#18 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(113): Engine_Content->render('user_index_home')
-#19 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(32): Engine_Content_Controller_Action_Helper_Content->render()
-#20 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Engine_Content_Controller_Action_Helper_Content->postDispatch()
-#21 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
-#22 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('homeAction')
-#23 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#24 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#25 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#28 {main}
-2014-06-21T16:00:02+00:00 CRIT (2): 
-Error Code: deeaad
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Plugin/Core.php(190): Core_Model_Item_Abstract->getParent('user')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Hooks/Dispatcher.php(223): Activity_Plugin_Core->addActivity(Object(Engine_Hooks_Event))
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(457): Engine_Hooks_Dispatcher->callEvent('addActivity', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(53): Activity_Model_DbTable_Actions->addActivityBindings(Object(Activity_Model_Action), 'answer_create', Object(User_Model_User), Object(Experts_Model_Answer))
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Semods/Model/DbTable/Actions.php(19): Activity_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create', NULL, NULL)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Experts/controllers/MyExpertsController.php(144): Semods_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create')
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Experts_MyExpertsController->detailAction()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('detailAction')
 #8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
 #9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
 #10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
 #11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #13 {main}
-2014-06-21T16:00:19+00:00 CRIT (2): 
-Error Code: 4485c8
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:01:07+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:21:12+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -220,43 +62,7 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:01:21+00:00 CRIT (2): 
-Error Code: 1ca3e2
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:02:06+00:00 CRIT (2): 
-Error Code: 760719
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:04:45+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:24:36+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -287,25 +93,7 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:04:50+00:00 CRIT (2): 
-Error Code: 451757
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:05:21+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:28:04+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -336,7 +124,7 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:05:26+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:29:08+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -367,7 +155,23 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:07:05+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:30:47+00:00 WARN (4): exception 'Core_Model_Item_Exception' with message 'Unable to determine parent type or parent type doesn't exist' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Model/Item/Abstract.php:699
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Plugin/Core.php(190): Core_Model_Item_Abstract->getParent('user')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Hooks/Dispatcher.php(223): Activity_Plugin_Core->addActivity(Object(Engine_Hooks_Event))
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(457): Engine_Hooks_Dispatcher->callEvent('addActivity', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(53): Activity_Model_DbTable_Actions->addActivityBindings(Object(Activity_Model_Action), 'answer_create', Object(User_Model_User), Object(Experts_Model_Answer))
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Semods/Model/DbTable/Actions.php(19): Activity_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create', NULL, NULL)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Experts/controllers/MyExpertsController.php(145): Semods_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create')
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Experts_MyExpertsController->detailAction()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('detailAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#13 {main}
+2014-06-21T18:30:54+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -398,7 +202,23 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:07:13+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:32:38+00:00 WARN (4): exception 'Core_Model_Item_Exception' with message 'Unable to determine parent type or parent type doesn't exist' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Model/Item/Abstract.php:699
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Plugin/Core.php(190): Core_Model_Item_Abstract->getParent('user')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Hooks/Dispatcher.php(223): Activity_Plugin_Core->addActivity(Object(Engine_Hooks_Event))
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(457): Engine_Hooks_Dispatcher->callEvent('addActivity', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(53): Activity_Model_DbTable_Actions->addActivityBindings(Object(Activity_Model_Action), 'answer_create', Object(User_Model_User), Object(Experts_Model_Answer))
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Semods/Model/DbTable/Actions.php(19): Activity_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create', NULL, NULL)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Experts/controllers/MyExpertsController.php(145): Semods_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create')
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Experts_MyExpertsController->detailAction()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('detailAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#13 {main}
+2014-06-21T18:32:43+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -429,7 +249,23 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:07:37+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:33:41+00:00 WARN (4): exception 'Core_Model_Item_Exception' with message 'Unable to determine parent type or parent type doesn't exist' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Model/Item/Abstract.php:699
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Plugin/Core.php(190): Core_Model_Item_Abstract->getParent('user')
+#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Hooks/Dispatcher.php(223): Activity_Plugin_Core->addActivity(Object(Engine_Hooks_Event))
+#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(457): Engine_Hooks_Dispatcher->callEvent('addActivity', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/Model/DbTable/Actions.php(53): Activity_Model_DbTable_Actions->addActivityBindings(Object(Activity_Model_Action), 'answer_create', Object(User_Model_User), Object(Experts_Model_Answer))
+#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Semods/Model/DbTable/Actions.php(19): Activity_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create', NULL, NULL)
+#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Experts/controllers/MyExpertsController.php(145): Semods_Model_DbTable_Actions->addActivity(Object(User_Model_User), Object(Experts_Model_Answer), 'answer_create')
+#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Experts_MyExpertsController->detailAction()
+#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('detailAction')
+#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
+#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
+#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
+#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
+#13 {main}
+2014-06-21T18:33:48+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -460,61 +296,7 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:07:44+00:00 CRIT (2): 
-Error Code: 4ab4b6
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:09:57+00:00 CRIT (2): 
-Error Code: d838a9
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:10:05+00:00 CRIT (2): 
-Error Code: f4070f
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:28:38+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:35:36+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
@@ -545,92 +327,7 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
-2014-06-21T16:28:49+00:00 CRIT (2): 
-Error Code: f20f9b
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:29:04+00:00 CRIT (2): 
-Error Code: 52fc3d
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:29:49+00:00 CRIT (2): 
-Error Code: 4f1a0b
-exception 'Zend_Db_Statement_Mysqli_Exception' with message 'Mysqli statement execute error : No data supplied for parameters in prepared statement' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement/Mysqli.php:214
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Statement.php(317): Zend_Db_Statement_Mysqli->_execute(Array)
-#1 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Adapter/Abstract.php(468): Zend_Db_Statement->execute(Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1509): Zend_Db_Adapter_Abstract->query(Object(Zend_Db_Table_Select))
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Db/Table/Abstract.php(1371): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/Api/Core.php(19): Zend_Db_Table_Abstract->fetchRow(Object(Zend_Db_Table_Select))
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Resumes/controllers/ResumeController.php(123): Resumes_Api_Core->getResume(NULL)
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(513): Resumes_ResumeController->viewAction()
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('viewAction')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#13 {main}
-2014-06-21T16:32:22+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
-Stack trace:
-#0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
-#1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)
-#2 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(342): call_user_func_array(Array, Array)
-#3 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View_Abstract->__call('activityLoop', Array)
-#4 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/widgets/feed/index.tpl(246): Zend_View->activityLoop(Array, Array)
-#5 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View.php(108): include('/Applications/X...')
-#6 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/View/Abstract.php(849): Zend_View->_run('/Applications/X...')
-#7 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(255): Zend_View_Abstract->render('application/mod...')
-#8 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Widget/Abstract.php(224): Engine_Content_Widget_Abstract->renderScript()
-#9 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Widget.php(72): Engine_Content_Widget_Abstract->render(NULL)
-#10 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(582): Engine_Content_Element_Widget->_render()
-#11 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#12 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#13 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#14 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#15 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Decorator/Children.php(30): Engine_Content_Element_Abstract->render()
-#16 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Element/Abstract.php(593): Engine_Content_Decorator_Children->render('')
-#17 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content.php(207): Engine_Content_Element_Abstract->render()
-#18 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(113): Engine_Content->render('user_index_home')
-#19 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Content/Controller/Action/Helper/Content.php(32): Engine_Content_Controller_Action_Helper_Content->render()
-#20 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action/HelperBroker.php(277): Engine_Content_Controller_Action_Helper_Content->postDispatch()
-#21 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Action.php(523): Zend_Controller_Action_HelperBroker->notifyPostDispatch()
-#22 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Dispatcher/Standard.php(289): Zend_Controller_Action->dispatch('homeAction')
-#23 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Zend/Controller/Front.php(946): Zend_Controller_Dispatcher_Standard->dispatch(Object(Zend_Controller_Request_Http), Object(Zend_Controller_Response_Http))
-#24 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Bootstrap.php(74): Zend_Controller_Front->dispatch()
-#25 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/libraries/Engine/Application.php(159): Core_Bootstrap->run()
-#26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
-#27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
-#28 {main}
-2014-06-21T16:35:33+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
+2014-06-21T18:38:19+00:00 WARN (4): exception 'Core_Model_Exception' with message 'getSubject was given a type other than the set subject' in /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Core/Api/Core.php:54
 Stack trace:
 #0 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/modules/Activity/View/Helper/ActivityLoop.php(32): Core_Api_Core->getSubject('group')
 #1 [internal function]: Activity_View_Helper_ActivityLoop->activityLoop(Array, Array)

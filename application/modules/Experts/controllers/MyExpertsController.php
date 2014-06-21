@@ -115,6 +115,7 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
                 // Add question
                 $answer_val = array(
                     "content"=>$content,
+                    "title"=> $data_question->title,
                     "created_date"=>date('Y-m-d H:i:s'),
                     "user_id"=>$user_id,
                     "question_id"=>$question_id
@@ -135,6 +136,17 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard
                     $question->status = 2;
                     $question->status_lasted_by = $user_id;
                     $question->save();
+                }
+
+                $owner = Engine_Api::_()->getApi('core', 'user')->getUser($user_id);
+                
+                // Add action
+                $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+                $action = $activityApi->addActivity($owner, $answers, 'answer_create');
+                if ($action) {
+                    $activityApi->attachActivity($action, $answers);
+                }else{
+
                 }
                 
                 // send email:

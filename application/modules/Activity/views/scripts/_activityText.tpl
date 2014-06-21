@@ -179,6 +179,7 @@ $this->headScript()
                 if (is_object($attachment) && $action->attachment_count > 0 && $attachment->item):
                     $icon_type .= ' item_icon_' . $attachment->item->getType() . ' ';
                 endif;
+
                 $canComment = ( $action->getTypeInfo()->commentable &&
                         $this->viewer()->getIdentity() &&
                         Engine_Api::_()->authorization()->isAllowed($action->getObject(), null, 'comment') &&

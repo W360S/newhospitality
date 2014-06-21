@@ -2,6 +2,12 @@
 
 class Experts_Model_Answer extends Core_Model_Item_Abstract
 {
+  public function getHref() {
+        return Zend_Controller_Front::getInstance()->getBaseUrl() . '/experts/index/detail/question_id/' . $this->question_id;
+    }
+  public function getDescription() {
+        return strip_tags($this->content);
+    }
   public function setFiles($file_data)
   {
     if($file_data instanceof Zend_Form_Element_File ) {

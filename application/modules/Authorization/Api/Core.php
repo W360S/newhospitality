@@ -117,13 +117,23 @@ class Authorization_Api_Core extends Core_Api_Abstract {
             throw new Authorization_Model_Exception('action must be a string');
         }
 
+
+
         // Iterate over each adapter and check permission
         $final = self::LEVEL_DISALLOW;
         foreach ($this->getAdapters() as $adapter) {
 
             $result = $adapter->isAllowed($resource, $role, $action);
             
+            if ($resource instanceof Core_Model_Item_Abstract) {
+                // code...
+                // print_r($resource->getType());
+            }else{
+                // print_r($resource);
+            }
             
+            // print_r($role);
+            // print_r($action);
             
             switch ($result) {
                 // Unknown value, ignore, nonboolean
