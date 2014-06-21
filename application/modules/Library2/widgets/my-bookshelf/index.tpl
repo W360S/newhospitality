@@ -1,1 +1,0 @@
-<a href="<?php echo $this->url(array('module'=>'library','controller'=>'book-shelf','action'=>'index'),'default',true); ?>" class="pt-book"><?php echo $this->translate('My Bookshelf'); ?><span><?php echo intval($this->cnt); ?></span></a>
