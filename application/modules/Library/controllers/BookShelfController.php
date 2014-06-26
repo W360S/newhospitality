@@ -108,7 +108,22 @@ class Library_BookShelfController extends Core_Controller_Action_Standard
                 //Zend_Debug::dump($result); exit;
                 $db->commit();
                 
+                
+
+                $book = Engine_Api::_()->getItem('library_book', $book_credit->book_id);
+                $owner = Engine_Api::_()->getApi('core', 'user')->getUser($user_id);
+                
+                // Add action
+                $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+                $action = $activityApi->addActivity($owner, $book, 'book_download');
+                if ($action) {
+                    $activityApi->attachActivity($action, $book);
+                }else{
+
+                }
+
                 $this->download($file);
+
                 
             } else{
                 $response->setBody('Sorry, we could not find requested download file.');   
@@ -139,6 +154,18 @@ class Library_BookShelfController extends Core_Controller_Action_Standard
                                     $bookshelf->save();
                                     $db->commit();
                                     
+
+                                    $book = Engine_Api::_()->getItem('library_book', $book_credit->book_id);
+                                    $owner = Engine_Api::_()->getApi('core', 'user')->getUser($user_id);
+                                    
+                                    // Add action
+                                    $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+                                    $action = $activityApi->addActivity($owner, $book, 'book_download');
+                                    if ($action) {
+                                        $activityApi->attachActivity($action, $book);
+                                    }else{
+
+                                    }
                                     $this->download($file);
                                     
             					} 
@@ -158,7 +185,22 @@ class Library_BookShelfController extends Core_Controller_Action_Standard
                                 $bookshelf->downloaded = 1;
                                 $bookshelf->save();
                                 $db->commit();
+                                //$this->download($file);
+
+                                $book = Engine_Api::_()->getItem('library_book', $book_credit->book_id);
+                                $owner = Engine_Api::_()->getApi('core', 'user')->getUser($user_id);
+                                
+                                // Add action
+                                $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+                                $action = $activityApi->addActivity($owner, $book, 'book_download');
+                                if ($action) {
+                                    $activityApi->attachActivity($action, $book);
+                                }else{
+
+                                }
+
                                 $this->download($file);
+
                                 
         					} 
                             catch( Exception $e )

@@ -1,8 +1,8 @@
 INSERT IGNORE INTO `engine4_core_modules` (`name`, `title`, `description`, `version`, `enabled`, `type`) VALUES  ('recruiter', 'Recruiter', 'Des Recruiter', '4.0.0', 1, 'extra') ;
 
 INSERT IGNORE INTO `engine4_activity_actiontypes` (`type`, `module`, `body`, `enabled`, `displayable`, `attachable`, `commentable`, `shareable`, `is_generated`) VALUES
-('job_create', 'recruiter', 'New job {item:$object} available by {item:$subject} ', 1, 5, 1, 1, 1, 1),
-('resume_create', 'resumes', 'New resume {item:$object} available by {item:$subject} ', 1, 5, 1, 1, 1, 1)
+('job_create', 'recruiter', 'Công việc mới {item:$object} vừa đăng bởi {item:$subject} ', 1, 5, 1, 1, 1, 1),
+('resume_create', 'resumes', 'Hồ sơ mới {item:$object} vừa đăng bởi {item:$subject} ', 1, 5, 1, 1, 1, 1)
 ;
 
 -- --------------------------------------------------------

@@ -274,6 +274,27 @@ class Activity_Plugin_Core {
             ));
         }
 
+        if($object instanceof Experts_Model_Answer){
+            $event->addResponse(array(
+                'type' => 'registered',
+                'identity' => 0
+            ));
+        }
+
+        if($object instanceof Library_Model_Book){
+            $event->addResponse(array(
+                'type' => 'registered',
+                'identity' => 0
+            ));
+        }
+
+        if($object instanceof Library_Model_Comment){
+            $event->addResponse(array(
+                'type' => 'registered',
+                'identity' => 0
+            ));
+        }
+
         // Registered
         if ($content == 'everyone' &&
                 Engine_Api::_()->authorization()->context->isAllowed($object, 'registered', 'view')) {

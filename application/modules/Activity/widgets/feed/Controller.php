@@ -67,7 +67,7 @@ class Activity_Widget_FeedController extends Engine_Content_Widget_Abstract {
             'action_id' => (int) $request->getParam('action_id'),
             'max_id' => (int) $request->getParam('maxid'),
             'min_id' => (int) $request->getParam('minid'),
-            'limit' => (int) $length,
+            'limit' => (int) 50,
                 //'showTypes' => $actionTypeFilters,
         );
 

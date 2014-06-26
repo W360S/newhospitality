@@ -59,10 +59,16 @@ class Authorization_Model_DbTable_Allow extends Engine_Db_Table implements Autho
             return Authorization_Api_Core::LEVEL_DISALLOW;
         }
 
-        // Owner can do what they want with the resource
-        if (($role instanceof Core_Model_Item_Abstract && method_exists($resource, 'isOwner') && $resource->isOwner($role)) || $role === 'owner') {
+        if ($resource instanceof Library_Model_Book) {
+            // code...
             return Authorization_Api_Core::LEVEL_ALLOW;
+        }else{
+            // Owner can do what they want with the resource
+            if (($role instanceof Core_Model_Item_Abstract && method_exists($resource, 'isOwner') && $resource->isOwner($role)) || $role === 'owner') {
+                return Authorization_Api_Core::LEVEL_ALLOW;
+            }
         }
+        
 
         // Now go over set permissions
         // @todo allow for custom types

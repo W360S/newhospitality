@@ -179,6 +179,19 @@ class Library_IndexController extends Core_Controller_Action_Standard
                 "status"=>1
             );
     		$comment->setFromArray($comment_val);
+
+        $book = Engine_Api::_()->getItem('library_book', $book_id);
+        $owner = Engine_Api::_()->getApi('core', 'user')->getUser($user_id);
+        
+        // Add action
+        $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+        $action = $activityApi->addActivity($owner, $book, 'book_comment');
+        if ($action) {
+            $activityApi->attachActivity($action, $book);
+        }else{
+
+        }
+
     		$comment->save();
             $db->commit();
             echo '{"message": "success"}';

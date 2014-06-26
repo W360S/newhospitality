@@ -2,11 +2,11 @@
 
 class Library_Model_Book extends Core_Model_Item_Abstract
 {  
-  protected $_parent_type = 'user';
+  // protected $_parent_type = 'user';
 
-  protected $_owner_type = 'user';
+  // protected $_owner_type = 'user';
 
-  protected $_parent_is_owner = true;
+  protected $_parent_is_owner = false;
   
   /**
    * Gets an absolute URL to the page to view this item

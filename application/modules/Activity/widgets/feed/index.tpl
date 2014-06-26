@@ -17,6 +17,8 @@
     <script type="text/javascript">
         en4.core.runonce.add(function() {
 
+            console.log("en4.core.runonce.add(function()");
+
             var activity_count = <?php echo sprintf('%d', $this->activityCount) ?>;
             var next_id = <?php echo sprintf('%d', $this->nextid) ?>;
             var subject_guid = '<?php echo $this->subjectGuid ?>';
