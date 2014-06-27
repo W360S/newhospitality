@@ -23,6 +23,10 @@ class Activity_Model_DbTable_Actions extends Engine_Db_Table
 
   protected $_actionTypes;
 
+  private function _isDownloadBookAction($type, $subject_type, $object_type){
+    return $type == 'book_download' && $subject_type == 'user' && $object_type = 'library_book';
+  }
+
   public function addActivity(Core_Model_Item_Abstract $subject, Core_Model_Item_Abstract $object,
           $type, $body = null, array $params = null)
   {
@@ -39,9 +43,16 @@ class Activity_Model_DbTable_Actions extends Engine_Db_Table
       return;
     }
 
-    if($type == "status"){
+    $writer = new Zend_Log_Writer_Stream('bang.log');      
+    $logger = new Zend_Log($writer);
+    $logger->info(print_r($type, true));
+    $logger->info(print_r($subject->getType(), true));
+    $logger->info(print_r($object->getType(), true));
 
-    }else{
+    $subject_type = $subject->getType();
+    $object_type = $object->getType();
+
+    if($this->_isDownloadBookAction($type, $subject_type, $object_type)){
       if(count($this->getAction($type, $subject, $object)) >= 1){
         return;
       }

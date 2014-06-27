@@ -5,7 +5,7 @@
     'host' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'dbname' => 'newhospitality_1806',
+    'dbname' => 'newhospitality',
     'charset' => 'UTF8',
     'adapterNamespace' => 'Zend_Db_Adapter',
   ),
