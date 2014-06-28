@@ -1,2 +1,0 @@
-2014-06-02 15:05:05 +00:00 --- Error: Missing image - /application/themes/img/front/bg-about.png / /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/themes/img/front/bg-about.png
-2014-06-02 15:05:24 +00:00 --- Error: Missing image - /application/themes/img/front/img-about-01.png / /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/themes/img/front/img-about-01.png

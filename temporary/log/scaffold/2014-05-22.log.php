@@ -1,3 +1,0 @@
-2014-05-22 14:57:28 +00:00 --- Error: Missing image - /application/themes/img/front/pt-sprite.png / /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/themes/img/front/pt-sprite.png
-2014-05-22 14:57:50 +00:00 --- Error: Missing image - /application/themes/img/front/pt-sprite.png / /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/themes/img/front/pt-sprite.png
-2014-05-22 17:35:56 +00:00 --- Error: Missing image - /application/themes/img/front/pt-sprite.png / /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/themes/img/front/pt-sprite.png
