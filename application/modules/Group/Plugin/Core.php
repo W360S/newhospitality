@@ -100,12 +100,18 @@ class Group_Plugin_Core
   {
     // Payload is viewer
     $payload = $event->getPayload();
-    if( !($payload instanceof User_Model_User) ) {
-      return;
-    }
 
+    if( !($payload instanceof User_Model_User) ) {
+      if ($payload['for'] instanceof User_Model_User) {
+        # code...
+        $payload = $payload['for'];
+      }else{
+        return;
+      }
+    }
     // Get event memberships
     $data = Engine_Api::_()->getDbtable('membership', 'group')->getMembershipsOfIds($payload);
+
     if( !empty($data) && is_array($data) ) {
       $event->addResponse(array(
         'type' => 'group',

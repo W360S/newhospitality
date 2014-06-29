@@ -16,7 +16,7 @@ label.error{width: 100px !important;}
 #wd-content-container {padding-bottom:0px !important;padding-top:0px !important;}
 
 .pt-list-right .pt-user-post .pt-how-info-user-post {
-    width: 177px !important;
+    width: 177px;
 }
 span.pt-avatar img{
 border-bottom-left-radius: 50%;

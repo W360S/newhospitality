@@ -19,6 +19,7 @@
 class Activity_Widget_FeedController extends Engine_Content_Widget_Abstract {
 
     public function indexAction() {
+
         // Don't render this if not authorized
         $viewer = Engine_Api::_()->user()->getViewer();
         $subject = null;
@@ -104,7 +105,6 @@ class Activity_Widget_FeedController extends Engine_Content_Widget_Abstract {
                 $actions = $actionTable->getActivity($viewer, $tmpConfig);
             }
             $selectCount++;
-
             // Are we at the end?
             if (count($actions) < $length || count($actions) <= 0) {
                 $endOfFeed = true;

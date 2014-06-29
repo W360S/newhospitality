@@ -10,16 +10,6 @@
  * @author     SocialEngineAddOns
  */
 ?>
-<div class="layout_left">
-    <?php 
-    $obj = $this->getVars();
-    echo $this->content()->renderWidget('user.profile-picture');
-    echo $this->content()->renderWidget('user.profile-options');
-    echo $this->content()->renderWidget('user.list-online');
-    $this->setVars($obj);
-    ?>
-</div>
-<div class="layout_middle">
 <div class="subsection content_invite">
     <h2><?php echo $this->translate('Friend requests'); ?></h2>
     <div class="suggestion-friends" style="border-bottom:none;">
@@ -41,5 +31,3 @@
      </div>
     </div>	  
 </div>    
-</div>
-

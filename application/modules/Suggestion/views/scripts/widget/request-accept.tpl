@@ -158,10 +158,10 @@ en4.suggestion.accepts = {
                     <p>1 Bạn chung</p>
             </div>
             <div class="pt-how-info-request-right">
-                    <a href="javascript:void(0)" class="pt-yes" onclick="userWidgetRequestSend('confirm', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php echo $this->notification->getSubject()->getTitle(); ?>')">
+                    <a href="javascript:void(0)" class="pt-yes" onclick="userWidgetRequestSend('confirm', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php //echo $this->notification->getSubject()->getTitle(); ?>')">
                         <?php echo $this->translate('Add Friend');?>
                     </a>
-                    <a href="javascript:void(0)" onclick="userWidgetRequestSend('reject', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php echo $this->notification->getSubject()->getTitle(); ?>');">
+                    <a href="javascript:void(0)" onclick="userWidgetRequestSend('reject', <?php echo $this->notification->getSubject()->getIdentity() ?>, <?php echo $this->notification->notification_id ?>, '<?php //echo $this->notification->getSubject()->getTitle(); ?>');">
                         <?php echo $this->translate('Ignore');?>
                     </a>
             </div>

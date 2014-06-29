@@ -21,6 +21,11 @@ class Suggestion_IndexController extends Core_Controller_Action_Standard {
 
         $viewer = Engine_Api::_()->user()->getViewer();
         $this->view->requests = Engine_Api::_()->getDbtable('notifications', 'activity')->getRequestFriendPaginator($viewer);
+    
+        $this->_helper->content
+                ->setContentName(48) // page_id
+                // ->setNoRender()
+                ->setEnabled();
     }
 
     // Function for view all page which are linked by "suggestion home" widget.

@@ -8,7 +8,7 @@
           $this->itemPhoto($action->getSubject(), 'thumb.icon', $action->getSubject()->getTitle())
         ) ?>
         <span class="<?php echo ( empty($action->getTypeInfo()->is_generated) ? 'feed_item_posted' : 'feed_item_generated' ) ?>">
-            <?php echo $action->getShortContent() ?>
+            <?php echo $action->getShortContent(); ?>
         </span>    
     </li>
 <?php endforeach?>
