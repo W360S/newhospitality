@@ -39,12 +39,6 @@ class Activity_Model_DbTable_Actions extends Engine_Db_Table {
             return;
         }
 
-        $writer = new Zend_Log_Writer_Stream('bang.log');
-        $logger = new Zend_Log($writer);
-        $logger->info(print_r($type, true));
-        $logger->info(print_r($subject->getType(), true));
-        $logger->info(print_r($object->getType(), true));
-
         $subject_type = $subject->getType();
         $object_type = $object->getType();
 

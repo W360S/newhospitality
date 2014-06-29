@@ -19,8 +19,8 @@ class Core_Api_Ad extends Core_Api_Abstract {
 
     const IMAGE_WIDTH = 720;
     const IMAGE_HEIGHT = 720;
-    const THUMB_WIDTH = 140;
-    const THUMB_HEIGHT = 160;
+    const THUMB_WIDTH = 300;
+    const THUMB_HEIGHT = 300;
 
     public function getPaginator($params = array()) {
         return Zend_Paginator::factory($this->getSelect($params));
@@ -64,10 +64,16 @@ class Core_Api_Ad extends Core_Api_Abstract {
             // Store photos
             $photo_params = Array('parent_id' => $params['owner_id'], 'parent_type' => $params['owner_type']);
 
+            $writer = new Zend_Log_Writer_Stream('bang.log');
+            $logger = new Zend_Log($writer);
+
             try {
                 $photoFile = Engine_Api::_()->storage()->create($mainName, $photo_params);
                 $thumbFile = Engine_Api::_()->storage()->create($thumbName, $photo_params);
             } catch (Exception $e) {
+
+                $logger->info(print_r($e, true));
+
                 if ($e->getCode() == Storage_Model_DbTable_Files::SPACE_LIMIT_REACHED_CODE) {
                     echo $e->getMessage();
                     exit();
