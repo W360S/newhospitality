@@ -1454,3 +1454,5 @@ ul.notifications_menu > li > span > a
   width:100%;
   max-width:200px;
 } 
+
+.layout_core_ad_campaign h3{display: none;}

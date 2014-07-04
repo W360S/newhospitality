@@ -234,7 +234,7 @@ a.icon-03{
 													<?php if($item->attach_id): ?>
 														<p><a class="attack_file" href="<?php echo $this->baseUrl("/").$item->storage_path; ?>"><?php $size = round($item->size/1024,2); echo $item->attach_name. " (".$size." KB)"; ?></a></p>
 													<?php endif; ?>
-													<p><?php echo $item->content; ?></p>
+													<p><?php echo nl2br($item->content); ?></p>
 												</div>
 											</div>
 										</div>

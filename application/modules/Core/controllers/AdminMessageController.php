@@ -65,8 +65,8 @@ class Core_AdminMessageController extends Core_Controller_Action_Admin
     $mail
       ->setFrom($values['from_address'], $values['from_name'])
       ->setSubject($values['subject'])
-      ->setBodyHtml(nl2br($values['body']))
-      ;
+      ->setBodyHtml($values['body']);
+      // ->setBodyHtml(nl2br($values['body']));
 
     if( !empty($values['body_text']) ) {
       $mail->setBodyText($values['body_text']);

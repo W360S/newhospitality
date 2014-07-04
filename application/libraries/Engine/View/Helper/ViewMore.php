@@ -18,7 +18,7 @@ class Engine_View_Helper_ViewMore extends Zend_View_Helper_HtmlElement
 {
   protected $_moreLength = 255; // Note: truncation at 255 + 4 = 259 (for " ...")
   protected $_lessLength = 511;
-  protected $_maxLength = 1027;
+  protected $_maxLength = 10270;
   protected $_fudgesicles = 10;
   protected $_maxLineBreaks = 4; // Truncate early if more than this nl
   protected $_tag = 'span';

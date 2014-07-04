@@ -315,6 +315,7 @@ ul.feed span.view_more .view_more_link
   background-image: url(~/application/modules/Activity/externals/images/more.png);
   background-repeat: no-repeat;
   padding-left: 10px;
+  float: none;
 }
 ul.feed span.view_more .view_less_link
 {
