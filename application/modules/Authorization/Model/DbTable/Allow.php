@@ -59,7 +59,8 @@ class Authorization_Model_DbTable_Allow extends Engine_Db_Table implements Autho
             return Authorization_Api_Core::LEVEL_DISALLOW;
         }
 
-        if ($resource instanceof Library_Model_Book) {
+        //@bangvn
+        if (($resource instanceof Library_Model_Book) || ($resource instanceof Experts_Model_Answer) ){
             // code...
             return Authorization_Api_Core::LEVEL_ALLOW;
         }else{
@@ -67,6 +68,11 @@ class Authorization_Model_DbTable_Allow extends Engine_Db_Table implements Autho
             if (($role instanceof Core_Model_Item_Abstract && method_exists($resource, 'isOwner') && $resource->isOwner($role)) || $role === 'owner') {
                 return Authorization_Api_Core::LEVEL_ALLOW;
             }
+        }
+
+        if (($role instanceof Core_Model_Item_Abstract) && $role->getType() == "user" && ($resource instanceof Group_Model_Group) && $action=="comment") {
+            # code...
+            return Authorization_Api_Core::LEVEL_ALLOW;
         }
         
 

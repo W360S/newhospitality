@@ -1,0 +1,1 @@
+ALTER TABLE `engine4_core_ads` ADD `title` VARCHAR(255) NOT NULL AFTER `ad_id`, ADD `subtitle` VARCHAR(255) NOT NULL AFTER `title`, ADD `description` TEXT NOT NULL AFTER `subtitle`;

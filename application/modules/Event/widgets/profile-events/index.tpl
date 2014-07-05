@@ -52,7 +52,7 @@ ul.events_profile_tab>li{
     </li>
   <?php endforeach; ?>
 </ul>
-<div style="height:12px;">
+<div style="height:12px;float:left; margin-bottom:15px">
 <?php if(true):?>
   <?php echo $this->htmlLink($this->url(array('user' => Engine_Api::_()->core()->getSubject()->getIdentity()), 'event_general'), $this->translate('View All Events'), array('class' => 'buttonlink item_icon_event')) ?>
 <?php endif;?>

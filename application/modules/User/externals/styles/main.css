@@ -378,7 +378,7 @@ html[dir="rtl"] .profile_fields > ul > li > span
   display: block;
   float: none;
   overflow: hidden;
-  width:400px;
+  width:300px;
 }
 .profile_fields li > .tip > span {
   margin-top:5px;
@@ -449,6 +449,9 @@ LINKS TAB
 ul.profile_links > li
 {
   overflow: hidden;
+  padding: 10px;
+  float: left;
+  background: #fff;
 }
 ul.profile_links > li + li
 {
@@ -817,7 +820,7 @@ ul.profile_friends .profile_friends_status > span
 ul.profile_friends .profile_friends_options
 {
   float: right;
-  width: 200px;
+  /*width: 200px;*/
   overflow: hidden;
   padding-left: 15px;
   text-align: right;
