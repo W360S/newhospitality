@@ -37,10 +37,13 @@
 <?php if(count($this->ads) >=1 ): ?>
 <!--Render ads-->
 <div class="pt-block">
-    <h3 class="pt-title-right">Nhà tài trợ <a href="/bang/index/create" class="smoothbox">Đăng quảng cáo</a></h3>
+    <h3 class="pt-title-right">Tài trợ <a href="/bang/index/create" class="smoothbox">Tạo mới</a></h3>
     <?php $ads = $this->ads; ?>
 <?php foreach($ads as $key => $ad ): ?>
     <div class="advertisement">
+        <div class="ad-photo">
+            <?php echo $ad->html_code; ?>
+        </div>
         <div class="ad-header">
             <div class="ad-title">
                 <a href="javascript:void(0)" ><?php echo $ad->title ?></a>
@@ -48,9 +51,6 @@
             <div class="ad-subtitle">
                 <?php echo $ad->subtitle ?>
             </div>
-        </div>
-        <div class="ad-photo">
-            <?php echo $ad->html_code; ?>
         </div>
         <div class="ad-description">
             <?php echo $ad->description ?>
@@ -60,14 +60,14 @@
 </div>
 
 <style>
-    div.advertisement {padding: 10px;}
-    div.ad-header{padding: 5px}
+    div.advertisement {padding: 10px 10px 0px 10px;}
+    div.ad-header{margin: 10px 0px 5px;}
     div.ad-title a{color: #758286;font-size: 14px;}
     div.ad-subtitle{font-size: 11px; font-style: italic}
     div.ad-photo {overflow: hidden;}
     div.ad-photo a{display: block; width: 100%}
     div.ad-photo a img{display: block; width: 99%; border: 1px solid #e5e5e5}
-    div.ad-description {padding: 10px;font-size: 11px; color: #758286;border-bottom: 1px solid #e5e5e5;}
+    div.ad-description {padding:0px 0px 10px;font-size: 11px; color: #758286;border-bottom: 1px solid #e5e5e5;}
 </style>
 
 <?php else: ?>
