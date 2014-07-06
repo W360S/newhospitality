@@ -905,3 +905,4 @@ Stack trace:
 #26 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/application/index.php(206): Engine_Application->run()
 #27 /Applications/XAMPP/xamppfiles/htdocs/hospitality/newhospitality/index.php(24): include('/Applications/X...')
 #28 {main}
+2014-07-06T06:49:16+00:00 DEBUG (7): Require class Core_Controller_Action_Helper_RequireUser failed check for: resumes.resume.view

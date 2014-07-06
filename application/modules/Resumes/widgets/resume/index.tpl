@@ -25,7 +25,7 @@ $rated = $this->rated;
         <h3 class="pt-title-right">thông tin hồ sơ</h3>
         <div class="pt-content-file-record">
             <div class="pt-title-file-record">
-                <h3>Nhân viên kinh doanh</h3>
+                <h3><?php echo $resume->title; ?></h3>
                 <input type="hidden" value="<?php echo $resume->resume_id ?>" id="resume" />
                 <a href="#" class="pt-finger-prints"><img src="<?php echo $this->baseUrl() ?>/application/modules/Core/externals/img/thumb/PDF.png" alt="Image">In ra PDF</a>
             </div>
