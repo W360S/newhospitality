@@ -172,9 +172,6 @@ $filter = $this->filter;
                     <?php endforeach; ?>
 
                 </ul>
-                <?php if ($pages->count() > 1): ?>
-                    <?php echo $this->paginationControl($pages, null, null, array('query' => $formValues)); ?>
-                <?php endif; ?>
             <?php else: ?>
                 <div class="tip">
                     <span>
