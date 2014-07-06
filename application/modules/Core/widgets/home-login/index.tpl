@@ -48,7 +48,7 @@
                             <p>Khi nhấp chuột vào Đăng Ký, bạn đồng ý với Các điều khoản của chúng tôi </p>
                             <button type="submit" title="" class="button">Đăng ký</button>
 
-                            <span style="display: block;margin:15px 10px; float: left;">Hoặc có thể</span>
+                            <span style="display: block;margin: 5px 0px; float: left;width: 100%;">Hoặc có thể</span>
                             <!--<span>Hoặc có thể</span>-->
                             <a href="/user/auth/facebook" class="facebook">Facebook</a>
                         </div>
