@@ -49,10 +49,51 @@
             $("#1_1_4-wrapper").hide();
             $("#1_1_3-wrapper").hide();
             
+            jQuery('.form-errors>li').each(function(el){
+                var inner_li = jQuery(this);
+                //console.log(inner_li);
+                var inner_li_text = (inner_li[0].childNodes[0].nodeValue);
+                var inner_li_value = inner_li[0].childNodes[1].innerText;
+                switch (inner_li_text){
+                    case "Địa chỉ email":
+                        {   
+                            jQuery('#email-element').append("<p class='form-error'>" + inner_li_value + "</p>");
+                        }
+                        break;
+                    case "Mật khẩu":
+                        {   
+                            jQuery('#password-element').append("<p class='form-error'>" + inner_li_value + "</p>");
+                        }
+                        break;
+                    case "Nhập lại mật khẩu":
+                        {   
+                            jQuery('#passconf-element').append("<p class='form-error'>" + inner_li_value + "</p>");
+                        }
+                        break;
+                    case "Địa chỉ profile":
+                        {   
+                            jQuery('#username-element').append("<p class='form-error'>" + inner_li_value + "</p>");
+                        }
+                        break;
+                    case "Điều khoản sử dụng":
+                        {   
+                            jQuery('#terms-element').append("<p class='form-error'>" + inner_li_value + "</p>");
+                        }
+                        break;
+                    default:
+                        {
+                            
+                        }
+                } 
+            }); 
+            
+            jQuery('.form-errors').hide();
         });
-        
     //]]>
     </script>
+    <style>
+        p.form-error{color: red}
+    </style>
 
     <?php echo $this->form->render($this) ?>
 </div>
