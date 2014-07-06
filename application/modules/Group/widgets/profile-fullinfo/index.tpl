@@ -14,7 +14,7 @@
     <div class="pt-how-info-event">
         <div class="pt-conent-info-event">
             <div class="pt-conent-info-event-img">
-                <?php echo $this->itemPhoto($this->subject(), 'thumb.profile') ?>
+                <?php echo $this->itemPhoto($this->subject(), null) ?>
             </div>
             <div class="pt-link-event pt-link-group">
                 <div class="pt-how-info-user-post">
