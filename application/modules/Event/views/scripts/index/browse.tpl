@@ -128,6 +128,7 @@ $filter = $this->filter;
                                         ))
                                         ?>
                                     <?php endif; ?>
+                                    
                                     <?php if (($filter != "past") && $this->viewer()->getIdentity() && !$event->membership()->isMember($this->viewer(), null)): ?>
                                         <?php //echo $this->htmlLink(array('route' => 'event_extended', 'controller'=>'member', 'action' => 'join', 'event_id' => $event->getIdentity()), $this->translate('Join Event'), array('class' => 'buttonlink smoothbox icon_event_join')) ?>
                                     <?php elseif ($this->viewer() && $event->isOwner($this->viewer())): ?>
@@ -199,3 +200,9 @@ $filter = $this->filter;
                             });
                         });
 </script>
+<style>
+    div.events_members {
+    width: 100%;
+    float: left;
+    }
+</style>

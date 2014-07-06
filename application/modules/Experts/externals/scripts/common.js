@@ -97,11 +97,6 @@ jQuery(document).ready(function(jQuery) {
 	jQuery( ".pt-event-tabs" ).tabs();
 	jQuery( ".pt-event-detail-tabs" ).tabs();
 	
-	
-	jQuery('.pt-list-event').masonry({
-			itemSelector : 'li',
-			columnWidth: 1
-		});
     jQuery( ".datepicker" ).datepicker();
 	
 	
