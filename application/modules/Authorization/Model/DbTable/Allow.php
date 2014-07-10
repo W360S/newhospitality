@@ -70,6 +70,15 @@ class Authorization_Model_DbTable_Allow extends Engine_Db_Table implements Autho
             }
         }
 
+        if (($resource instanceof Recruiter_Model_Job) || ($resource instanceof Experts_Model_Question)  || ($resource instanceof Resumes_Model_Resume)){
+            // code...
+            if (($role instanceof Core_Model_Item_Abstract) && $role->getType() == "user" && $action=="comment") {
+                # code...
+                return Authorization_Api_Core::LEVEL_ALLOW;
+
+            }
+        }
+
         if (($role instanceof Core_Model_Item_Abstract) && $role->getType() == "user" && ($resource instanceof Group_Model_Group) && $action=="comment") {
             # code...
             return Authorization_Api_Core::LEVEL_ALLOW;
