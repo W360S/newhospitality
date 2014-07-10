@@ -1,3 +1,4 @@
+<?php $paginator = $this->paginator ?>
 <div class="pt-list-job">
     <ul class="pt-list-job-ul">
         <?php foreach ($this->paginator as $item): ?>
