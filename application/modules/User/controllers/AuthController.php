@@ -612,6 +612,33 @@ class User_AuthController extends Core_Controller_Action_Standard {
         }
     }
 
+    private function _getFBInfo(){
+        $facebookTable = Engine_Api::_()->getDbtable('facebook', 'user');
+        $facebook = $facebookTable->getApi();
+        $settings = Engine_Api::_()->getDbtable('settings', 'core');
+        if ($facebook && $settings->core_facebook_enable) {
+            // Get email address
+            $apiInfo = $facebook->api('/me'); 
+
+        }
+
+        return isset($apiInfo) ? $apiInfo : false;
+
+    }
+
+    private function _isExistedUserEmail($email){
+        $userTable = Engine_Api::_()->getItemTable('user');
+        $userIdentity = $userTable->select()
+                ->from($userTable, 'user_id')
+                ->where('`email` = ?', $email)
+                ->limit(1)
+                ->query()
+                ->fetchColumn(0)
+        ;
+
+        return $userIdentity;
+    }
+
     public function facebookAction() {
         // Clear
         if (null !== $this->_getParam('clear')) {
@@ -635,11 +662,13 @@ class User_AuthController extends Core_Controller_Action_Standard {
 
         // Already connected
         if ($facebook->getUser()) {
-            $code = $facebook->getPersistentData('code');
+            $code = $facebook->getPersistentData('code'); 
+
 
             // Attempt to login
             if (!$viewer->getIdentity()) {
                 $facebook_uid = $facebook->getUser();
+                //print_r($facebook_uid);die;
                 if ($facebook_uid) {
                     $user_id = $facebookTable->select()
                             ->from($facebookTable, 'user_id')
@@ -647,6 +676,13 @@ class User_AuthController extends Core_Controller_Action_Standard {
                             ->query()
                             ->fetchColumn();
                 }
+
+                $facebook_data = $this->_getFBInfo();
+
+                if (isset($facebook_data) && isset($facebook_data['email'])) {
+                    $userIdentity = $this->_isExistedUserEmail($facebook_data['email']);
+                }
+
                 if ($user_id &&
                         $viewer = Engine_Api::_()->getItem('user', $user_id)) {
                     Zend_Auth::getInstance()->getStorage()->write($user_id);
@@ -667,7 +703,30 @@ class User_AuthController extends Core_Controller_Action_Standard {
                     }
 
                     $viewer->save();
-                } else if ($facebook_uid) {
+                } else if($userIdentity){
+                    // update table user_facebook
+                    $viewer = Engine_Api::_()->getItem('user', $userIdentity);
+
+                    Zend_Auth::getInstance()->getStorage()->write($userIdentity);
+
+                    // Register login
+                    $viewer->lastlogin_date = date("Y-m-d H:i:s");
+
+                    if ('cli' !== PHP_SAPI) {
+                        $viewer->lastlogin_ip = $ipExpr;
+
+                        Engine_Api::_()->getDbtable('logins', 'user')->insert(array(
+                            'user_id' => $userIdentity,
+                            'ip' => $ipExpr,
+                            'timestamp' => new Zend_Db_Expr('NOW()'),
+                            'state' => 'success',
+                            'source' => 'facebook',
+                        ));
+                    }
+
+                    $viewer->save();
+
+                }else if ($facebook_uid) {
                     // They do not have an account
                     $_SESSION['facebook_signup'] = true;
                     return $this->_helper->redirector->gotoRoute(array(
