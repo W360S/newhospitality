@@ -704,7 +704,7 @@ class User_AuthController extends Core_Controller_Action_Standard {
 
                     $viewer->save();
                 } else if($userIdentity){
-                    // update table user_facebook
+                    // Log user in.
                     $viewer = Engine_Api::_()->getItem('user', $userIdentity);
 
                     Zend_Auth::getInstance()->getStorage()->write($userIdentity);
@@ -725,6 +725,15 @@ class User_AuthController extends Core_Controller_Action_Standard {
                     }
 
                     $viewer->save();
+
+                    // update table user_facebook
+                    $facebookTable->insert(array(
+                        'user_id' => $viewer->getIdentity(),
+                        'facebook_uid' => $facebook->getUser(),
+                        'access_token' => $facebook->getAccessToken(),
+                        'code' => $code,
+                        'expires' => 0, // @todo make sure this is correct
+                    ));
 
                 }else if ($facebook_uid) {
                     // They do not have an account
