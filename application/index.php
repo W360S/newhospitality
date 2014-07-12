@@ -240,3 +240,11 @@ if( !empty($_SERVER['_ENGINE_TRACE_ALLOW']) && extension_loaded('xdebug') ) {
        "<a target='_blank' href='" . $link . "'>" . $link . "</a><br />\n".
        "</div>";
 }
+
+function engineLog($name, $content){
+  // Statr Log
+  $writer = new Zend_Log_Writer_Stream('temporary/'. $name . '.log');
+  $logger = new Zend_Log($writer);
+
+  $logger->info(print_r($content,true));
+}

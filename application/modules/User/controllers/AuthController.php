@@ -639,6 +639,264 @@ class User_AuthController extends Core_Controller_Action_Standard {
         return $userIdentity;
     }
 
+    // Array of user form
+    // (
+    //     [email] => bangvndng@yahoo.com
+    //     [username] => bangvndng2015
+    //     [profile_type] => 1
+    //     [timezone] => Asia/Krasnoyarsk
+    //     [language] => vi
+    //     [terms] => 1
+    //     [locale] => vi
+    // )
+
+
+    // Array of fields form
+    // Array
+    // (
+    //     [1] => 1
+    //     [3] => Bằng
+    //     [4] => Vũ
+    //     [5] => 2 //female 1, male 2
+    //     [6] => Array
+    //         (
+    //             [day] => 20
+    //             [month] => 5
+    //             [year] => 1987
+    //         )
+
+    //     [21] => 19 // danang 19, hanoi 20
+    //     [47] => 456456456 // phone
+    //     [8] => 
+    //     [10] => 
+    //     [9] => 
+    //     [46] => 23423 // nghe nghiep
+    //     [41] => 
+    //     [42] => 
+    //     [39] => 
+    //     [43] => 
+    // )
+
+    private function _sendNewmail($user){
+
+        $mailType = null;
+        $mailParams = array(
+            'host' => $_SERVER['HTTP_HOST'],
+            'email' => $user->email,
+            'date' => time(),
+            'recipient_title' => $user->getTitle(),
+            'recipient_link' => $user->getHref(),
+            'recipient_photo' => $user->getPhotoUrl('thumb.icon'),
+            'object_link' => Zend_Controller_Front::getInstance()->getRouter()->assemble(array(), 'user_login', true),
+        );
+
+        // Add password to email if necessary
+        if ($random) {
+            $mailParams['password'] = $data['password'];
+        }
+
+        // Mail stuff
+        switch ($settings->getSetting('user.signup.verifyemail', 0)) {
+            case 0:
+                // only override admin setting if random passwords are being created
+                if ($random) {
+                    $mailType = 'core_welcome_password';
+                }
+                if ($emailadmin) {
+                    $mailAdminType = 'notify_admin_user_signup';
+
+                    $mailAdminParams = array(
+                        'host' => $_SERVER['HTTP_HOST'],
+                        'email' => $user->email,
+                        'date' => date("F j, Y, g:i a"),
+                        'recipient_title' => $super_admin->displayname,
+                        'object_title' => $user->displayname,
+                        'object_link' => $user->getHref(),
+                    );
+                }
+                break;
+
+            case 1:
+                // send welcome email
+                $mailType = ($random ? 'core_welcome_password' : 'core_welcome');
+                if ($emailadmin) {
+                    $mailAdminType = 'notify_admin_user_signup';
+
+                    $mailAdminParams = array(
+                        'host' => $_SERVER['HTTP_HOST'],
+                        'email' => $user->email,
+                        'date' => date("F j, Y, g:i a"),
+                        'recipient_title' => $super_admin->displayname,
+                        'object_title' => $user->getTitle(),
+                        'object_link' => $user->getHref(),
+                    );
+                }
+                break;
+
+            case 2:
+                // verify email before enabling account
+                $verify_table = Engine_Api::_()->getDbtable('verify', 'user');
+                $verify_row = $verify_table->createRow();
+                $verify_row->user_id = $user->getIdentity();
+                $verify_row->code = md5($user->email
+                        . $user->creation_date
+                        . $settings->getSetting('core.secret', 'staticSalt')
+                        . (string) rand(1000000, 9999999));
+                $verify_row->date = $user->creation_date;
+                $verify_row->save();
+
+                $mailType = ($random ? 'core_verification_password' : 'core_verification');
+
+                $mailParams['object_link'] = Zend_Controller_Front::getInstance()->getRouter()->assemble(array(
+                    'action' => 'verify',
+                    'email' => $user->email,
+                    'verify' => $verify_row->code
+                        ), 'user_signup', true);
+
+                if ($emailadmin) {
+                    $mailAdminType = 'notify_admin_user_signup';
+
+                    $mailAdminParams = array(
+                        'host' => $_SERVER['HTTP_HOST'],
+                        'email' => $user->email,
+                        'date' => date("F j, Y, g:i a"),
+                        'recipient_title' => $super_admin->displayname,
+                        'object_title' => $user->getTitle(),
+                        'object_link' => $user->getHref(),
+                    );
+                }
+                break;
+
+            default:
+                // do nothing
+                break;
+        }
+    }
+
+    private function _createAccount($facebook, $code){
+
+        $facebook_data = $this->_getFBInfo();
+
+        // user form
+
+        $user = Engine_Api::_()->getDbtable('users', 'user')->createRow();
+
+        $username = explode("@", $facebook_data['email'])[0] . rand(1, 9999); 
+
+        $data = array(
+            "email" => $facebook_data['email'],
+            "username" => $username,
+            "profile_type" => 1,
+            "timezone" => "Asia/Krasnoyarsk",
+            "language" => "vi",
+            "terms" => 1,
+            "locale" => "vi",
+
+        );
+
+        $user->setFromArray($data);
+        $user->save();
+
+        Engine_Api::_()->user()->setViewer($user);
+
+        // Increment signup counter
+        Engine_Api::_()->getDbtable('statistics', 'core')->increment('user.creations');
+
+        if ($user->verified && $user->enabled) {
+            // Create activity for them
+            Engine_Api::_()->getDbtable('actions', 'activity')->addActivity($user, $user, 'signup');
+            // Set user as logged in if not have to verify email
+            Engine_Api::_()->user()->getAuth()->getStorage()->write($user->getIdentity());
+        }
+
+        //$this->_sendNewmail();
+
+        try {
+            $facebookTable = Engine_Api::_()->getDbtable('facebook', 'user');
+            $facebook = $facebookTable->getApi();
+            $settings = Engine_Api::_()->getDbtable('settings', 'core');
+            if ($facebook && $settings->core_facebook_enable) {
+                $facebookTable->insert(array(
+                    'user_id' => $user->getIdentity(),
+                    'facebook_uid' => $facebook->getUser(),
+                    'access_token' => $facebook->getAccessToken(),
+                    //'code' => $code,
+                    'expires' => 0, // @todo make sure this is correct
+                ));
+            }
+        } catch (Exception $e) {
+            // Silence
+            if ('development' == APPLICATION_ENV) {
+                echo $e;
+            }
+        }
+
+
+
+        // field form
+
+        $fieldsSession = new User_Plugin_Signup_Fields();
+        $form = $fieldsSession->getForm()->setItem($user);
+
+        $fielddata = array(
+            "1" => 1,
+            "3" => $facebook_data['first_name'],
+            "4" => $facebook_data['last_name'],
+            "5" => ($facebook_data['gender'] == "female") ? 1 : 2,
+            "6" => array(),
+            "21" => 20,
+            "47" => "cập nhật số điện thoại",
+            "46" => "cập nhật nghề nghiệp hiện tại"
+        );
+
+        $form->setProcessedValues($fielddata);
+        $form->saveValues();
+
+        $aliasValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($user);
+        $user->setDisplayName($aliasValues);
+        $user->save();
+
+        // @todo: photo form
+
+        // Get viewer
+        $viewer = Engine_Api::_()->user()->getViewer();
+
+        // Run post signup hook
+        $event = Engine_Hooks_Dispatcher::getInstance()->callEvent('onUserSignupAfter', $viewer);
+        $responses = $event->getResponses();
+        if ($responses) {
+            foreach ($event->getResponses() as $response) {
+                if (is_array($response)) {
+                    // Clear login status
+                    if (!empty($response['error'])) {
+                        Engine_Api::_()->user()->setViewer(null);
+                        Engine_Api::_()->user()->getAuth()->getStorage()->clear();
+                    }
+                    // Redirect
+                    if (!empty($response['redirect'])) {
+                        return $this->_helper->redirector->gotoUrl($response['redirect'], array('prependBase' => false));
+                    }
+                }
+            }
+        }
+
+        Engine_Api::_()->user()->getAuth()->getStorage()->write($viewer->getIdentity());
+            Engine_Hooks_Dispatcher::getInstance()
+                    ->callEvent('onUserEnable', $viewer);
+
+        if ($viewer->getIdentity()) {
+            $viewer->lastlogin_date = date("Y-m-d H:i:s");
+            if ('cli' !== PHP_SAPI) {
+                $ipObj = new Engine_IP();
+                $viewer->lastlogin_ip = $ipObj->toBinary();
+            }
+            $viewer->save();
+        }
+
+        return $this->_helper->_redirector->gotoRoute(array('action' => 'home'), 'user_general', true);
+
+    }
+
     public function facebookAction() {
         // Clear
         if (null !== $this->_getParam('clear')) {
@@ -737,6 +995,12 @@ class User_AuthController extends Core_Controller_Action_Standard {
 
                 }else if ($facebook_uid) {
                     // They do not have an account
+
+                    // User facebook information to create an account here
+                    $this->_createAccount($facebook, $code);
+
+                    // Then log the user in a
+
                     $_SESSION['facebook_signup'] = true;
                     return $this->_helper->redirector->gotoRoute(array(
                                     //'action' => 'facebook',
