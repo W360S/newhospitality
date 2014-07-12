@@ -781,7 +781,8 @@ class User_AuthController extends Core_Controller_Action_Standard {
 
         $user = Engine_Api::_()->getDbtable('users', 'user')->createRow();
 
-        $username = explode("@", $facebook_data['email'])[0] . rand(1, 9999); 
+        $username = explode("@", $facebook_data['email']);
+        $username = $username[0] . rand(1, 9999); 
 
         $data = array(
             "email" => $facebook_data['email'],
