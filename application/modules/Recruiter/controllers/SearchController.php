@@ -133,20 +133,21 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
             }
             $this->view->values = $values;
         }
-        //Zend_Debug::dump($industry_id);exit;
+        // 
         $table = Engine_Api::_()->getDbtable('reIndustries', 'recruiter');
         $selectIndustry = $table
                 ->select()
                 ->where('job_id > ?', 0)
-                ->where('status =?', 2)
+                // ->where('status =?', 2)
                 ->group('job_id')
         ;
         //$rows = $table->fetchAll(
 
         if ($industry_id != 0) {
             $selectIndustry->where('industry_id = ?', $industry_id);
+            $rows = $table->fetchAll($selectIndustry);
         }
-        $rows = $table->fetchAll($selectIndustry);
+        
 
         $tableCategory = Engine_Api::_()->getDbtable('reCategories', 'recruiter');
         $selectCat = $tableCategory->select()
@@ -155,17 +156,25 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
         ;
         if (!empty($category_id)) {
             $selectCat->where('category_id =?', $category_id);
+            $rowCats = $tableCategory->fetchAll($selectCat);
         }
-        $rowCats = $tableCategory->fetchAll($selectCat);
+        
 
         $job_ids = array();
 
-        foreach ($rows as $row) {
-            $job_ids[$row['job_id']] = $row['job_id'];
+        if ($rows) {
+            foreach ($rows as $row) {
+                $job_ids[$row['job_id']] = $row['job_id'];
+            }
         }
-        foreach ($rowCats as $rowCat) {
-            $job_ids[$rowCat['job_id']] = $rowCat['job_id'];
+
+        if ($rowCats) {
+            foreach ($rowCats as $rowCat) {
+                $job_ids[$rowCat['job_id']] = $rowCat['job_id'];
+            }
         }
+        
+        
 
         $this->view->page = $page = $this->_getParam('page', 1);
         //$this->view->assign($values);
