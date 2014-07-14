@@ -30,7 +30,10 @@ $user = Engine_Api::_()->getApi('core','user')->getUser($profile->user_id);
             ?>
         </span>
         <p><?php echo $profile->description; ?></p>
-        <p>Qui mô công ty: <?php echo $profile->company_size; ?>
+        <p class="no-space">Qui mô công ty: <?php echo $profile->company_size; ?><br>
+            <p class="no-space">Website: <?php echo $profile->website; ?><br>
+            <p class="no-space">Số Điện Thoại: <?php echo $profile->phone; ?><br>
+            <p class="no-space">Địa chỉ: <?php echo $profile->address; ?><br>
         </p>
     </div>
 <?php } ?>

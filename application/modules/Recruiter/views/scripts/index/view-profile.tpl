@@ -39,7 +39,10 @@ $paginator = $this->paginator_jobs;
         <?php 
             $user = Engine_Api::_()->getItem('user', $profile->user_id);
         ?>
-        <p>Qui mô công ty: <?php echo $profile->company_size; ?><br>
+            <p class="no-space">Qui mô công ty: <?php echo $profile->company_size; ?><br>
+            <p class="no-space">Website: <?php echo $profile->website; ?><br>
+            <p class="no-space">Số Điện Thoại: <?php echo $profile->phone; ?><br>
+            <p class="no-space">Địa chỉ: <?php echo $profile->address; ?><br>
             Tên người liên hệ: <a href="<?php echo $user->getHref() ?>"><?php echo $user->getTitle() ?></a></p>
         <?php if ($user_id == $profile->user_id) : ?>
             <a class="pt-icon pt-icon-checkall" href="<?php echo $this->baseUrl() . '/recruiter/index/edit-profile/profile_id/' . $profile->recruiter_id; ?>"></a>
