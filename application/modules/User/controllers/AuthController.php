@@ -17,6 +17,8 @@
  * @copyright  Copyright 2006-2010 webligo Developments
  * @license    http://www.socialengine.com/license/ */
 class User_AuthController extends Core_Controller_Action_Standard {
+    
+    private $tmp_file_id;
 
     public function loginAction() {
         // Already logged in
@@ -773,6 +775,156 @@ class User_AuthController extends Core_Controller_Action_Standard {
         }
     }
 
+    protected function _resizeImages($file) {
+        $name = basename($file);
+        $path = dirname($file);
+
+        // Resize image (main)
+        $iMainPath = $path . '/m_' . $name;
+        $image = Engine_Image::factory();
+        $image->open($file)
+                ->resize(720, 720)
+                ->write($iMainPath)
+                ->destroy();
+
+        // Resize image (profile)
+        $iProfilePath = $path . '/p_' . $name;
+        $image = Engine_Image::factory();
+        $image->open($file);
+        
+        $size = min($image->height, $image->width);
+        $x = ($image->width - $size) / 2;
+        $y = ($image->height - $size) / 2;
+
+        $image->resample($x, $y, $size, $size, 200, 200)
+                ->write($iProfilePath)
+                ->destroy();
+
+        // Resize image (icon.normal)
+        $iNormalPath = $path . '/n_' . $name;
+        $image = Engine_Image::factory();
+        $image->open($file)
+                ->resize(48, 120)
+                ->write($iNormalPath)
+                ->destroy();
+
+        // Resize image (icon.square)
+        $iSquarePath = $path . '/s_' . $name;
+        $image = Engine_Image::factory();
+        $image->open($file);
+        $size = min($image->height, $image->width);
+        $x = ($image->width - $size) / 2;
+        $y = ($image->height - $size) / 2;
+        $image->resample($x, $y, $size, $size, 48, 48)
+                ->write($iSquarePath)
+                ->destroy();
+
+        // Cloud compatibility, put into storage system as temporary files
+        $storage = Engine_Api::_()->getItemTable('storage_file');
+        
+        // Save/load from session
+        if (empty($this->tmp_file_id)) {
+            // Save
+            $iMain = $storage->createTemporaryFile($iMainPath);
+            $iProfile = $storage->createTemporaryFile($iProfilePath);
+            $iNormal = $storage->createTemporaryFile($iNormalPath);
+            $iSquare = $storage->createTemporaryFile($iSquarePath);
+
+            $iMain->bridge($iProfile, 'thumb.profile');
+            $iMain->bridge($iNormal, 'thumb.normal');
+            $iMain->bridge($iSquare, 'thumb.icon');
+
+            $this->tmp_file_id = $iMain->file_id;
+        } else {
+            // Overwrite
+            
+            /*
+            $iMain = $storage->getFile($this->getSession()->tmp_file_id);
+            $iMain->store($iMainPath);
+
+            $iProfile = $storage->getFile($this->getSession()->tmp_file_id, 'thumb.profile');
+            $iProfile->store($iProfilePath);
+
+            $iNormal = $storage->getFile($this->getSession()->tmp_file_id, 'thumb.normal');
+            $iNormal->store($iNormalPath);
+
+            $iSquare = $storage->getFile($this->getSession()->tmp_file_id, 'thumb.icon');
+            $iSquare->store($iSquarePath);
+            */
+            
+        }
+
+        // Save path to session?
+        //$_SESSION['TemporaryProfileImg'] = $iMain->map();
+        //$_SESSION['TemporaryProfileImgProfile'] = $iProfile->map();
+        //$_SESSION['TemporaryProfileImgSquare'] = $iSquare->map();
+
+        // Remove temp files
+        @unlink($path . '/p_' . $name);
+        @unlink($path . '/m_' . $name);
+        @unlink($path . '/n_' . $name);
+        @unlink($path . '/s_' . $name);
+    }
+
+    protected function _fetchImage($photo_url) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $photo_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+        $data = curl_exec($ch);
+        curl_close($ch);
+
+        $tmpfile = APPLICATION_PATH_TMP . DS . md5($photo_url) . '.jpg';
+        @file_put_contents($tmpfile, $data);
+
+        $this->_resizeImages($tmpfile);
+    }
+
+    private function _updateFBPhoto($user, $fb_user_id){
+
+        $photo_url = "https://graph.facebook.com/"
+                            . $fb_user_id
+                            . "/picture?type=large"
+                    ;
+
+        $this->_fetchImage($photo_url);
+        
+        $params = array(
+            'parent_type' => 'user',
+            'parent_id' => $user->user_id
+        );
+
+        // Save
+        $storage = Engine_Api::_()->getItemTable('storage_file');
+
+        // Update info
+        $iMain = $storage->getFile($this->tmp_file_id);
+        $iMain->setFromArray($params);
+        $iMain->save();
+        $iMain->updatePath();
+
+        $iProfile = $storage->getFile($this->tmp_file_id, 'thumb.profile');
+        $iProfile->setFromArray($params);
+        $iProfile->save();
+        $iProfile->updatePath();
+
+        $iNormal = $storage->getFile($this->tmp_file_id, 'thumb.normal');
+        $iNormal->setFromArray($params);
+        $iNormal->save();
+        $iNormal->updatePath();
+
+        $iSquare = $storage->getFile($this->tmp_file_id, 'thumb.icon');
+        $iSquare->setFromArray($params);
+        $iSquare->save();
+        $iSquare->updatePath();
+        
+        // Update row
+        $user->photo_id = $iMain->file_id;
+        $user->save();
+    }
+
     private function _createAccount($facebook, $code){
 
         $facebook_data = $this->_getFBInfo();
@@ -797,6 +949,8 @@ class User_AuthController extends Core_Controller_Action_Standard {
 
         $user->setFromArray($data);
         $user->save();
+
+        $this->_updateFBPhoto($user, $facebook_data['id']);
 
         Engine_Api::_()->user()->setViewer($user);
 
