@@ -59,6 +59,8 @@ class Bang_IndexController extends Core_Controller_Action_Standard {
                 }
                 
                 $email = Engine_Api::_()->getApi('settings', 'core')->core_mail['from'];
+                
+                /*
                 Engine_Api::_()->getApi('mail', 'core')->sendSystem($email, 'notify_request_create', array(
                     'ad_title' => $request->ad_title,
                     'ad_name' => $owner_name,
@@ -66,6 +68,7 @@ class Bang_IndexController extends Core_Controller_Action_Standard {
                     'ad_email' => $request->ad_email,
                     'ad_phone' => $request->ad_phone
                 ));
+                */
 
                 $url = $this->_helper->url->url(array(), 'home');
 
