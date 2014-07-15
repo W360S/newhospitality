@@ -1,0 +1,1 @@
+ALTER TABLE `engine4_bang_requests` ADD `ad_note` VARCHAR(255) NOT NULL , ADD `ad_link` VARCHAR(255) NOT NULL , ADD `ad_position` INT NOT NULL , ADD `ad_start` DATETIME NOT NULL , ADD `ad_end` DATETIME NOT NULL , ADD `ad_total` VARCHAR(255) NOT NULL ;

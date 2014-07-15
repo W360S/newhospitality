@@ -182,7 +182,10 @@
   <?php echo $headIncludes ?>
   
   
-  
+  <script src="<?php echo $this->baseUrl() .'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
+  <script type="text/javascript">
+    jQuery.noConflict();
+  </script>
 </head>
 <body id="global_page_<?php echo $identity ?>">
   <span id="global_content_simple">
