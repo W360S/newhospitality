@@ -74,6 +74,14 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
                 new Engine_Filter_Censor(),
             ),
         ));
+        
+        $this->addDisplayGroup(array(
+                    'ad_title',
+                    'ad_subtitle',
+                    'ad_file',
+                    'ad_link',
+                    'ad_description'
+            ),'ads_request_ìnfo',array('legend' => 'Nội dung quảng cáo của bạn'));
 
         // Ads campagn section
 
@@ -84,7 +92,7 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
             "4" => "Hỏi đáp --- 30.000 vnd / ngày",
         );
         // Position
-        $this->addElement('Select', 'ad_position', array(
+        $this->addElement('MultiSelect', 'ad_position', array(
         'label' => 'Position',
         'multiOptions' => $potition_options,
         'value' => key($potition_options),
@@ -103,13 +111,21 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
 
         $this->addElement('Text', 'ad_total', array(
             'label' => 'Thanh tien',
-            'allowEmpty' => false,
-            'required' => true,
+//            'allowEmpty' => false,
+//            'required' => true,
+            'attribs'    => array('disabled' => 'disabled'),
             'filters' => array(
                 'StripTags',
                 new Engine_Filter_Censor(),
                 new Engine_Filter_StringLength(array('max' => '63')),
         )));
+        
+        $this->addDisplayGroup(array(
+                    'ad_position',
+                    'ad_start',
+                    'ad_end',
+                    'ad_total'
+            ),'ads_campain_request_ìnfo',array('legend' => 'Tạo chiến dịch quảng cáo'));
 
 
         // User contact section
@@ -139,6 +155,12 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
             'validators' => array(
                 array('NotEmpty', true))
         ));
+        
+        $this->addDisplayGroup(array(
+                    'ad_name',
+                    'ad_email',
+                    'ad_phone'
+            ),'ads_user_ìnfo',array('legend' => 'Thông tin liên lạc'));
 
         
         // End form
@@ -160,7 +182,6 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
             )
         ));
         $this->addDisplayGroup(array('submit', 'cancel'), 'buttons');
-        $button_group = $this->getDisplayGroup('buttons');
     }
 
 }

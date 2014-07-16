@@ -44,7 +44,9 @@ class Bang_IndexController extends Core_Controller_Action_Standard {
                     ));
                 }
                 
-                
+                if(!empty($values['ad_position'])){
+                    $values['ad_position'] = json_encode($values['ad_position']);
+                }
                 
                 $request = $table->createRow();
                 $request->setFromArray($values);
@@ -54,6 +56,8 @@ class Bang_IndexController extends Core_Controller_Action_Standard {
                 if (!empty($values['ad_file'])) {
                     $request->setPhoto($form->ad_file);
                 }
+                
+                
 
                 $db->commit();
 

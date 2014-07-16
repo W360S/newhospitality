@@ -14,7 +14,7 @@
 		   alert($(this).val()); 
 		});
 
-		var rate = [60000, 50000, 30000, 3000];
+		var rate = [60000, 50000, 30000, 30000];
 
 		$("#ad_start-hour").val(0);
 		$("#ad_start-minute").val(0);
@@ -25,6 +25,8 @@
 		$("#ad_start-minute").hide();
 		$("#ad_end-hour").hide();
 		$("#ad_end-minute").hide();
+        
+        var ad_position_element = $("#ad_position-element ul.form-options-wrapper > li");
 
 		function checkVal(){
 			setTimeout(function() {
@@ -44,14 +46,24 @@
 						var t1 = new Date(str1[2], str1[1], str1[0]-1);
 						var t2 = new Date(str2[2], str2[1], str2[0]-1);
 
-						
-
 						var datediff = (t2 - t1);
 						datediff = datediff / (24 * 60 * 60 * 1000);
 
-						var selected_plan = $("#ad_position").val() - 1;
-
-						$("#ad_total").val(datediff * rate[selected_plan]);
+						var selected_plan = $("#ad_position").val();
+                        
+                        console.log(selected_plan);
+                        
+                        var sum = 0;
+                        if(selected_plan.length > 0){
+                            for (i=0; i<selected_plan.length; i++){
+                                sum += rate[selected_plan[i] - 1];
+                            }
+                        }
+                        
+                        var ad_position_element = $("#ad_position-element ul.form-options-wrapper > li");
+                        
+                        
+						$("#ad_total").val(datediff * sum);
 					}
 
 					
