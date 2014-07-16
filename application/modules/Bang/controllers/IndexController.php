@@ -43,10 +43,17 @@ class Bang_IndexController extends Core_Controller_Action_Standard {
                         'owner_id' => 0,
                     ));
                 }
+                
+                
+                
                 $request = $table->createRow();
                 $request->setFromArray($values);
 
                 $request->save();
+                
+                if (!empty($values['ad_file'])) {
+                    $request->setPhoto($form->ad_file);
+                }
 
                 $db->commit();
 

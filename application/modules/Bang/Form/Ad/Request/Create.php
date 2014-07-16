@@ -49,7 +49,15 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
                 'StripTags',
                 new Engine_Filter_Censor(),
         )));
+        
+        $this->addElement('File', 'ad_file', array(
+            'label' => 'File*',
+        
+        ));
+        
+        $this->ad_file->addValidator('Extension', false, 'jpg,png,gif');
 
+        
         $this->addElement('Text', 'ad_link', array(
             'label' => 'Link*',
             'filters' => array(
