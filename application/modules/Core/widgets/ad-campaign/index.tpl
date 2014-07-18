@@ -45,7 +45,7 @@
         $empty_description = true;
     } ?>
     <div class="advertisement">
-        <div class="ad-photo">
+        <div class="ad-photo<?php if(isset($empty_description)) echo " photo-last"; ?>">
             <?php echo $ad->html_code; ?>
         </div>
         <?php if(isset($empty_description)): ?>
@@ -69,6 +69,7 @@
 </div>
 
 <style>
+    div.photo-last{margin-bottom: 15px}
     div.advertisement {padding: 10px 10px 0px 10px;}
     div.ad-header{margin: 10px 0px 5px;}
     div.ad-title a{color: #758286;font-size: 14px;}
