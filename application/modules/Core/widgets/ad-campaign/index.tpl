@@ -40,21 +40,30 @@
     <h3 class="pt-title-right">Tài trợ <a href="/bang/index/create" class="smoothbox">Tạo mới</a></h3>
     <?php $ads = $this->ads; ?>
 <?php foreach($ads as $key => $ad ): ?>
+    <?php if (isset($ad->description) && $ad->description=="<div></div>") {
+        # code...
+        $empty_description = true;
+    } ?>
     <div class="advertisement">
         <div class="ad-photo">
             <?php echo $ad->html_code; ?>
         </div>
-        <div class="ad-header">
-            <div class="ad-title">
-                <a href="javascript:void(0)" ><?php echo $ad->title ?></a>
+        <?php if(isset($empty_description)): ?>
+
+        <?php else: ?>
+            <div class="ad-header">
+                <div class="ad-title">
+                    <a href="javascript:void(0)" ><?php echo $ad->title ?></a>
+                </div>
+                <div class="ad-subtitle">
+                    <?php echo $ad->subtitle ?>
+                </div>
             </div>
-            <div class="ad-subtitle">
-                <?php echo $ad->subtitle ?>
+            <div class="ad-description">
+                <?php echo $ad->description ?>
             </div>
-        </div>
-        <div class="ad-description">
-            <?php echo $ad->description ?>
-        </div>
+        <?php endif; ?>
+        
     </div>
 <?php endforeach; ?>
 </div>
