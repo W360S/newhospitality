@@ -1,6 +1,6 @@
 <?php
 $paginator = $this->paginator;
-$category_id = $this->category_id;
+//$category_id = $this->category_id;
 ?>
 <div class="subsection">
     <?php if (count($paginator) > 0): ?>
@@ -15,8 +15,9 @@ $category_id = $this->category_id;
                 </thead>
                 <tbody>
                     <?php $cnt = 1; ?>
+                    
                     <?php foreach ($paginator as $item): ?>
-
+                        
                         <?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->title); ?>
                         <tr class="odd">
                             <td>
@@ -65,25 +66,33 @@ $category_id = $this->category_id;
                             }
                             ?>
                             <td>
-
-                        <?php echo $this->degree($viewer_education->degree_level_id)->name; ?> / <?php echo $total_year ?> năm</td>
+                        <?php if (isset($viewer_education->degree_level_id)) {
+                            if ($this->degree($viewer_education->degree_level_id)) {
+                                if (isset($this->degree($viewer_education->degree_level_id)->name)) {
+                                    # code...
+                                    echo $this->degree($viewer_education->degree_level_id)->name;
+                                    echo " / ";
+                                }
+                            }
+                        } ?>
+                        <?php echo $total_year ?> năm</td>
                         </tr>
-                        <?php $cnt = $cnt + 1; ?>
-    <?php endforeach; ?>
+                        <?php $cnt = $cnt + 1;?>
+                    <?php endforeach; ?>
 
                 </tbody>
             </table>
 
         </div>
 
-<?php else: ?>
+    <?php else: ?>
         <div style="margin-top: 5px; margin-left: 5px;" class="tip">
             <span>
-    <?php echo $this->translate("Haven't resumes in this category.") ?>
+            <?php echo $this->translate("Haven't resumes in this category.") ?>
             </span>
         </div>
 
-<?php endif; ?>
+    <?php endif; ?>
 </div>
 <?php
 if (count($paginator) > 0) {
