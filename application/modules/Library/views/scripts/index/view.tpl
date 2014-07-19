@@ -217,12 +217,14 @@ a.pt-like-how {
 										 <span><?php  echo $book->credit. $this->translate(' Coupon'); ?></span>
 										    
 										<?php endif; ?>
-
 										<?php if(!in_array($book->book_id, $my_books)):?>
-										
 										<?php echo $this->htmlLink(array('route' => 'default', 'module' => 'library', 'controller' => 'book-shelf', 'action' => 'download','fid'=>substr(base64_encode($user_id.Zend_Session::getId()),0,7) .substr(base64_encode($book->book_id . rand(1000000,9999999)),0,8) . base64_encode($book->url),'code'=>substr(md5(microtime()), 0, 10) . ".pdf"),$this->translate('Download'), array(
 										    'class' => 'download_book smoothbox buttonlink  pt-download'
 										)) ?>
+										<?php else:?>
+											<a href="<?php echo $this->url(array('module'=>'library', 'controller'=>'book-shelf', 'action'=>'index'), 'default', true); ?>">
+												Đi đến Tủ sách của tôi
+											</a>
 										<?php endif;?>
 										<?php echo $this->htmlLink(Array('module'=> 'activity', 'controller' => 'index', 'action' => 'share', 'route' => 'default', 'type' => 'library_book', 'id' => $book->book_id, 'format' => 'smoothbox'), $this->translate("Share"), array('class' => 'smoothbox pt-share')); ?>
 
