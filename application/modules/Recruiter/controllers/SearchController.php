@@ -90,8 +90,12 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
         if ($this->getRequest()->getPost()) {
 
             $values = $this->getRequest()->getPost();
+
+            
+            
             $industry_id = $values['industry'];
             $country_id = $values['country_id'];
+            $category_id = $values['category'];
             $city_id = $values['city_id'];
             $search = $values['search_job'];
             if ($search === Zend_Registry::get('Zend_Translate')->_('Enter jobs title, position')) {
@@ -115,21 +119,22 @@ class Recruiter_SearchController extends Core_Controller_Action_Standard {
         $temp = $this->_getAllParams();
 
         if (!empty($temp)) {
+            //print_r($temp);die;
             $search = $values['search_job'] = $temp['search_job'];
             if ($search === Zend_Registry::get('Zend_Translate')->_('Enter jobs title, position')) {
                 $search = '';
             }
-            if (key_exists("amp;country_id", $temp)) {
-                $country_id = $values['country_id'] = $temp['amp;country_id'];
+            if (key_exists("country_id", $temp)) {
+                $country_id = $values['country_id'] = $temp['country_id'];
             }
-            if (key_exists("amp;city_id", $temp)) {
-                $city_id = $values['city_id'] = $temp['amp;city_id'];
+            if (key_exists("city_id", $temp)) {
+                $city_id = $values['city_id'] = $temp['city_id'];
             }
-            if (key_exists("amp;industry", $temp)) {
-                $industry_id = $values['industry'] = $temp['amp;industry'];
+            if (key_exists("industry", $temp)) {
+                $industry_id = $values['industry'] = $temp['industry'];
             }
-            if (key_exists("amp;category", $temp)) {
-                $category_id = $values['category'] = $temp['amp;category'];
+            if (key_exists("category", $temp)) {
+                $category_id = $values['category'] = $temp['category'];
             }
             $this->view->values = $values;
         }
