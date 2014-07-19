@@ -49,7 +49,7 @@
             <?php echo $ad->html_code; ?>
         </div>
         <?php if(isset($empty_description)): ?>
-
+            <?php unset($empty_description); ?>
         <?php else: ?>
             <div class="ad-header">
                 <div class="ad-title">
