@@ -1645,3 +1645,14 @@ display: block;
 overflow: hidden;
 float: inherit;
 }
+
+span.feed_attachment_library_book > div > a {
+	width: 300px;
+	display: block;
+	overflow: hidden;
+	margin: 0 auto;
+}
+img.main.item_photo_library_book.main {
+width: 100%;
+border: none;
+}
