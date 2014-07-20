@@ -12,7 +12,7 @@ class Resumes_Widget_NewResumesController extends Engine_Content_Widget_Abstract
        
         $this->view->paginator= $paginator= Zend_Paginator::factory($select);
         $request = Zend_Controller_Front::getInstance()->getRequest();
-        $paginator->setItemCountPerPage(10);
+        $paginator->setItemCountPerPage(15);
         $paginator->setCurrentPageNumber($request->getParam('page'));
         
                     

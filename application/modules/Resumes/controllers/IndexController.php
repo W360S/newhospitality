@@ -11,14 +11,14 @@ class Resumes_IndexController extends Core_Controller_Action_Standard {
                 ->from($table->info('name'))
                 ->where('status =?', 2)
                 ->where('deadline > ?', date('Y-m-d'))
-                ->limit(50)
+                // ->limit(50)
                 ->order('creation_date DESC');
         $records = $table->fetchAll($select);
         $this->view->paginator = $paginator = Zend_Paginator::factory($records);
         $request = Zend_Controller_Front::getInstance()->getRequest();
-        $paginator->setItemCountPerPage(10);
+        $paginator->setItemCountPerPage(15);
         $paginator->setCurrentPageNumber($request->getParam('page'));
-        $paginator->setPageRange(5);
+        // $paginator->setPageRange(5);
 
         $this->_helper->content
                 ->setContentName(36) // page_id
