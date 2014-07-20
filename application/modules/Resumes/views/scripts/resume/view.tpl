@@ -80,8 +80,16 @@
                 </div>
                 <div class="pt-lv-second">
                     <?php foreach ($works as $work): ?>
+                        <?php 
+                            $month_start = date("m",strtotime($work->starttime));
+                            $month_end = date("m",strtotime($work->endtime));
+                            $year_start = date("Y",strtotime($work->starttime));
+                            $year_end = date("Y",strtotime($work->endtime));
+                        ?>
+
                         <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->title; ?></h3>
-                        <p>Tháng 6/2012 đến Tháng 6/2013</p>
+                        <p>Từ tháng <?php echo $month_start ?> <?php echo $year_start ?> đến 
+                             Tháng <?php echo $month_end ?> <?php echo $year_end ?></p>
                         <p><?php echo $work->description; ?></p>
                         <br>
                     <?php endforeach; ?>
@@ -96,8 +104,17 @@
                 </div>
                 <div class="pt-lv-second">
                     <?php foreach ($educations as $education): ?>
+                        <?php 
+                            $month_start = date("m",strtotime($education->starttime));
+                            $month_end = date("m",strtotime($education->endtime));
+                            $year_start = date("Y",strtotime($education->starttime));
+                            $year_end = date("Y",strtotime($education->endtime));
+                        ?>
                         <h3><?php echo $education->school_name; ?></h3>
-                        <p><?php echo $this->degree($education->degree_level_id)->name; ?> - <?php echo $education->major; ?> - Tháng 6/2011 đến Tháng 10/2013</p>
+                        <p><?php echo $this->degree($education->degree_level_id)->name; ?>
+                            - Từ tháng <?php echo $month_start ?> <?php echo $year_start ?> đến 
+                             Tháng <?php echo $month_end ?> <?php echo $year_end ?>
+                        </p>
                         <p><?php echo $education->description; ?></p>
                         <br>
                     <?php endforeach; ?>
