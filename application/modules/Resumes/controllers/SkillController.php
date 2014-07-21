@@ -154,10 +154,12 @@ class Resumes_SkillController extends Core_Controller_Action_Standard
 			try
 			{
 			     
-                 $event = Engine_Api::_()->getItem('languageskill', $skill_id);
-                 $event->delete();
-                 $this->dateAction(1);
-				 $db->commit();
+                 // $event = Engine_Api::_()->getItem('languageskill', $skill_id);
+                $event = Engine_Api::_()->getDbtable('languageSkills', 'resumes')->findRow($skill_id);
+
+                $event->delete();
+                $this->dateAction(1);
+				$db->commit();
 			}
 
 			catch( Exception $e )
