@@ -92,7 +92,7 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
             "4" => "Hỏi đáp --- 30.000 vnd / ngày",
         );
         // Position
-        $this->addElement('MultiSelect', 'ad_position', array(
+        $this->addElement('Multiselect', 'ad_position', array(
         'label' => 'Position',
         'multiOptions' => $potition_options,
         'value' => key($potition_options),
