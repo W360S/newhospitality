@@ -101,7 +101,7 @@ $birthday = $this->birthday;
                             $year_end = date("Y",strtotime($work->endtime));
                         ?>
                 
-                        <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->title; ?></h3>
+                        <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->company_name; ?></h3>
                         <p>
                              Từ tháng <?php echo $month_start ?> <?php echo $year_start ?> đến 
                              Tháng <?php echo $month_end ?> <?php echo $year_end ?>

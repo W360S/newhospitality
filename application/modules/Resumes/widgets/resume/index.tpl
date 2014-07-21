@@ -89,7 +89,7 @@ $rated = $this->rated;
                     </div>
                     <div class="pt-lv-second">
                         <?php foreach ($works as $work): ?>
-                            <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->title; ?></h3>
+                            <h3><?php echo $this->level($work->level_id)->name; ?> - <?php echo $this->category($work->category_id)->name; ?> tại <?php echo $work->company_name; ?></h3>
                             <p>Tháng 6/2012 đến Tháng 6/2013</p>
                             <p><?php echo $work->description; ?></p>
                             <br>
