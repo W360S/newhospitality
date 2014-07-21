@@ -30,6 +30,7 @@ class User_Widget_HomePhotoController extends Engine_Content_Widget_Abstract
   {
     $viewer = Engine_Api::_()->user()->getViewer();
     $translate = Zend_Registry::get('Zend_Translate');
-    return $viewer->getIdentity() . $translate->getLocale() . sprintf('%d', $viewer->photo_id);
+
+    if(isset($viewer->photo_id)) return $viewer->getIdentity() . $translate->getLocale() . sprintf('%d', $viewer->photo_id);
   }
 }

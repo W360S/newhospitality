@@ -435,15 +435,15 @@ class Core_Bootstrap extends Engine_Application_Bootstrap_Abstract
       $config = array(
         'options' => array(
           'save_path' => 'session',
-          'use_only_cookies' => true,
-          'remember_me_seconds' => 86400000,
-          'gc_maxlifetime' => 8640000,
+          'use_only_cookies' => false,
+          'remember_me_seconds' => 864000,
+          'gc_maxlifetime' => 864000,
           'cookie_httponly' => false,
         ),
         'saveHandler' => array(
           'class' => 'Core_Model_DbTable_Session',
           'params' => array(
-            'lifetime' => 8640000,
+            'lifetime' => 864000,
           ),
         ),
       );
