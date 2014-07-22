@@ -299,15 +299,15 @@ class Feedback_IndexController extends Core_Controller_Action_Standard {
                         $owner_name = 'Anonymous user';
                     }
                     $creation_date = $feedback->truncateDate();
-                    $email = Engine_Api::_()->getApi('settings', 'core')->core_mail['from'];
-                    Engine_Api::_()->getApi('mail', 'core')->sendSystem($email, 'notify_feedback_create', array(
-                        'feedback_title' => $feedback->feedback_title,
-                        'feedback_owner' => $owner_name,
-                        'feedback_status' => $feedback->feedback_private,
-                        'feedback_date' => $creation_date,
-                        'email' => $email,
-                        'link' => 'http://' . $_SERVER['HTTP_HOST'] . Zend_Controller_Front::getInstance()->getRouter()->assemble(array('feedback_id' => $feedback->feedback_id, 'user_id' => $feedback->owner_id, 'slug' => $feedback->feedback_slug), 'feedback_detail_view')
-                    ));
+                    //$email = Engine_Api::_()->getApi('settings', 'core')->core_mail['from'];
+                    // Engine_Api::_()->getApi('mail', 'core')->sendSystem($email, 'notify_feedback_create', array(
+                    //     'feedback_title' => $feedback->feedback_title,
+                    //     'feedback_owner' => $owner_name,
+                    //     'feedback_status' => $feedback->feedback_private,
+                    //     'feedback_date' => $creation_date,
+                    //     'email' => $email,
+                    //     'link' => 'http://' . $_SERVER['HTTP_HOST'] . Zend_Controller_Front::getInstance()->getRouter()->assemble(array('feedback_id' => $feedback->feedback_id, 'user_id' => $feedback->owner_id, 'slug' => $feedback->feedback_slug), 'feedback_detail_view')
+                    // ));
                 }
 
                 //REDIRECT TO IMAGE UPLOAD PAGE IF
