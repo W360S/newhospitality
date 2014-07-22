@@ -182,10 +182,12 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
         
 
         $this->headScript()
+                ->prependFile($staticBaseUrl . 'externals/soundmanager/script/soundmanager2.js')
                 ->prependFile($staticBaseUrl . 'externals/smoothbox/smoothbox4.js')
                 ->prependFile($staticBaseUrl . 'application/modules/User/externals/scripts/core.js')
                 ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/core.js')
                 ->prependFile($staticBaseUrl . 'externals/chootools/chootools.js')
+                
                 ->prependFile($staticBaseUrl . 'externals/mootools/mootools-more-1.4.0.1-full-compat-' . (APPLICATION_ENV == 'development' ? 'nc' : 'yc') . '.js')
                 ->prependFile($staticBaseUrl . 'externals/mootools/mootools-core-1.4.5-full-compat-' . (APPLICATION_ENV == 'development' ? 'nc' : 'yc') . '.js');
         // Process
@@ -225,6 +227,18 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
     </head>
     <body id="global_page_<?php echo $identity ?>">
         <script src="<?php echo $this->baseUrl().'/application/modules/Core/externals/scripts/jquery-1.10.2.min.js'?>" type="text/javascript"></script>
+        <script>
+        //lam chu chay
+            var title= document.title;
+            var espera=200;
+            var refresco;
+            function auto_title() {
+                document.title= title;
+                title=title.substring(1, title.length)+title.charAt(0);
+                refresco = setTimeout("auto_title();", espera);
+            }
+
+        </script>
         <script type="javascript/text">
             if(DetectIpad()){
             $$('a.album_main_upload').setStyle('display', 'none');
@@ -249,6 +263,20 @@ $orientation = ( $this->layout()->orientation == 'right-to-left' ? 'rtl' : 'ltr'
         <div id="global_footer">
             <?php echo $this->content('footer') ?>
         </div>
+         <script type="text/javascript">
+        soundManager.onload = function() {
+              soundManager.createSound({
+              id: 'demo_inline_music',
+              url: 'public/beep.mp3',
+              autoLoad: true,
+              autoPlay: false,
+              onload: function() {
+                
+              },
+              volume: 50
+            });    
+        }
+        </script> 
         <div id="janrainEngageShare" style="display:none">Share</div>
         
         <script src="<?php echo $this->baseUrl() . '/externals/viethosp/jquery.form.js' ?>" type="text/javascript"></script>
