@@ -7,14 +7,14 @@
 			<p id="preview-ad-title">Nội dung tiêu đề</p>
 		</div>
 	</div>
-	<div class="preview-element">
+	<!-- <div class="preview-element">
 		<div class="preview-label">
 			<p>Subtitle</p>
 		</div>
 		<div class="preview-text">
 			<p id="preview-ad-subtitle">Nội dung tiêu đề</p>
 		</div>
-	</div>
+	</div> -->
 	<div class="preview-element">
 		<div class="preview-label">
 			<p>File</p>
@@ -190,7 +190,7 @@
 		function formIsValid(){
 
 			ad_title 		= $("#ad_title").val();
-			ad_subtitle 	= $("#ad_subtitle").val();
+			// ad_subtitle 	= $("#ad_subtitle").val();
 			ad_link 		= $("#ad_link").val();
 			ad_description 	= $("#ad_description").val();
 
@@ -208,12 +208,12 @@
 			    textvalues[i] = $(selected).text();
 			});
 
-			if (ad_title == "" || ad_subtitle=="" || ad_link=="" || ad_description=="" || ad_total=="0" || ad_name=="" || ad_email=="" || ad_phone=="" ) {
+			if (ad_title == "" || ad_link=="" || ad_description=="" || ad_total=="0" || ad_name=="" || ad_email=="" || ad_phone=="" ) {
 				return false;
 			}
 
 			$("#preview-ad-title").html(ad_title);
-			$("#preview-ad-subtitle").html(ad_subtitle);
+			// $("#preview-ad-subtitle").html(ad_subtitle);
 			$("#preview-ad-link").html(ad_link);
 			$("#preview-ad-description").html(ad_description);
 
@@ -231,12 +231,14 @@
 
 		$("div#buttons-wrapper").hide();
 
+		
+
 		$("#vsubmit").click(function(){
 
 			if (formIsValid()) {
 				$("#global_page_bang-index-create > #global_content_simple > form").hide();
 				$("#ad-preview").show();
-
+				$("#vsubmit").text("Gửi yêu cầu Đăng quảng cáo");
 				$("#vsubmit").click(function(){
 					console.log("clicked");
 					console.log($("form-ad-request-create"));

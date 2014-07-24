@@ -45,12 +45,12 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
                 new Engine_Filter_Censor(),
         )));
         
-        $this->addElement('Text', 'ad_subtitle', array(
-            'label' => 'Sub Title*',
-            'filters' => array(
-                'StripTags',
-                new Engine_Filter_Censor(),
-        )));
+        // $this->addElement('Text', 'ad_subtitle', array(
+        //     'label' => 'Sub Title*',
+        //     'filters' => array(
+        //         'StripTags',
+        //         new Engine_Filter_Censor(),
+        // )));
         
         $this->addElement('File', 'ad_file', array(
             'label' => 'File*',
