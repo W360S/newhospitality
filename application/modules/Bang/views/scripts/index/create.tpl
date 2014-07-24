@@ -130,22 +130,30 @@
         
         var ad_position_element = $("#ad_position-element ul.form-options-wrapper > li");
 
+        var start, end;
+
 		function checkVal(){
+
 			setTimeout(function() {
 
-				var start = $("#ad_start-date").val();
-				var end = $("#ad_end-date").val();
+				start = $("#ad_start-date").val();
+				end = $("#ad_end-date").val();
+				console.log(start);
+				console.log(end);
 				if (start==="" || end ==="") {
 					$("#ad_total").val("0");
 				}else{
-					if(start > end){
+					var str1= start.split('/');
+					var str2= end.split('/');
+					var t1 = new Date(str1[2], str1[1], str1[0]-1);
+					var t2 = new Date(str2[2], str2[1], str2[0]-1);
+
+					if(t1 > t2){
+						console.log("start > end");
 						$("#ad_total").val("0");
 					}else{
-						var str1= start.split('/');
-						var str2= end.split('/');
-						var t1 = new Date(str1[2], str1[1], str1[0]-1);
-						var t2 = new Date(str2[2], str2[1], str2[0]-1);
-
+						console.log("start end");
+					
 						var datediff = (t2 - t1);
 						datediff = datediff / (24 * 60 * 60 * 1000);
 
