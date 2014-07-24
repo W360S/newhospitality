@@ -35,6 +35,8 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
             $this->getDecorator('Description')->setOption('escape', false);
         }*/
 
+        $this->setAttrib('id', 'form-ad-request-create');
+
         // Head of form section
         $this->addElement('Text', 'ad_title', array(
             'label' => 'Title*',
@@ -164,12 +166,12 @@ class Bang_Form_Ad_Request_Create extends Engine_Form {
 
         
         // End form
-        $this->addElement('Button', 'submit', array(
-            'label' => 'Post Advertisement',
-            'type' => 'submit',
-            'ignore' => true,
-            'decorators' => array('ViewHelper')
-        ));
+        // $this->addElement('Button', 'submit', array(
+        //     'label' => 'Post Advertisement',
+        //     'type' => 'submit',
+        //     'ignore' => true,
+        //     'decorators' => array('ViewHelper')
+        // ));
 
         $this->addElement('Cancel', 'cancel', array(
             'label' => 'cancel',
