@@ -1497,6 +1497,9 @@ ul.form-options-wrapper label{float:left; width:200px!important; text-align: lef
 #recruiter_apply_job_form .form-label{margin-right:50px}
 #recruiter_apply_job_form .form-element textarea{width:300px}
 #recruiter_apply_job_form select#resume_id{margin-top: 14px}
+
+.description_job{margin-left: 149px}
+
 .resume_preview_main .subsection{margin: 0 auto};
 form#resume_info_form .fieldset-wrapper .input label{width: 115px}
 form#resume_info_form .fieldset-wrapper input#resume_title{width: 380px}

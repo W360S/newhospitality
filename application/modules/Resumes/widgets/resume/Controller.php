@@ -18,6 +18,9 @@ class Resumes_Widget_ResumeController extends Engine_Content_Widget_Abstract
         $this->view->resume= $resume;
         $this->view->user_resume= $resume->user_id;
         
+        $user_inform = Engine_Api::_()->getDbtable('users', 'user')->find($resume->user_id)->current();
+        $this->view->user_inform = $user_inform;
+        
         //list work experience
         $works= Engine_Api::_()->getApi('core', 'resumes')->getListWork($resume_id);
         //total years

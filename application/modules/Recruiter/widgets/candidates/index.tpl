@@ -6,9 +6,9 @@ $notes = $this->notes;
 
 <div class="pt-event-tabs">
     <ul class="pt-title">
-        <li id="tabs-1-title" class="ui-state-active"><a href="javascript:showTab1()">Nội dung đơn xin việc</a></li>
-        <li id="tabs-3-title" class=""><a href="javascript:showTab3()">Ghi chú</a></li>
-        <li id="tabs-2-title" class=""><a href="javascript:showTab2()">Hồ sơ xin việc</a></li>
+        <li id="tabs-1-title" class="ui-state-active"><a href="javascript:ishowTab1()">Nội dung đơn xin việc</a></li>
+        <li id="tabs-4-title" class=""><a href="javascript:ishowTab4()">Ghi chú</a></li>
+        <li id="tabs-2-title" class=""><a href="javascript:ishowTab2()">Hồ sơ xin việc</a></li>
     </ul>
     <div id="tabs-1" class="pt-content-tab">
         <p><span><?php echo $this->translate('Subject: ') ?></span> <strong><?php echo $candidate->title; ?> </strong></p>
@@ -18,7 +18,7 @@ $notes = $this->notes;
         </div>
         <?php if (!empty($this->storage)) { ?>
             <p><span><?php echo $this->translate('Attachment: ') ?></span>
-                <a href="<?php echo $this->baseUrl("/") . $this->storage->storage_path; ?>"><?php
+                <a href="<?php echo $this->baseUrl('/') . $this->storage->storage_path; ?>"><?php
                     $size = round($this->storage->size / 1024, 2);
                     echo $this->storage->name . " (" . $size . " KB)";
                     ?></a>
@@ -26,12 +26,10 @@ $notes = $this->notes;
         <?php } ?>
 
     </div>
-    <div id="tabs-2" style="display: none" class="pt-content-tab">
-        <?php echo $this->content()->renderWidget('resumes.resume'); ?>
-    </div>
-    <div id="tabs-3" style="display: none" class="pt-content-tab">
+    
+    <div id="tabs-4" style="display: none" class="pt-content-tab">
         <!--Content-->
-        <?php //if(empty($candidate->description)){   ?>
+        <?php if(empty($candidate->description)){   ?>
         <div id="resume_loading" style="display: none;">
             <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
             <?php echo $this->translate("Loading ...") ?>
@@ -40,14 +38,11 @@ $notes = $this->notes;
             <div >
                 <textarea cols="50" rows="7" id="des_note"></textarea>
                 <input type="hidden" value="<?php echo $apply ?>" id="apply" />
-                <br />
-                <br />
                 <button onclick="add_note();
                         return false;"><?php echo $this->translate('Save') ?></button>
             </div>
         </form>
-        <?php //}else{   ?>
-        <br />
+        <?php }else{   ?>
         <div id="note_job" class="my-work-experience">
             <table>
                 <tr>
@@ -72,7 +67,11 @@ $notes = $this->notes;
 
             </table>
         </div>
-        <?php //}   ?>
+        <?php }   ?>
+    </div>
+    
+    <div id="tabs-2" style="display: none" class="pt-content-tab">
+        <?php echo $this->content()->renderWidget('resumes.resume'); ?>
     </div>
 
 </div>
@@ -80,32 +79,32 @@ $notes = $this->notes;
 <a class="print_profile" href="<?php echo $this->baseUrl() . '/resumes/resume/pdf/resume_id/' . $candidate->resume_id ?>"><?php echo $this->translate("Print to profile"); ?></a>
 
 <script>
-    function showTab1() {
+    function ishowTab1() {
         jQuery(".pt-content-tab").each(function() {
             jQuery(this).hide();
         });
         jQuery("#tabs-1").show();
         jQuery("#tabs-1-title").addClass('ui-state-active');
         jQuery("#tabs-2-title").removeClass('ui-state-active');
-        jQuery("#tabs-3-title").removeClass('ui-state-active');
+        jQuery("#tabs-4-title").removeClass('ui-state-active');
     }
 
-    function showTab2() {
+    function ishowTab2() {
         jQuery(".pt-content-tab").each(function() {
             jQuery(this).hide();
         });
         jQuery("#tabs-2").show();
         jQuery("#tabs-2-title").addClass('ui-state-active');
         jQuery("#tabs-1-title").removeClass('ui-state-active');
-        jQuery("#tabs-3-title").removeClass('ui-state-active');
+        jQuery("#tabs-4-title").removeClass('ui-state-active');
     }
 
-    function showTab3() {
+    function ishowTab4() {
         jQuery(".pt-content-tab").each(function() {
             jQuery(this).hide();
         });
-        jQuery("#tabs-3").show();
-        jQuery("#tabs-3-title").addClass('ui-state-active');
+        jQuery("#tabs-4").show();
+        jQuery("#tabs-4-title").addClass('ui-state-active');
         jQuery("#tabs-2-title").removeClass('ui-state-active');
         jQuery("#tabs-1-title").removeClass('ui-state-active');
     }

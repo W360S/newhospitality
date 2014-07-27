@@ -110,6 +110,59 @@ class Storage_Model_File extends Core_Model_Item_Abstract
     return $uri;
   }
 
+  public function secure_store($spec){
+    
+    $service = $this->getStorageService();
+    $serviceType = $service->getType();
+    
+    $meta = $this->getStorageService()->fileInfo($spec);
+   
+    $isCreate = empty($this->file_id);
+    // Need to initialize file_id
+    // @todo this might fubar some things if exception is thrown
+    $this->setFromArray($meta);
+    $this->storage_type = $serviceType;
+    if( $isCreate )
+    {
+      $this->save();   
+    }
+    // Store file to service
+    $path = $service->store($this, $meta['tmp_name']);
+    $file_name = basename($path);
+    
+    // update database
+    $this->user_id = Engine_Api::_()->user()->getViewer()->getIdentity();
+    $this->save();
+    
+    $db = Engine_Api::_()->getDbtable('files', 'storage')->getAdapter();
+    $db->beginTransaction();
+    
+    $file_row = Engine_Api::_()->getDbtable('files', 'storage')->find($this->file_id)->current();
+    //Zend_Debug::dump($file_row->creation_date);
+    $sub_path = substr($path,-strlen($path),-strlen($file_name));
+    
+    // We still have to update the path even if we just created it
+    $this->storage_path = $path;
+    $new_path = $sub_path.strtotime($file_row->creation_date).".".$meta['extension'];
+    
+    // change file name
+    $real_old_path = APPLICATION_PATH.DIRECTORY_SEPARATOR.$path;
+    $tmp_path = APPLICATION_PATH.DIRECTORY_SEPARATOR.$sub_path.$file_name."_tmp.".$meta['extension'];
+    $real_new_path = APPLICATION_PATH.DIRECTORY_SEPARATOR.$new_path;
+    @copy($real_old_path,$tmp_path);
+    @unlink($real_old_path);
+    @copy($tmp_path,$new_path);
+    @unlink($tmp_path);
+    
+    
+    $file_row->storage_path = $new_path;
+    $file_row->save();
+    $db->commit();
+    $file_row = Engine_Api::_()->getDbtable('files', 'storage')->find($this->file_id)->current();
+    
+    return $this;
+  }
+
   public function store($spec)
   {
     $service = $this->getStorageService();

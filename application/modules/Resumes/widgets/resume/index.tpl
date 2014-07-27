@@ -10,6 +10,7 @@ $user_id = $this->user_id;
 $user_resume = $this->user_resume;
 $re_candidate = $this->re_candidate;
 $rated = $this->rated;
+$user_inform = $this->user_inform;
 ?>
 
 <div class="resume_preview_main">

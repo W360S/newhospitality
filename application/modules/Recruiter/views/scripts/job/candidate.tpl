@@ -1,8 +1,8 @@
 <div class="section recruiter-view-profile">
-    <?php //echo $this->content()->renderWidget('recruiter.profile') ?>
     <?php echo $this->content()->renderWidget('recruiter.candidates'); ?>
 </div>
 <script type="text/javascript">
+    /*
     window.addEvent('domready', function() {
         //When page loads...
         jQuery(".tab_content").hide(); //Hide all content
@@ -22,4 +22,5 @@
         });
 
     });
+    */
 </script>
