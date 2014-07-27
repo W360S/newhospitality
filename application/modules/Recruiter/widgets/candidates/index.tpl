@@ -29,7 +29,7 @@ $notes = $this->notes;
     
     <div id="tabs-4" style="display: none" class="pt-content-tab">
         <!--Content-->
-        <?php if(empty($candidate->description)){   ?>
+        <?php //if(empty($candidate->description)){   ?>
         <div id="resume_loading" style="display: none;">
             <img src='application/modules/Core/externals/images/loading.gif' style='float:left;margin-right: 5px;' />
             <?php echo $this->translate("Loading ...") ?>
@@ -42,7 +42,7 @@ $notes = $this->notes;
                         return false;"><?php echo $this->translate('Save') ?></button>
             </div>
         </form>
-        <?php }else{   ?>
+        <?php //}else{   ?>
         <div id="note_job" class="my-work-experience">
             <table>
                 <tr>
@@ -67,7 +67,7 @@ $notes = $this->notes;
 
             </table>
         </div>
-        <?php }   ?>
+        <?php //}   ?>
     </div>
     
     <div id="tabs-2" style="display: none" class="pt-content-tab">
