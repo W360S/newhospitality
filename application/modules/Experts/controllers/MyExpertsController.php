@@ -142,111 +142,44 @@ class Experts_MyExpertsController extends Core_Controller_Action_Standard {
                         
                     }
 
-                    // send email:
-                    $usersTable = Engine_Api::_()->getDbtable('users', 'user');
-                    $questionTable = Engine_Api::_()->getDbtable('questions', 'experts');
-                    $recipientsTable = Engine_Api::_()->getDbTable('recipients', 'experts');
+                    // Add notification s
+                    // @TODO: bangvndng test
+                    // @TODO: bangvndng test email
+                    // Notifications
+                    $notifyApi = Engine_Api::_()->getDbtable('notifications', 'activity');
+                    $question = Engine_Api::_()->getDbtable('questions', 'experts')->find($question_id)->current();
+                    // owner of the question
+                    $actionOwner = Engine_Api::_()->getItemByGuid('user' . "_" . $question->user_id);
+                    $viewer = Engine_Api::_()->user()->getViewer();
 
-                    // User post question
-                    $poster_select = $questionTable->select()
-                            ->setIntegrityCheck(false)
-                            ->from($questionTable->info('name'), new Zend_Db_Expr('engine4_experts_questions.*, engine4_users.*'))
-                            ->joinLeft($usersTable->info('name'), 'engine4_experts_questions.user_id=engine4_users.user_id', array())
-                            ->where('engine4_experts_questions.question_id = ?', $question_id);
-
-                    $poster = $questionTable->fetchAll($poster_select)->current();
-
-                    // get information of answere
-                    $answere = Engine_Api::_()->getDbtable('users', 'user')->find($user_id)->current();
-
-                    /* Email to experts and user */
-
-                    // get experts of question
-                    $select = $recipientsTable->select()
-                            ->from($recipientsTable->info('name'), new Zend_Db_Expr('engine4_users.user_id, engine4_users.email, engine4_users.displayname'))
-                            ->joinLeft($usersTable->info('name'), 'engine4_experts_recipients.user_id=engine4_users.user_id', array())
-                            ->where($recipientsTable->info('name') . '.question_id = ?', $question_id);
-
-                    $recipient = $recipientsTable->fetchAll($select);
-
-                    $email = array();
-
-                    foreach ($recipient as $item) {
-                        $email[] = $item['email'];
+                    // Add notification for owner of activity (if user and not viewer)
+                    if ($question->user_id != $viewer->getIdentity()) {
+                        $notifyApi->addNotification($actionOwner, $viewer, $question, 'question_answered', array(
+                            'label' => 'post'
+                        ));
                     }
 
-                    $subject = "[{$_SERVER['HTTP_HOST']}] (Experts) - Question {$poster->title} has been answered: ";
-
-                    $user_link = 'http://'
-                            . $_SERVER['HTTP_HOST']
-                            . Zend_Controller_Front::getInstance()->getRouter()->assemble(array(
-                                'module' => 'experts',
-                                'controller' => 'my-questions',
-                                'action' => 'detail',
-                                'status' => 2,
-                                'question_id' => $question_id
-                                    ), 'default', true);
-                    $user_link = "<h2><a href='{$user_link}'>Click to view detail question.</a></h2>";
-                    $user_body = $content;
-
-                    $expert_link = 'http://'
-                            . $_SERVER['HTTP_HOST']
-                            . Zend_Controller_Front::getInstance()->getRouter()->assemble(array(
-                                'module' => 'experts',
-                                'controller' => 'my-experts',
-                                'action' => 'detail',
-                                'status' => 2,
-                                'question_id' => $question_id
-                                    ), 'default', true);
-                    $expert_link = "<h2><a href='{$expert_link}'>Click to view detail question.</a></h2>";
-                    $expert_body = $content;
+                    // Add a notification for all users that commented or like except the viewer and poster
+                    // @todo we should probably limit this
+                    foreach ($question->getAllAnsweredUsers() as $notifyUser) {
+                        if ($notifyUser->getIdentity() != $viewer->getIdentity() && $notifyUser->getIdentity() != $actionOwner->getIdentity()) {
+                            $notifyApi->addNotification($notifyUser, $viewer, $question, 'question_also_answered', array(
+                                'label' => 'post'
+                            ));
+                        }
+                    }
 
                     /*
-                      foreach($recipient as $item){
-                      $email[] = $item['email'];
-                      } */
-
-                    try {
-                        /*
-                          foreach($recipient as $item){
-
-                          $expert_data = Engine_Api::_()->getDbtable('users', 'user')->find($item->user_id)->current();
-
-                          // Main params
-                          $defaultParams = array(
-                          'host' => $_SERVER['HTTP_HOST'],
-                          'email' => $expert_data->email,
-                          'date' => time(),
-
-                          'poster'=> $poster->displayname,
-                          'sender_title'=> $answere->displayname,
-                          'object_title'=> $subject,
-                          'object_link' => $expert_link,
-                          'object_description' => $expert_body
-                          );
-
-                          Engine_Api::_()->getApi('mail', 'core')->sendSystem($expert_data, 'experts_answer', $defaultParams);
-
-
-                          } // endforeach
-
-                          $defaultParams = array(
-                          'host' => $_SERVER['HTTP_HOST'],
-                          'email' => $poster->email,
-                          'date' => time(),
-                          'sender_title'=> $answere->displayname,
-                          'object_title'=> $subject,
-                          'object_link' => $user_link,
-                          'object_description' => $user_body
-                          );
-
-                          Engine_Api::_()->getApi('mail', 'core')->sendSystem($poster, 'expert_answer', $defaultParams);
-                         */
-                    } catch (Exception $e) {
-                        $db->rollBack();
-                        throw $e;
+                    // Add a notification for all users that commented or like except the viewer and poster
+                    // @todo we should probably limit this
+                    foreach ($action->likes()->getAllLikesUsers() as $notifyUser) {
+                        if ($notifyUser->getIdentity() != $viewer->getIdentity() && $notifyUser->getIdentity() != $actionOwner->getIdentity()) {
+                            $notifyApi->addNotification($notifyUser, $viewer, $action, 'liked_commented', array(
+                                'label' => 'post'
+                            ));
+                        }
                     }
-
+                    */
 
                     $db->commit();
                     $this->_helper->redirector->gotoRoute(array('controller' => 'index', 'action' => 'detail', 'question_id' => $question_id));

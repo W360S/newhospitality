@@ -2,6 +2,9 @@
 
 class Experts_Model_Answer extends Core_Model_Item_Abstract
 {
+  public function getParent($type) {
+      return $this->getOwner($type);
+  }
   public function getHref() {
         return Zend_Controller_Front::getInstance()->getBaseUrl() . '/experts/index/detail/question_id/' . $this->question_id;
     }

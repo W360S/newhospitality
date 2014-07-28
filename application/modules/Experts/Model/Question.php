@@ -39,8 +39,12 @@ class Experts_Model_Question extends Core_Model_Item_Abstract {
         return false;
     }
 
-    public function getOwner() {
-        return $this;
+    //public function getOwner() {
+        //return $this;
+    //}
+
+    public function getParent($type) {
+        return $this->getOwner($type);
     }
 
     public function getUser() {
@@ -92,6 +96,26 @@ class Experts_Model_Question extends Core_Model_Item_Abstract {
         $this->file_id = $iMain->file_id;
         $result = $this->save();
         return $result;
+    }
+
+    public function getAllAnsweredUsers()
+    {
+        $table = Engine_Api::_()->getDbtable('answers', 'experts');
+        $select = new Zend_Db_Select($table->getAdapter());
+        $select->from($table->info('name'), array('user_id'));
+
+        $select->where('question_id = ?', $this->question_id);
+
+        $users = array();
+        foreach( $select->query()->fetchAll() as $data )
+        {
+            //if( $data['poster_type'] == 'user' ){
+                $users[] = $data['user_id'];
+            //}
+        }
+        $users = array_values(array_unique($users));
+
+        return Engine_Api::_()->getItemMulti('user', $users);
     }
 
 }

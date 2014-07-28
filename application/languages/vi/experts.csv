@@ -1,2 +1,6 @@
 "_ACTIVITY_ACTIONTYPE_ANSWER_CREATE";"Tạo mới câu trả lời"
 "_ACTIVITY_ACTIONTYPE_QUESTION_CREATE";"Tạo mới câu hỏi"
+"_ACTIVITY_ACTIONTYPE_QUESTION_CREATE";"Tạo mới câu hỏi"
+"_ACTIVITY_ACTIONTYPE_QUESTION_CREATE";"Tạo mới câu hỏi"
+"{item:$subject} also answered to the {item:$object:question} you had answer before";"{item:$subject} cũng trả lời vào {item:$object:câu hỏi} bạn đã trả lời"
+"{item:$subject} has answered your {item:$object:question}";"{item:$subject} đã trả lời {item:$object:câu hỏi} của bạn"

@@ -1,0 +1,2 @@
+INSERT INTO `newhospitality_04072014`.`engine4_activity_notificationtypes` (`type`, `module`, `body`, `is_request`, `handler`, `default`) VALUES ('question_answered', 'experts', '{item:$subject} has answered your {item:$object:question}', '0', '', '1');
+INSERT INTO `newhospitality_04072014`.`engine4_activity_notificationtypes` (`type`, `module`, `body`, `is_request`, `handler`, `default`) VALUES ('question_also_answered', 'experts', '{item:$subject} also answered to the {item:$object:question} you had answer before', '0', '', '1');
