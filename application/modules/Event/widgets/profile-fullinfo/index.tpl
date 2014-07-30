@@ -84,6 +84,13 @@
         <div class="pt-link-event">
             <a href="/events/member/join/event_id/<?php echo $event->event_id ?>" class="buttonlink smoothbox menu_event_profile event_profile_member pt-adherence"><span></span>Tham gia sự kiện</a>
             <a href="/activity/index/share/type/event/id/<?php echo $event->event_id ?>/format/smoothbox" class="pt-share buttonlink smoothbox menu_event_profile event_profile_share">Chia sẻ sự kiện này</a>
+            <?php if ($this->viewer() && $event->isOwner($this->viewer())): ?>
+                                        <?php
+                                        echo $this->htmlLink(array('route' => 'event_specific', 'action' => 'delete', 'event_id' => $event->getIdentity()), $this->translate('Delete Event'), array(
+                                            'class' => 'buttonlink smoothbox icon_event_delete'
+                                        ))
+                                        ?>
+                                      <?php endif; ?>
         </div>
     </div>
     <div class="pt-conent-info-event-text">

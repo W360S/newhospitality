@@ -293,7 +293,7 @@ class Event_EventController extends Core_Controller_Action_Standard {
         if (!$this->getRequest()->isPost()) {
             return;
         }
-
+        
         if (!$form->isValid($this->getRequest()->getPost())) {
             return;
         }
