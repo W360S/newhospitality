@@ -35,6 +35,11 @@ class Group_GroupController extends Core_Controller_Action_Standard {
             return;
         }
 
+        $this->_helper->content
+                ->setContentName(33) // page_id
+                // ->setNoRender()
+                ->setEnabled();
+
         $group = Engine_Api::_()->core()->getSubject();
         $officerList = $group->getOfficerList();
         $this->view->form = $form = new Group_Form_Edit();

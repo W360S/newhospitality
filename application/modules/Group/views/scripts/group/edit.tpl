@@ -1,3 +1,49 @@
+<style>
+.global_form > div > div > h3 + div, .global_form > div > div > h3 + p + div {
+    border-top: 1px solid #EEEEEE;
+    margin-top: 8px;
+    padding-top: 20px;
+    width: 97%;
+}
+.global_form div.form-label {
+  width:30%;
+}
+.global_form input[type="text"], .global_form input[type="password"] {
+  width:296px;
+}
+button {
+    background: none repeat scroll 0 0 #50C1E9;
+    border: 1px solid #FAFAFA;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 11px;
+}
+.global_form > div {
+    margin-top: 10px;
+    padding: 0 0 9px !important;
+    width: 100%;
+}
+.global_form > div > div {
+    background-color: #FFFFFF;
+    border: none;
+     border-radius: 0;
+    margin-top: 16px;
+    padding: 12px;
+}
+
+.global_form div.form-element {
+    clear: none;
+    float: left;
+    margin-bottom: 10px;
+    max-width: 600px;
+    min-width: 150px;
+    overflow: hidden;
+    padding: 5px;
+    text-align: left;
+}
+</style>
 <?php
 /**
  * SocialEngine
@@ -10,59 +56,22 @@
  * @author	   John
  */
 ?>
+<div class="content">
+    <div class="wd-content-event">
 
-<!--[if IE 7]>
-<style>
-	.form-elements .form-wrapper{
-		padding-bottom: 10px;
-	}
-	button{
-		line-height:15px;
-		width:120px;
-	}
-</style>
-<![endif]-->
-
-<div class="content"> 
-<div class="layout_right">
-	<?php //echo $this->formFilter->setAttrib('class', 'filters')->render($this) ?>
-    <div class="subsection">
-        <h2>Featured groups</h2>
-        <div class="subcontent">
-            <div class="featured-groups-wrapper">
-                 <?php 
-                 $nav = $this->navigation;
-                 $nav1 = $this->navigation();
-                 $pages = $this->paginator;  
-                 $form= $this->form;
-                 echo $this->content()->renderWidget('group.featured'); ?>
-            </div>
-        </div>
-    </div>
-    <!--
-    <div class="subsection">
-        <?php //echo $this->content()->renderWidget('group.ad'); ?>
-    </div>
-    -->
-</div>
-
-<div class="layout_middle">
-
-    <div class="headline">
-      <h2>
-        <?php echo $this->translate('Groups');?>
-      </h2>
-      <div class="tabs">
-        <?php
-          // Render the menu
-          echo $nav1
-            ->menu()
-            ->setContainer($nav)
-            ->render();
-        ?>
+      <?php $nav1 = $this->navigation(); ?>
+      <?php $form= $this->form; ?>
+      <div class="pt-title-event">
+                <ul class="pt-menu-event">
+                  <li class="active">
+                    <a href="<?php echo $this->baseUrl(); ?>/groups"><?php echo $this->translate('All groups') ?></a>
+                  </li>                 
+                  <li>
+                    <a href="<?php echo $this->baseUrl(); ?>/groups/manage"><?php echo $this->translate('My groups') ?></a>
+                  </li>
+                </ul>
       </div>
-
+      <?php echo $form->render($this) ?>
     </div>
-<?php echo /*->setAttrib('class', 'global_form_popup')*/$form->render($this) ?>
 </div>
-</div>
+    

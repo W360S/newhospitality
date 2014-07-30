@@ -1660,3 +1660,20 @@ img.main.item_photo_library_book.main {
 width: 100%;
 border: none;
 }
+
+#global_page_group-group-edit #global_content .layout_middle {min-height: 800px; width:944px; float:left; padding-top:20px; padding-left:37px; border-left:1px solid #e6e8ea}
+/*GROUP CREATE*/
+#global_page_group-group-edit .form-element input{border: 1px solid #e4e3e8;background: none;color: #777f82;font-weight: bold;font-size: 12px;border-radius: 2px;padding: 10px;	width: auto;}
+#global_page_group-group-edit .form-element{width: 470px}
+#global_page_group-group-edit #submit{width: 120px; float: left; padding: 0}
+
+
+
+
+
+
+
+
+
+
+
