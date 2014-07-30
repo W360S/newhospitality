@@ -19,6 +19,14 @@ class Bang_IndexController extends Core_Controller_Action_Standard {
 
     public function createAction() {
 
+        print_r($this->getRequest()->getParams());
+        $params = $this->getRequest()->getParams();
+        if (isset($params['format']) && $params['format']=="smoothbox") {
+            # code...
+        }else{
+            $this->_helper->redirector->gotoRoute(array(), 'default', true);
+        }
+
         //FIND LOGGED IN USER INFORMATION
         $viewer = $this->_helper->api()->user()->getViewer();
         $this->view->viewer_id = $viewer_id = $viewer->getIdentity();
