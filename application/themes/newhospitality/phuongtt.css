@@ -1009,6 +1009,7 @@ span.pt-icon-list-04 { background-position:-80px -252px}
 .pt-job-detail-title p { font-size:13px; color:#666666; width:100%;margin:10px 0px; float:left}
 .pt-job-detail-title p a {font-weight:none; font-size:13px; color:#3d7cbf; text-decoration:underline}
 .pt-job-detail-title p a:hover  {text-decoration:none}
+.pt-job-detail-title span p.no-space {float: none;}
 .pt-list-content { overflow:hidden; float:right; background-color:#f6f6f6; padding:10px 20px;margin-top:20px; margin-left:20px}
 .pt-list-content li { overflow:hidden; margin-bottom:10px}
 .pt-list-content li strong { display:block; color:#666666; font-size:13px;}
