@@ -71,6 +71,7 @@ a.icon-03{
   var question_id = "<?php echo $this->data->question_id;?>";
   var total_votes = <?php echo $this->rating_count;?>;
   var viewer = "<?php echo $this->viewer_id;?>";
+  var viewer1 =  "<?php echo $this->viewer1;?>";
   var tt_rating= <?php echo $this->tt_rating;?>;
 
   function ajaxLike(answer_id, cnt)
@@ -131,6 +132,7 @@ a.icon-03{
 								    // rating
 								    $rated = $this->rated;
 								    $viewer_id = $this->viewer_id;
+									$viewer1 = $this->viewer1;
 								    $rating_count = $this->rating_count;
 								    
 								    $data = $this->data;
@@ -153,18 +155,21 @@ a.icon-03{
 									<h3><a href="<?php echo $this->baseUrl("/")."profile/".$data->username; ?>"><?php echo $data->displayname; ?></a></h3>
 									<span class="pt-times">Đăng lúc - <?php echo $this->timestamp($data->created_date); ?></span><br/>
 									<span id="report_share"><a href="<?php echo $this->baseUrl() ?>/report/create/subject/question_<?php echo $data->question_id ?>/format/smoothbox" class="icon-01 smoothbox experts-report-link"><?php echo $this->translate('Report') ?></a>
+									
 									</span>
 									
 								</div>
 								<div class="pt-content-questions-content">
 									<div class="pt-like-how">
 										<a href="javascript:void(0);"  onclick="javascript:ajaxQLike(<?php echo $data->question_id; ?>,<?php echo $data->cnt_like; ?>)"></a>
-										<span id="question-number-like" title="<?php echo $data->like_name; ?>"  class="pt-number-like"><?php echo $data->cnt_like ?></span>
+										<span title="<?php echo $data->like_name; ?>"  id="question-number-like"  class="pt-number-like"><?php echo $data->cnt_like ?></span>
 									</div>
 									<div class="pt-content-questions-how">
 										<h2><?php echo $data->title ?></h2>
 										<div class="pt-event0management"><?php echo $data->category; ?></div>
-										<p><?php echo nl2br($data->content); ?></p>
+										
+										<p><?php echo $data->content; ?></p>
+										
 									</div>
 								</div>
 							</div>
@@ -184,7 +189,7 @@ a.icon-03{
 									</span>
 
 									<div class="pt-textarea">
-										<textarea id="description"  name="description" title="Viết bình luận..." placeholder="Viết bình luận ..." value="Viết bình luận ..." data-reactid="" aria-owns="" aria-haspopup="true" aria-expanded="false" aria-label="Write a comment ..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 45px;"></textarea>
+										<textarea id="description"  name="description" title="Viết bình luận..." placeholder="Viết bình luận ..." value="Write a comment ..." data-reactid="" aria-owns="" aria-haspopup="true" aria-expanded="false" aria-label="Write a comment ..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 45px;"></textarea>
 									</div>
 									<div href="#" class="pt-up-img"><input type="file" id="file" name="file" aria-label=""></div>
 									<div class="pt-submit-comment">
@@ -195,11 +200,8 @@ a.icon-03{
 								</div>
 								<?php if(count($answers)): ?>
 								<ul class="pt-reply-list-01">
-									
-									
 									<?php  foreach($answers as $item):  ?>
 									<?php if($data->answer_id == $item->answer_id): ?>
-
 									<li style="background-color: #FFCE54 !important;">
 										<div class="pt-content-questions">
 											<div class="pt-content-questions-title">
@@ -214,6 +216,7 @@ a.icon-03{
 												<span style="font-size: 0.8em;"><?php  echo $this->translate(array('%s Year experience', '%s Years experience', intval($this->expert($item->userid)->experience)), intval($this->expert($item->userid)->experience)) ?></span>
 												
 													<?php echo " - Câu trả lời hay nhất"; ?>
+												
 												<?php  if($data->userid == $viewer_id): ?>
 												<span style="float: right;" id="im_agree"><a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'best-answer', 'question_id'=>$item->question_id,'answer_id'=>$item->answer_id),'default',true); ?>" class="icon-03">Tôi đồng ý</a></span>
 												<?php endif; ?>
@@ -222,10 +225,9 @@ a.icon-03{
 												
 											</div>
 											<div class="pt-content-questions-content">
-												
 												<div class="pt-like-how">
 													<a href="javascript:void(0);"  onclick="javascript:ajaxLike(<?php echo $item->answer_id; ?>,<?php echo $item->cnt_like; ?>)"></a>
-													<span title="<?php echo $item->like_name; ?>" id="<?php echo $item->answer_id; ?>-number-like"  class="pt-number-like"><?php echo $item->cnt_like ?></span>
+													<span  title="<?php echo $item->like_name; ?>" id="<?php echo $item->answer_id; ?>-number-like"  class="pt-number-like"><?php echo $item->cnt_like ?></span>
 												</div>
 												
 												<div class="pt-content-questions-how">
@@ -239,11 +241,9 @@ a.icon-03{
 									</li>
 									<?php endif; ?>
 									<?php endforeach; ?>
-									
-									
+								
 									<?php  foreach($answers as $item):  ?>
 									<?php if($data->answer_id != $item->answer_id): ?>
-
 									<li>
 										<div class="pt-content-questions">
 											<div class="pt-content-questions-title">
@@ -279,8 +279,8 @@ a.icon-03{
 												</div>
 											</div>
 										</div>
-									</li>
 									<?php endif; ?>
+									</li>
 									<?php endforeach; ?>
 								</ul>
 								<?php endif;  ?>

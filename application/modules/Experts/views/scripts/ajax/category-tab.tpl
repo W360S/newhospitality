@@ -18,6 +18,7 @@
     background-image: url("application/modules/Core/externals/images/sprite.png") !important;
 }
 </style>
+<div style="clear:both"></div>
 <div id="ajax_category-tab">
 <?php 
     if( $this->paginator->getTotalItemCount() ): 
@@ -26,11 +27,19 @@
 <ul class="pt-reply-list">
 	<?php foreach ($this->paginator as $item): 
 	//var_dump($this->substring($item->content,200)); exit;
+	$style='';
+	if($item->cnt_answer && $item->answer_id){
+		$style="background-image:url(/application/themes/newhospitality/images/front/bg-br-03.png) !important;";
+	}
+	
+	if($item->cnt_answer && $item->answer_id ==0){
+		$style="background-image:url(/application/themes/newhospitality/images/front/bg-br-04.png) !important;";
+	}
 	?>
 	<?php $slug = Engine_Api::_()->getApi('alias', 'core')->convert2Alias($item->title); ?>
 	
 	<li>
-		<div class="pt-vote">
+		<div class="pt-vote" style="<?php echo $style; ?>">
 			<a href="#" class="pt-votes"><span><?php echo intval($item->view_count); ?></span><span>Lượt xem</span></a>
 			<a href="#" class="pt-replys pt-replys-no" ><span><?php echo $item->cnt_answer; ?></span><span>Trả lời</span></a>
 		</div>

@@ -152,19 +152,10 @@ class Experts_IndexController extends Core_Controller_Action_Standard
 		COUNT(engine4_experts_likes.answer_id) as cnt_like,
 		GROUP_CONCAT(Distinct(engine4_experts_categories.category_name) SEPARATOR ', ') as category, 
                             GROUP_CONCAT(Distinct(engine4_experts_categories.category_id)) as category_ids,
-                            (SELECT 
-                                GROUP_CONCAT(
-                                    CONCAT(
-                                        '<a class=experts_selected href=# value= ',
-                                        (SELECT username FROM engine4_users where user_id = engine4_experts_recipients.user_id),
-                                        '>expert</a>'
-                                     )
-                                     SEPARATOR ', '
-                                )
-                             FROM engine4_experts_recipients WHERE engine4_experts_recipients.question_id = engine4_experts_questionscategories.question_id
-                            ) as experts,
-                            engine4_experts_questionscategories.*, 
+                            (SELECT GROUP_CONCAT((select engine4_users.displayname  from engine4_users where     engine4_users.user_id =  engine4_experts_likes.user_id))) as like_name,
+							engine4_experts_questionscategories.*, 
                             engine4_experts_questions.*,
+							engine4_users.displayname,
                             engine4_users.username,
                             engine4_users.user_id as userid,
 			                engine4_storage_files.*
@@ -172,7 +163,6 @@ class Experts_IndexController extends Core_Controller_Action_Standard
         )
     ->joinLeft($questionsName,'engine4_experts_questions.question_id=engine4_experts_questionscategories.question_id',array())
 	->joinLeft($categoriesName,'engine4_experts_categories.category_id=engine4_experts_questionscategories.category_id',array())
-    ->joinLeft($recipientsName,'engine4_experts_recipients.question_id=engine4_experts_questionscategories.question_id',array())
     ->joinLeft($userName,'engine4_users.user_id=engine4_experts_questions.user_id',array())
     ->joinLeft($filesName,'engine4_storage_files.file_id = engine4_experts_questions.file_id',array())
 	->joinLeft($likesName,'engine4_experts_questions.question_id = engine4_experts_likes.question_id',array())
@@ -181,13 +171,16 @@ class Experts_IndexController extends Core_Controller_Action_Standard
     
 	
     $data_question = Engine_Api::_()->getDbtable('questionscategories', 'experts')->fetchRow($questions_select);
+	$content_html = Engine_Api::_()->getDbtable('questions', 'experts')->find($question_id)->current();
     $asked_by = Engine_Api::_()->getDbtable('users', 'user')->find($data_question->userid)->current();
 	
     //Zend_Debug::dump($data_question); exit;
     if(isset($data_question)){
 		$view_by = Engine_Api::_()->getDbtable('users', 'user')->find($viewer->user_id)->current();
 		$this->view->view_by = $view_by;
+		$this->view->content_html = $content_html;
         $viewer = $this->_helper->api()->user()->getViewer();
+		$this->view->viewer1  = $viewer;
 		$this->view->viewer_id = $viewer->getIdentity();
         $this->view->rating_count = Engine_Api::_()->experts()->ratingCount($question_id);
         $this->view->rated = Engine_Api::_()->experts()->checkRated($question_id, $viewer->getIdentity());

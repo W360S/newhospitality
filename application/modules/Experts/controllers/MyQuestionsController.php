@@ -155,7 +155,8 @@ class Experts_MyQuestionsController extends Core_Controller_Action_Standard {
         if ($this->_request->isPost()) {
             $title = Engine_Api::_()->experts()->cleanTitle($this->getRequest()->getPost('title'));
 
-            $html = preg_replace('/(<[^>]*)javascript:([^>]*>)/i', '$1$2', $this->getRequest()->getPost('description'));
+            //$html = preg_replace('/(<[^>]*)javascript:([^>]*>)/i', '$1$2', $this->getRequest()->getPost('description'));
+			$html =		preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $this->getRequest()->getPost('description'));
             $content = $html;
 
             // get category ids            

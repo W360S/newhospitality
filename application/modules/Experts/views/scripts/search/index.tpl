@@ -20,7 +20,25 @@
 							    $category_name = $this->category_name;
 							?>
 							<h2><?php echo $category_name; ?></h2>
-							
+							<div style="clear:both"></div>
+							<div style="padding-top:5px;padding-left:10px">
+							   <div>
+							   <div style="float: left;">Chú thích:&nbsp;&nbsp;</div>
+							   <div height="20px" width="20px" style="float: left; background-color: #EEEEEE;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								 <div style="float: left;">&nbsp; Câu hỏi mới&nbsp;&nbsp;</div>
+							  </div>
+
+							  <div>
+								<div height="20px" width="20px" style="float: left; background-color: #48CFAD;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								 <div style="float: left;">&nbsp;Ðang trao đổi&nbsp;&nbsp;</div>
+							  </div>
+
+							  <div>
+								<div height="20px" width="20px" style="float: left; background-color: #FFCE54;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								<div style="float: left;">&nbsp;Ðã giải đáp xong</div>
+							  </div>
+							</div>
+							<div style="clear:both"></div>
 
 							<div id="ajax_search-tab">
 							<?php 
@@ -57,6 +75,25 @@
 							<?php endif; ?>
 
 							</div>
+							<div style="clear:both"></div>
+							<div style="padding-top:5px;padding-left:10px">
+							   <div>
+							   <div style="float: left;">Chú thích:&nbsp;&nbsp;</div>
+							   <div height="20px" width="20px" style="float: left; background-color: #EEEEEE;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								 <div style="float: left;">&nbsp; Câu hỏi mới&nbsp;&nbsp;</div>
+							  </div>
+
+							  <div>
+								<div height="20px" width="20px" style="float: left; background-color: #48CFAD;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								 <div style="float: left;">&nbsp;Ðang trao đổi&nbsp;&nbsp;</div>
+							  </div>
+
+							  <div>
+								<div height="20px" width="20px" style="float: left; background-color: #FFCE54;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+								<div style="float: left;">&nbsp;Ðã giải đáp xong</div>
+							  </div>
+							</div>
+							<div style="clear:both"></div>
 						</div>
 					</div>
 					<div class="pt-reply-right">
