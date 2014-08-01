@@ -19,7 +19,6 @@ class Bang_IndexController extends Core_Controller_Action_Standard {
 
     public function createAction() {
 
-        print_r($this->getRequest()->getParams());
         $params = $this->getRequest()->getParams();
         if (isset($params['format']) && $params['format']=="smoothbox") {
             # code...

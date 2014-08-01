@@ -27,6 +27,7 @@
             </div>	
 			<div class="subsection">
 				<?php echo $this->content()->renderWidget('experts.categories'); ?>
+<?php echo $this->content()->renderWidget('core.ad-campaign', array('adcampaign_id' => 3)); ?>
             </div>
             <div class="subsection">
 				<h2><?php echo "Answered by "; ?><a href="<?php echo $this->url(array('module'=>'experts','controller'=>'index','action'=>'profile', 'username'=>$user->username),'default',true); ?>"><?php echo $user->username; ?></a></h2>

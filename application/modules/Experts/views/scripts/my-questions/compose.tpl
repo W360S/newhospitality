@@ -126,6 +126,7 @@ if(isset($this->description)) $desc = $this->description;
 <div class="wd-center">
 	<div class="wd-content-left">
 		<?php echo $this->content()->renderWidget('experts.categories'); ?>
+<?php echo $this->content()->renderWidget('core.ad-campaign', array('adcampaign_id' => 3)); ?>
 	</div>
 	<div class="wd-content-content-sprite pt-fix">
 		<div class="wd-content-event">
@@ -206,6 +207,7 @@ if(isset($this->description)) $desc = $this->description;
 						</div>
 						<div class="pt-block">
 							<?php echo $this->content()->renderWidget('experts.featured-experts'); ?>
+<?php echo $this->content()->renderWidget('core.ad-campaign', array('adcampaign_id' => 4)); ?>
 						</div>
 						
 					</div>
