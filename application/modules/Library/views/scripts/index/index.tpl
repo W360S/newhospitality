@@ -46,6 +46,7 @@ a.pt-like-how:hover { background-position: -207px -512px;}
 		<div class="wd-content-left">
 			<div class="pt-block">
 				<?php echo $this->content()->renderWidget('library.categories'); ?>
+<?php echo $this->content()->renderWidget('core.ad-campaign', array('adcampaign_id' => 6)); ?>
 			</div>
 		</div>
 		<div class="wd-content-content-sprite pt-fix">
