@@ -120,6 +120,15 @@ class Resumes_AdminManageController extends Core_Controller_Action_Admin {
                     
                 }
 
+                $notifyApi = Engine_Api::_()->getDbtable('notifications', 'activity');
+
+                $actionOwner = Engine_Api::_()->getItemByGuid('user' . "_" . $resume->user_id);
+                $viewer = Engine_Api::_()->user()->getViewer();
+
+                $notifyApi->addNotification($actionOwner, $viewer, $resume, 'resume_approved', array(
+                    'label' => 'post'
+                ));
+
                 $db->commit();
             } catch (Exception $e) {
                 $db->rollBack();

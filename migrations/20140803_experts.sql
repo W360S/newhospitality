@@ -1,0 +1,1 @@
+INSERT INTO `engine4_activity_notificationtypes` (`type`, `module`, `body`, `is_request`, `handler`, `default`) VALUES ('resume_approved', 'resumes', 'Your {item:$object:resume} has been approved', '0', '', '1');
