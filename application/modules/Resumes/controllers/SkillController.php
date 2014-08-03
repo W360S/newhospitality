@@ -67,6 +67,7 @@ class Resumes_SkillController extends Core_Controller_Action_Standard
             //update approved
             $resume = Engine_Api::_()->getItem('resume', $resume_id);
             $resume->approved= 2;//wait to approved
+            $resume->modified_date= date('Y-m-d H:i:s');
             $resume->save();
           return;
         }

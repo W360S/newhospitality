@@ -7,11 +7,12 @@ class Resumes_AdminManageController extends Core_Controller_Action_Admin {
         $this->view->navigation = $navigation = Engine_Api::_()->getApi('menus', 'core')
                 ->getNavigation('resume_admin_main', array(), 'resume_admin_main_manage');
         $table = Engine_Api::_()->getDbtable('resumes', 'resumes');
-        $select = $table->select()->order('creation_date DESC');
+        $select = $table->select()->order('modified_date DESC');
+        // $select = $table->select()->order('creation_date DESC');
         $this->view->page = $page = $this->_getParam('page', 1);
         $paginator = $this->view->paginator = Zend_Paginator::factory($select);
         //Zend_Debug::dump($paginator);exit;
-        $paginator->setItemCountPerPage(10);
+        $paginator->setItemCountPerPage(30);
         $paginator->setCurrentPageNumber($page);
     }
 
