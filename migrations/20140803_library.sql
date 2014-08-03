@@ -1,0 +1,1 @@
+ALTER TABLE `engine4_library_bookshelfs` ADD `latest_download` DATE NOT NULL ;
